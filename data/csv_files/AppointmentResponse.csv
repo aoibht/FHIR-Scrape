@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,AppointmentResponse, AppointmentResponse ,ITU,,DomainResource,"A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection+ Rule: Either the participantType or actor must be specifiedElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,AppointmentResponse.identifier, identifier ,Σ,0..*,Identifier,External Ids for this item
+2,AppointmentResponse.appointment, appointment ,Σ,1..1,Reference(Appointment),Appointment this response relates to
+3,AppointmentResponse.start, start ,,0..1,instant,"Time from appointment, or requested new start time"
+4,AppointmentResponse.end, end ,,0..1,instant,"Time from appointment, or requested new end time"
+5,AppointmentResponse.participantType, participantType ,Σ,0..*,CodeableConcept,Role of participant in the appointmentParticipant type (Extensible)
+6,AppointmentResponse.actor, actor ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Device | HealthcareService | Location),"Person, Location, HealthcareService, or Device"
+7,AppointmentResponse.participantStatus, participantStatus ,?!Σ,1..1,code,accepted | declined | tentative | needs-actionParticipationStatus (Required)
+8,AppointmentResponse.comment, comment ,,0..1,string,Additional comments

@@ -1,0 +1,48 @@
+,Path,Name,Flag,Card,Type,Description
+0,Encounter, Encounter ,TU,,DomainResource,"An interaction during which services are provided to the patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Encounter.identifier, identifier ,Σ,0..*,Identifier,Identifier(s) by which this encounter is known
+2,Encounter.status, status ,?!Σ,1..1,code,planned | arrived | triaged | in-progress | onleave | finished | cancelled +EncounterStatus (Required)
+3,Encounter.statusHistory, statusHistory ,,0..*,BackboneElement,List of past encounter statuses
+4,Encounter.statusHistory.status, status ,,1..1,code,planned | arrived | triaged | in-progress | onleave | finished | cancelled +EncounterStatus (Required)
+5,Encounter.statusHistory.period, period ,,1..1,Period,The time that the episode was in the specified status
+6,Encounter.class, class ,Σ,1..1,Coding,Classification of patient encounterV3 Value SetActEncounterCode (Extensible)
+7,Encounter.classHistory, classHistory ,,0..*,BackboneElement,List of past encounter classes
+8,Encounter.classHistory.class, class ,,1..1,Coding,inpatient | outpatient | ambulatory | emergency +V3 Value SetActEncounterCode (Extensible)
+9,Encounter.classHistory.period, period ,,1..1,Period,The time that the episode was in the specified class
+10,Encounter.type, type ,Σ,0..*,CodeableConcept,Specific type of encounterEncounter type (Example)
+11,Encounter.serviceType, serviceType ,Σ,0..1,CodeableConcept,Specific type of serviceService type (Example)
+12,Encounter.priority, priority ,,0..1,CodeableConcept,Indicates the urgency of the encounterv3 Code System ActPriority (Example)
+13,Encounter.subject, subject ,Σ,0..1,Reference(Patient | Group),The patient or group present at the encounter
+14,Encounter.episodeOfCare, episodeOfCare ,Σ,0..*,Reference(EpisodeOfCare),Episode(s) of care that this encounter should be recorded against
+15,Encounter.basedOn, basedOn ,,0..*,Reference(ServiceRequest),The ServiceRequest that initiated this encounter
+16,Encounter.participant, participant ,Σ,0..*,BackboneElement,List of participants involved in the encounter
+17,Encounter.participant.type, type ,Σ,0..*,CodeableConcept,Role of participant in encounterParticipant type (Extensible)
+18,Encounter.participant.period, period ,,0..1,Period,Period of time during the encounter that the participant participated
+19,Encounter.participant.individual, individual ,Σ,0..1,Reference(Practitioner | PractitionerRole | RelatedPerson),Persons involved in the encounter other than the patient
+20,Encounter.appointment, appointment ,Σ,0..*,Reference(Appointment),The appointment that scheduled this encounter
+21,Encounter.period, period ,,0..1,Period,The start and end time of the encounter
+22,Encounter.length, length ,,0..1,Duration,Quantity of time the encounter lasted (less time absent)
+23,Encounter.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Coded reason the encounter takes placeEncounter Reason Codes (Preferred)
+24,Encounter.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Procedure | Observation | ImmunizationRecommendation),Reason the encounter takes place (reference)
+25,Encounter.diagnosis, diagnosis ,Σ,0..*,BackboneElement,The list of diagnosis relevant to this encounter
+26,Encounter.diagnosis.condition, condition ,Σ,1..1,Reference(Condition | Procedure),The diagnosis or procedure relevant to the encounter
+27,Encounter.diagnosis.use, use ,,0..1,CodeableConcept,"Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)DiagnosisRole (Preferred)"
+28,Encounter.diagnosis.rank, rank ,,0..1,positiveInt,Ranking of the diagnosis (for each role type)
+29,Encounter.account, account ,,0..*,Reference(Account),The set of accounts that may be used for billing for this Encounter
+30,Encounter.hospitalization, hospitalization ,,0..1,BackboneElement,Details about the admission to a healthcare service
+31,Encounter.hospitalization.preAdmissionIdentifier, preAdmissionIdentifier ,,0..1,Identifier,Pre-admission identifier
+32,Encounter.hospitalization.origin, origin ,,0..1,Reference(Location | Organization),The location/organization from which the patient came before admission
+33,Encounter.hospitalization.admitSource, admitSource ,,0..1,CodeableConcept,"From where patient was admitted (physician referral, transfer)Admit source (Preferred)"
+34,Encounter.hospitalization.reAdmission, reAdmission ,,0..1,CodeableConcept,"The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmissionv2 RE-ADMISSION INDICATOR (Example)"
+35,Encounter.hospitalization.dietPreference, dietPreference ,,0..*,CodeableConcept,Diet preferences reported by the patientDiet (Example)
+36,Encounter.hospitalization.specialCourtesy, specialCourtesy ,,0..*,CodeableConcept,"Special courtesies (VIP, board member)Special courtesy (Preferred)"
+37,Encounter.hospitalization.specialArrangement, specialArrangement ,,0..*,CodeableConcept,"Wheelchair, translator, stretcher, etc.Special arrangements (Preferred)"
+38,Encounter.hospitalization.destination, destination ,,0..1,Reference(Location | Organization),Location/organization to which the patient is discharged
+39,Encounter.hospitalization.dischargeDisposition, dischargeDisposition ,,0..1,CodeableConcept,Category or kind of location after dischargeDischarge disposition (Example)
+40,Encounter.location, location ,,0..*,BackboneElement,List of locations where the patient has been
+41,Encounter.location.location, location ,,1..1,Reference(Location),Location the encounter takes place
+42,Encounter.location.status, status ,,0..1,code,planned | active | reserved | completedEncounterLocationStatus (Required)
+43,Encounter.location.physicalType, physicalType ,,0..1,CodeableConcept,The physical type of the location (usually the level in the location hierachy - bed room ward etc.)Location type (Example)
+44,Encounter.location.period, period ,,0..1,Period,Time period during which the patient was present at the location
+45,Encounter.serviceProvider, serviceProvider ,,0..1,Reference(Organization),The organization (facility) responsible for this encounter
+46,Encounter.partOf, partOf ,,0..1,Reference(Encounter),Another Encounter this encounter is part of

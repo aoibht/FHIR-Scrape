@@ -1,0 +1,25 @@
+,Path,Name,Flag,Card,Type,Description
+0,SupplyRequest, SupplyRequest ,TU,,DomainResource,"Request for a medication, substance or deviceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SupplyRequest.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for SupplyRequest
+2,SupplyRequest.status, status ,?!Σ,0..1,code,draft | active | suspended +SupplyRequestStatus (Required)
+3,SupplyRequest.category, category ,Σ,0..1,CodeableConcept,"The kind of supply (central, non-stock, etc.)Supply Type (Example)"
+4,SupplyRequest.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+5,SupplyRequest.itemCodeableconcept,itemCodeableconcept,Σ,1..1,CodeableConcept,"Medication, Substance, or Device requested to be suppliedSNOMED CT Supply Item (Example)"
+6,SupplyRequest.itemReference(medication | substance | device),itemReference(medication | substance | device),Σ,1..1,Reference(Medication | Substance | Device),"Medication, Substance, or Device requested to be suppliedSNOMED CT Supply Item (Example)"
+7,SupplyRequest.quantity, quantity ,Σ,1..1,Quantity,The requested amount of the item indicated
+8,SupplyRequest.parameter, parameter ,,0..*,BackboneElement,Ordered item details
+9,SupplyRequest.parameter.code, code ,,0..1,CodeableConcept,Item detail
+10,SupplyRequest.parameter.valueCodeableconcept,valueCodeableconcept,,0..1,CodeableConcept,Value of detail
+11,SupplyRequest.parameter.valueQuantity,valueQuantity,,0..1,Quantity,Value of detail
+12,SupplyRequest.parameter.valueRange,valueRange,,0..1,Range,Value of detail
+13,SupplyRequest.parameter.valueBoolean,valueBoolean,,0..1,boolean,Value of detail
+14,SupplyRequest.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When the request should be fulfilled
+15,SupplyRequest.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When the request should be fulfilled
+16,SupplyRequest.occurrenceTiming,occurrenceTiming,Σ,0..1,Timing,When the request should be fulfilled
+17,SupplyRequest.authoredOn, authoredOn ,Σ,0..1,dateTime,When the request was made
+18,SupplyRequest.requester, requester ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | RelatedPerson | Device),Individual making the request
+19,SupplyRequest.supplier, supplier ,Σ,0..*,Reference(Organization | HealthcareService),Who is intended to fulfill the request
+20,SupplyRequest.reasonCode, reasonCode ,,0..*,CodeableConcept,The reason why the supply item was requestedSupplyRequestReason (Example)
+21,SupplyRequest.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),The reason why the supply item was requested
+22,SupplyRequest.deliverFrom, deliverFrom ,,0..1,Reference(Organization | Location),The origin of the supply
+23,SupplyRequest.deliverTo, deliverTo ,,0..1,Reference(Organization | Location | Patient),The destination of the supply

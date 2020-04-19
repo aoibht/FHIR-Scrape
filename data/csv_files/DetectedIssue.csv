@@ -1,0 +1,20 @@
+,Path,Name,Flag,Card,Type,Description
+0,DetectedIssue, DetectedIssue ,TU,,DomainResource,"Clinical issue with actionElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DetectedIssue.identifier, identifier ,Σ,0..*,Identifier,Unique id for the detected issue
+2,DetectedIssue.status, status ,?!Σ,1..1,code,registered | preliminary | final | amended +ObservationStatus (Required)
+3,DetectedIssue.code, code ,Σ,0..1,CodeableConcept,"Issue Category, e.g. drug-drug, duplicate therapy, etc.Detected Issue Category (Preferred)"
+4,DetectedIssue.severity, severity ,Σ,0..1,code,high | moderate | lowDetectedIssueSeverity (Required)
+5,DetectedIssue.patient, patient ,Σ,0..1,Reference(Patient),Associated patient
+6,DetectedIssue.identifiedDatetime,identifiedDatetime,Σ,0..1,dateTime,When identified
+7,DetectedIssue.identifiedPeriod,identifiedPeriod,Σ,0..1,Period,When identified
+8,DetectedIssue.author, author ,Σ,0..1,Reference(Practitioner | PractitionerRole | Device),The provider or device that identified the issue
+9,DetectedIssue.implicated, implicated ,Σ,0..*,Reference(Any),Problem resource
+10,DetectedIssue.evidence, evidence ,,0..*,BackboneElement,Supporting evidence
+11,DetectedIssue.evidence.code, code ,,0..*,CodeableConcept,ManifestationManifestation and Symptom Codes (Example)
+12,DetectedIssue.evidence.detail, detail ,,0..*,Reference(Any),Supporting information
+13,DetectedIssue.detail, detail ,,0..1,string,Description and context
+14,DetectedIssue.reference, reference ,,0..1,uri,Authority for issue
+15,DetectedIssue.mitigation, mitigation ,,0..*,BackboneElement,Step taken to address
+16,DetectedIssue.mitigation.action, action ,,1..1,CodeableConcept,What mitigation?Detected Issue Mitigation Action (Preferred)
+17,DetectedIssue.mitigation.date, date ,,0..1,dateTime,Date committed
+18,DetectedIssue.mitigation.author, author ,,0..1,Reference(Practitioner | PractitionerRole),Who is committing?

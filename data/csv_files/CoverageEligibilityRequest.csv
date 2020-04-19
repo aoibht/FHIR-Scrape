@@ -1,0 +1,35 @@
+,Path,Name,Flag,Card,Type,Description
+0,CoverageEligibilityRequest, CoverageEligibilityRequest ,TU,,DomainResource,"CoverageEligibilityRequest resourceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CoverageEligibilityRequest.identifier, identifier ,,0..*,Identifier,Business Identifier for coverage eligiblity request
+2,CoverageEligibilityRequest.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,CoverageEligibilityRequest.priority, priority ,,0..1,CodeableConcept,Desired processing priorityProcess Priority Codes (Example)
+4,CoverageEligibilityRequest.purpose, purpose ,Σ,1..*,code,auth-requirements | benefits | discovery | validationEligibilityRequestPurpose (Required)
+5,CoverageEligibilityRequest.patient, patient ,Σ,1..1,Reference(Patient),Intended recipient of products and services
+6,CoverageEligibilityRequest.servicedDate,servicedDate,,0..1,date,Estimated date or dates of service
+7,CoverageEligibilityRequest.servicedPeriod,servicedPeriod,,0..1,Period,Estimated date or dates of service
+8,CoverageEligibilityRequest.created, created ,Σ,1..1,dateTime,Creation date
+9,CoverageEligibilityRequest.enterer, enterer ,,0..1,Reference(Practitioner | PractitionerRole),Author
+10,CoverageEligibilityRequest.provider, provider ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Party responsible for the request
+11,CoverageEligibilityRequest.insurer, insurer ,Σ,1..1,Reference(Organization),Coverage issuer
+12,CoverageEligibilityRequest.facility, facility ,,0..1,Reference(Location),Servicing facility
+13,CoverageEligibilityRequest.supportingInfo, supportingInfo ,,0..*,BackboneElement,Supporting information
+14,CoverageEligibilityRequest.supportingInfo.sequence, sequence ,,1..1,positiveInt,Information instance identifier
+15,CoverageEligibilityRequest.supportingInfo.information, information ,,1..1,Reference(Any),Data to be provided
+16,CoverageEligibilityRequest.supportingInfo.appliesToAll, appliesToAll ,,0..1,boolean,Applies to all items
+17,CoverageEligibilityRequest.insurance, insurance ,,0..*,BackboneElement,Patient insurance information
+18,CoverageEligibilityRequest.insurance.focal, focal ,,0..1,boolean,Applicable coverage
+19,CoverageEligibilityRequest.insurance.coverage, coverage ,,1..1,Reference(Coverage),Insurance information
+20,CoverageEligibilityRequest.insurance.businessArrangement, businessArrangement ,,0..1,string,Additional provider contract number
+21,CoverageEligibilityRequest.item, item ,,0..*,BackboneElement,Item to be evaluated for eligibiity
+22,CoverageEligibilityRequest.item.supportingInfoSequence, supportingInfoSequence ,,0..*,positiveInt,Applicable exception or supporting information
+23,CoverageEligibilityRequest.item.category, category ,,0..1,CodeableConcept,Benefit classificationBenefit Category Codes (Example)
+24,CoverageEligibilityRequest.item.productOrService, productOrService ,,0..1,CodeableConcept,"Billing, service, product, or drug codeUSCLS Codes (Example)"
+25,CoverageEligibilityRequest.item.modifier, modifier ,,0..*,CodeableConcept,Product or service billing modifiersModifier type Codes (Example)
+26,CoverageEligibilityRequest.item.provider, provider ,,0..1,Reference(Practitioner | PractitionerRole),Perfoming practitioner
+27,CoverageEligibilityRequest.item.quantity, quantity ,,0..1,SimpleQuantity,Count of products or services
+28,CoverageEligibilityRequest.item.unitPrice, unitPrice ,,0..1,Money,"Fee, charge or cost per item"
+29,CoverageEligibilityRequest.item.facility, facility ,,0..1,Reference(Location | Organization),Servicing facility
+30,CoverageEligibilityRequest.item.diagnosis, diagnosis ,,0..*,BackboneElement,Applicable diagnosis
+31,CoverageEligibilityRequest.item.diagnosis.diagnosisCodeableconcept,diagnosisCodeableconcept,,0..1,CodeableConcept,Nature of illness or problemICD-10 Codes (Example)
+32,CoverageEligibilityRequest.item.diagnosis.diagnosisReference(condition),diagnosisReference(condition),,0..1,Reference(Condition),Nature of illness or problemICD-10 Codes (Example)
+33,CoverageEligibilityRequest.item.detail, detail ,,0..*,Reference(Any),Product or service details

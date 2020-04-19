@@ -1,0 +1,84 @@
+,Path,Name,Flag,Card,Type,Description
+0,CapabilityStatement, CapabilityStatement ,IN,,DomainResource,"A statement of system capabilities+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: A Capability Statement SHALL have at least one of REST, messaging or document element.+ Rule: A Capability Statement SHALL have at least one of description, software, or implementation element.+ Rule: Messaging end-point is required (and is only permitted) when a statement is for an implementation.+ Rule: The set of documents must be unique by the combination of profile and mode.+ Rule: If kind = instance, implementation must be present and software may be present+ Rule: If kind = capability, implementation must be absent, software must be present+ Rule: If kind = requirements, implementation and software must be absentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CapabilityStatement.url, url ,Σ,0..1,uri,"Canonical identifier for this capability statement, represented as a URI (globally unique)"
+2,CapabilityStatement.version, version ,Σ,0..1,string,Business version of the capability statement
+3,CapabilityStatement.name, name ,ΣI,0..1,string,Name for this capability statement (computer friendly)
+4,CapabilityStatement.title, title ,Σ,0..1,string,Name for this capability statement (human friendly)
+5,CapabilityStatement.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,CapabilityStatement.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+7,CapabilityStatement.date, date ,Σ,1..1,dateTime,Date last changed
+8,CapabilityStatement.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,CapabilityStatement.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,CapabilityStatement.description, description ,I,0..1,markdown,Natural language description of the capability statement
+11,CapabilityStatement.useContext, useContext ,ΣTU,0..*,UsageContext,The context that the content is intended to support
+12,CapabilityStatement.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for capability statement (if applicable)Jurisdiction (Extensible)
+13,CapabilityStatement.purpose, purpose ,,0..1,markdown,Why this capability statement is defined
+14,CapabilityStatement.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+15,CapabilityStatement.kind, kind ,ΣI,1..1,code,instance | capability | requirementsCapabilityStatementKind (Required)
+16,CapabilityStatement.instantiates, instantiates ,Σ,0..*,canonical(CapabilityStatement),Canonical URL of another capability statement this implements
+17,CapabilityStatement.imports, imports ,ΣTU,0..*,canonical(CapabilityStatement),Canonical URL of another capability statement this adds to
+18,CapabilityStatement.software, software ,ΣI,0..1,BackboneElement,Software that is covered by this capability statement
+19,CapabilityStatement.software.name, name ,Σ,1..1,string,A name the software is known by
+20,CapabilityStatement.software.version, version ,Σ,0..1,string,Version covered by this statement
+21,CapabilityStatement.software.releaseDate, releaseDate ,Σ,0..1,dateTime,Date this version was released
+22,CapabilityStatement.implementation, implementation ,ΣI,0..1,BackboneElement,If this describes a specific instance
+23,CapabilityStatement.implementation.description, description ,Σ,1..1,string,Describes this specific instance
+24,CapabilityStatement.implementation.url, url ,Σ,0..1,url,Base URL for the installation
+25,CapabilityStatement.implementation.custodian, custodian ,ΣTU,0..1,Reference(Organization),Organization that manages the data
+26,CapabilityStatement.fhirVersion, fhirVersion ,Σ,1..1,code,FHIR Version the system supportsFHIRVersion (Required)
+27,CapabilityStatement.format, format ,Σ,1..*,code,formats supported (xml | json | ttl | mime type)MimeType (Required)
+28,CapabilityStatement.patchFormat, patchFormat ,Σ,0..*,code,Patch formats supportedMimeType (Required)
+29,CapabilityStatement.implementationGuide, implementationGuide ,Σ,0..*,canonical(ImplementationGuide),Implementation guides supported
+30,CapabilityStatement.rest, rest ,ΣI,0..*,BackboneElement,If the endpoint is a RESTful one+ Rule: A given resource can only be described once per RESTful mode.
+31,CapabilityStatement.rest.mode, mode ,Σ,1..1,code,client | serverRestfulCapabilityMode (Required)
+32,CapabilityStatement.rest.documentation, documentation ,,0..1,markdown,General description of implementation
+33,CapabilityStatement.rest.security, security ,ΣTU,0..1,BackboneElement,Information about security of implementation
+34,CapabilityStatement.rest.security.cors, cors ,Σ,0..1,boolean,Adds CORS Headers (http://enable-cors.org/)
+35,CapabilityStatement.rest.security.service, service ,Σ,0..*,CodeableConcept,OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | CertificatesRestfulSecurityService (Extensible)
+36,CapabilityStatement.rest.security.description, description ,,0..1,markdown,General description of how security works
+37,CapabilityStatement.rest.resource, resource ,ΣI,0..*,BackboneElement,Resource served on the REST interface+ Rule: Search parameter names must be unique in the context of a resource.
+38,CapabilityStatement.rest.resource.type, type ,Σ,1..1,code,A resource type that is supportedResourceType (Required)
+39,CapabilityStatement.rest.resource.profile, profile ,Σ,0..1,canonical(StructureDefinition),Base System profile for all uses of resource
+40,CapabilityStatement.rest.resource.supportedProfile, supportedProfile ,ΣTU,0..*,canonical(StructureDefinition),Profiles for use cases supported
+41,CapabilityStatement.rest.resource.documentation, documentation ,,0..1,markdown,Additional information about the use of the resource type
+42,CapabilityStatement.rest.resource.interaction, interaction ,,0..*,BackboneElement,What operations are supported?
+43,CapabilityStatement.rest.resource.interaction.code, code ,,1..1,code,read | vread | update | patch | delete | history-instance | history-type | create | search-typeTypeRestfulInteraction (Required)
+44,CapabilityStatement.rest.resource.interaction.documentation, documentation ,,0..1,markdown,Anything special about operation behavior
+45,CapabilityStatement.rest.resource.versioning, versioning ,TU,0..1,code,no-version | versioned | versioned-updateResourceVersionPolicy (Required)
+46,CapabilityStatement.rest.resource.readHistory, readHistory ,TU,0..1,boolean,Whether vRead can return past versions
+47,CapabilityStatement.rest.resource.updateCreate, updateCreate ,TU,0..1,boolean,If update can commit to a new identity
+48,CapabilityStatement.rest.resource.conditionalCreate, conditionalCreate ,TU,0..1,boolean,If allows/uses conditional create
+49,CapabilityStatement.rest.resource.conditionalRead, conditionalRead ,TU,0..1,code,not-supported | modified-since | not-match | full-supportConditionalReadStatus (Required)
+50,CapabilityStatement.rest.resource.conditionalUpdate, conditionalUpdate ,TU,0..1,boolean,If allows/uses conditional update
+51,CapabilityStatement.rest.resource.conditionalDelete, conditionalDelete ,TU,0..1,code,not-supported | single | multiple - how conditional delete is supportedConditionalDeleteStatus (Required)
+52,CapabilityStatement.rest.resource.referencePolicy, referencePolicy ,TU,0..*,code,literal | logical | resolves | enforced | localReferenceHandlingPolicy (Required)
+53,CapabilityStatement.rest.resource.searchInclude, searchInclude ,TU,0..*,string,_include values supported by the server
+54,CapabilityStatement.rest.resource.searchRevInclude, searchRevInclude ,TU,0..*,string,_revinclude values supported by the server
+55,CapabilityStatement.rest.resource.searchParam, searchParam ,,0..*,BackboneElement,Search parameters supported by implementation
+56,CapabilityStatement.rest.resource.searchParam.name, name ,,1..1,string,Name of search parameter
+57,CapabilityStatement.rest.resource.searchParam.definition, definition ,,0..1,canonical(SearchParameter),Source of definition for parameter
+58,CapabilityStatement.rest.resource.searchParam.type, type ,,1..1,code,number | date | string | token | reference | composite | quantity | uri | specialSearchParamType (Required)
+59,CapabilityStatement.rest.resource.searchParam.documentation, documentation ,,0..1,markdown,Server-specific usage
+60,CapabilityStatement.rest.resource.operation, operation ,Σ,0..*,BackboneElement,Definition of a resource operation
+61,CapabilityStatement.rest.resource.operation.name, name ,Σ,1..1,string,Name by which the operation/query is invoked
+62,CapabilityStatement.rest.resource.operation.definition, definition ,Σ,1..1,canonical(OperationDefinition),The defined operation/query
+63,CapabilityStatement.rest.resource.operation.documentation, documentation ,,0..1,markdown,Specific details about operation behavior
+64,CapabilityStatement.rest.interaction, interaction ,,0..*,BackboneElement,What operations are supported?
+65,CapabilityStatement.rest.interaction.code, code ,,1..1,code,transaction | batch | search-system | history-systemSystemRestfulInteraction (Required)
+66,CapabilityStatement.rest.interaction.documentation, documentation ,,0..1,markdown,Anything special about operation behavior
+67,CapabilityStatement.rest.searchParam, searchParam ,,0..*,see searchParam,Search parameters for searching all resources
+68,CapabilityStatement.rest.operation, operation ,Σ,0..*,see operation,Definition of a system level operation
+69,CapabilityStatement.rest.compartment, compartment ,,0..*,canonical(CompartmentDefinition),Compartments served/used by system
+70,CapabilityStatement.messaging, messaging ,ΣITU,0..*,BackboneElement,If messaging is supported
+71,CapabilityStatement.messaging.endpoint, endpoint ,,0..*,BackboneElement,Where messages should be sent
+72,CapabilityStatement.messaging.endpoint.protocol, protocol ,,1..1,Coding,http | ftp | mllp +MessageTransport (Extensible)
+73,CapabilityStatement.messaging.endpoint.address, address ,,1..1,url,Network address or identifier of the end-point
+74,CapabilityStatement.messaging.reliableCache, reliableCache ,,0..1,unsignedInt,Reliable Message Cache Length (min)
+75,CapabilityStatement.messaging.documentation, documentation ,,0..1,markdown,Messaging interface behavior details
+76,CapabilityStatement.messaging.supportedMessage, supportedMessage ,Σ,0..*,BackboneElement,Messages supported by this system
+77,CapabilityStatement.messaging.supportedMessage.mode, mode ,Σ,1..1,code,sender | receiverEventCapabilityMode (Required)
+78,CapabilityStatement.messaging.supportedMessage.definition, definition ,Σ,1..1,canonical(MessageDefinition),Message supported by this system
+79,CapabilityStatement.document, document ,ΣITU,0..*,BackboneElement,Document definition
+80,CapabilityStatement.document.mode, mode ,Σ,1..1,code,producer | consumerDocumentMode (Required)
+81,CapabilityStatement.document.documentation, documentation ,,0..1,markdown,Description of document support
+82,CapabilityStatement.document.profile, profile ,Σ,1..1,canonical(StructureDefinition),Constraint on the resources used in the document

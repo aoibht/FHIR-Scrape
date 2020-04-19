@@ -1,0 +1,27 @@
+,Path,Name,Flag,Card,Type,Description
+0,ObservationDefinition, ObservationDefinition ,TU,,DomainResource,"Definition of an observationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ObservationDefinition.category, category ,Σ,0..*,CodeableConcept,Category of observationObservation Category Codes (Example)
+2,ObservationDefinition.code, code ,Σ,1..1,CodeableConcept,Type of observation (code / type)LOINC Codes (Example)
+3,ObservationDefinition.identifier, identifier ,Σ,0..*,Identifier,Business identifier for this ObservationDefinition instance
+4,ObservationDefinition.permittedDataType, permittedDataType ,,0..*,code,Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | PeriodObservationDataType (Required)
+5,ObservationDefinition.multipleResultsAllowed, multipleResultsAllowed ,,0..1,boolean,Multiple results allowed
+6,ObservationDefinition.method, method ,,0..1,CodeableConcept,Method used to produce the observationObservation Methods (Example)
+7,ObservationDefinition.preferredReportName, preferredReportName ,,0..1,string,Preferred report name
+8,ObservationDefinition.quantitativeDetails, quantitativeDetails ,,0..1,BackboneElement,Characteristics of quantitative results
+9,ObservationDefinition.quantitativeDetails.customaryUnit, customaryUnit ,,0..1,CodeableConcept,Customary unit for quantitative resultsUCUM Codes (Extensible)
+10,ObservationDefinition.quantitativeDetails.unit, unit ,,0..1,CodeableConcept,SI unit for quantitative resultsUCUM Codes (Extensible)
+11,ObservationDefinition.quantitativeDetails.conversionFactor, conversionFactor ,,0..1,decimal,SI to Customary unit conversion factor
+12,ObservationDefinition.quantitativeDetails.decimalPrecision, decimalPrecision ,,0..1,integer,Decimal precision of observation quantitative results
+13,ObservationDefinition.qualifiedInterval, qualifiedInterval ,,0..*,BackboneElement,Qualified range for continuous and ordinal observation results
+14,ObservationDefinition.qualifiedInterval.category, category ,,0..1,code,reference | critical | absoluteObservationRangeCategory (Required)
+15,ObservationDefinition.qualifiedInterval.range, range ,,0..1,Range,"The interval itself, for continuous or ordinal observations"
+16,ObservationDefinition.qualifiedInterval.context, context ,,0..1,CodeableConcept,Range context qualifierObservation Reference Range Meaning Codes (Extensible)
+17,ObservationDefinition.qualifiedInterval.appliesTo, appliesTo ,,0..*,CodeableConcept,Targetted population of the rangeObservation Reference Range Applies To Codes (Example)
+18,ObservationDefinition.qualifiedInterval.gender, gender ,,0..1,code,male | female | other | unknownAdministrativeGender (Required)
+19,ObservationDefinition.qualifiedInterval.age, age ,,0..1,Range,"Applicable age range, if relevant"
+20,ObservationDefinition.qualifiedInterval.gestationalAge, gestationalAge ,,0..1,Range,"Applicable gestational age range, if relevant"
+21,ObservationDefinition.qualifiedInterval.condition, condition ,,0..1,string,Condition associated with the reference range
+22,ObservationDefinition.validCodedValueSet, validCodedValueSet ,,0..1,Reference(ValueSet),Value set of valid coded values for the observations conforming to this ObservationDefinition
+23,ObservationDefinition.normalCodedValueSet, normalCodedValueSet ,,0..1,Reference(ValueSet),Value set of normal coded values for the observations conforming to this ObservationDefinition
+24,ObservationDefinition.abnormalCodedValueSet, abnormalCodedValueSet ,,0..1,Reference(ValueSet),Value set of abnormal coded values for the observations conforming to this ObservationDefinition
+25,ObservationDefinition.criticalCodedValueSet, criticalCodedValueSet ,,0..1,Reference(ValueSet),Value set of critical coded values for the observations conforming to this ObservationDefinition

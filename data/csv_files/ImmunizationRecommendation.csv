@@ -1,0 +1,23 @@
+,Path,Name,Flag,Card,Type,Description
+0,ImmunizationRecommendation, ImmunizationRecommendation ,TU,,DomainResource,"Guidance or advice relating to an immunizationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ImmunizationRecommendation.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+2,ImmunizationRecommendation.patient, patient ,Σ,1..1,Reference(Patient),Who this profile is for
+3,ImmunizationRecommendation.date, date ,Σ,1..1,dateTime,Date recommendation(s) created
+4,ImmunizationRecommendation.authority, authority ,,0..1,Reference(Organization),Who is responsible for protocol
+5,ImmunizationRecommendation.recommendation, recommendation ,ΣI,1..*,BackboneElement,Vaccine administration recommendations+ Rule: One of vaccineCode or targetDisease SHALL be present
+6,ImmunizationRecommendation.recommendation.vaccineCode, vaccineCode ,Σ,0..*,CodeableConcept,Vaccine  or vaccine group recommendation applies toVaccine Administered Value Set (Example)
+7,ImmunizationRecommendation.recommendation.targetDisease, targetDisease ,Σ,0..1,CodeableConcept,Disease to be immunized againstImmunization Recommendation Target Disease Codes (Example)
+8,ImmunizationRecommendation.recommendation.contraindicatedVaccineCode, contraindicatedVaccineCode ,Σ,0..*,CodeableConcept,Vaccine which is contraindicated to fulfill the recommendationVaccine Administered Value Set (Example)
+9,ImmunizationRecommendation.recommendation.forecastStatus, forecastStatus ,?!Σ,1..1,CodeableConcept,Vaccine recommendation statusImmunization Recommendation Status Codes (Example)
+10,ImmunizationRecommendation.recommendation.forecastReason, forecastReason ,Σ,0..*,CodeableConcept,Vaccine administration status reasonImmunization Recommendation Reason Codes (Example)
+11,ImmunizationRecommendation.recommendation.dateCriterion, dateCriterion ,,0..*,BackboneElement,Dates governing proposed immunization
+12,ImmunizationRecommendation.recommendation.dateCriterion.code, code ,,1..1,CodeableConcept,Type of dateImmunization Recommendation Date Criterion Codes (Example)
+13,ImmunizationRecommendation.recommendation.dateCriterion.value, value ,,1..1,dateTime,Recommended date
+14,ImmunizationRecommendation.recommendation.description, description ,,0..1,string,Protocol details
+15,ImmunizationRecommendation.recommendation.series, series ,,0..1,string,Name of vaccination series
+16,ImmunizationRecommendation.recommendation.doseNumberPositiveint,doseNumberPositiveint,Σ,0..1,positiveInt,Recommended dose number within series
+17,ImmunizationRecommendation.recommendation.doseNumberString,doseNumberString,Σ,0..1,string,Recommended dose number within series
+18,ImmunizationRecommendation.recommendation.seriesDosesPositiveint,seriesDosesPositiveint,,0..1,positiveInt,Recommended number of doses for immunity
+19,ImmunizationRecommendation.recommendation.seriesDosesString,seriesDosesString,,0..1,string,Recommended number of doses for immunity
+20,ImmunizationRecommendation.recommendation.supportingImmunization, supportingImmunization ,,0..*,Reference(Immunization | ImmunizationEvaluation),Past immunizations supporting recommendation
+21,ImmunizationRecommendation.recommendation.supportingPatientInformation, supportingPatientInformation ,,0..*,Reference(Any),Patient observations supporting recommendation

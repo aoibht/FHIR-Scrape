@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,Coverage, Coverage ,TU,,DomainResource,"Insurance or medical plan or a payment agreementElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Coverage.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for the coverage
+2,Coverage.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,Coverage.type, type ,Σ,0..1,CodeableConcept,Coverage category such as medical or accidentCoverage Type and Self-Pay Codes (Preferred)
+4,Coverage.policyHolder, policyHolder ,Σ,0..1,Reference(Patient | RelatedPerson | Organization),Owner of the policy
+5,Coverage.subscriber, subscriber ,Σ,0..1,Reference(Patient | RelatedPerson),Subscriber to the policy
+6,Coverage.subscriberId, subscriberId ,Σ,0..1,string,ID assigned to the subscriber
+7,Coverage.beneficiary, beneficiary ,Σ,1..1,Reference(Patient),Plan beneficiary
+8,Coverage.dependent, dependent ,Σ,0..1,string,Dependent number
+9,Coverage.relationship, relationship ,,0..1,CodeableConcept,Beneficiary relationship to the subscriberSubscriberPolicyholder Relationship Codes (Extensible)
+10,Coverage.period, period ,Σ,0..1,Period,Coverage start and end dates
+11,Coverage.payor, payor ,Σ,1..*,Reference(Organization | Patient | RelatedPerson),Issuer of the policy
+12,Coverage.class, class ,,0..*,BackboneElement,Additional coverage classifications
+13,Coverage.class.type, type ,Σ,1..1,CodeableConcept,Type of class such as 'group' or 'plan'Coverage Class Codes (Extensible)
+14,Coverage.class.value, value ,Σ,1..1,string,Value associated with the type
+15,Coverage.class.name, name ,Σ,0..1,string,Human readable description of the type and value
+16,Coverage.order, order ,Σ,0..1,positiveInt,Relative order of the coverage
+17,Coverage.network, network ,Σ,0..1,string,Insurer network
+18,Coverage.costToBeneficiary, costToBeneficiary ,,0..*,BackboneElement,Patient payments for services/products
+19,Coverage.costToBeneficiary.type, type ,Σ,0..1,CodeableConcept,Cost categoryCoverage Copay Type Codes (Extensible)
+20,Coverage.costToBeneficiary.valueSimplequantity,valueSimplequantity,Σ,1..1,SimpleQuantity,The amount or percentage due from the beneficiary
+21,Coverage.costToBeneficiary.valueMoney,valueMoney,Σ,1..1,Money,The amount or percentage due from the beneficiary
+22,Coverage.costToBeneficiary.exception, exception ,,0..*,BackboneElement,Exceptions for patient payments
+23,Coverage.costToBeneficiary.exception.type, type ,Σ,1..1,CodeableConcept,Exception categoryExample Coverage Financial Exception Codes (Example)
+24,Coverage.costToBeneficiary.exception.period, period ,Σ,0..1,Period,The effective period of the exception
+25,Coverage.subrogation, subrogation ,,0..1,boolean,Reimbursement to insurer
+26,Coverage.contract, contract ,,0..*,Reference(Contract),Contract details

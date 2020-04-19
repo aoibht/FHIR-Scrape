@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicationDispense, MedicationDispense ,ITU,,DomainResource,"Dispensing a medication to a named patient+ Rule: whenHandedOver cannot be before whenPreparedElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicationDispense.identifier, identifier ,,0..*,Identifier,External identifier
+2,MedicationDispense.partOf, partOf ,,0..*,Reference(Procedure),Event that dispense is part of
+3,MedicationDispense.status, status ,?!Σ,1..1,code,preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknownMedication dispense  status  codes (Required)
+4,MedicationDispense.statusReasonCodeableconcept,statusReasonCodeableconcept,,0..1,CodeableConcept,Why a dispense was not performedMedication dispense  status  reason  codes (Example)
+5,MedicationDispense.statusReasonReference(detectedissue),statusReasonReference(detectedissue),,0..1,Reference(DetectedIssue),Why a dispense was not performedMedication dispense  status  reason  codes (Example)
+6,MedicationDispense.category, category ,,0..1,CodeableConcept,Type of medication dispenseMedication dispense  category  codes (Preferred)
+7,MedicationDispense.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,What medication was suppliedSNOMED CT Medication Codes (Example)
+8,MedicationDispense.medicationReference(medication),medicationReference(medication),Σ,1..1,Reference(Medication),What medication was suppliedSNOMED CT Medication Codes (Example)
+9,MedicationDispense.subject, subject ,Σ,0..1,Reference(Patient | Group),Who the dispense is for
+10,MedicationDispense.context, context ,,0..1,Reference(Encounter | EpisodeOfCare),Encounter / Episode associated with event
+11,MedicationDispense.supportingInformation, supportingInformation ,,0..*,Reference(Any),Information that supports the dispensing of the medication
+12,MedicationDispense.performer, performer ,,0..*,BackboneElement,Who performed event
+13,MedicationDispense.performer.function, function ,,0..1,CodeableConcept,Who performed the dispense and what they didMedication dispense  performer  function  codes (Example)
+14,MedicationDispense.performer.actor, actor ,,1..1,Reference(Practitioner | PractitionerRole | Organization | Patient | Device | RelatedPerson),Individual who was performing
+15,MedicationDispense.location, location ,,0..1,Reference(Location),Where the dispense occurred
+16,MedicationDispense.authorizingPrescription, authorizingPrescription ,,0..*,Reference(MedicationRequest),Medication order that authorizes the dispense
+17,MedicationDispense.type, type ,,0..1,CodeableConcept,"Trial fill, partial fill, emergency fill, etc.V3 Value SetActPharmacySupplyType (Example)"
+18,MedicationDispense.quantity, quantity ,,0..1,SimpleQuantity,Amount dispensed
+19,MedicationDispense.daysSupply, daysSupply ,,0..1,SimpleQuantity,Amount of medication expressed as a timing amount
+20,MedicationDispense.whenPrepared, whenPrepared ,Σ,0..1,dateTime,When product was packaged and reviewed
+21,MedicationDispense.whenHandedOver, whenHandedOver ,,0..1,dateTime,When product was given out
+22,MedicationDispense.destination, destination ,,0..1,Reference(Location),Where the medication was sent
+23,MedicationDispense.receiver, receiver ,,0..*,Reference(Patient | Practitioner),Who collected the medication
+24,MedicationDispense.note, note ,,0..*,Annotation,Information about the dispense
+25,MedicationDispense.dosageInstruction, dosageInstruction ,,0..*,Dosage,How the medication is to be used by the patient or administered by the caregiver
+26,MedicationDispense.substitution, substitution ,,0..1,BackboneElement,Whether a substitution was performed on the dispense
+27,MedicationDispense.substitution.wasSubstituted, wasSubstituted ,,1..1,boolean,Whether a substitution was or was not performed on the dispense
+28,MedicationDispense.substitution.type, type ,,0..1,CodeableConcept,Code signifying whether a different drug was dispensed from what was prescribedV3 Value SetActSubstanceAdminSubstitutionCode (Example)
+29,MedicationDispense.substitution.reason, reason ,,0..*,CodeableConcept,Why was substitution madeV3 Value SetSubstanceAdminSubstitutionReason (Example)
+30,MedicationDispense.substitution.responsibleParty, responsibleParty ,,0..*,Reference(Practitioner | PractitionerRole),Who is responsible for the substitution
+31,MedicationDispense.detectedIssue, detectedIssue ,,0..*,Reference(DetectedIssue),Clinical issue with action
+32,MedicationDispense.eventHistory, eventHistory ,,0..*,Reference(Provenance),A list of relevant lifecycle events

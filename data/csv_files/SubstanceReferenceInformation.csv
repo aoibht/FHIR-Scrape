@@ -1,0 +1,27 @@
+,Path,Name,Flag,Card,Type,Description
+0,SubstanceReferenceInformation, SubstanceReferenceInformation ,ΣTU,,DomainResource,"TodoElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SubstanceReferenceInformation.comment, comment ,Σ,0..1,string,Todo
+2,SubstanceReferenceInformation.gene, gene ,Σ,0..*,BackboneElement,Todo
+3,SubstanceReferenceInformation.gene.geneSequenceOrigin, geneSequenceOrigin ,Σ,0..1,CodeableConcept,Todo
+4,SubstanceReferenceInformation.gene.gene, gene ,Σ,0..1,CodeableConcept,Todo
+5,SubstanceReferenceInformation.gene.source, source ,Σ,0..*,Reference(DocumentReference),Todo
+6,SubstanceReferenceInformation.geneElement, geneElement ,Σ,0..*,BackboneElement,Todo
+7,SubstanceReferenceInformation.geneElement.type, type ,Σ,0..1,CodeableConcept,Todo
+8,SubstanceReferenceInformation.geneElement.element, element ,Σ,0..1,Identifier,Todo
+9,SubstanceReferenceInformation.geneElement.source, source ,Σ,0..*,Reference(DocumentReference),Todo
+10,SubstanceReferenceInformation.classification, classification ,Σ,0..*,BackboneElement,Todo
+11,SubstanceReferenceInformation.classification.domain, domain ,Σ,0..1,CodeableConcept,Todo
+12,SubstanceReferenceInformation.classification.classification, classification ,Σ,0..1,CodeableConcept,Todo
+13,SubstanceReferenceInformation.classification.subtype, subtype ,Σ,0..*,CodeableConcept,Todo
+14,SubstanceReferenceInformation.classification.source, source ,Σ,0..*,Reference(DocumentReference),Todo
+15,SubstanceReferenceInformation.target, target ,Σ,0..*,BackboneElement,Todo
+16,SubstanceReferenceInformation.target.target, target ,Σ,0..1,Identifier,Todo
+17,SubstanceReferenceInformation.target.type, type ,Σ,0..1,CodeableConcept,Todo
+18,SubstanceReferenceInformation.target.interaction, interaction ,Σ,0..1,CodeableConcept,Todo
+19,SubstanceReferenceInformation.target.organism, organism ,Σ,0..1,CodeableConcept,Todo
+20,SubstanceReferenceInformation.target.organismType, organismType ,Σ,0..1,CodeableConcept,Todo
+21,SubstanceReferenceInformation.target.amountQuantity,amountQuantity,Σ,0..1,Quantity,Todo
+22,SubstanceReferenceInformation.target.amountRange,amountRange,Σ,0..1,Range,Todo
+23,SubstanceReferenceInformation.target.amountString,amountString,Σ,0..1,string,Todo
+24,SubstanceReferenceInformation.target.amountType, amountType ,Σ,0..1,CodeableConcept,Todo
+25,SubstanceReferenceInformation.target.source, source ,Σ,0..*,Reference(DocumentReference),Todo

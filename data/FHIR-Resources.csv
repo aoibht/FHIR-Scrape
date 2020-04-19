@@ -1,4 +1,4 @@
-,0,1,2,3,4
+,Group,Category,Resource,Description,URL
 0,Foundation,Conformance,CapabilityStatement,A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.,https://www.hl7.org/fhir/capabilitystatement.html
 1,Foundation,Conformance,StructureDefinition,"A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.",https://www.hl7.org/fhir/structuredefinition.html
 2,Foundation,Conformance,ImplementationGuide,A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.,https://www.hl7.org/fhir/implementationguide.html

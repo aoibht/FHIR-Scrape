@@ -1,0 +1,70 @@
+,Path,Name,Flag,Card,Type,Description
+0,MolecularSequence, MolecularSequence ,ΣITU,,DomainResource,"Information about a biological sequence+ Rule: Only 0 and 1 are valid for coordinateSystemElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MolecularSequence.identifier, identifier ,Σ,0..*,Identifier,Unique ID for this particular sequence. This is a FHIR-defined id
+2,MolecularSequence.type, type ,Σ,0..1,code,aa | dna | rnasequenceType (Required)
+3,MolecularSequence.coordinateSystem, coordinateSystem ,Σ,1..1,integer,"Base number of coordinate system (0 for 0-based numbering or coordinates, inclusive start, exclusive end, 1 for 1-based numbering, inclusive start, inclusive end)"
+4,MolecularSequence.patient, patient ,Σ,0..1,Reference(Patient),Who and/or what this is about
+5,MolecularSequence.specimen, specimen ,Σ,0..1,Reference(Specimen),Specimen used for sequencing
+6,MolecularSequence.device, device ,Σ,0..1,Reference(Device),The method for sequencing
+7,MolecularSequence.performer, performer ,Σ,0..1,Reference(Organization),Who should be responsible for test result
+8,MolecularSequence.quantity, quantity ,Σ,0..1,Quantity,The number of copies of the sequence of interest.  (RNASeq)
+9,MolecularSequence.referenceSeq, referenceSeq ,ΣI,0..1,BackboneElement,A sequence used as reference+ Rule: GenomeBuild and chromosome must be both contained if either one of them is contained+ Rule: Have and only have one of the following elements in referenceSeq : 1. genomeBuild ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;
+10,MolecularSequence.referenceSeq.chromosome, chromosome ,Σ,0..1,CodeableConcept,Chromosome containing genetic findingchromosome-human (Example)
+11,MolecularSequence.referenceSeq.genomeBuild, genomeBuild ,Σ,0..1,string,"The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'"
+12,MolecularSequence.referenceSeq.orientation, orientation ,Σ,0..1,code,sense | antisenseorientationType (Required)
+13,MolecularSequence.referenceSeq.referenceSeqId, referenceSeqId ,Σ,0..1,CodeableConcept,Reference identifierE n s e m b l (Example)
+14,MolecularSequence.referenceSeq.referenceSeqPointer, referenceSeqPointer ,Σ,0..1,Reference(MolecularSequence),A pointer to another MolecularSequence entity as reference sequence
+15,MolecularSequence.referenceSeq.referenceSeqString, referenceSeqString ,Σ,0..1,string,A string to represent reference sequence
+16,MolecularSequence.referenceSeq.strand, strand ,Σ,0..1,code,watson | crickstrandType (Required)
+17,MolecularSequence.referenceSeq.windowStart, windowStart ,Σ,0..1,integer,Start position of the window on the  reference sequence
+18,MolecularSequence.referenceSeq.windowEnd, windowEnd ,Σ,0..1,integer,End position of the window on the reference sequence
+19,MolecularSequence.variant, variant ,Σ,0..*,BackboneElement,Variant in sequence
+20,MolecularSequence.variant.start, start ,Σ,0..1,integer,Start position of the variant on the  reference sequence
+21,MolecularSequence.variant.end, end ,Σ,0..1,integer,End position of the variant on the reference sequence
+22,MolecularSequence.variant.observedAllele, observedAllele ,Σ,0..1,string,Allele that was observed
+23,MolecularSequence.variant.referenceAllele, referenceAllele ,Σ,0..1,string,Allele in the reference sequence
+24,MolecularSequence.variant.cigar, cigar ,Σ,0..1,string,Extended CIGAR string for aligning the sequence with reference bases
+25,MolecularSequence.variant.variantPointer, variantPointer ,Σ,0..1,Reference(Observation),Pointer to observed variant information
+26,MolecularSequence.observedSeq, observedSeq ,Σ,0..1,string,Sequence that was observed
+27,MolecularSequence.quality, quality ,Σ,0..*,BackboneElement,An set of value as quality of sequence
+28,MolecularSequence.quality.type, type ,Σ,1..1,code,indel | snp | unknownqualityType (Required)
+29,MolecularSequence.quality.standardSequence, standardSequence ,Σ,0..1,CodeableConcept,Standard sequence for comparisonF d a- standard sequence (Example)
+30,MolecularSequence.quality.start, start ,Σ,0..1,integer,Start position of the sequence
+31,MolecularSequence.quality.end, end ,Σ,0..1,integer,End position of the sequence
+32,MolecularSequence.quality.score, score ,Σ,0..1,Quantity,Quality score for the comparison
+33,MolecularSequence.quality.method, method ,Σ,0..1,CodeableConcept,Method to get qualityF d a- method (Example)
+34,MolecularSequence.quality.truthTP, truthTP ,Σ,0..1,decimal,True positives from the perspective of the truth data
+35,MolecularSequence.quality.queryTP, queryTP ,Σ,0..1,decimal,True positives from the perspective of the query data
+36,MolecularSequence.quality.truthFN, truthFN ,Σ,0..1,decimal,False negatives
+37,MolecularSequence.quality.queryFP, queryFP ,Σ,0..1,decimal,False positives
+38,MolecularSequence.quality.gtFP, gtFP ,Σ,0..1,decimal,False positives where the non-REF alleles in the Truth and Query Call Sets match
+39,MolecularSequence.quality.precision, precision ,Σ,0..1,decimal,Precision of comparison
+40,MolecularSequence.quality.recall, recall ,Σ,0..1,decimal,Recall of comparison
+41,MolecularSequence.quality.fScore, fScore ,Σ,0..1,decimal,F-score
+42,MolecularSequence.quality.roc, roc ,Σ,0..1,BackboneElement,Receiver Operator Characteristic (ROC) Curve
+43,MolecularSequence.quality.roc.score, score ,Σ,0..*,integer,Genotype quality score
+44,MolecularSequence.quality.roc.numTP, numTP ,Σ,0..*,integer,Roc score true positive numbers
+45,MolecularSequence.quality.roc.numFP, numFP ,Σ,0..*,integer,Roc score false positive numbers
+46,MolecularSequence.quality.roc.numFN, numFN ,Σ,0..*,integer,Roc score false negative numbers
+47,MolecularSequence.quality.roc.precision, precision ,Σ,0..*,decimal,Precision of the GQ score
+48,MolecularSequence.quality.roc.sensitivity, sensitivity ,Σ,0..*,decimal,Sensitivity of the GQ score
+49,MolecularSequence.quality.roc.fMeasure, fMeasure ,Σ,0..*,decimal,FScore of the GQ score
+50,MolecularSequence.readCoverage, readCoverage ,Σ,0..1,integer,Average number of reads representing a given nucleotide in the reconstructed sequence
+51,MolecularSequence.repository, repository ,Σ,0..*,BackboneElement,External repository which contains detailed report related with observedSeq in this resource
+52,MolecularSequence.repository.type, type ,Σ,1..1,code,directlink | openapi | login | oauth | otherrepositoryType (Required)
+53,MolecularSequence.repository.url, url ,Σ,0..1,uri,URI of the repository
+54,MolecularSequence.repository.name, name ,Σ,0..1,string,Repository's name
+55,MolecularSequence.repository.datasetId, datasetId ,Σ,0..1,string,Id of the dataset that used to call for dataset in repository
+56,MolecularSequence.repository.variantsetId, variantsetId ,Σ,0..1,string,Id of the variantset that used to call for variantset in repository
+57,MolecularSequence.repository.readsetId, readsetId ,Σ,0..1,string,Id of the read
+58,MolecularSequence.pointer, pointer ,Σ,0..*,Reference(MolecularSequence),Pointer to next atomic sequence
+59,MolecularSequence.structureVariant, structureVariant ,Σ,0..*,BackboneElement,Structural variant
+60,MolecularSequence.structureVariant.variantType, variantType ,Σ,0..1,CodeableConcept,Structural variant change typeLOINC LL379-9 answerlist  (Required)
+61,MolecularSequence.structureVariant.exact, exact ,Σ,0..1,boolean,Does the structural variant have base pair resolution breakpoints?
+62,MolecularSequence.structureVariant.length, length ,Σ,0..1,integer,Structural variant length
+63,MolecularSequence.structureVariant.outer, outer ,Σ,0..1,BackboneElement,Structural variant outer
+64,MolecularSequence.structureVariant.outer.start, start ,Σ,0..1,integer,Structural variant outer start
+65,MolecularSequence.structureVariant.outer.end, end ,Σ,0..1,integer,Structural variant outer end
+66,MolecularSequence.structureVariant.inner, inner ,Σ,0..1,BackboneElement,Structural variant inner
+67,MolecularSequence.structureVariant.inner.start, start ,Σ,0..1,integer,Structural variant inner start
+68,MolecularSequence.structureVariant.inner.end, end ,Σ,0..1,integer,Structural variant inner end

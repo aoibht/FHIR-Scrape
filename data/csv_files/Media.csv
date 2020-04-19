@@ -1,0 +1,25 @@
+,Path,Name,Flag,Card,Type,Description
+0,Media, Media ,TU,,DomainResource,"A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct referenceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Media.identifier, identifier ,Σ,0..*,Identifier,Identifier(s) for the image
+2,Media.basedOn, basedOn ,Σ,0..*,Reference(ServiceRequest | CarePlan),Procedure that caused this media to be created
+3,Media.partOf, partOf ,Σ,0..*,Reference(Any),Part of referenced event
+4,Media.status, status ,?!Σ,1..1,code,preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknownEventStatus (Required)
+5,Media.type, type ,Σ,0..1,CodeableConcept,"Classification of media as image, video, or audioMedia Type (Extensible)"
+6,Media.modality, modality ,Σ,0..1,CodeableConcept,The type of acquisition equipment/processMedia Modality (Example)
+7,Media.view, view ,Σ,0..1,CodeableConcept,"Imaging view, e.g. Lateral or Antero-posteriorMedia Collection View/Projection (Example)"
+8,Media.subject, subject ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | Group | Device | Specimen | Location),Who/What this Media is a record of
+9,Media.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter associated with media
+10,Media.createdDatetime,createdDatetime,Σ,0..1,dateTime,When Media was collected
+11,Media.createdPeriod,createdPeriod,Σ,0..1,Period,When Media was collected
+12,Media.issued, issued ,Σ,0..1,instant,Date/Time this version was made available
+13,Media.operator, operator ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | CareTeam | Patient | Device | RelatedPerson),The person who generated the image
+14,Media.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Why was event performed?Procedure Reason Codes (Example)
+15,Media.bodySite, bodySite ,Σ,0..1,CodeableConcept,Observed body partSNOMED CT Body Structures (Example)
+16,Media.deviceName, deviceName ,Σ,0..1,string,Name of the device/manufacturer
+17,Media.device, device ,Σ,0..1,Reference(Device | DeviceMetric | Device),Observing Device
+18,Media.height, height ,Σ,0..1,positiveInt,Height of the image in pixels (photo/video)
+19,Media.width, width ,Σ,0..1,positiveInt,Width of the image in pixels (photo/video)
+20,Media.frames, frames ,Σ,0..1,positiveInt,Number of frames if > 1 (photo)
+21,Media.duration, duration ,Σ,0..1,decimal,Length in seconds (audio / video)
+22,Media.content, content ,Σ,1..1,Attachment,Actual Media - reference or data
+23,Media.note, note ,,0..*,Annotation,Comments made about the media

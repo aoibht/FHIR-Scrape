@@ -1,0 +1,16 @@
+,Path,Name,Flag,Card,Type,Description
+0,RelatedPerson, RelatedPerson ,TU,,DomainResource,"A person that is related to a patient, but who is not a direct target of careElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,RelatedPerson.identifier, identifier ,Σ,0..*,Identifier,A human identifier for this person
+2,RelatedPerson.active, active ,?!Σ,0..1,boolean,Whether this related person's record is in active use
+3,RelatedPerson.patient, patient ,Σ,1..1,Reference(Patient),The patient this person is related to
+4,RelatedPerson.relationship, relationship ,Σ,0..*,CodeableConcept,The nature of the relationshipPatient relationship type (Preferred)
+5,RelatedPerson.name, name ,Σ,0..*,HumanName,A name associated with the person
+6,RelatedPerson.telecom, telecom ,Σ,0..*,ContactPoint,A contact detail for the person
+7,RelatedPerson.gender, gender ,Σ,0..1,code,male | female | other | unknownAdministrativeGender (Required)
+8,RelatedPerson.birthDate, birthDate ,Σ,0..1,date,The date on which the related person was born
+9,RelatedPerson.address, address ,Σ,0..*,Address,Address where the related person can be contacted or visited
+10,RelatedPerson.photo, photo ,,0..*,Attachment,Image of the person
+11,RelatedPerson.period, period ,,0..1,Period,Period of time that this relationship is considered valid
+12,RelatedPerson.communication, communication ,,0..*,BackboneElement,A language which may be used to communicate with about the patient's health
+13,RelatedPerson.communication.language, language ,,1..1,CodeableConcept,The language which can be used to communicate with the patient about his or her healthCommon Languages (Preferred but limited to AllLanguages)
+14,RelatedPerson.communication.preferred, preferred ,,0..1,boolean,Language preference indicator

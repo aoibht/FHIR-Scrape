@@ -1,0 +1,33 @@
+,Path,Name,Flag,Card,Type,Description
+0,ChargeItem, ChargeItem ,TU,,DomainResource,"Item containing charge code(s) associated with the provision of healthcare provider productsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ChargeItem.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for item
+2,ChargeItem.definitionUri, definitionUri ,,0..*,uri,Defining information about the code of this charge item
+3,ChargeItem.definitionCanonical, definitionCanonical ,,0..*,canonical(ChargeItemDefinition),Resource defining the code of this ChargeItem
+4,ChargeItem.status, status ,?!Σ,1..1,code,planned | billable | not-billable | aborted | billed | entered-in-error | unknownChargeItemStatus (Required)
+5,ChargeItem.partOf, partOf ,,0..*,Reference(ChargeItem),Part of referenced ChargeItem
+6,ChargeItem.code, code ,Σ,1..1,CodeableConcept,"A code that identifies the charge, like a billing codeChargeItemCode (Example)"
+7,ChargeItem.subject, subject ,Σ,1..1,Reference(Patient | Group),Individual service was done for/to
+8,ChargeItem.context, context ,Σ,0..1,Reference(Encounter | EpisodeOfCare),Encounter / Episode associated with event
+9,ChargeItem.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When the charged service was applied
+10,ChargeItem.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When the charged service was applied
+11,ChargeItem.occurrenceTiming,occurrenceTiming,Σ,0..1,Timing,When the charged service was applied
+12,ChargeItem.performer, performer ,,0..*,BackboneElement,Who performed charged service
+13,ChargeItem.performer.function, function ,,0..1,CodeableConcept,What type of performance was doneProcedure Performer Role Codes (Example)
+14,ChargeItem.performer.actor, actor ,,1..1,Reference(Practitioner | PractitionerRole | Organization | CareTeam | Patient | Device | RelatedPerson),Individual who was performing
+15,ChargeItem.performingOrganization, performingOrganization ,,0..1,Reference(Organization),Organization providing the charged service
+16,ChargeItem.requestingOrganization, requestingOrganization ,,0..1,Reference(Organization),Organization requesting the charged service
+17,ChargeItem.costCenter, costCenter ,,0..1,Reference(Organization),"Organization that has ownership of the (potential, future) revenue"
+18,ChargeItem.quantity, quantity ,Σ,0..1,Quantity,Quantity of which the charge item has been serviced
+19,ChargeItem.bodysite, bodysite ,Σ,0..*,CodeableConcept,"Anatomical location, if relevantSNOMED CT Body Structures (Example)"
+20,ChargeItem.factorOverride, factorOverride ,,0..1,decimal,Factor overriding the associated rules
+21,ChargeItem.priceOverride, priceOverride ,,0..1,Money,Price overriding the associated rules
+22,ChargeItem.overrideReason, overrideReason ,,0..1,string,Reason for overriding the list price/factor
+23,ChargeItem.enterer, enterer ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | Device | RelatedPerson),Individual who was entering
+24,ChargeItem.enteredDate, enteredDate ,Σ,0..1,dateTime,Date the charge item was entered
+25,ChargeItem.reason, reason ,,0..*,CodeableConcept,Why was the charged  service rendered?ICD-10 Codes (Example)
+26,ChargeItem.service, service ,,0..*,Reference(DiagnosticReport | ImagingStudy | Immunization | MedicationAdministration | MedicationDispense | Observation | Procedure | SupplyDelivery),Which rendered service is being charged?
+27,ChargeItem.productReference(device | medication | substance),productReference(device | medication | substance),,0..1,Reference(Device | Medication | Substance),Product chargedFHIR Device Types (Example)
+28,ChargeItem.productCodeableconcept,productCodeableconcept,,0..1,CodeableConcept,Product chargedFHIR Device Types (Example)
+29,ChargeItem.account, account ,Σ,0..*,Reference(Account),Account to place this charge
+30,ChargeItem.note, note ,,0..*,Annotation,Comments made about the ChargeItem
+31,ChargeItem.supportingInformation, supportingInformation ,,0..*,Reference(Any),Further information supporting this charge

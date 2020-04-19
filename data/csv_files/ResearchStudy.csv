@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,ResearchStudy, ResearchStudy ,TU,,DomainResource,"Investigation to increase healthcare-related patient-independent knowledgeElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ResearchStudy.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for study
+2,ResearchStudy.title, title ,Σ,0..1,string,Name for this study
+3,ResearchStudy.protocol, protocol ,Σ,0..*,Reference(PlanDefinition),Steps followed in executing study
+4,ResearchStudy.partOf, partOf ,Σ,0..*,Reference(ResearchStudy),Part of larger study
+5,ResearchStudy.status, status ,?!Σ,1..1,code,active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawnResearchStudyStatus (Required)
+6,ResearchStudy.primaryPurposeType, primaryPurposeType ,Σ,0..1,CodeableConcept,treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibilityResearchStudyPrimaryPurposeType (Extensible)
+7,ResearchStudy.phase, phase ,Σ,0..1,CodeableConcept,n-a | early-phase-1 | phase-1 | phase-1-phase-2 | phase-2 | phase-2-phase-3 | phase-3 | phase-4ResearchStudyPhase (Example)
+8,ResearchStudy.category, category ,Σ,0..*,CodeableConcept,Classifications for the study
+9,ResearchStudy.focus, focus ,Σ,0..*,CodeableConcept,"Drugs, devices, etc. under study"
+10,ResearchStudy.condition, condition ,Σ,0..*,CodeableConcept,Condition being studiedCondition/Problem/Diagnosis Codes (Example)
+11,ResearchStudy.contact, contact ,Σ,0..*,ContactDetail,Contact details for the study
+12,ResearchStudy.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,References and dependencies
+13,ResearchStudy.keyword, keyword ,Σ,0..*,CodeableConcept,Used to search for the study
+14,ResearchStudy.location, location ,Σ,0..*,CodeableConcept,Geographic region(s) for studyJurisdiction (Extensible)
+15,ResearchStudy.description, description ,,0..1,markdown,What this is study doing
+16,ResearchStudy.enrollment, enrollment ,Σ,0..*,Reference(Group),Inclusion & exclusion criteria
+17,ResearchStudy.period, period ,Σ,0..1,Period,When the study began and ended
+18,ResearchStudy.sponsor, sponsor ,Σ,0..1,Reference(Organization),Organization that initiates and is legally responsible for the study
+19,ResearchStudy.principalInvestigator, principalInvestigator ,Σ,0..1,Reference(Practitioner | PractitionerRole),Researcher who oversees multiple aspects of the study
+20,ResearchStudy.site, site ,Σ,0..*,Reference(Location),Facility where study activities are conducted
+21,ResearchStudy.reasonStopped, reasonStopped ,Σ,0..1,CodeableConcept,accrual-goal-met | closed-due-to-toxicity | closed-due-to-lack-of-study-progress | temporarily-closed-per-study-designResearchStudyReasonStopped (Example)
+22,ResearchStudy.note, note ,,0..*,Annotation,Comments made about the study
+23,ResearchStudy.arm, arm ,,0..*,BackboneElement,Defined path through the study for a subject
+24,ResearchStudy.arm.name, name ,,1..1,string,Label for study arm
+25,ResearchStudy.arm.type, type ,,0..1,CodeableConcept,Categorization of study arm
+26,ResearchStudy.arm.description, description ,,0..1,string,Short explanation of study path
+27,ResearchStudy.objective, objective ,,0..*,BackboneElement,A goal for the study
+28,ResearchStudy.objective.name, name ,,0..1,string,Label for the objective
+29,ResearchStudy.objective.type, type ,,0..1,CodeableConcept,primary | secondary | exploratoryResearchStudyObjectiveType (Preferred)

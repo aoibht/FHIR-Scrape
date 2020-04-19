@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,RiskAssessment, RiskAssessment ,TU,,DomainResource,"Potential outcomes for a subject with likelihoodElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,RiskAssessment.identifier, identifier ,Σ,0..*,Identifier,Unique identifier for the assessment
+2,RiskAssessment.basedOn, basedOn ,,0..1,Reference(Any),Request fulfilled by this assessment
+3,RiskAssessment.parent, parent ,,0..1,Reference(Any),Part of this occurrence
+4,RiskAssessment.status, status ,Σ,1..1,code,registered | preliminary | final | amended +ObservationStatus (Required)
+5,RiskAssessment.method, method ,Σ,0..1,CodeableConcept,Evaluation mechanism
+6,RiskAssessment.code, code ,Σ,0..1,CodeableConcept,Type of assessment
+7,RiskAssessment.subject, subject ,Σ,1..1,Reference(Patient | Group),Who/what does assessment apply to?
+8,RiskAssessment.encounter, encounter ,Σ,0..1,Reference(Encounter),Where was assessment performed?
+9,RiskAssessment.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When was assessment made?
+10,RiskAssessment.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When was assessment made?
+11,RiskAssessment.condition, condition ,Σ,0..1,Reference(Condition),Condition assessed
+12,RiskAssessment.performer, performer ,Σ,0..1,Reference(Practitioner | PractitionerRole | Device),Who did assessment?
+13,RiskAssessment.reasonCode, reasonCode ,,0..*,CodeableConcept,Why the assessment was necessary?
+14,RiskAssessment.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why the assessment was necessary?
+15,RiskAssessment.basis, basis ,,0..*,Reference(Any),Information used in assessment
+16,RiskAssessment.prediction, prediction ,I,0..*,BackboneElement,Outcome predicted+ Rule: Must be <= 100
+17,RiskAssessment.prediction.outcome, outcome ,,0..1,CodeableConcept,Possible outcome for the subject
+18,RiskAssessment.prediction.probabilityDecimal,probabilityDecimal,I,0..1,decimal,"Likelihood of specified outcome+ Rule: low and high must be percentages, if present"
+19,RiskAssessment.prediction.probabilityRange,probabilityRange,I,0..1,Range,"Likelihood of specified outcome+ Rule: low and high must be percentages, if present"
+20,RiskAssessment.prediction.qualitativeRisk, qualitativeRisk ,,0..1,CodeableConcept,Likelihood of specified outcome as a qualitative valueRisk Probability (Example)
+21,RiskAssessment.prediction.relativeRisk, relativeRisk ,,0..1,decimal,Relative likelihood
+22,RiskAssessment.prediction.whenPeriod,whenPeriod,,0..1,Period,Timeframe or age range
+23,RiskAssessment.prediction.whenRange,whenRange,,0..1,Range,Timeframe or age range
+24,RiskAssessment.prediction.rationale, rationale ,,0..1,string,Explanation of prediction
+25,RiskAssessment.mitigation, mitigation ,,0..1,string,How to reduce risk
+26,RiskAssessment.note, note ,,0..*,Annotation,Comments on the risk assessment

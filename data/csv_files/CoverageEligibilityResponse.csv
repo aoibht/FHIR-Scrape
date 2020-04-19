@@ -1,0 +1,44 @@
+,Path,Name,Flag,Card,Type,Description
+0,CoverageEligibilityResponse, CoverageEligibilityResponse ,TU,,DomainResource,"CoverageEligibilityResponse resourceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CoverageEligibilityResponse.identifier, identifier ,,0..*,Identifier,Business Identifier for coverage eligiblity request
+2,CoverageEligibilityResponse.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,CoverageEligibilityResponse.purpose, purpose ,Σ,1..*,code,auth-requirements | benefits | discovery | validationEligibilityResponsePurpose (Required)
+4,CoverageEligibilityResponse.patient, patient ,Σ,1..1,Reference(Patient),Intended recipient of products and services
+5,CoverageEligibilityResponse.servicedDate,servicedDate,,0..1,date,Estimated date or dates of service
+6,CoverageEligibilityResponse.servicedPeriod,servicedPeriod,,0..1,Period,Estimated date or dates of service
+7,CoverageEligibilityResponse.created, created ,Σ,1..1,dateTime,Response creation date
+8,CoverageEligibilityResponse.requestor, requestor ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Party responsible for the request
+9,CoverageEligibilityResponse.request, request ,Σ,1..1,Reference(CoverageEligibilityRequest),Eligibility request reference
+10,CoverageEligibilityResponse.outcome, outcome ,Σ,1..1,code,queued | complete | error | partialRemittanceOutcome (Required)
+11,CoverageEligibilityResponse.disposition, disposition ,,0..1,string,Disposition Message
+12,CoverageEligibilityResponse.insurer, insurer ,Σ,1..1,Reference(Organization),Coverage issuer
+13,CoverageEligibilityResponse.insurance, insurance ,,0..*,BackboneElement,Patient insurance information
+14,CoverageEligibilityResponse.insurance.coverage, coverage ,Σ,1..1,Reference(Coverage),Insurance information
+15,CoverageEligibilityResponse.insurance.inforce, inforce ,,0..1,boolean,Coverage inforce indicator
+16,CoverageEligibilityResponse.insurance.benefitPeriod, benefitPeriod ,,0..1,Period,When the benefits are applicable
+17,CoverageEligibilityResponse.insurance.item, item ,I,0..*,BackboneElement,Benefits and authorization details+ Rule: SHALL contain a category or a billcode but not both.
+18,CoverageEligibilityResponse.insurance.item.category, category ,,0..1,CodeableConcept,Benefit classificationBenefit Category Codes (Example)
+19,CoverageEligibilityResponse.insurance.item.productOrService, productOrService ,,0..1,CodeableConcept,"Billing, service, product, or drug codeUSCLS Codes (Example)"
+20,CoverageEligibilityResponse.insurance.item.modifier, modifier ,,0..*,CodeableConcept,Product or service billing modifiersModifier type Codes (Example)
+21,CoverageEligibilityResponse.insurance.item.provider, provider ,,0..1,Reference(Practitioner | PractitionerRole),Performing practitioner
+22,CoverageEligibilityResponse.insurance.item.excluded, excluded ,,0..1,boolean,Excluded from the plan
+23,CoverageEligibilityResponse.insurance.item.name, name ,,0..1,string,Short name for the benefit
+24,CoverageEligibilityResponse.insurance.item.description, description ,,0..1,string,Description of the benefit or services covered
+25,CoverageEligibilityResponse.insurance.item.network, network ,,0..1,CodeableConcept,In or out of networkNetwork Type Codes (Example)
+26,CoverageEligibilityResponse.insurance.item.unit, unit ,,0..1,CodeableConcept,Individual or familyUnit Type Codes (Example)
+27,CoverageEligibilityResponse.insurance.item.term, term ,,0..1,CodeableConcept,Annual or lifetimeBenefit Term Codes (Example)
+28,CoverageEligibilityResponse.insurance.item.benefit, benefit ,,0..*,BackboneElement,Benefit Summary
+29,CoverageEligibilityResponse.insurance.item.benefit.type, type ,,1..1,CodeableConcept,Benefit classificationBenefit Type Codes (Example)
+30,CoverageEligibilityResponse.insurance.item.benefit.allowedUnsignedint,allowedUnsignedint,,0..1,unsignedInt,Benefits allowed
+31,CoverageEligibilityResponse.insurance.item.benefit.allowedString,allowedString,,0..1,string,Benefits allowed
+32,CoverageEligibilityResponse.insurance.item.benefit.allowedMoney,allowedMoney,,0..1,Money,Benefits allowed
+33,CoverageEligibilityResponse.insurance.item.benefit.usedUnsignedint,usedUnsignedint,,0..1,unsignedInt,Benefits used
+34,CoverageEligibilityResponse.insurance.item.benefit.usedString,usedString,,0..1,string,Benefits used
+35,CoverageEligibilityResponse.insurance.item.benefit.usedMoney,usedMoney,,0..1,Money,Benefits used
+36,CoverageEligibilityResponse.insurance.item.authorizationRequired, authorizationRequired ,,0..1,boolean,Authorization required flag
+37,CoverageEligibilityResponse.insurance.item.authorizationSupporting, authorizationSupporting ,,0..*,CodeableConcept,Type of required supporting materialsCoverageEligibilityResponse Auth Support Codes (Example)
+38,CoverageEligibilityResponse.insurance.item.authorizationUrl, authorizationUrl ,,0..1,uri,Preauthorization requirements endpoint
+39,CoverageEligibilityResponse.preAuthRef, preAuthRef ,,0..1,string,Preauthorization reference
+40,CoverageEligibilityResponse.form, form ,,0..1,CodeableConcept,Printed form identifierForms (Example)
+41,CoverageEligibilityResponse.error, error ,,0..*,BackboneElement,Processing errors
+42,CoverageEligibilityResponse.error.code, code ,,1..1,CodeableConcept,Error code detailing processing issuesAdjudicationError (Example)

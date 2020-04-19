@@ -1,0 +1,33 @@
+,Path,Name,Flag,Card,Type,Description
+0,GraphDefinition, GraphDefinition ,ITU,,DomainResource,"Definition of a graph of resources+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,GraphDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this graph definition, represented as a URI (globally unique)"
+2,GraphDefinition.version, version ,Σ,0..1,string,Business version of the graph definition
+3,GraphDefinition.name, name ,ΣI,1..1,string,Name for this graph definition (computer friendly)
+4,GraphDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+5,GraphDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+6,GraphDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+7,GraphDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+8,GraphDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+9,GraphDefinition.description, description ,,0..1,markdown,Natural language description of the graph definition
+10,GraphDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+11,GraphDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for graph definition (if applicable)Jurisdiction (Extensible)
+12,GraphDefinition.purpose, purpose ,,0..1,markdown,Why this graph definition is defined
+13,GraphDefinition.start, start ,Σ,1..1,code,Type of resource at which the graph startsResourceType (Required)
+14,GraphDefinition.profile, profile ,,0..1,canonical(StructureDefinition),Profile on base resource
+15,GraphDefinition.link, link ,,0..*,BackboneElement,Links this graph makes rules about
+16,GraphDefinition.link.path, path ,,0..1,string,Path in the resource that contains the link
+17,GraphDefinition.link.sliceName, sliceName ,,0..1,string,Which slice (if profiled)
+18,GraphDefinition.link.min, min ,,0..1,integer,Minimum occurrences for this link
+19,GraphDefinition.link.max, max ,,0..1,string,Maximum occurrences for this link
+20,GraphDefinition.link.description, description ,,0..1,string,Why this link is specified
+21,GraphDefinition.link.target, target ,,0..*,BackboneElement,Potential target for the link
+22,GraphDefinition.link.target.type, type ,,1..1,code,Type of resource this link refers toResourceType (Required)
+23,GraphDefinition.link.target.params, params ,,0..1,string,Criteria for reverse lookup
+24,GraphDefinition.link.target.profile, profile ,,0..1,canonical(StructureDefinition),Profile for the target resource
+25,GraphDefinition.link.target.compartment, compartment ,,0..*,BackboneElement,Compartment Consistency Rules
+26,GraphDefinition.link.target.compartment.use, use ,,1..1,code,condition | requirementGraphCompartmentUse (Required)
+27,GraphDefinition.link.target.compartment.code, code ,,1..1,code,Patient | Encounter | RelatedPerson | Practitioner | DeviceCompartmentType (Required)
+28,GraphDefinition.link.target.compartment.rule, rule ,,1..1,code,identical | matching | different | customGraphCompartmentRule (Required)
+29,GraphDefinition.link.target.compartment.expression, expression ,,0..1,string,"Custom rule, as a FHIRPath expression"
+30,GraphDefinition.link.target.compartment.description, description ,,0..1,string,Documentation for FHIRPath expression
+31,GraphDefinition.link.target.link, link ,,0..*,see link,Additional links from target resource

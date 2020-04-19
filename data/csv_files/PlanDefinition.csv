@@ -1,0 +1,90 @@
+,Path,Name,Flag,Card,Type,Description
+0,PlanDefinition, PlanDefinition ,ITU,,DomainResource,"The definition of a plan for a series of actions, independent of any specific patient or context+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,PlanDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this plan definition, represented as a URI (globally unique)"
+2,PlanDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the plan definition
+3,PlanDefinition.version, version ,Σ,0..1,string,Business version of the plan definition
+4,PlanDefinition.name, name ,ΣI,0..1,string,Name for this plan definition (computer friendly)
+5,PlanDefinition.title, title ,Σ,0..1,string,Name for this plan definition (human friendly)
+6,PlanDefinition.subtitle, subtitle ,,0..1,string,Subordinate title of the plan definition
+7,PlanDefinition.type, type ,Σ,0..1,CodeableConcept,order-set | clinical-protocol | eca-rule | workflow-definitionPlanDefinitionType (Extensible)
+8,PlanDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,PlanDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+10,PlanDefinition.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,Type of individual the plan definition is focused onSubject type (Extensible)
+11,PlanDefinition.subjectReference(group),subjectReference(group),,0..1,Reference(Group),Type of individual the plan definition is focused onSubject type (Extensible)
+12,PlanDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+13,PlanDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+14,PlanDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+15,PlanDefinition.description, description ,Σ,0..1,markdown,Natural language description of the plan definition
+16,PlanDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+17,PlanDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for plan definition (if applicable)Jurisdiction (Extensible)
+18,PlanDefinition.purpose, purpose ,,0..1,markdown,Why this plan definition is defined
+19,PlanDefinition.usage, usage ,,0..1,string,Describes the clinical usage of the plan
+20,PlanDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+21,PlanDefinition.approvalDate, approvalDate ,,0..1,date,When the plan definition was approved by publisher
+22,PlanDefinition.lastReviewDate, lastReviewDate ,,0..1,date,When the plan definition was last reviewed
+23,PlanDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the plan definition is expected to be used
+24,PlanDefinition.topic, topic ,,0..*,CodeableConcept,"E.g. Education, Treatment, AssessmentDefinitionTopic (Example)"
+25,PlanDefinition.author, author ,,0..*,ContactDetail,Who authored the content
+26,PlanDefinition.editor, editor ,,0..*,ContactDetail,Who edited the content
+27,PlanDefinition.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+28,PlanDefinition.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+29,PlanDefinition.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations"
+30,PlanDefinition.library, library ,,0..*,canonical(Library),Logic used by the plan definition
+31,PlanDefinition.goal, goal ,,0..*,BackboneElement,What the plan is trying to accomplish
+32,PlanDefinition.goal.category, category ,,0..1,CodeableConcept,"E.g. Treatment, dietary, behavioralGoal category (Example)"
+33,PlanDefinition.goal.description, description ,,1..1,CodeableConcept,Code or text describing the goalSNOMED CT Clinical Findings (Example)
+34,PlanDefinition.goal.priority, priority ,,0..1,CodeableConcept,high-priority | medium-priority | low-priorityGoal priority (Preferred)
+35,PlanDefinition.goal.start, start ,,0..1,CodeableConcept,When goal pursuit beginsGoal start event (Example)
+36,PlanDefinition.goal.addresses, addresses ,,0..*,CodeableConcept,What does the goal addressCondition/Problem/Diagnosis Codes (Example)
+37,PlanDefinition.goal.documentation, documentation ,,0..*,RelatedArtifact,Supporting documentation for the goal
+38,PlanDefinition.goal.target, target ,,0..*,BackboneElement,Target outcome for the goal
+39,PlanDefinition.goal.target.measure, measure ,,0..1,CodeableConcept,The parameter whose value is to be trackedLOINC Codes (Example)
+40,PlanDefinition.goal.target.detailQuantity,detailQuantity,,0..1,Quantity,The target value to be achieved
+41,PlanDefinition.goal.target.detailRange,detailRange,,0..1,Range,The target value to be achieved
+42,PlanDefinition.goal.target.detailCodeableconcept,detailCodeableconcept,,0..1,CodeableConcept,The target value to be achieved
+43,PlanDefinition.goal.target.due, due ,,0..1,Duration,Reach goal within
+44,PlanDefinition.action, action ,,0..*,BackboneElement,Action defined by the plan
+45,PlanDefinition.action.prefix, prefix ,,0..1,string,User-visible prefix for the action (e.g. 1. or A.)
+46,PlanDefinition.action.title, title ,,0..1,string,User-visible title
+47,PlanDefinition.action.description, description ,,0..1,string,Brief description of the action
+48,PlanDefinition.action.textEquivalent, textEquivalent ,,0..1,string,"Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"
+49,PlanDefinition.action.priority, priority ,,0..1,code,routine | urgent | asap | statRequest priority (Required)
+50,PlanDefinition.action.code, code ,,0..*,CodeableConcept,Code representing the meaning of the action or sub-actions
+51,PlanDefinition.action.reason, reason ,,0..*,CodeableConcept,Why the action should be performed
+52,PlanDefinition.action.documentation, documentation ,,0..*,RelatedArtifact,Supporting documentation for the intended performer of the action
+53,PlanDefinition.action.goalId, goalId ,,0..*,id,What goals this action supports
+54,PlanDefinition.action.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,Type of individual the action is focused onSubject type (Extensible)
+55,PlanDefinition.action.subjectReference(group),subjectReference(group),,0..1,Reference(Group),Type of individual the action is focused onSubject type (Extensible)
+56,PlanDefinition.action.trigger, trigger ,,0..*,TriggerDefinition,When the action should be triggered
+57,PlanDefinition.action.condition, condition ,,0..*,BackboneElement,Whether or not the action is applicable
+58,PlanDefinition.action.condition.kind, kind ,,1..1,code,applicability | start | stopActionConditionKind (Required)
+59,PlanDefinition.action.condition.expression, expression ,,0..1,Expression,Boolean-valued expression
+60,PlanDefinition.action.input, input ,,0..*,DataRequirement,Input data requirements
+61,PlanDefinition.action.output, output ,,0..*,DataRequirement,Output data definition
+62,PlanDefinition.action.relatedAction, relatedAction ,,0..*,BackboneElement,Relationship to another action
+63,PlanDefinition.action.relatedAction.actionId, actionId ,,1..1,id,What action is this related to
+64,PlanDefinition.action.relatedAction.relationship, relationship ,,1..1,code,before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-endActionRelationshipType (Required)
+65,PlanDefinition.action.relatedAction.offsetDuration,offsetDuration,,0..1,Duration,Time offset for the relationship
+66,PlanDefinition.action.relatedAction.offsetRange,offsetRange,,0..1,Range,Time offset for the relationship
+67,PlanDefinition.action.timingDatetime,timingDatetime,,0..1,dateTime,When the action should take place
+68,PlanDefinition.action.timingAge,timingAge,,0..1,Age,When the action should take place
+69,PlanDefinition.action.timingPeriod,timingPeriod,,0..1,Period,When the action should take place
+70,PlanDefinition.action.timingDuration,timingDuration,,0..1,Duration,When the action should take place
+71,PlanDefinition.action.timingRange,timingRange,,0..1,Range,When the action should take place
+72,PlanDefinition.action.timingTiming,timingTiming,,0..1,Timing,When the action should take place
+73,PlanDefinition.action.participant, participant ,,0..*,BackboneElement,Who should participate in the action
+74,PlanDefinition.action.participant.type, type ,,1..1,code,patient | practitioner | related-person | deviceActionParticipantType (Required)
+75,PlanDefinition.action.participant.role, role ,,0..1,CodeableConcept,"E.g. Nurse, Surgeon, ParentAction participant role (Example)"
+76,PlanDefinition.action.type, type ,,0..1,CodeableConcept,create | update | remove | fire-eventActionType (Extensible)
+77,PlanDefinition.action.groupingBehavior, groupingBehavior ,,0..1,code,visual-group | logical-group | sentence-groupActionGroupingBehavior (Required)
+78,PlanDefinition.action.selectionBehavior, selectionBehavior ,,0..1,code,any | all | all-or-none | exactly-one | at-most-one | one-or-moreActionSelectionBehavior (Required)
+79,PlanDefinition.action.requiredBehavior, requiredBehavior ,,0..1,code,must | could | must-unless-documentedActionRequiredBehavior (Required)
+80,PlanDefinition.action.precheckBehavior, precheckBehavior ,,0..1,code,yes | noActionPrecheckBehavior (Required)
+81,PlanDefinition.action.cardinalityBehavior, cardinalityBehavior ,,0..1,code,single | multipleActionCardinalityBehavior (Required)
+82,PlanDefinition.action.definitionCanonical(activitydefinition | plandefinition | questionnaire),definitionCanonical(activitydefinition | plandefinition | questionnaire),,0..1,canonical(ActivityDefinition | PlanDefinition | Questionnaire),Description of the activity to be performed
+83,PlanDefinition.action.definitionUri,definitionUri,,0..1,uri,Description of the activity to be performed
+84,PlanDefinition.action.transform, transform ,,0..1,canonical(StructureMap),Transform to apply the template
+85,PlanDefinition.action.dynamicValue, dynamicValue ,,0..*,BackboneElement,Dynamic aspects of the definition
+86,PlanDefinition.action.dynamicValue.path, path ,,0..1,string,The path to the element to be set dynamically
+87,PlanDefinition.action.dynamicValue.expression, expression ,,0..1,Expression,An expression that provides the dynamic value for the customization
+88,PlanDefinition.action.action, action ,,0..*,see action,A sub-action

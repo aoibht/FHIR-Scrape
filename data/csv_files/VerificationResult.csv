@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,VerificationResult, VerificationResult ,TU,,DomainResource,"Describes validation requirements, source(s), status and dates for one or more elementsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,VerificationResult.target, target ,Σ,0..*,Reference(Any),A resource that was validated
+2,VerificationResult.targetLocation, targetLocation ,Σ,0..*,string,The fhirpath location(s) within the resource that was validated
+3,VerificationResult.need, need ,Σ,0..1,CodeableConcept,none | initial | periodicNeed (Preferred)
+4,VerificationResult.status, status ,Σ,1..1,code,attested | validated | in-process | req-revalid | val-fail | reval-failStatus (Required)
+5,VerificationResult.statusDate, statusDate ,Σ,0..1,dateTime,When the validation status was updated
+6,VerificationResult.validationType, validationType ,Σ,0..1,CodeableConcept,nothing | primary | multipleValidation-type (Preferred)
+7,VerificationResult.validationProcess, validationProcess ,Σ,0..*,CodeableConcept,The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)Validation-process (Example)
+8,VerificationResult.frequency, frequency ,,0..1,Timing,Frequency of revalidation
+9,VerificationResult.lastPerformed, lastPerformed ,,0..1,dateTime,The date/time validation was last completed (including failed validations)
+10,VerificationResult.nextScheduled, nextScheduled ,,0..1,date,"The date when target is next validated, if appropriate"
+11,VerificationResult.failureAction, failureAction ,Σ,0..1,CodeableConcept,fatal | warn | rec-only | noneFailure-action (Preferred)
+12,VerificationResult.primarySource, primarySource ,,0..*,BackboneElement,Information about the primary source(s) involved in validation
+13,VerificationResult.primarySource.who, who ,,0..1,Reference(Organization | Practitioner | PractitionerRole),Reference to the primary source
+14,VerificationResult.primarySource.type, type ,Σ,0..*,CodeableConcept,Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)Primary-source-type (Example)
+15,VerificationResult.primarySource.communicationMethod, communicationMethod ,Σ,0..*,CodeableConcept,Method for exchanging information with the primary sourceVerificationResult Communication Method (Example)
+16,VerificationResult.primarySource.validationStatus, validationStatus ,,0..1,CodeableConcept,successful | failed | unknownValidation-status (Preferred)
+17,VerificationResult.primarySource.validationDate, validationDate ,,0..1,dateTime,When the target was validated against the primary source
+18,VerificationResult.primarySource.canPushUpdates, canPushUpdates ,Σ,0..1,CodeableConcept,yes | no | undeterminedCan-push-updates (Preferred)
+19,VerificationResult.primarySource.pushTypeAvailable, pushTypeAvailable ,,0..*,CodeableConcept,specific | any | sourcePush-type-available (Preferred)
+20,VerificationResult.attestation, attestation ,,0..1,BackboneElement,Information about the entity attesting to information
+21,VerificationResult.attestation.who, who ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization),The individual or organization attesting to information
+22,VerificationResult.attestation.onBehalfOf, onBehalfOf ,Σ,0..1,Reference(Organization | Practitioner | PractitionerRole),When the who is asserting on behalf of another (organization or individual)
+23,VerificationResult.attestation.communicationMethod, communicationMethod ,Σ,0..1,CodeableConcept,The method by which attested information was submitted/retrievedVerificationResult Communication Method (Example)
+24,VerificationResult.attestation.date, date ,Σ,0..1,date,The date the information was attested to
+25,VerificationResult.attestation.sourceIdentityCertificate, sourceIdentityCertificate ,,0..1,string,A digital identity certificate associated with the attestation source
+26,VerificationResult.attestation.proxyIdentityCertificate, proxyIdentityCertificate ,,0..1,string,A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source
+27,VerificationResult.attestation.proxySignature, proxySignature ,,0..1,Signature,Proxy signature
+28,VerificationResult.attestation.sourceSignature, sourceSignature ,,0..1,Signature,Attester signature
+29,VerificationResult.validator, validator ,,0..*,BackboneElement,Information about the entity validating information
+30,VerificationResult.validator.organization, organization ,,1..1,Reference(Organization),Reference to the organization validating information
+31,VerificationResult.validator.identityCertificate, identityCertificate ,,0..1,string,A digital identity certificate associated with the validator
+32,VerificationResult.validator.attestationSignature, attestationSignature ,,0..1,Signature,Validator signature

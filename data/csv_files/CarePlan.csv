@@ -1,0 +1,50 @@
+,Path,Name,Flag,Card,Type,Description
+0,CarePlan, CarePlan ,TU,,DomainResource,"Healthcare plan for patient or groupElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CarePlan.identifier, identifier ,Σ,0..*,Identifier,External Ids for this plan
+2,CarePlan.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(PlanDefinition | Questionnaire | Measure | ActivityDefinition | OperationDefinition),Instantiates FHIR protocol or definition
+3,CarePlan.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,CarePlan.basedOn, basedOn ,Σ,0..*,Reference(CarePlan),Fulfills CarePlan
+5,CarePlan.replaces, replaces ,Σ,0..*,Reference(CarePlan),CarePlan replaced by this CarePlan
+6,CarePlan.partOf, partOf ,Σ,0..*,Reference(CarePlan),Part of referenced CarePlan
+7,CarePlan.status, status ,?!Σ,1..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+8,CarePlan.intent, intent ,?!Σ,1..1,code,proposal | plan | order | optionCare Plan Intent (Required)
+9,CarePlan.category, category ,Σ,0..*,CodeableConcept,Type of planCare Plan Category (Example)
+10,CarePlan.title, title ,Σ,0..1,string,Human-friendly name for the care plan
+11,CarePlan.description, description ,Σ,0..1,string,Summary of nature of plan
+12,CarePlan.subject, subject ,Σ,1..1,Reference(Patient | Group),Who the care plan is for
+13,CarePlan.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+14,CarePlan.period, period ,Σ,0..1,Period,Time period plan covers
+15,CarePlan.created, created ,Σ,0..1,dateTime,Date record was first recorded
+16,CarePlan.author, author ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | Device | RelatedPerson | Organization | CareTeam),Who is the designated responsible party
+17,CarePlan.contributor, contributor ,,0..*,Reference(Patient | Practitioner | PractitionerRole | Device | RelatedPerson | Organization | CareTeam),Who provided the content of the care plan
+18,CarePlan.careTeam, careTeam ,,0..*,Reference(CareTeam),Who's involved in plan?
+19,CarePlan.addresses, addresses ,Σ,0..*,Reference(Condition),Health issues this plan addresses
+20,CarePlan.supportingInfo, supportingInfo ,,0..*,Reference(Any),Information considered as part of plan
+21,CarePlan.goal, goal ,,0..*,Reference(Goal),Desired outcome of plan
+22,CarePlan.activity, activity ,I,0..*,BackboneElement,"Action to occur as part of plan+ Rule: Provide a reference or detail, not both"
+23,CarePlan.activity.outcomeCodeableConcept, outcomeCodeableConcept ,,0..*,CodeableConcept,Results of the activityCare Plan Activity Outcome (Example)
+24,CarePlan.activity.outcomeReference, outcomeReference ,,0..*,Reference(Any),"Appointment, Encounter, Procedure, etc."
+25,CarePlan.activity.progress, progress ,,0..*,Annotation,Comments about the activity status/progress
+26,CarePlan.activity.reference, reference ,I,0..1,Reference(Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription | RequestGroup),Activity details defined in specific resource
+27,CarePlan.activity.detail, detail ,I,0..1,BackboneElement,In-line definition of activity
+28,CarePlan.activity.detail.kind, kind ,,0..1,code,Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescriptionCare Plan Activity Kind (Required)
+29,CarePlan.activity.detail.instantiatesCanonical, instantiatesCanonical ,,0..*,canonical(PlanDefinition | ActivityDefinition | Questionnaire | Measure | OperationDefinition),Instantiates FHIR protocol or definition
+30,CarePlan.activity.detail.instantiatesUri, instantiatesUri ,,0..*,uri,Instantiates external protocol or definition
+31,CarePlan.activity.detail.code, code ,,0..1,CodeableConcept,Detail type of activityProcedure Codes (SNOMED CT) (Example)
+32,CarePlan.activity.detail.reasonCode, reasonCode ,,0..*,CodeableConcept,Why activity should be done or why activity was prohibitedSNOMED CT Clinical Findings (Example)
+33,CarePlan.activity.detail.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why activity is needed
+34,CarePlan.activity.detail.goal, goal ,,0..*,Reference(Goal),Goals this activity relates to
+35,CarePlan.activity.detail.status, status ,?!,1..1,code,not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-errorCarePlanActivityStatus (Required)
+36,CarePlan.activity.detail.statusReason, statusReason ,,0..1,CodeableConcept,Reason for current status
+37,CarePlan.activity.detail.doNotPerform, doNotPerform ,?!,0..1,boolean,"If true, activity is prohibiting action"
+38,CarePlan.activity.detail.scheduledTiming,scheduledTiming,,0..1,Timing,When activity is to occur
+39,CarePlan.activity.detail.scheduledPeriod,scheduledPeriod,,0..1,Period,When activity is to occur
+40,CarePlan.activity.detail.scheduledString,scheduledString,,0..1,string,When activity is to occur
+41,CarePlan.activity.detail.location, location ,,0..1,Reference(Location),Where it should happen
+42,CarePlan.activity.detail.performer, performer ,,0..*,Reference(Practitioner | PractitionerRole | Organization | RelatedPerson | Patient | CareTeam | HealthcareService | Device),Who will be responsible?
+43,CarePlan.activity.detail.productCodeableconcept,productCodeableconcept,,0..1,CodeableConcept,What is to be administered/suppliedSNOMED CT Medication Codes (Example)
+44,CarePlan.activity.detail.productReference(medication | substance),productReference(medication | substance),,0..1,Reference(Medication | Substance),What is to be administered/suppliedSNOMED CT Medication Codes (Example)
+45,CarePlan.activity.detail.dailyAmount, dailyAmount ,,0..1,SimpleQuantity,How to consume/day?
+46,CarePlan.activity.detail.quantity, quantity ,,0..1,SimpleQuantity,How much to administer/supply/consume
+47,CarePlan.activity.detail.description, description ,,0..1,string,Extra info describing activity to perform
+48,CarePlan.note, note ,,0..*,Annotation,Comments about the plan

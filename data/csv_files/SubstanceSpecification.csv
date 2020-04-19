@@ -1,0 +1,85 @@
+,Path,Name,Flag,Card,Type,Description
+0,SubstanceSpecification, SubstanceSpecification ,ΣTU,,DomainResource,"The detailed description of a substance, typically at a level beyond what is used for prescribingElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SubstanceSpecification.identifier, identifier ,Σ,0..1,Identifier,Identifier by which this substance is known
+2,SubstanceSpecification.type, type ,Σ,0..1,CodeableConcept,"High level categorization, e.g. polymer or nucleic acid"
+3,SubstanceSpecification.status, status ,Σ,0..1,CodeableConcept,Status of substance within the catalogue e.g. approved
+4,SubstanceSpecification.domain, domain ,Σ,0..1,CodeableConcept,If the substance applies to only human or veterinary use
+5,SubstanceSpecification.description, description ,Σ,0..1,string,Textual description of the substance
+6,SubstanceSpecification.source, source ,Σ,0..*,Reference(DocumentReference),Supporting literature
+7,SubstanceSpecification.comment, comment ,Σ,0..1,string,Textual comment about this record of a substance
+8,SubstanceSpecification.moiety, moiety ,Σ,0..*,BackboneElement,"Moiety, for structural modifications"
+9,SubstanceSpecification.moiety.role, role ,Σ,0..1,CodeableConcept,Role that the moiety is playing
+10,SubstanceSpecification.moiety.identifier, identifier ,Σ,0..1,Identifier,Identifier by which this moiety substance is known
+11,SubstanceSpecification.moiety.name, name ,Σ,0..1,string,Textual name for this moiety substance
+12,SubstanceSpecification.moiety.stereochemistry, stereochemistry ,Σ,0..1,CodeableConcept,Stereochemistry type
+13,SubstanceSpecification.moiety.opticalActivity, opticalActivity ,Σ,0..1,CodeableConcept,Optical activity type
+14,SubstanceSpecification.moiety.molecularFormula, molecularFormula ,Σ,0..1,string,Molecular formula
+15,SubstanceSpecification.moiety.amountQuantity,amountQuantity,Σ,0..1,Quantity,Quantitative value for this moiety
+16,SubstanceSpecification.moiety.amountString,amountString,Σ,0..1,string,Quantitative value for this moiety
+17,SubstanceSpecification.property, property ,Σ,0..*,BackboneElement,"General specifications for this substance, including how it is related to other substances"
+18,SubstanceSpecification.property.category, category ,Σ,0..1,CodeableConcept,"A category for this property, e.g. Physical, Chemical, Enzymatic"
+19,SubstanceSpecification.property.code, code ,Σ,0..1,CodeableConcept,"Property type e.g. viscosity, pH, isoelectric point"
+20,SubstanceSpecification.property.parameters, parameters ,Σ,0..1,string,Parameters that were used in the measurement of a property (e.g. for viscosity: measured at 20C with a pH of 7.1)
+21,SubstanceSpecification.property.definingSubstanceReference(substancespecification | substance),definingSubstanceReference(substancespecification | substance),Σ,0..1,Reference(SubstanceSpecification | Substance),"A substance upon which a defining property depends (e.g. for solubility: in water, in alcohol)"
+22,SubstanceSpecification.property.definingSubstanceCodeableconcept,definingSubstanceCodeableconcept,Σ,0..1,CodeableConcept,"A substance upon which a defining property depends (e.g. for solubility: in water, in alcohol)"
+23,SubstanceSpecification.property.amountQuantity,amountQuantity,Σ,0..1,Quantity,Quantitative value for this property
+24,SubstanceSpecification.property.amountString,amountString,Σ,0..1,string,Quantitative value for this property
+25,SubstanceSpecification.referenceInformation, referenceInformation ,Σ,0..1,Reference(SubstanceReferenceInformation),General information detailing this substance
+26,SubstanceSpecification.structure, structure ,Σ,0..1,BackboneElement,Structural information
+27,SubstanceSpecification.structure.stereochemistry, stereochemistry ,Σ,0..1,CodeableConcept,Stereochemistry type
+28,SubstanceSpecification.structure.opticalActivity, opticalActivity ,Σ,0..1,CodeableConcept,Optical activity type
+29,SubstanceSpecification.structure.molecularFormula, molecularFormula ,Σ,0..1,string,Molecular formula
+30,SubstanceSpecification.structure.molecularFormulaByMoiety, molecularFormulaByMoiety ,Σ,0..1,string,"Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical, each moiety separated by a dot"
+31,SubstanceSpecification.structure.isotope, isotope ,Σ,0..*,BackboneElement,Applicable for single substances that contain a radionuclide or a non-natural isotopic ratio
+32,SubstanceSpecification.structure.isotope.identifier, identifier ,Σ,0..1,Identifier,Substance identifier for each non-natural or radioisotope
+33,SubstanceSpecification.structure.isotope.name, name ,Σ,0..1,CodeableConcept,Substance name for each non-natural or radioisotope
+34,SubstanceSpecification.structure.isotope.substitution, substitution ,Σ,0..1,CodeableConcept,The type of isotopic substitution present in a single substance
+35,SubstanceSpecification.structure.isotope.halfLife, halfLife ,Σ,0..1,Quantity,Half life - for a non-natural nuclide
+36,SubstanceSpecification.structure.isotope.molecularWeight, molecularWeight ,Σ,0..1,BackboneElement,"The molecular weight or weight range (for proteins, polymers or nucleic acids)"
+37,SubstanceSpecification.structure.isotope.molecularWeight.method, method ,Σ,0..1,CodeableConcept,The method by which the molecular weight was determined
+38,SubstanceSpecification.structure.isotope.molecularWeight.type, type ,Σ,0..1,CodeableConcept,"Type of molecular weight such as exact, average (also known as. number average), weight average"
+39,SubstanceSpecification.structure.isotope.molecularWeight.amount, amount ,Σ,0..1,Quantity,"Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field"
+40,SubstanceSpecification.structure.molecularWeight, molecularWeight ,Σ,0..1,see molecularWeight,"The molecular weight or weight range (for proteins, polymers or nucleic acids)"
+41,SubstanceSpecification.structure.source, source ,Σ,0..*,Reference(DocumentReference),Supporting literature
+42,SubstanceSpecification.structure.representation, representation ,Σ,0..*,BackboneElement,Molecular structural representation
+43,SubstanceSpecification.structure.representation.type, type ,Σ,0..1,CodeableConcept,"The type of structure (e.g. Full, Partial, Representative)"
+44,SubstanceSpecification.structure.representation.representation, representation ,Σ,0..1,string,"The structural representation as text string in a format e.g. InChI, SMILES, MOLFILE, CDX"
+45,SubstanceSpecification.structure.representation.attachment, attachment ,Σ,0..1,Attachment,An attached file with the structural representation
+46,SubstanceSpecification.code, code ,Σ,0..*,BackboneElement,Codes associated with the substance
+47,SubstanceSpecification.code.code, code ,Σ,0..1,CodeableConcept,The specific code
+48,SubstanceSpecification.code.status, status ,Σ,0..1,CodeableConcept,Status of the code assignment
+49,SubstanceSpecification.code.statusDate, statusDate ,Σ,0..1,dateTime,The date at which the code status is changed as part of the terminology maintenance
+50,SubstanceSpecification.code.comment, comment ,Σ,0..1,string,"Any comment can be provided in this field, if necessary"
+51,SubstanceSpecification.code.source, source ,Σ,0..*,Reference(DocumentReference),Supporting literature
+52,SubstanceSpecification.name, name ,Σ,0..*,BackboneElement,Names applicable to this substance
+53,SubstanceSpecification.name.name, name ,Σ,1..1,string,The actual name
+54,SubstanceSpecification.name.type, type ,Σ,0..1,CodeableConcept,Name type
+55,SubstanceSpecification.name.status, status ,Σ,0..1,CodeableConcept,The status of the name
+56,SubstanceSpecification.name.preferred, preferred ,Σ,0..1,boolean,If this is the preferred name for this substance
+57,SubstanceSpecification.name.language, language ,Σ,0..*,CodeableConcept,Language of the name
+58,SubstanceSpecification.name.domain, domain ,Σ,0..*,CodeableConcept,The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive
+59,SubstanceSpecification.name.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,The jurisdiction where this name applies
+60,SubstanceSpecification.name.synonym, synonym ,Σ,0..*,see name,A synonym of this name
+61,SubstanceSpecification.name.translation, translation ,Σ,0..*,see name,A translation for this name
+62,SubstanceSpecification.name.official, official ,Σ,0..*,BackboneElement,Details of the official nature of this name
+63,SubstanceSpecification.name.official.authority, authority ,Σ,0..1,CodeableConcept,Which authority uses this official name
+64,SubstanceSpecification.name.official.status, status ,Σ,0..1,CodeableConcept,The status of the official name
+65,SubstanceSpecification.name.official.date, date ,Σ,0..1,dateTime,Date of official name change
+66,SubstanceSpecification.name.source, source ,Σ,0..*,Reference(DocumentReference),Supporting literature
+67,SubstanceSpecification.molecularWeight, molecularWeight ,Σ,0..*,see molecularWeight,"The molecular weight or weight range (for proteins, polymers or nucleic acids)"
+68,SubstanceSpecification.relationship, relationship ,Σ,0..*,BackboneElement,"A link between this substance and another, with details of the relationship"
+69,SubstanceSpecification.relationship.substanceReference(substancespecification),substanceReference(substancespecification),Σ,0..1,Reference(SubstanceSpecification),"A pointer to another substance, as a resource or just a representational code"
+70,SubstanceSpecification.relationship.substanceCodeableconcept,substanceCodeableconcept,Σ,0..1,CodeableConcept,"A pointer to another substance, as a resource or just a representational code"
+71,SubstanceSpecification.relationship.relationship, relationship ,Σ,0..1,CodeableConcept,"For example ""salt to parent"", ""active moiety"", ""starting material"""
+72,SubstanceSpecification.relationship.isDefining, isDefining ,Σ,0..1,boolean,"For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible substance relationships"
+73,SubstanceSpecification.relationship.amountQuantity,amountQuantity,Σ,0..1,Quantity,"A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other"
+74,SubstanceSpecification.relationship.amountRange,amountRange,Σ,0..1,Range,"A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other"
+75,SubstanceSpecification.relationship.amountRatio,amountRatio,Σ,0..1,Ratio,"A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other"
+76,SubstanceSpecification.relationship.amountString,amountString,Σ,0..1,string,"A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other"
+77,SubstanceSpecification.relationship.amountRatioLowLimit, amountRatioLowLimit ,Σ,0..1,Ratio,For use when the numeric
+78,SubstanceSpecification.relationship.amountType, amountType ,Σ,0..1,CodeableConcept,"An operator for the amount, for example ""average"", ""approximately"", ""less than"""
+79,SubstanceSpecification.relationship.source, source ,Σ,0..*,Reference(DocumentReference),Supporting literature
+80,SubstanceSpecification.nucleicAcid, nucleicAcid ,Σ,0..1,Reference(SubstanceNucleicAcid),Data items specific to nucleic acids
+81,SubstanceSpecification.polymer, polymer ,Σ,0..1,Reference(SubstancePolymer),Data items specific to polymers
+82,SubstanceSpecification.protein, protein ,Σ,0..1,Reference(SubstanceProtein),Data items specific to proteins
+83,SubstanceSpecification.sourceMaterial, sourceMaterial ,Σ,0..1,Reference(SubstanceSourceMaterial),Material or taxonomic/anatomical source for the substance

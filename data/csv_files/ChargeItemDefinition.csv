@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,ChargeItemDefinition, ChargeItemDefinition ,ITU,,DomainResource,"Definition of properties and rules about how the price and the applicability of a ChargeItem can be determined+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ChargeItemDefinition.url, url ,Σ,1..1,uri,"Canonical identifier for this charge item definition, represented as a URI (globally unique)"
+2,ChargeItemDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the charge item definition
+3,ChargeItemDefinition.version, version ,Σ,0..1,string,Business version of the charge item definition
+4,ChargeItemDefinition.title, title ,Σ,0..1,string,Name for this charge item definition (human friendly)
+5,ChargeItemDefinition.derivedFromUri, derivedFromUri ,Σ,0..*,uri,Underlying externally-defined charge item definition
+6,ChargeItemDefinition.partOf, partOf ,Σ,0..*,canonical(ChargeItemDefinition),A larger definition of which this particular definition is a component or step
+7,ChargeItemDefinition.replaces, replaces ,Σ,0..*,canonical(ChargeItemDefinition),Completed or terminated request(s) whose function is taken by this new request
+8,ChargeItemDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,ChargeItemDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+10,ChargeItemDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+11,ChargeItemDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+12,ChargeItemDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+13,ChargeItemDefinition.description, description ,Σ,0..1,markdown,Natural language description of the charge item definition
+14,ChargeItemDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+15,ChargeItemDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for charge item definition (if applicable)Jurisdiction (Extensible)
+16,ChargeItemDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+17,ChargeItemDefinition.approvalDate, approvalDate ,,0..1,date,When the charge item definition was approved by publisher
+18,ChargeItemDefinition.lastReviewDate, lastReviewDate ,,0..1,date,When the charge item definition was last reviewed
+19,ChargeItemDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the charge item definition is expected to be used
+20,ChargeItemDefinition.code, code ,Σ,0..1,CodeableConcept,Billing codes or product types this definition applies toChargeItemCode (Example)
+21,ChargeItemDefinition.instance, instance ,,0..*,Reference(Medication | Substance | Device),Instances this definition applies to
+22,ChargeItemDefinition.applicability, applicability ,,0..*,BackboneElement,Whether or not the billing code is applicable
+23,ChargeItemDefinition.applicability.description, description ,,0..1,string,Natural language description of the condition
+24,ChargeItemDefinition.applicability.language, language ,,0..1,string,Language of the expression
+25,ChargeItemDefinition.applicability.expression, expression ,,0..1,string,Boolean-valued expression
+26,ChargeItemDefinition.propertyGroup, propertyGroup ,,0..*,BackboneElement,Group of properties which are applicable under the same conditions
+27,ChargeItemDefinition.propertyGroup.applicability, applicability ,,0..*,see applicability,Conditions under which the priceComponent is applicable
+28,ChargeItemDefinition.propertyGroup.priceComponent, priceComponent ,,0..*,BackboneElement,Components of total line item price
+29,ChargeItemDefinition.propertyGroup.priceComponent.type, type ,,1..1,code,base | surcharge | deduction | discount | tax | informationalInvoicePriceComponentType (Required)
+30,ChargeItemDefinition.propertyGroup.priceComponent.code, code ,,0..1,CodeableConcept,Code identifying the specific component
+31,ChargeItemDefinition.propertyGroup.priceComponent.factor, factor ,,0..1,decimal,Factor used for calculating this component
+32,ChargeItemDefinition.propertyGroup.priceComponent.amount, amount ,,0..1,Money,Monetary amount associated with this component

@@ -1,0 +1,45 @@
+,Path,Name,Flag,Card,Type,Description
+0,ConceptMap, ConceptMap ,ITU,,DomainResource,"A map from one set of concepts to one or more other concepts+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ConceptMap.url, url ,Σ,0..1,uri,"Canonical identifier for this concept map, represented as a URI (globally unique)"
+2,ConceptMap.identifier, identifier ,Σ,0..1,Identifier,Additional identifier for the concept map
+3,ConceptMap.version, version ,Σ,0..1,string,Business version of the concept map
+4,ConceptMap.name, name ,ΣI,0..1,string,Name for this concept map (computer friendly)
+5,ConceptMap.title, title ,Σ,0..1,string,Name for this concept map (human friendly)
+6,ConceptMap.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,ConceptMap.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,ConceptMap.date, date ,Σ,0..1,dateTime,Date last changed
+9,ConceptMap.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,ConceptMap.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,ConceptMap.description, description ,,0..1,markdown,Natural language description of the concept map
+12,ConceptMap.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+13,ConceptMap.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for concept map (if applicable)Jurisdiction (Extensible)
+14,ConceptMap.purpose, purpose ,,0..1,markdown,Why this concept map is defined
+15,ConceptMap.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+16,ConceptMap.sourceUri,sourceUri,Σ,0..1,uri,The source value set that contains the concepts that are being mapped
+17,ConceptMap.sourceCanonical(valueset),sourceCanonical(valueset),Σ,0..1,canonical(ValueSet),The source value set that contains the concepts that are being mapped
+18,ConceptMap.targetUri,targetUri,Σ,0..1,uri,The target value set which provides context for the mappings
+19,ConceptMap.targetCanonical(valueset),targetCanonical(valueset),Σ,0..1,canonical(ValueSet),The target value set which provides context for the mappings
+20,ConceptMap.group, group ,,0..*,BackboneElement,Same source and target systems
+21,ConceptMap.group.source, source ,,0..1,uri,Source system where concepts to be mapped are defined
+22,ConceptMap.group.sourceVersion, sourceVersion ,,0..1,string,Specific version of the  code system
+23,ConceptMap.group.target, target ,,0..1,uri,Target system that the concepts are to be mapped to
+24,ConceptMap.group.targetVersion, targetVersion ,,0..1,string,Specific version of the  code system
+25,ConceptMap.group.element, element ,,1..*,BackboneElement,Mappings for a concept from the source set
+26,ConceptMap.group.element.code, code ,,0..1,code,Identifies element being mapped
+27,ConceptMap.group.element.display, display ,,0..1,string,Display for the code
+28,ConceptMap.group.element.target, target ,I,0..*,BackboneElement,"Concept in target system for element+ Rule: If the map is narrower or inexact, there SHALL be some comments"
+29,ConceptMap.group.element.target.code, code ,,0..1,code,Code that identifies the target element
+30,ConceptMap.group.element.target.display, display ,,0..1,string,Display for the code
+31,ConceptMap.group.element.target.equivalence, equivalence ,?!,1..1,code,relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjointConceptMapEquivalence (Required)
+32,ConceptMap.group.element.target.comment, comment ,I,0..1,string,Description of status/issues in mapping
+33,ConceptMap.group.element.target.dependsOn, dependsOn ,,0..*,BackboneElement,Other elements required for this mapping (from context)
+34,ConceptMap.group.element.target.dependsOn.property, property ,,1..1,uri,Reference to property mapping depends on
+35,ConceptMap.group.element.target.dependsOn.system, system ,,0..1,canonical(CodeSystem),Code System (if necessary)
+36,ConceptMap.group.element.target.dependsOn.value, value ,,1..1,string,Value of the referenced element
+37,ConceptMap.group.element.target.dependsOn.display, display ,,0..1,string,Display for the code (if value is a code)
+38,ConceptMap.group.element.target.product, product ,,0..*,see dependsOn,Other concepts that this mapping also produces
+39,ConceptMap.group.unmapped, unmapped ,I,0..1,BackboneElement,"What to do when there is no mapping for the source concept+ Rule: If the mode is 'fixed', a code must be provided+ Rule: If the mode is 'other-map', a url must be provided"
+40,ConceptMap.group.unmapped.mode, mode ,,1..1,code,provided | fixed | other-mapConceptMapGroupUnmappedMode (Required)
+41,ConceptMap.group.unmapped.code, code ,,0..1,code,Fixed code when mode = fixed
+42,ConceptMap.group.unmapped.display, display ,,0..1,string,Display for the code
+43,ConceptMap.group.unmapped.url, url ,,0..1,canonical(ConceptMap),canonical reference to an additional ConceptMap to use for mapping if the source concept is unmapped

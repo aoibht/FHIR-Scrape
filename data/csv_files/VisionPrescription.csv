@@ -1,0 +1,26 @@
+,Path,Name,Flag,Card,Type,Description
+0,VisionPrescription, VisionPrescription ,TU,,DomainResource,"Prescription for vision correction products for a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,VisionPrescription.identifier, identifier ,,0..*,Identifier,Business Identifier for vision prescription
+2,VisionPrescription.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,VisionPrescription.created, created ,Σ,1..1,dateTime,Response creation date
+4,VisionPrescription.patient, patient ,Σ,1..1,Reference(Patient),Who prescription is for
+5,VisionPrescription.encounter, encounter ,,0..1,Reference(Encounter),Created during encounter / admission / stay
+6,VisionPrescription.dateWritten, dateWritten ,Σ,1..1,dateTime,When prescription was authorized
+7,VisionPrescription.prescriber, prescriber ,Σ,1..1,Reference(Practitioner | PractitionerRole),Who authorized the vision prescription
+8,VisionPrescription.lensSpecification, lensSpecification ,Σ,1..*,BackboneElement,Vision lens authorization
+9,VisionPrescription.lensSpecification.product, product ,Σ,1..1,CodeableConcept,Product to be suppliedExample Vision Prescription Product Codes (Example)
+10,VisionPrescription.lensSpecification.eye, eye ,Σ,1..1,code,right | leftVisionEyes (Required)
+11,VisionPrescription.lensSpecification.sphere, sphere ,,0..1,decimal,Power of the lens
+12,VisionPrescription.lensSpecification.cylinder, cylinder ,,0..1,decimal,Lens power for astigmatism
+13,VisionPrescription.lensSpecification.axis, axis ,,0..1,integer,Lens meridian which contain no power for astigmatism
+14,VisionPrescription.lensSpecification.prism, prism ,,0..*,BackboneElement,Eye alignment compensation
+15,VisionPrescription.lensSpecification.prism.amount, amount ,,1..1,decimal,Amount of adjustment
+16,VisionPrescription.lensSpecification.prism.base, base ,,1..1,code,up | down | in | outVisionBase (Required)
+17,VisionPrescription.lensSpecification.add, add ,,0..1,decimal,Added power for multifocal levels
+18,VisionPrescription.lensSpecification.power, power ,,0..1,decimal,Contact lens power
+19,VisionPrescription.lensSpecification.backCurve, backCurve ,,0..1,decimal,Contact lens back curvature
+20,VisionPrescription.lensSpecification.diameter, diameter ,,0..1,decimal,Contact lens diameter
+21,VisionPrescription.lensSpecification.duration, duration ,,0..1,SimpleQuantity,Lens wear duration
+22,VisionPrescription.lensSpecification.color, color ,,0..1,string,Color required
+23,VisionPrescription.lensSpecification.brand, brand ,,0..1,string,Brand required
+24,VisionPrescription.lensSpecification.note, note ,,0..*,Annotation,Notes for coatings

@@ -1,0 +1,151 @@
+,Path,Name,Flag,Card,Type,Description
+0,Contract, Contract ,TU,,DomainResource,"Legal AgreementElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Contract.identifier, identifier ,Σ,0..*,Identifier,Contract number
+2,Contract.url, url ,,0..1,uri,Basal definition
+3,Contract.version, version ,Σ,0..1,string,Business edition
+4,Contract.status, status ,?!Σ,0..1,code,amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminatedContract Resource Status Codes (Required)
+5,Contract.legalState, legalState ,,0..1,CodeableConcept,Negotiation statusContract Resource Legal State codes (Extensible)
+6,Contract.instantiatesCanonical, instantiatesCanonical ,,0..1,Reference(Contract),Source Contract Definition
+7,Contract.instantiatesUri, instantiatesUri ,,0..1,uri,External Contract Definition
+8,Contract.contentDerivative, contentDerivative ,,0..1,CodeableConcept,Content derived from the basal informationContract Content Derivation Codes (Example)
+9,Contract.issued, issued ,Σ,0..1,dateTime,When this Contract was issued
+10,Contract.applies, applies ,Σ,0..1,Period,Effective time
+11,Contract.expirationType, expirationType ,,0..1,CodeableConcept,Contract cessation causeContract Resource Expiration Type codes (Example)
+12,Contract.subject, subject ,Σ,0..*,Reference(Any),Contract Target Entity
+13,Contract.authority, authority ,,0..*,Reference(Organization),Authority under which this Contract has standing
+14,Contract.domain, domain ,,0..*,Reference(Location),"A sphere of control governed by an authoritative jurisdiction, organization, or person"
+15,Contract.site, site ,,0..*,Reference(Location),Specific Location
+16,Contract.name, name ,Σ,0..1,string,Computer friendly designation
+17,Contract.title, title ,Σ,0..1,string,Human Friendly name
+18,Contract.subtitle, subtitle ,,0..1,string,Subordinate Friendly name
+19,Contract.alias, alias ,,0..*,string,Acronym or short name
+20,Contract.author, author ,,0..1,Reference(Patient | Practitioner | PractitionerRole | Organization),Source of Contract
+21,Contract.scope, scope ,,0..1,CodeableConcept,Range of Legal ConcernsContract Resource Scope codes (Example)
+22,Contract.topicCodeableconcept,topicCodeableconcept,,0..1,CodeableConcept,Focus of contract interest
+23,Contract.topicReference(any),topicReference(any),,0..1,Reference(Any),Focus of contract interest
+24,Contract.type, type ,Σ,0..1,CodeableConcept,Legal instrument categoryContract Type Codes (Example)
+25,Contract.subType, subType ,Σ,0..*,CodeableConcept,Subtype within the context of typeContract Subtype Codes (Example)
+26,Contract.contentDefinition, contentDefinition ,,0..1,BackboneElement,Contract precursor content
+27,Contract.contentDefinition.type, type ,,1..1,CodeableConcept,Content structure and useContract Resource Definition Type codes (Example)
+28,Contract.contentDefinition.subType, subType ,,0..1,CodeableConcept,Detailed Content Type DefinitionContract Resource Definition Subtype codes (Example)
+29,Contract.contentDefinition.publisher, publisher ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Publisher Entity
+30,Contract.contentDefinition.publicationDate, publicationDate ,,0..1,dateTime,When published
+31,Contract.contentDefinition.publicationStatus, publicationStatus ,,1..1,code,amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminatedContract Resource Publication Status codes (Required)
+32,Contract.contentDefinition.copyright, copyright ,,0..1,markdown,Publication Ownership
+33,Contract.term, term ,,0..*,BackboneElement,Contract Term List
+34,Contract.term.identifier, identifier ,Σ,0..1,Identifier,Contract Term Number
+35,Contract.term.issued, issued ,Σ,0..1,dateTime,Contract Term Issue Date Time
+36,Contract.term.applies, applies ,Σ,0..1,Period,Contract Term Effective Time
+37,Contract.term.topicCodeableconcept,topicCodeableconcept,,0..1,CodeableConcept,Term Concern
+38,Contract.term.topicReference(any),topicReference(any),,0..1,Reference(Any),Term Concern
+39,Contract.term.type, type ,,0..1,CodeableConcept,Contract Term Type or FormContract Term Type Codes (Example)
+40,Contract.term.subType, subType ,,0..1,CodeableConcept,Contract Term Type specific classificationContract Term Subtype Codes (Example)
+41,Contract.term.text, text ,Σ,0..1,string,Term Statement
+42,Contract.term.securityLabel, securityLabel ,,0..*,BackboneElement,Protection for the Term
+43,Contract.term.securityLabel.number, number ,,0..*,unsignedInt,Link to Security Labels
+44,Contract.term.securityLabel.classification, classification ,,1..1,Coding,Confidentiality ProtectionContract Resource Scope codes (Example)
+45,Contract.term.securityLabel.category, category ,,0..*,Coding,Applicable PolicyContract Resource Scope codes (Example)
+46,Contract.term.securityLabel.control, control ,,0..*,Coding,Handling InstructionsContract Resource Security Control codes (Example)
+47,Contract.term.offer, offer ,,1..1,BackboneElement,Context of the Contract term
+48,Contract.term.offer.identifier, identifier ,,0..*,Identifier,Offer business ID
+49,Contract.term.offer.party, party ,,0..*,BackboneElement,Offer Recipient
+50,Contract.term.offer.party.reference, reference ,,1..*,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole | Device | Group | Organization),Referenced entity
+51,Contract.term.offer.party.role, role ,,1..1,CodeableConcept,Participant engagement typeContract Resource Party Role codes (Example)
+52,Contract.term.offer.topic, topic ,Σ,0..1,Reference(Any),Negotiable offer asset
+53,Contract.term.offer.type, type ,,0..1,CodeableConcept,Contract Offer Type or FormContract Term Type Codes (Example)
+54,Contract.term.offer.decision, decision ,,0..1,CodeableConcept,Accepting party choiceV3 Value SetActConsentDirective (Extensible)
+55,Contract.term.offer.decisionMode, decisionMode ,,0..*,CodeableConcept,How decision is conveyedContract Resource Decision Mode codes (Example)
+56,Contract.term.offer.answer, answer ,,0..*,BackboneElement,Response to offer text
+57,Contract.term.offer.answer.valueBoolean,valueBoolean,,1..1,boolean,The actual answer response
+58,Contract.term.offer.answer.valueDecimal,valueDecimal,,1..1,decimal,The actual answer response
+59,Contract.term.offer.answer.valueInteger,valueInteger,,1..1,integer,The actual answer response
+60,Contract.term.offer.answer.valueDate,valueDate,,1..1,date,The actual answer response
+61,Contract.term.offer.answer.valueDatetime,valueDatetime,,1..1,dateTime,The actual answer response
+62,Contract.term.offer.answer.valueTime,valueTime,,1..1,time,The actual answer response
+63,Contract.term.offer.answer.valueString,valueString,,1..1,string,The actual answer response
+64,Contract.term.offer.answer.valueUri,valueUri,,1..1,uri,The actual answer response
+65,Contract.term.offer.answer.valueAttachment,valueAttachment,,1..1,Attachment,The actual answer response
+66,Contract.term.offer.answer.valueCoding,valueCoding,,1..1,Coding,The actual answer response
+67,Contract.term.offer.answer.valueQuantity,valueQuantity,,1..1,Quantity,The actual answer response
+68,Contract.term.offer.answer.valueReference(any),valueReference(any),,1..1,Reference(Any),The actual answer response
+69,Contract.term.offer.text, text ,,0..1,string,Human readable offer text
+70,Contract.term.offer.linkId, linkId ,,0..*,string,Pointer to text
+71,Contract.term.offer.securityLabelNumber, securityLabelNumber ,,0..*,unsignedInt,Offer restriction numbers
+72,Contract.term.asset, asset ,,0..*,BackboneElement,Contract Term Asset List
+73,Contract.term.asset.scope, scope ,,0..1,CodeableConcept,Range of assetContract Resource Asset Scope codes (Example)
+74,Contract.term.asset.type, type ,,0..*,CodeableConcept,Asset categoryContract Resource Asset Type codes (Example)
+75,Contract.term.asset.typeReference, typeReference ,,0..*,Reference(Any),Associated entities
+76,Contract.term.asset.subtype, subtype ,,0..*,CodeableConcept,Asset sub-categoryContract Resource Asset Sub-Type codes (Example)
+77,Contract.term.asset.relationship, relationship ,,0..1,Coding,Kinship of the assetConsent Content Class (Extensible)
+78,Contract.term.asset.context, context ,,0..*,BackboneElement,Circumstance of the asset
+79,Contract.term.asset.context.reference, reference ,,0..1,Reference(Any),"Creator,custodian or owner"
+80,Contract.term.asset.context.code, code ,,0..*,CodeableConcept,Codeable asset contextContract Resource Asset Context codes (Example)
+81,Contract.term.asset.context.text, text ,,0..1,string,Context description
+82,Contract.term.asset.condition, condition ,,0..1,string,Quality desctiption of asset
+83,Contract.term.asset.periodType, periodType ,,0..*,CodeableConcept,Asset availability typesContract Resource Asset Availiability codes (Example)
+84,Contract.term.asset.period, period ,,0..*,Period,Time period of the asset
+85,Contract.term.asset.usePeriod, usePeriod ,,0..*,Period,Time period
+86,Contract.term.asset.text, text ,,0..1,string,Asset clause or question text
+87,Contract.term.asset.linkId, linkId ,,0..*,string,Pointer to asset text
+88,Contract.term.asset.answer, answer ,,0..*,see answer,Response to assets
+89,Contract.term.asset.securityLabelNumber, securityLabelNumber ,,0..*,unsignedInt,Asset restriction numbers
+90,Contract.term.asset.valuedItem, valuedItem ,,0..*,BackboneElement,Contract Valued Item List
+91,Contract.term.asset.valuedItem.entityCodeableconcept,entityCodeableconcept,,0..1,CodeableConcept,Contract Valued Item Type
+92,Contract.term.asset.valuedItem.entityReference(any),entityReference(any),,0..1,Reference(Any),Contract Valued Item Type
+93,Contract.term.asset.valuedItem.identifier, identifier ,,0..1,Identifier,Contract Valued Item Number
+94,Contract.term.asset.valuedItem.effectiveTime, effectiveTime ,,0..1,dateTime,Contract Valued Item Effective Tiem
+95,Contract.term.asset.valuedItem.quantity, quantity ,,0..1,SimpleQuantity,Count of Contract Valued Items
+96,Contract.term.asset.valuedItem.unitPrice, unitPrice ,,0..1,Money,"Contract Valued Item fee, charge, or cost"
+97,Contract.term.asset.valuedItem.factor, factor ,,0..1,decimal,Contract Valued Item Price Scaling Factor
+98,Contract.term.asset.valuedItem.points, points ,,0..1,decimal,Contract Valued Item Difficulty Scaling Factor
+99,Contract.term.asset.valuedItem.net, net ,,0..1,Money,Total Contract Valued Item Value
+100,Contract.term.asset.valuedItem.payment, payment ,,0..1,string,Terms of valuation
+101,Contract.term.asset.valuedItem.paymentDate, paymentDate ,,0..1,dateTime,When payment is due
+102,Contract.term.asset.valuedItem.responsible, responsible ,,0..1,Reference(Organization | Patient | Practitioner | PractitionerRole | RelatedPerson),Who will make payment
+103,Contract.term.asset.valuedItem.recipient, recipient ,,0..1,Reference(Organization | Patient | Practitioner | PractitionerRole | RelatedPerson),Who will receive payment
+104,Contract.term.asset.valuedItem.linkId, linkId ,,0..*,string,Pointer to specific item
+105,Contract.term.asset.valuedItem.securityLabelNumber, securityLabelNumber ,,0..*,unsignedInt,Security Labels that define affected terms
+106,Contract.term.action, action ,,0..*,BackboneElement,Entity being ascribed responsibility
+107,Contract.term.action.doNotPerform, doNotPerform ,?!,0..1,boolean,True if the term prohibits the  action
+108,Contract.term.action.type, type ,,1..1,CodeableConcept,Type or form of the actionContract Action Codes (Example)
+109,Contract.term.action.subject, subject ,,0..*,BackboneElement,Entity of the action
+110,Contract.term.action.subject.reference, reference ,,1..*,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole | Device | Group | Organization),Entity of the action
+111,Contract.term.action.subject.role, role ,,0..1,CodeableConcept,Role type of the agentContract Actor Role Codes (Example)
+112,Contract.term.action.intent, intent ,,1..1,CodeableConcept,Purpose for the Contract Term ActionV3 Value SetPurposeOfUse (Example)
+113,Contract.term.action.linkId, linkId ,,0..*,string,Pointer to specific item
+114,Contract.term.action.status, status ,,1..1,CodeableConcept,State of the actionContract Resource Action Status codes (Example)
+115,Contract.term.action.context, context ,,0..1,Reference(Encounter | EpisodeOfCare),Episode associated with action
+116,Contract.term.action.contextLinkId, contextLinkId ,,0..*,string,Pointer to specific item
+117,Contract.term.action.occurrenceDatetime,occurrenceDatetime,,0..1,dateTime,When action happens
+118,Contract.term.action.occurrencePeriod,occurrencePeriod,,0..1,Period,When action happens
+119,Contract.term.action.occurrenceTiming,occurrenceTiming,,0..1,Timing,When action happens
+120,Contract.term.action.requester, requester ,,0..*,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole | Device | Group | Organization),Who asked for action
+121,Contract.term.action.requesterLinkId, requesterLinkId ,,0..*,string,Pointer to specific item
+122,Contract.term.action.performerType, performerType ,,0..*,CodeableConcept,Kind of service performerProvenance participant type (Example)
+123,Contract.term.action.performerRole, performerRole ,,0..1,CodeableConcept,Competency of the performerProvenance participant role (Example)
+124,Contract.term.action.performer, performer ,,0..1,Reference(RelatedPerson | Patient | Practitioner | PractitionerRole | CareTeam | Device | Substance | Organization | Location),Actor that wil execute (or not) the action
+125,Contract.term.action.performerLinkId, performerLinkId ,,0..*,string,Pointer to specific item
+126,Contract.term.action.reasonCode, reasonCode ,,0..*,CodeableConcept,Why is action (not) needed?V3 Value SetPurposeOfUse (Example)
+127,Contract.term.action.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference | Questionnaire | QuestionnaireResponse),Why is action (not) needed?
+128,Contract.term.action.reason, reason ,,0..*,string,Why action is to be performed
+129,Contract.term.action.reasonLinkId, reasonLinkId ,,0..*,string,Pointer to specific item
+130,Contract.term.action.note, note ,,0..*,Annotation,Comments about the action
+131,Contract.term.action.securityLabelNumber, securityLabelNumber ,,0..*,unsignedInt,Action restriction numbers
+132,Contract.term.group, group ,,0..*,see term,Nested Contract Term Group
+133,Contract.supportingInfo, supportingInfo ,,0..*,Reference(Any),Extra Information
+134,Contract.relevantHistory, relevantHistory ,,0..*,Reference(Provenance),Key event in Contract History
+135,Contract.signer, signer ,,0..*,BackboneElement,Contract Signatory
+136,Contract.signer.type, type ,,1..1,Coding,Contract Signatory RoleContract Signer Type Codes (Preferred)
+137,Contract.signer.party, party ,,1..1,Reference(Organization | Patient | Practitioner | PractitionerRole | RelatedPerson),Contract Signatory Party
+138,Contract.signer.signature, signature ,,1..*,Signature,Contract Documentation Signature
+139,Contract.friendly, friendly ,,0..*,BackboneElement,Contract Friendly Language
+140,Contract.friendly.contentAttachment,contentAttachment,,1..1,Attachment,Easily comprehended representation of this Contract
+141,Contract.friendly.contentReference(composition | documentreference | questionnaireresponse),contentReference(composition | documentreference | questionnaireresponse),,1..1,Reference(Composition | DocumentReference | QuestionnaireResponse),Easily comprehended representation of this Contract
+142,Contract.legal, legal ,,0..*,BackboneElement,Contract Legal Language
+143,Contract.legal.contentAttachment,contentAttachment,,1..1,Attachment,Contract Legal Text
+144,Contract.legal.contentReference(composition | documentreference | questionnaireresponse),contentReference(composition | documentreference | questionnaireresponse),,1..1,Reference(Composition | DocumentReference | QuestionnaireResponse),Contract Legal Text
+145,Contract.rule, rule ,,0..*,BackboneElement,Computable Contract Language
+146,Contract.rule.contentAttachment,contentAttachment,,1..1,Attachment,Computable Contract Rules
+147,Contract.rule.contentReference(documentreference),contentReference(documentreference),,1..1,Reference(DocumentReference),Computable Contract Rules
+148,Contract.legallyBindingAttachment,legallyBindingAttachment,,0..1,Attachment,Binding Contract
+149,Contract.legallyBindingReference(composition | documentreference | questionnaireresponse | contract),legallyBindingReference(composition | documentreference | questionnaireresponse | contract),,0..1,Reference(Composition | DocumentReference | QuestionnaireResponse | Contract),Binding Contract

@@ -1,0 +1,51 @@
+,Path,Name,Flag,Card,Type,Description
+0,TerminologyCapabilities, TerminologyCapabilities ,ITU,,DomainResource,"A statement of system capabilities+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: A Capability Statement SHALL have at least one of description, software, or implementation element.+ Rule: If kind = instance, implementation must be present and software may be present+ Rule: If kind = capability, implementation must be absent, software must be present+ Rule: If kind = requirements, implementation and software must be absentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,TerminologyCapabilities.url, url ,Σ,0..1,uri,"Canonical identifier for this terminology capabilities, represented as a URI (globally unique)"
+2,TerminologyCapabilities.version, version ,Σ,0..1,string,Business version of the terminology capabilities
+3,TerminologyCapabilities.name, name ,ΣI,0..1,string,Name for this terminology capabilities (computer friendly)
+4,TerminologyCapabilities.title, title ,Σ,0..1,string,Name for this terminology capabilities (human friendly)
+5,TerminologyCapabilities.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,TerminologyCapabilities.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+7,TerminologyCapabilities.date, date ,Σ,1..1,dateTime,Date last changed
+8,TerminologyCapabilities.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,TerminologyCapabilities.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,TerminologyCapabilities.description, description ,,0..1,markdown,Natural language description of the terminology capabilities
+11,TerminologyCapabilities.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+12,TerminologyCapabilities.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for terminology capabilities (if applicable)Jurisdiction (Extensible)
+13,TerminologyCapabilities.purpose, purpose ,,0..1,markdown,Why this terminology capabilities is defined
+14,TerminologyCapabilities.copyright, copyright ,Σ,0..1,markdown,Use and/or publishing restrictions
+15,TerminologyCapabilities.kind, kind ,ΣI,1..1,code,instance | capability | requirementsCapabilityStatementKind (Required)
+16,TerminologyCapabilities.software, software ,ΣI,0..1,BackboneElement,Software that is covered by this terminology capability statement
+17,TerminologyCapabilities.software.name, name ,Σ,1..1,string,A name the software is known by
+18,TerminologyCapabilities.software.version, version ,Σ,0..1,string,Version covered by this statement
+19,TerminologyCapabilities.implementation, implementation ,ΣI,0..1,BackboneElement,If this describes a specific instance
+20,TerminologyCapabilities.implementation.description, description ,Σ,1..1,string,Describes this specific instance
+21,TerminologyCapabilities.implementation.url, url ,Σ,0..1,url,Base URL for the implementation
+22,TerminologyCapabilities.lockedDate, lockedDate ,Σ,0..1,boolean,Whether lockedDate is supported
+23,TerminologyCapabilities.codeSystem, codeSystem ,I,0..*,BackboneElement,"A code system supported by the server+ Rule: If there is more than one version, a version code must be defined"
+24,TerminologyCapabilities.codeSystem.uri, uri ,,0..1,canonical(CodeSystem),URI for the Code System
+25,TerminologyCapabilities.codeSystem.version, version ,,0..*,BackboneElement,Version of Code System supported
+26,TerminologyCapabilities.codeSystem.version.code, code ,ΣI,0..1,string,Version identifier for this version
+27,TerminologyCapabilities.codeSystem.version.isDefault, isDefault ,Σ,0..1,boolean,If this is the default version for this code system
+28,TerminologyCapabilities.codeSystem.version.compositional, compositional ,,0..1,boolean,If compositional grammar is supported
+29,TerminologyCapabilities.codeSystem.version.language, language ,,0..*,code,Language Displays supported
+30,TerminologyCapabilities.codeSystem.version.filter, filter ,,0..*,BackboneElement,Filter Properties supported
+31,TerminologyCapabilities.codeSystem.version.filter.code, code ,,1..1,code,Code of the property supported
+32,TerminologyCapabilities.codeSystem.version.filter.op, op ,,1..*,code,Operations supported for the property
+33,TerminologyCapabilities.codeSystem.version.property, property ,,0..*,code,Properties supported for $lookup
+34,TerminologyCapabilities.codeSystem.subsumption, subsumption ,,0..1,boolean,Whether subsumption is supported
+35,TerminologyCapabilities.expansion, expansion ,,0..1,BackboneElement,Information about the [ValueSet/$expand](valueset-operation-expand.html) operation
+36,TerminologyCapabilities.expansion.hierarchical, hierarchical ,,0..1,boolean,Whether the server can return nested value sets
+37,TerminologyCapabilities.expansion.paging, paging ,,0..1,boolean,Whether the server supports paging on expansion
+38,TerminologyCapabilities.expansion.incomplete, incomplete ,,0..1,boolean,Allow request for incomplete expansions?
+39,TerminologyCapabilities.expansion.parameter, parameter ,,0..*,BackboneElement,Supported expansion parameter
+40,TerminologyCapabilities.expansion.parameter.name, name ,,1..1,code,Expansion Parameter name
+41,TerminologyCapabilities.expansion.parameter.documentation, documentation ,,0..1,string,Description of support for parameter
+42,TerminologyCapabilities.expansion.textFilter, textFilter ,,0..1,markdown,Documentation about text searching works
+43,TerminologyCapabilities.codeSearch, codeSearch ,,0..1,code,explicit | allCodeSearchSupport (Required)
+44,TerminologyCapabilities.validateCode, validateCode ,,0..1,BackboneElement,Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation
+45,TerminologyCapabilities.validateCode.translations, translations ,,1..1,boolean,Whether translations are validated
+46,TerminologyCapabilities.translation, translation ,,0..1,BackboneElement,Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation
+47,TerminologyCapabilities.translation.needsMap, needsMap ,,1..1,boolean,Whether the client must identify the map
+48,TerminologyCapabilities.closure, closure ,,0..1,BackboneElement,Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation
+49,TerminologyCapabilities.closure.translation, translation ,,0..1,boolean,If cross-system closure is supported

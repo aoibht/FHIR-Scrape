@@ -1,0 +1,47 @@
+,Path,Name,Flag,Card,Type,Description
+0,Immunization, Immunization ,TU,,DomainResource,"Immunization event informationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Immunization.identifier, identifier ,,0..*,Identifier,Business identifier
+2,Immunization.status, status ,?!Σ,1..1,code,completed | entered-in-error | not-doneImmunization Status Codes (Required)
+3,Immunization.statusReason, statusReason ,,0..1,CodeableConcept,Reason not doneImmunization Status Reason Codes (Example)
+4,Immunization.vaccineCode, vaccineCode ,Σ,1..1,CodeableConcept,Vaccine product administeredVaccine Administered Value Set (Example)
+5,Immunization.patient, patient ,Σ,1..1,Reference(Patient),Who was immunized
+6,Immunization.encounter, encounter ,,0..1,Reference(Encounter),Encounter immunization was part of
+7,Immunization.occurrenceDatetime,occurrenceDatetime,Σ,1..1,dateTime,Vaccine administration date
+8,Immunization.occurrenceString,occurrenceString,Σ,1..1,string,Vaccine administration date
+9,Immunization.recorded, recorded ,,0..1,dateTime,When the immunization was first captured in the subject's record
+10,Immunization.primarySource, primarySource ,Σ,0..1,boolean,Indicates context the data was recorded in
+11,Immunization.reportOrigin, reportOrigin ,,0..1,CodeableConcept,Indicates the source of a secondarily reported recordImmunization Origin Codes (Example)
+12,Immunization.location, location ,,0..1,Reference(Location),Where immunization occurred
+13,Immunization.manufacturer, manufacturer ,,0..1,Reference(Organization),Vaccine manufacturer
+14,Immunization.lotNumber, lotNumber ,,0..1,string,Vaccine lot number
+15,Immunization.expirationDate, expirationDate ,,0..1,date,Vaccine expiration date
+16,Immunization.site, site ,,0..1,CodeableConcept,Body site vaccine  was administeredCodes for Immunization Site of Administration (Example)
+17,Immunization.route, route ,,0..1,CodeableConcept,How vaccine entered bodyImmunization Route Codes (Example)
+18,Immunization.doseQuantity, doseQuantity ,,0..1,SimpleQuantity,Amount of vaccine administered
+19,Immunization.performer, performer ,Σ,0..*,BackboneElement,Who performed event
+20,Immunization.performer.function, function ,Σ,0..1,CodeableConcept,What type of performance was doneImmunization Function Codes (Extensible)
+21,Immunization.performer.actor, actor ,Σ,1..1,Reference(Practitioner | PractitionerRole | Organization),Individual or organization who was performing
+22,Immunization.note, note ,Σ,0..*,Annotation,Additional immunization notes
+23,Immunization.reasonCode, reasonCode ,,0..*,CodeableConcept,Why immunization occurredImmunization Reason Codes (Example)
+24,Immunization.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport),Why immunization occurred
+25,Immunization.isSubpotent, isSubpotent ,?!Σ,0..1,boolean,Dose potency
+26,Immunization.subpotentReason, subpotentReason ,,0..*,CodeableConcept,Reason for being subpotentImmunization Subpotent Reason (Example)
+27,Immunization.education, education ,I,0..*,BackboneElement,Educational material presented to patient+ Rule: One of documentType or reference SHALL be present
+28,Immunization.education.documentType, documentType ,,0..1,string,Educational material document identifier
+29,Immunization.education.reference, reference ,,0..1,uri,Educational material reference pointer
+30,Immunization.education.publicationDate, publicationDate ,,0..1,dateTime,Educational material publication date
+31,Immunization.education.presentationDate, presentationDate ,,0..1,dateTime,Educational material presentation date
+32,Immunization.programEligibility, programEligibility ,,0..*,CodeableConcept,Patient eligibility for a vaccination programImmunization Program Eligibility (Example)
+33,Immunization.fundingSource, fundingSource ,,0..1,CodeableConcept,Funding source for the vaccineImmunization Funding Source (Example)
+34,Immunization.reaction, reaction ,,0..*,BackboneElement,Details of a reaction that follows immunization
+35,Immunization.reaction.date, date ,,0..1,dateTime,When reaction started
+36,Immunization.reaction.detail, detail ,,0..1,Reference(Observation),Additional information on reaction
+37,Immunization.reaction.reported, reported ,,0..1,boolean,Indicates self-reported reaction
+38,Immunization.protocolApplied, protocolApplied ,,0..*,BackboneElement,Protocol followed by the provider
+39,Immunization.protocolApplied.series, series ,,0..1,string,Name of vaccine series
+40,Immunization.protocolApplied.authority, authority ,,0..1,Reference(Organization),Who is responsible for publishing the recommendations
+41,Immunization.protocolApplied.targetDisease, targetDisease ,,0..*,CodeableConcept,Vaccine preventatable disease being targettedImmunization Target Disease Codes (Example)
+42,Immunization.protocolApplied.doseNumberPositiveint,doseNumberPositiveint,,1..1,positiveInt,Dose number within series
+43,Immunization.protocolApplied.doseNumberString,doseNumberString,,1..1,string,Dose number within series
+44,Immunization.protocolApplied.seriesDosesPositiveint,seriesDosesPositiveint,,0..1,positiveInt,Recommended number of doses for immunity
+45,Immunization.protocolApplied.seriesDosesString,seriesDosesString,,0..1,string,Recommended number of doses for immunity

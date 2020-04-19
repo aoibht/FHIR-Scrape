@@ -1,0 +1,29 @@
+,Path,Name,Flag,Card,Type,Description
+0,BiologicallyDerivedProduct, BiologicallyDerivedProduct ,TU,,DomainResource,"A material substance originating from a biological entityElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,BiologicallyDerivedProduct.identifier, identifier ,Σ,0..*,Identifier,External ids for this item
+2,BiologicallyDerivedProduct.productCategory, productCategory ,,0..1,code,organ | tissue | fluid | cells | biologicalAgentBiologicallyDerivedProductCategory (Required)
+3,BiologicallyDerivedProduct.productCode, productCode ,,0..1,CodeableConcept,What this biologically derived product is
+4,BiologicallyDerivedProduct.status, status ,,0..1,code,available | unavailableBiologicallyDerivedProductStatus (Required)
+5,BiologicallyDerivedProduct.request, request ,,0..*,Reference(ServiceRequest),Procedure request
+6,BiologicallyDerivedProduct.quantity, quantity ,,0..1,integer,The amount of this biologically derived product
+7,BiologicallyDerivedProduct.parent, parent ,,0..*,Reference(BiologicallyDerivedProduct),BiologicallyDerivedProduct parent
+8,BiologicallyDerivedProduct.collection, collection ,,0..1,BackboneElement,How this product was collected
+9,BiologicallyDerivedProduct.collection.collector, collector ,,0..1,Reference(Practitioner | PractitionerRole),Individual performing collection
+10,BiologicallyDerivedProduct.collection.source, source ,,0..1,Reference(Patient | Organization),Who is product from
+11,BiologicallyDerivedProduct.collection.collectedDatetime,collectedDatetime,,0..1,dateTime,Time of product collection
+12,BiologicallyDerivedProduct.collection.collectedPeriod,collectedPeriod,,0..1,Period,Time of product collection
+13,BiologicallyDerivedProduct.processing, processing ,,0..*,BackboneElement,Any processing of the product during collection
+14,BiologicallyDerivedProduct.processing.description, description ,,0..1,string,Description of of processing
+15,BiologicallyDerivedProduct.processing.procedure, procedure ,,0..1,CodeableConcept,Procesing codeProcedure Codes (SNOMED CT) (Example)
+16,BiologicallyDerivedProduct.processing.additive, additive ,,0..1,Reference(Substance),Substance added during processing
+17,BiologicallyDerivedProduct.processing.timeDatetime,timeDatetime,,0..1,dateTime,Time of processing
+18,BiologicallyDerivedProduct.processing.timePeriod,timePeriod,,0..1,Period,Time of processing
+19,BiologicallyDerivedProduct.manipulation, manipulation ,,0..1,BackboneElement,Any manipulation of product post-collection
+20,BiologicallyDerivedProduct.manipulation.description, description ,,0..1,string,Description of manipulation
+21,BiologicallyDerivedProduct.manipulation.timeDatetime,timeDatetime,,0..1,dateTime,Time of manipulation
+22,BiologicallyDerivedProduct.manipulation.timePeriod,timePeriod,,0..1,Period,Time of manipulation
+23,BiologicallyDerivedProduct.storage, storage ,,0..*,BackboneElement,Product storage
+24,BiologicallyDerivedProduct.storage.description, description ,,0..1,string,Description of storage
+25,BiologicallyDerivedProduct.storage.temperature, temperature ,,0..1,decimal,Storage temperature
+26,BiologicallyDerivedProduct.storage.scale, scale ,,0..1,code,farenheit | celsius | kelvinBiologicallyDerivedProductStorageScale (Required)
+27,BiologicallyDerivedProduct.storage.duration, duration ,,0..1,Period,Storage timeperiod

@@ -1,0 +1,11 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductInteraction, MedicinalProductInteraction ,ΣTU,,DomainResource,"MedicinalProductInteractionElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductInteraction.subject, subject ,Σ,0..*,Reference(MedicinalProduct | Medication | Substance),The medication for which this is a described interaction
+2,MedicinalProductInteraction.description, description ,Σ,0..1,string,The interaction described
+3,MedicinalProductInteraction.interactant, interactant ,Σ,0..*,BackboneElement,"The specific medication, food or laboratory test that interacts"
+4,MedicinalProductInteraction.interactant.itemReference(medicinalproduct | medication | substance | observationdefinition),itemReference(medicinalproduct | medication | substance | observationdefinition),Σ,1..1,Reference(MedicinalProduct | Medication | Substance | ObservationDefinition),"The specific medication, food or laboratory test that interacts"
+5,MedicinalProductInteraction.interactant.itemCodeableconcept,itemCodeableconcept,Σ,1..1,CodeableConcept,"The specific medication, food or laboratory test that interacts"
+6,MedicinalProductInteraction.type, type ,Σ,0..1,CodeableConcept,"The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction"
+7,MedicinalProductInteraction.effect, effect ,Σ,0..1,CodeableConcept,"The effect of the interaction, for example ""reduced gastric absorption of primary medication"""
+8,MedicinalProductInteraction.incidence, incidence ,Σ,0..1,CodeableConcept,"The incidence of the interaction, e.g. theoretical, observed"
+9,MedicinalProductInteraction.management, management ,Σ,0..1,CodeableConcept,Actions for managing the interaction

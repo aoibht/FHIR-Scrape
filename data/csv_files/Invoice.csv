@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,Invoice, Invoice ,TU,,DomainResource,"Invoice containing ChargeItems from an AccountElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Invoice.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for item
+2,Invoice.status, status ,?!Σ,1..1,code,draft | issued | balanced | cancelled | entered-in-errorInvoiceStatus (Required)
+3,Invoice.cancelledReason, cancelledReason ,,0..1,string,Reason for cancellation of this Invoice
+4,Invoice.type, type ,Σ,0..1,CodeableConcept,Type of Invoice
+5,Invoice.subject, subject ,Σ,0..1,Reference(Patient | Group),Recipient(s) of goods and services
+6,Invoice.recipient, recipient ,Σ,0..1,Reference(Organization | Patient | RelatedPerson),Recipient of this invoice
+7,Invoice.date, date ,Σ,0..1,dateTime,Invoice date / posting date
+8,Invoice.participant, participant ,,0..*,BackboneElement,Participant in creation of this Invoice
+9,Invoice.participant.role, role ,,0..1,CodeableConcept,Type of involvement in creation of this Invoice
+10,Invoice.participant.actor, actor ,,1..1,Reference(Practitioner | Organization | Patient | PractitionerRole | Device | RelatedPerson),Individual who was involved
+11,Invoice.issuer, issuer ,,0..1,Reference(Organization),Issuing Organization of Invoice
+12,Invoice.account, account ,,0..1,Reference(Account),Account that is being balanced
+13,Invoice.lineItem, lineItem ,,0..*,BackboneElement,Line items of this Invoice
+14,Invoice.lineItem.sequence, sequence ,,0..1,positiveInt,Sequence number of line item
+15,Invoice.lineItem.chargeItemReference(chargeitem),chargeItemReference(chargeitem),,1..1,Reference(ChargeItem),Reference to ChargeItem containing details of this line item or an inline billing code
+16,Invoice.lineItem.chargeItemCodeableconcept,chargeItemCodeableconcept,,1..1,CodeableConcept,Reference to ChargeItem containing details of this line item or an inline billing code
+17,Invoice.lineItem.priceComponent, priceComponent ,,0..*,BackboneElement,Components of total line item price
+18,Invoice.lineItem.priceComponent.type, type ,,1..1,code,base | surcharge | deduction | discount | tax | informationalInvoicePriceComponentType (Required)
+19,Invoice.lineItem.priceComponent.code, code ,,0..1,CodeableConcept,Code identifying the specific component
+20,Invoice.lineItem.priceComponent.factor, factor ,,0..1,decimal,Factor used for calculating this component
+21,Invoice.lineItem.priceComponent.amount, amount ,,0..1,Money,Monetary amount associated with this component
+22,Invoice.totalPriceComponent, totalPriceComponent ,,0..*,see priceComponent,Components of Invoice total
+23,Invoice.totalNet, totalNet ,Σ,0..1,Money,Net total of this Invoice
+24,Invoice.totalGross, totalGross ,Σ,0..1,Money,Gross total of this Invoice
+25,Invoice.paymentTerms, paymentTerms ,,0..1,markdown,Payment details
+26,Invoice.note, note ,,0..*,Annotation,Comments made about the invoice

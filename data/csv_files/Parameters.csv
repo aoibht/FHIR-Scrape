@@ -1,0 +1,6 @@
+,Path,Name,Flag,Card,Type,Description
+0,Parameters, Parameters ,ΣN,,Resource,"Operation Request or ResponseElements defined in Ancestors: id, meta, implicitRules, language"
+1,Parameters.parameter, parameter ,ΣI,0..*,BackboneElement,"Operation Parameter+ Rule: A parameter must have one and only one of (value, resource, part)"
+2,Parameters.parameter.name, name ,Σ,1..1,string,Name from the definition
+3,Parameters.parameter.resource, resource ,ΣI,0..1,Resource,If parameter is a whole resource
+4,Parameters.parameter.part, part ,Σ,0..*,see parameter,Named part of a multi-part parameter

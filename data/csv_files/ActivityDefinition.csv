@@ -1,0 +1,59 @@
+,Path,Name,Flag,Card,Type,Description
+0,ActivityDefinition, ActivityDefinition ,ITU,,DomainResource,"The definition of a specific activity to be taken, independent of any particular patient or context+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ActivityDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this activity definition, represented as a URI (globally unique)"
+2,ActivityDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the activity definition
+3,ActivityDefinition.version, version ,Σ,0..1,string,Business version of the activity definition
+4,ActivityDefinition.name, name ,ΣI,0..1,string,Name for this activity definition (computer friendly)
+5,ActivityDefinition.title, title ,Σ,0..1,string,Name for this activity definition (human friendly)
+6,ActivityDefinition.subtitle, subtitle ,,0..1,string,Subordinate title of the activity definition
+7,ActivityDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,ActivityDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,ActivityDefinition.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,Type of individual the activity definition is intended forSubject type (Extensible)
+10,ActivityDefinition.subjectReference(group),subjectReference(group),,0..1,Reference(Group),Type of individual the activity definition is intended forSubject type (Extensible)
+11,ActivityDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+12,ActivityDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+13,ActivityDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+14,ActivityDefinition.description, description ,Σ,0..1,markdown,Natural language description of the activity definition
+15,ActivityDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+16,ActivityDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for activity definition (if applicable)Jurisdiction (Extensible)
+17,ActivityDefinition.purpose, purpose ,,0..1,markdown,Why this activity definition is defined
+18,ActivityDefinition.usage, usage ,,0..1,string,Describes the clinical usage of the activity definition
+19,ActivityDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+20,ActivityDefinition.approvalDate, approvalDate ,,0..1,date,When the activity definition was approved by publisher
+21,ActivityDefinition.lastReviewDate, lastReviewDate ,,0..1,date,When the activity definition was last reviewed
+22,ActivityDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the activity definition is expected to be used
+23,ActivityDefinition.topic, topic ,,0..*,CodeableConcept,"E.g. Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+24,ActivityDefinition.author, author ,,0..*,ContactDetail,Who authored the content
+25,ActivityDefinition.editor, editor ,,0..*,ContactDetail,Who edited the content
+26,ActivityDefinition.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+27,ActivityDefinition.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+28,ActivityDefinition.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+29,ActivityDefinition.library, library ,,0..*,canonical(Library),Logic used by the activity definition
+30,ActivityDefinition.kind, kind ,Σ,0..1,code,Kind of resourceRequestResourceType (Required)
+31,ActivityDefinition.profile, profile ,,0..1,canonical(StructureDefinition),What profile the resource needs to conform to
+32,ActivityDefinition.code, code ,Σ,0..1,CodeableConcept,Detail type of activityProcedure Codes (SNOMED CT) (Example)
+33,ActivityDefinition.intent, intent ,,0..1,code,proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | optionRequestIntent (Required)
+34,ActivityDefinition.priority, priority ,,0..1,code,routine | urgent | asap | statRequest priority (Required)
+35,ActivityDefinition.doNotPerform, doNotPerform ,?!Σ,0..1,boolean,True if the activity should not be performed
+36,ActivityDefinition.timingTiming,timingTiming,,0..1,Timing,When activity is to occur
+37,ActivityDefinition.timingDatetime,timingDatetime,,0..1,dateTime,When activity is to occur
+38,ActivityDefinition.timingAge,timingAge,,0..1,Age,When activity is to occur
+39,ActivityDefinition.timingPeriod,timingPeriod,,0..1,Period,When activity is to occur
+40,ActivityDefinition.timingRange,timingRange,,0..1,Range,When activity is to occur
+41,ActivityDefinition.timingDuration,timingDuration,,0..1,Duration,When activity is to occur
+42,ActivityDefinition.location, location ,,0..1,Reference(Location),Where it should happen
+43,ActivityDefinition.participant, participant ,,0..*,BackboneElement,Who should participate in the action
+44,ActivityDefinition.participant.type, type ,,1..1,code,patient | practitioner | related-person | deviceActionParticipantType (Required)
+45,ActivityDefinition.participant.role, role ,,0..1,CodeableConcept,"E.g. Nurse, Surgeon, Parent, etc.Action participant role (Example)"
+46,ActivityDefinition.productReference(medication | substance),productReference(medication | substance),,0..1,Reference(Medication | Substance),What's administered/suppliedSNOMED CT Medication Codes (Example)
+47,ActivityDefinition.productCodeableconcept,productCodeableconcept,,0..1,CodeableConcept,What's administered/suppliedSNOMED CT Medication Codes (Example)
+48,ActivityDefinition.quantity, quantity ,,0..1,SimpleQuantity,How much is administered/consumed/supplied
+49,ActivityDefinition.dosage, dosage ,,0..*,Dosage,Detailed dosage instructions
+50,ActivityDefinition.bodySite, bodySite ,,0..*,CodeableConcept,What part of body to perform onSNOMED CT Body Structures (Example)
+51,ActivityDefinition.specimenRequirement, specimenRequirement ,,0..*,Reference(SpecimenDefinition),What specimens are required to perform this action
+52,ActivityDefinition.observationRequirement, observationRequirement ,,0..*,Reference(ObservationDefinition),What observations are required to perform this action
+53,ActivityDefinition.observationResultRequirement, observationResultRequirement ,,0..*,Reference(ObservationDefinition),What observations must be produced by this action
+54,ActivityDefinition.transform, transform ,,0..1,canonical(StructureMap),Transform to apply the template
+55,ActivityDefinition.dynamicValue, dynamicValue ,,0..*,BackboneElement,Dynamic aspects of the definition
+56,ActivityDefinition.dynamicValue.path, path ,,1..1,string,The path to the element to be set dynamically
+57,ActivityDefinition.dynamicValue.expression, expression ,,1..1,Expression,An expression that provides the dynamic value for the customization

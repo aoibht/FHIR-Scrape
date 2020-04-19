@@ -1,0 +1,18 @@
+,Path,Name,Flag,Card,Type,Description
+0,SupplyDelivery, SupplyDelivery ,TU,,DomainResource,"Delivery of bulk SuppliesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SupplyDelivery.identifier, identifier ,,0..*,Identifier,External identifier
+2,SupplyDelivery.basedOn, basedOn ,Σ,0..*,Reference(SupplyRequest),"Fulfills plan, proposal or order"
+3,SupplyDelivery.partOf, partOf ,Σ,0..*,Reference(SupplyDelivery | Contract),Part of referenced event
+4,SupplyDelivery.status, status ,?!Σ,0..1,code,in-progress | completed | abandoned | entered-in-errorSupplyDeliveryStatus (Required)
+5,SupplyDelivery.patient, patient ,,0..1,Reference(Patient),Patient for whom the item is supplied
+6,SupplyDelivery.type, type ,,0..1,CodeableConcept,Category of dispense eventSupply Item Type (Required)
+7,SupplyDelivery.suppliedItem, suppliedItem ,,0..1,BackboneElement,The item that is delivered or supplied
+8,SupplyDelivery.suppliedItem.quantity, quantity ,,0..1,SimpleQuantity,Amount dispensed
+9,SupplyDelivery.suppliedItem.itemCodeableconcept,itemCodeableconcept,,0..1,CodeableConcept,"Medication, Substance, or Device suppliedSNOMED CT Supply Item (Example)"
+10,SupplyDelivery.suppliedItem.itemReference(medication | substance | device),itemReference(medication | substance | device),,0..1,Reference(Medication | Substance | Device),"Medication, Substance, or Device suppliedSNOMED CT Supply Item (Example)"
+11,SupplyDelivery.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When event occurred
+12,SupplyDelivery.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When event occurred
+13,SupplyDelivery.occurrenceTiming,occurrenceTiming,Σ,0..1,Timing,When event occurred
+14,SupplyDelivery.supplier, supplier ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Dispenser
+15,SupplyDelivery.destination, destination ,,0..1,Reference(Location),Where the Supply was sent
+16,SupplyDelivery.receiver, receiver ,,0..*,Reference(Practitioner | PractitionerRole),Who collected the Supply

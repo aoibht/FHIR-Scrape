@@ -1,0 +1,29 @@
+,Path,Name,Flag,Card,Type,Description
+0,AllergyIntolerance, AllergyIntolerance ,ITU,,DomainResource,"Allergy or Intolerance (generally: Risk of adverse reaction to a substance)+ Rule: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error.+ Rule: AllergyIntolerance.clinicalStatus SHALL NOT be present if verification Status is entered-in-errorElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,AllergyIntolerance.identifier, identifier ,Σ,0..*,Identifier,External ids for this item
+2,AllergyIntolerance.clinicalStatus, clinicalStatus ,?!ΣI,0..1,CodeableConcept,active | inactive | resolvedAllergyIntolerance Clinical Status Codes (Required)
+3,AllergyIntolerance.verificationStatus, verificationStatus ,?!ΣI,0..1,CodeableConcept,unconfirmed | confirmed | refuted | entered-in-errorAllergyIntolerance Verification Status Codes (Required)
+4,AllergyIntolerance.type, type ,Σ,0..1,code,allergy | intolerance - Underlying mechanism (if known)AllergyIntoleranceType (Required)
+5,AllergyIntolerance.category, category ,Σ,0..*,code,food | medication | environment | biologicAllergyIntoleranceCategory (Required)
+6,AllergyIntolerance.criticality, criticality ,Σ,0..1,code,low | high | unable-to-assessAllergyIntoleranceCriticality (Required)
+7,AllergyIntolerance.code, code ,Σ,0..1,CodeableConcept,"Code that identifies the allergy or intoleranceAllergyIntolerance Substance/Product, Condition and Negation Codes (Example)"
+8,AllergyIntolerance.patient, patient ,Σ,1..1,Reference(Patient),Who the sensitivity is for
+9,AllergyIntolerance.encounter, encounter ,,0..1,Reference(Encounter),Encounter when the allergy or intolerance was asserted
+10,AllergyIntolerance.onsetDatetime,onsetDatetime,,0..1,dateTime,When allergy or intolerance was identified
+11,AllergyIntolerance.onsetAge,onsetAge,,0..1,Age,When allergy or intolerance was identified
+12,AllergyIntolerance.onsetPeriod,onsetPeriod,,0..1,Period,When allergy or intolerance was identified
+13,AllergyIntolerance.onsetRange,onsetRange,,0..1,Range,When allergy or intolerance was identified
+14,AllergyIntolerance.onsetString,onsetString,,0..1,string,When allergy or intolerance was identified
+15,AllergyIntolerance.recordedDate, recordedDate ,,0..1,dateTime,Date first version of the resource instance was recorded
+16,AllergyIntolerance.recorder, recorder ,,0..1,Reference(Practitioner | PractitionerRole | Patient | RelatedPerson),Who recorded the sensitivity
+17,AllergyIntolerance.asserter, asserter ,Σ,0..1,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole),Source of the information about the allergy
+18,AllergyIntolerance.lastOccurrence, lastOccurrence ,,0..1,dateTime,Date(/time) of last known occurrence of a reaction
+19,AllergyIntolerance.note, note ,,0..*,Annotation,Additional text not captured in other fields
+20,AllergyIntolerance.reaction, reaction ,,0..*,BackboneElement,Adverse Reaction Events linked to exposure to substance
+21,AllergyIntolerance.reaction.substance, substance ,,0..1,CodeableConcept,Specific substance or pharmaceutical product considered to be responsible for eventSubstance Code (Example)
+22,AllergyIntolerance.reaction.manifestation, manifestation ,,1..*,CodeableConcept,Clinical symptoms/signs associated with the EventSNOMED CT Clinical Findings (Example)
+23,AllergyIntolerance.reaction.description, description ,,0..1,string,Description of the event as a whole
+24,AllergyIntolerance.reaction.onset, onset ,,0..1,dateTime,Date(/time) when manifestations showed
+25,AllergyIntolerance.reaction.severity, severity ,,0..1,code,mild | moderate | severe (of event as a whole)AllergyIntoleranceSeverity (Required)
+26,AllergyIntolerance.reaction.exposureRoute, exposureRoute ,,0..1,CodeableConcept,How the subject was exposed to the substanceSNOMED CT Route Codes (Example)
+27,AllergyIntolerance.reaction.note, note ,,0..*,Annotation,Text about event not captured in other fields

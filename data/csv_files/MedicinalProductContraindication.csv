@@ -1,0 +1,12 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductContraindication, MedicinalProductContraindication ,ΣTU,,DomainResource,"MedicinalProductContraindicationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductContraindication.subject, subject ,Σ,0..*,Reference(MedicinalProduct | Medication),The medication for which this is an indication
+2,MedicinalProductContraindication.disease, disease ,Σ,0..1,CodeableConcept,"The disease, symptom or procedure for the contraindication"
+3,MedicinalProductContraindication.diseaseStatus, diseaseStatus ,Σ,0..1,CodeableConcept,The status of the disease or symptom for the contraindication
+4,MedicinalProductContraindication.comorbidity, comorbidity ,Σ,0..*,CodeableConcept,A comorbidity (concurrent condition) or coinfection
+5,MedicinalProductContraindication.therapeuticIndication, therapeuticIndication ,Σ,0..*,Reference(MedicinalProductIndication),Information about the use of the medicinal product in relation to other therapies as part of the indication
+6,MedicinalProductContraindication.otherTherapy, otherTherapy ,Σ,0..*,BackboneElement,Information about the use of the medicinal product in relation to other therapies described as part of the indication
+7,MedicinalProductContraindication.otherTherapy.therapyRelationshipType, therapyRelationshipType ,Σ,1..1,CodeableConcept,The type of relationship between the medicinal product indication or contraindication and another therapy
+8,MedicinalProductContraindication.otherTherapy.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,"Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"
+9,MedicinalProductContraindication.otherTherapy.medicationReference(medicinalproduct | medication | substance | substancespecification),medicationReference(medicinalproduct | medication | substance | substancespecification),Σ,1..1,Reference(MedicinalProduct | Medication | Substance | SubstanceSpecification),"Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"
+10,MedicinalProductContraindication.population, population ,Σ,0..*,Population,The population group to which this applies

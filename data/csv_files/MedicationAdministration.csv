@@ -1,0 +1,32 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicationAdministration, MedicationAdministration ,TU,,DomainResource,"Administration of medication to a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicationAdministration.identifier, identifier ,,0..*,Identifier,External identifier
+2,MedicationAdministration.instantiates, instantiates ,Σ,0..*,uri,Instantiates protocol or definition
+3,MedicationAdministration.partOf, partOf ,Σ,0..*,Reference(MedicationAdministration | Procedure),Part of referenced event
+4,MedicationAdministration.status, status ,?!Σ,1..1,code,in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknownMedication administration  status  codes (Required)
+5,MedicationAdministration.statusReason, statusReason ,,0..*,CodeableConcept,Reason administration not performedSNOMED CT Reason Medication Not Given Codes (Example)
+6,MedicationAdministration.category, category ,,0..1,CodeableConcept,Type of medication usageMedication administration  category  codes (Preferred)
+7,MedicationAdministration.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,What was administeredSNOMED CT Medication Codes (Example)
+8,MedicationAdministration.medicationReference(medication),medicationReference(medication),Σ,1..1,Reference(Medication),What was administeredSNOMED CT Medication Codes (Example)
+9,MedicationAdministration.subject, subject ,Σ,1..1,Reference(Patient | Group),Who received medication
+10,MedicationAdministration.context, context ,,0..1,Reference(Encounter | EpisodeOfCare),Encounter or Episode of Care administered as part of
+11,MedicationAdministration.supportingInformation, supportingInformation ,,0..*,Reference(Any),Additional information to support administration
+12,MedicationAdministration.effectiveDatetime,effectiveDatetime,Σ,1..1,dateTime,Start and end time of administration
+13,MedicationAdministration.effectivePeriod,effectivePeriod,Σ,1..1,Period,Start and end time of administration
+14,MedicationAdministration.performer, performer ,Σ,0..*,BackboneElement,Who performed the medication administration and what they did
+15,MedicationAdministration.performer.function, function ,,0..1,CodeableConcept,Type of performanceMedication administration  performer  function  codes (Example)
+16,MedicationAdministration.performer.actor, actor ,Σ,1..1,Reference(Practitioner | PractitionerRole | Patient | RelatedPerson | Device),Who performed the medication administration
+17,MedicationAdministration.reasonCode, reasonCode ,,0..*,CodeableConcept,Reason administration performedReason Medication Given Codes (Example)
+18,MedicationAdministration.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport),Condition or observation that supports why the medication was administered
+19,MedicationAdministration.request, request ,,0..1,Reference(MedicationRequest),Request administration performed against
+20,MedicationAdministration.device, device ,,0..*,Reference(Device),Device used to administer
+21,MedicationAdministration.note, note ,,0..*,Annotation,Information about the administration
+22,MedicationAdministration.dosage, dosage ,I,0..1,BackboneElement,Details of how medication was taken+ Rule: SHALL have at least one of dosage.dose or dosage.rate[x]
+23,MedicationAdministration.dosage.text, text ,,0..1,string,Free text dosage instructions e.g. SIG
+24,MedicationAdministration.dosage.site, site ,,0..1,CodeableConcept,Body site administered toSNOMED CT Anatomical Structure for Administration Site Codes (Example)
+25,MedicationAdministration.dosage.route, route ,,0..1,CodeableConcept,Path of substance into bodySNOMED CT Route Codes (Example)
+26,MedicationAdministration.dosage.method, method ,,0..1,CodeableConcept,How drug was administeredSNOMED CT Administration Method Codes (Example)
+27,MedicationAdministration.dosage.dose, dose ,,0..1,SimpleQuantity,Amount of medication per dose
+28,MedicationAdministration.dosage.rateRatio,rateRatio,,0..1,Ratio,Dose quantity per unit of time
+29,MedicationAdministration.dosage.rateSimplequantity,rateSimplequantity,,0..1,SimpleQuantity,Dose quantity per unit of time
+30,MedicationAdministration.eventHistory, eventHistory ,,0..*,Reference(Provenance),A list of events of interest in the lifecycle

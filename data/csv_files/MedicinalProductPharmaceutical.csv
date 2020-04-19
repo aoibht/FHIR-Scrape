@@ -1,0 +1,23 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductPharmaceutical, MedicinalProductPharmaceutical ,ΣTU,,DomainResource,"A pharmaceutical product described in terms of its composition and dose formElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductPharmaceutical.identifier, identifier ,Σ,0..*,Identifier,An identifier for the pharmaceutical medicinal product
+2,MedicinalProductPharmaceutical.administrableDoseForm, administrableDoseForm ,Σ,1..1,CodeableConcept,"The administrable dose form, after necessary reconstitution"
+3,MedicinalProductPharmaceutical.unitOfPresentation, unitOfPresentation ,Σ,0..1,CodeableConcept,Todo
+4,MedicinalProductPharmaceutical.ingredient, ingredient ,Σ,0..*,Reference(MedicinalProductIngredient),Ingredient
+5,MedicinalProductPharmaceutical.device, device ,Σ,0..*,Reference(DeviceDefinition),Accompanying device
+6,MedicinalProductPharmaceutical.characteristics, characteristics ,Σ,0..*,BackboneElement,Characteristics e.g. a products onset of action
+7,MedicinalProductPharmaceutical.characteristics.code, code ,Σ,1..1,CodeableConcept,A coded characteristic
+8,MedicinalProductPharmaceutical.characteristics.status, status ,Σ,0..1,CodeableConcept,The status of characteristic e.g. assigned or pending
+9,MedicinalProductPharmaceutical.routeOfAdministration, routeOfAdministration ,Σ,1..*,BackboneElement,The path by which the pharmaceutical product is taken into or makes contact with the body
+10,MedicinalProductPharmaceutical.routeOfAdministration.code, code ,Σ,1..1,CodeableConcept,Coded expression for the route
+11,MedicinalProductPharmaceutical.routeOfAdministration.firstDose, firstDose ,Σ,0..1,Quantity,"The first dose (dose quantity) administered in humans can be specified, for a product under investigation, using a numerical value and its unit of measurement"
+12,MedicinalProductPharmaceutical.routeOfAdministration.maxSingleDose, maxSingleDose ,Σ,0..1,Quantity,The maximum single dose that can be administered as per the protocol of a clinical trial can be specified using a numerical value and its unit of measurement
+13,MedicinalProductPharmaceutical.routeOfAdministration.maxDosePerDay, maxDosePerDay ,Σ,0..1,Quantity,The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered as per the protocol referenced in the clinical trial authorisation
+14,MedicinalProductPharmaceutical.routeOfAdministration.maxDosePerTreatmentPeriod, maxDosePerTreatmentPeriod ,Σ,0..1,Ratio,The maximum dose per treatment period that can be administered as per the protocol referenced in the clinical trial authorisation
+15,MedicinalProductPharmaceutical.routeOfAdministration.maxTreatmentPeriod, maxTreatmentPeriod ,Σ,0..1,Duration,The maximum treatment period during which an Investigational Medicinal Product can be administered as per the protocol referenced in the clinical trial authorisation
+16,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies, targetSpecies ,Σ,0..*,BackboneElement,A species for which this route applies
+17,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code, code ,Σ,1..1,CodeableConcept,Coded expression for the species
+18,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod, withdrawalPeriod ,Σ,0..*,BackboneElement,A species specific time during which consumption of animal product is not appropriate
+19,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue, tissue ,Σ,1..1,CodeableConcept,"Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk"
+20,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.value, value ,Σ,1..1,Quantity,A value for the time
+21,MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation, supportingInformation ,Σ,0..1,string,Extra information about the withdrawal period

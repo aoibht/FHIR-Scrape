@@ -1,0 +1,17 @@
+,Path,Name,Flag,Card,Type,Description
+0,CatalogEntry, CatalogEntry ,TU,,DomainResource,"An entry in a catalogElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CatalogEntry.identifier, identifier ,Σ,0..*,Identifier,Unique identifier of the catalog item
+2,CatalogEntry.type, type ,,0..1,CodeableConcept,"The type of item - medication, device, service, protocol or other"
+3,CatalogEntry.orderable, orderable ,Σ,1..1,boolean,Whether the entry represents an orderable item
+4,CatalogEntry.referencedItem, referencedItem ,Σ,1..1,Reference(Medication | Device | Organization | Practitioner | PractitionerRole | HealthcareService | ActivityDefinition | PlanDefinition | SpecimenDefinition | ObservationDefinition | Binary),The item that is being defined
+5,CatalogEntry.additionalIdentifier, additionalIdentifier ,,0..*,Identifier,"Any additional identifier(s) for the catalog item, in the same granularity or concept"
+6,CatalogEntry.classification, classification ,,0..*,CodeableConcept,Classification (category or class) of the item entry
+7,CatalogEntry.status, status ,,0..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,CatalogEntry.validityPeriod, validityPeriod ,,0..1,Period,The time period in which this catalog entry is expected to be active
+9,CatalogEntry.validTo, validTo ,,0..1,dateTime,The date until which this catalog entry is expected to be active
+10,CatalogEntry.lastUpdated, lastUpdated ,,0..1,dateTime,When was this catalog last updated
+11,CatalogEntry.additionalCharacteristic, additionalCharacteristic ,,0..*,CodeableConcept,Additional characteristics of the catalog entry
+12,CatalogEntry.additionalClassification, additionalClassification ,,0..*,CodeableConcept,Additional classification of the catalog entry
+13,CatalogEntry.relatedEntry, relatedEntry ,,0..*,BackboneElement,An item that this catalog entry is related to
+14,CatalogEntry.relatedEntry.relationtype, relationtype ,,1..1,code,triggers | is-replaced-byCatalogEntryRelationType (Required)
+15,CatalogEntry.relatedEntry.item, item ,,1..1,Reference(CatalogEntry),The reference to the related item

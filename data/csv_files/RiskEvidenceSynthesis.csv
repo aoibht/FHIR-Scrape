@@ -1,0 +1,53 @@
+,Path,Name,Flag,Card,Type,Description
+0,RiskEvidenceSynthesis, RiskEvidenceSynthesis ,ITU,,DomainResource,"A quantified estimate of risk based on a body of evidence+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,RiskEvidenceSynthesis.url, url ,Σ,0..1,uri,"Canonical identifier for this risk evidence synthesis, represented as a URI (globally unique)"
+2,RiskEvidenceSynthesis.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the risk evidence synthesis
+3,RiskEvidenceSynthesis.version, version ,Σ,0..1,string,Business version of the risk evidence synthesis
+4,RiskEvidenceSynthesis.name, name ,ΣI,0..1,string,Name for this risk evidence synthesis (computer friendly)
+5,RiskEvidenceSynthesis.title, title ,Σ,0..1,string,Name for this risk evidence synthesis (human friendly)
+6,RiskEvidenceSynthesis.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,RiskEvidenceSynthesis.date, date ,Σ,0..1,dateTime,Date last changed
+8,RiskEvidenceSynthesis.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,RiskEvidenceSynthesis.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,RiskEvidenceSynthesis.description, description ,Σ,0..1,markdown,Natural language description of the risk evidence synthesis
+11,RiskEvidenceSynthesis.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+12,RiskEvidenceSynthesis.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+13,RiskEvidenceSynthesis.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for risk evidence synthesis (if applicable)Jurisdiction (Extensible)
+14,RiskEvidenceSynthesis.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+15,RiskEvidenceSynthesis.approvalDate, approvalDate ,,0..1,date,When the risk evidence synthesis was approved by publisher
+16,RiskEvidenceSynthesis.lastReviewDate, lastReviewDate ,,0..1,date,When the risk evidence synthesis was last reviewed
+17,RiskEvidenceSynthesis.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the risk evidence synthesis is expected to be used
+18,RiskEvidenceSynthesis.topic, topic ,,0..*,CodeableConcept,"The category of the EffectEvidenceSynthesis, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+19,RiskEvidenceSynthesis.author, author ,,0..*,ContactDetail,Who authored the content
+20,RiskEvidenceSynthesis.editor, editor ,,0..*,ContactDetail,Who edited the content
+21,RiskEvidenceSynthesis.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+22,RiskEvidenceSynthesis.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+23,RiskEvidenceSynthesis.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+24,RiskEvidenceSynthesis.synthesisType, synthesisType ,,0..1,CodeableConcept,Type of synthesisSynthesisType (Extensible)
+25,RiskEvidenceSynthesis.studyType, studyType ,,0..1,CodeableConcept,Type of studyStudyType (Extensible)
+26,RiskEvidenceSynthesis.population, population ,Σ,1..1,Reference(EvidenceVariable),What population?
+27,RiskEvidenceSynthesis.exposure, exposure ,Σ,0..1,Reference(EvidenceVariable),What exposure?
+28,RiskEvidenceSynthesis.outcome, outcome ,Σ,1..1,Reference(EvidenceVariable),What outcome?
+29,RiskEvidenceSynthesis.sampleSize, sampleSize ,,0..1,BackboneElement,What sample size was involved?
+30,RiskEvidenceSynthesis.sampleSize.description, description ,,0..1,string,Description of sample size
+31,RiskEvidenceSynthesis.sampleSize.numberOfStudies, numberOfStudies ,,0..1,integer,How many studies?
+32,RiskEvidenceSynthesis.sampleSize.numberOfParticipants, numberOfParticipants ,,0..1,integer,How many participants?
+33,RiskEvidenceSynthesis.riskEstimate, riskEstimate ,Σ,0..1,BackboneElement,What was the estimated risk
+34,RiskEvidenceSynthesis.riskEstimate.description, description ,,0..1,string,Description of risk estimate
+35,RiskEvidenceSynthesis.riskEstimate.type, type ,,0..1,CodeableConcept,Type of risk estimateRiskEstimateType (Extensible)
+36,RiskEvidenceSynthesis.riskEstimate.value, value ,,0..1,decimal,Point estimate
+37,RiskEvidenceSynthesis.riskEstimate.unitOfMeasure, unitOfMeasure ,,0..1,CodeableConcept,What unit is the outcome described in?UCUM Codes (Required)
+38,RiskEvidenceSynthesis.riskEstimate.denominatorCount, denominatorCount ,,0..1,integer,Sample size for group measured
+39,RiskEvidenceSynthesis.riskEstimate.numeratorCount, numeratorCount ,,0..1,integer,Number with the outcome
+40,RiskEvidenceSynthesis.riskEstimate.precisionEstimate, precisionEstimate ,,0..*,BackboneElement,How precise the estimate is
+41,RiskEvidenceSynthesis.riskEstimate.precisionEstimate.type, type ,,0..1,CodeableConcept,Type of precision estimatePrecisionEstimateType (Extensible)
+42,RiskEvidenceSynthesis.riskEstimate.precisionEstimate.level, level ,,0..1,decimal,Level of confidence interval
+43,RiskEvidenceSynthesis.riskEstimate.precisionEstimate.from, from ,,0..1,decimal,Lower bound
+44,RiskEvidenceSynthesis.riskEstimate.precisionEstimate.to, to ,,0..1,decimal,Upper bound
+45,RiskEvidenceSynthesis.certainty, certainty ,,0..*,BackboneElement,How certain is the risk
+46,RiskEvidenceSynthesis.certainty.rating, rating ,,0..*,CodeableConcept,Certainty ratingQualityOfEvidenceRating (Extensible)
+47,RiskEvidenceSynthesis.certainty.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+48,RiskEvidenceSynthesis.certainty.certaintySubcomponent, certaintySubcomponent ,,0..*,BackboneElement,A component that contributes to the overall certainty
+49,RiskEvidenceSynthesis.certainty.certaintySubcomponent.type, type ,,0..1,CodeableConcept,Type of subcomponent of certainty ratingCertaintySubcomponentType (Extensible)
+50,RiskEvidenceSynthesis.certainty.certaintySubcomponent.rating, rating ,,0..*,CodeableConcept,Subcomponent certainty ratingCertaintySubcomponentRating (Extensible)
+51,RiskEvidenceSynthesis.certainty.certaintySubcomponent.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes

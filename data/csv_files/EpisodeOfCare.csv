@@ -1,0 +1,19 @@
+,Path,Name,Flag,Card,Type,Description
+0,EpisodeOfCare, EpisodeOfCare ,TU,,DomainResource,"An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibilityElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EpisodeOfCare.identifier, identifier ,,0..*,Identifier,Business Identifier(s) relevant for this EpisodeOfCare
+2,EpisodeOfCare.status, status ,?!Σ,1..1,code,planned | waitlist | active | onhold | finished | cancelled | entered-in-errorEpisodeOfCareStatus (Required)
+3,EpisodeOfCare.statusHistory, statusHistory ,,0..*,BackboneElement,Past list of status codes (the current status may be included to cover the start date of the status)
+4,EpisodeOfCare.statusHistory.status, status ,,1..1,code,planned | waitlist | active | onhold | finished | cancelled | entered-in-errorEpisodeOfCareStatus (Required)
+5,EpisodeOfCare.statusHistory.period, period ,,1..1,Period,Duration the EpisodeOfCare was in the specified status
+6,EpisodeOfCare.type, type ,Σ,0..*,CodeableConcept,"Type/class  - e.g. specialist referral, disease managementEpisode of care type (Example)"
+7,EpisodeOfCare.diagnosis, diagnosis ,Σ,0..*,BackboneElement,The list of diagnosis relevant to this episode of care
+8,EpisodeOfCare.diagnosis.condition, condition ,Σ,1..1,Reference(Condition),Conditions/problems/diagnoses this episode of care is for
+9,EpisodeOfCare.diagnosis.role, role ,Σ,0..1,CodeableConcept,"Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)DiagnosisRole (Preferred)"
+10,EpisodeOfCare.diagnosis.rank, rank ,Σ,0..1,positiveInt,Ranking of the diagnosis (for each role type)
+11,EpisodeOfCare.patient, patient ,Σ,1..1,Reference(Patient),The patient who is the focus of this episode of care
+12,EpisodeOfCare.managingOrganization, managingOrganization ,Σ,0..1,Reference(Organization),Organization that assumes care
+13,EpisodeOfCare.period, period ,Σ,0..1,Period,Interval during responsibility is assumed
+14,EpisodeOfCare.referralRequest, referralRequest ,,0..*,Reference(ServiceRequest),Originating Referral Request(s)
+15,EpisodeOfCare.careManager, careManager ,,0..1,Reference(Practitioner | PractitionerRole),Care manager/care coordinator for the patient
+16,EpisodeOfCare.team, team ,,0..*,Reference(CareTeam),Other practitioners facilitating this episode of care
+17,EpisodeOfCare.account, account ,,0..*,Reference(Account),The set of accounts that may be used for billing for this EpisodeOfCare

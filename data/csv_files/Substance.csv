@@ -1,0 +1,15 @@
+,Path,Name,Flag,Card,Type,Description
+0,Substance, Substance ,TU,,DomainResource,"A homogeneous material with a definite compositionElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Substance.identifier, identifier ,Σ,0..*,Identifier,Unique identifier
+2,Substance.status, status ,?!Σ,0..1,code,active | inactive | entered-in-errorFHIRSubstanceStatus (Required)
+3,Substance.category, category ,Σ,0..*,CodeableConcept,What class/type of substance this isSubstance Category Codes (Extensible)
+4,Substance.code, code ,Σ,1..1,CodeableConcept,What substance this isSubstance Code (Example)
+5,Substance.description, description ,Σ,0..1,string,"Textual description of the substance, comments"
+6,Substance.instance, instance ,Σ,0..*,BackboneElement,If this describes a specific package/container of the substance
+7,Substance.instance.identifier, identifier ,Σ,0..1,Identifier,Identifier of the package/container
+8,Substance.instance.expiry, expiry ,Σ,0..1,dateTime,When no longer valid to use
+9,Substance.instance.quantity, quantity ,Σ,0..1,SimpleQuantity,Amount of substance in the package
+10,Substance.ingredient, ingredient ,Σ,0..*,BackboneElement,Composition information about the substance
+11,Substance.ingredient.quantity, quantity ,Σ,0..1,Ratio,Optional amount (concentration)
+12,Substance.ingredient.substanceCodeableconcept,substanceCodeableconcept,Σ,1..1,CodeableConcept,A component of the substanceSubstance Code (Example)
+13,Substance.ingredient.substanceReference(substance),substanceReference(substance),Σ,1..1,Reference(Substance),A component of the substanceSubstance Code (Example)

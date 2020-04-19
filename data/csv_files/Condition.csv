@@ -1,0 +1,32 @@
+,Path,Name,Flag,Card,Type,Description
+0,Condition, Condition ,ITU,,DomainResource,"Detailed information about conditions, problems or diagnoses+ Guideline: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item+ Rule: If condition is abated, then clinicalStatus must be either inactive, resolved, or remission+ Rule: Condition.clinicalStatus SHALL NOT be present if verification Status is entered-in-errorElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Condition.identifier, identifier ,Σ,0..*,Identifier,External Ids for this condition
+2,Condition.clinicalStatus, clinicalStatus ,?!ΣI,0..1,CodeableConcept,active | recurrence | relapse | inactive | remission | resolvedCondition Clinical Status Codes (Required)
+3,Condition.verificationStatus, verificationStatus ,?!ΣI,0..1,CodeableConcept,unconfirmed | provisional | differential | confirmed | refuted | entered-in-errorConditionVerificationStatus (Required)
+4,Condition.category, category ,,0..*,CodeableConcept,problem-list-item | encounter-diagnosisCondition Category Codes (Extensible)
+5,Condition.severity, severity ,,0..1,CodeableConcept,Subjective severity of conditionCondition/Diagnosis Severity (Preferred)
+6,Condition.code, code ,Σ,0..1,CodeableConcept,"Identification of the condition, problem or diagnosisCondition/Problem/Diagnosis Codes (Example)"
+7,Condition.bodySite, bodySite ,Σ,0..*,CodeableConcept,"Anatomical location, if relevantSNOMED CT Body Structures (Example)"
+8,Condition.subject, subject ,Σ,1..1,Reference(Patient | Group),Who has the condition?
+9,Condition.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+10,Condition.onsetDatetime,onsetDatetime,Σ,0..1,dateTime,"Estimated or actual date,  date-time, or age"
+11,Condition.onsetAge,onsetAge,Σ,0..1,Age,"Estimated or actual date,  date-time, or age"
+12,Condition.onsetPeriod,onsetPeriod,Σ,0..1,Period,"Estimated or actual date,  date-time, or age"
+13,Condition.onsetRange,onsetRange,Σ,0..1,Range,"Estimated or actual date,  date-time, or age"
+14,Condition.onsetString,onsetString,Σ,0..1,string,"Estimated or actual date,  date-time, or age"
+15,Condition.abatementDatetime,abatementDatetime,I,0..1,dateTime,When in resolution/remission
+16,Condition.abatementAge,abatementAge,I,0..1,Age,When in resolution/remission
+17,Condition.abatementPeriod,abatementPeriod,I,0..1,Period,When in resolution/remission
+18,Condition.abatementRange,abatementRange,I,0..1,Range,When in resolution/remission
+19,Condition.abatementString,abatementString,I,0..1,string,When in resolution/remission
+20,Condition.recordedDate, recordedDate ,Σ,0..1,dateTime,Date record was first recorded
+21,Condition.recorder, recorder ,Σ,0..1,Reference(Practitioner | PractitionerRole | Patient | RelatedPerson),Who recorded the condition
+22,Condition.asserter, asserter ,Σ,0..1,Reference(Practitioner | PractitionerRole | Patient | RelatedPerson),Person who asserts this condition
+23,Condition.stage, stage ,I,0..*,BackboneElement,"Stage/grade, usually assessed formally+ Rule: Stage SHALL have summary or assessment"
+24,Condition.stage.summary, summary ,I,0..1,CodeableConcept,Simple summary (disease specific)Condition Stage (Example)
+25,Condition.stage.assessment, assessment ,I,0..*,Reference(ClinicalImpression | DiagnosticReport | Observation),Formal record of assessment
+26,Condition.stage.type, type ,,0..1,CodeableConcept,Kind of stagingCondition Stage Type (Example)
+27,Condition.evidence, evidence ,I,0..*,BackboneElement,Supporting evidence+ Rule: evidence SHALL have code or details
+28,Condition.evidence.code, code ,ΣI,0..*,CodeableConcept,Manifestation/symptomManifestation and Symptom Codes (Example)
+29,Condition.evidence.detail, detail ,ΣI,0..*,Reference(Any),Supporting information found elsewhere
+30,Condition.note, note ,,0..*,Annotation,Additional information about the Condition

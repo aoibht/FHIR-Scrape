@@ -1,0 +1,16 @@
+,Path,Name,Flag,Card,Type,Description
+0,DocumentManifest, DocumentManifest ,TU,,DomainResource,"A list that defines a set of documentsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DocumentManifest.masterIdentifier, masterIdentifier ,Σ,0..1,Identifier,Unique Identifier for the set of documents
+2,DocumentManifest.identifier, identifier ,Σ,0..*,Identifier,Other identifiers for the manifest
+3,DocumentManifest.status, status ,?!Σ,1..1,code,current | superseded | entered-in-errorDocumentReferenceStatus (Required)
+4,DocumentManifest.type, type ,Σ,0..1,CodeableConcept,Kind of document setv3 Code System ActCode (Example)
+5,DocumentManifest.subject, subject ,Σ,0..1,Reference(Patient | Practitioner | Group | Device),The subject of the set of documents
+6,DocumentManifest.created, created ,,0..1,dateTime,When this document manifest created
+7,DocumentManifest.author, author ,Σ,0..*,Reference(Practitioner | PractitionerRole | Organization | Device | Patient | RelatedPerson),Who and/or what authored the DocumentManifest
+8,DocumentManifest.recipient, recipient ,,0..*,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Organization),Intended to get notified about this set of documents
+9,DocumentManifest.source, source ,,0..1,uri,The source system/application/software
+10,DocumentManifest.description, description ,Σ,0..1,string,Human-readable description (title)
+11,DocumentManifest.content, content ,Σ,1..*,Reference(Any),Items in manifest
+12,DocumentManifest.related, related ,,0..*,BackboneElement,Related things
+13,DocumentManifest.related.identifier, identifier ,,0..1,Identifier,Identifiers of things that are related
+14,DocumentManifest.related.ref, ref ,,0..1,Reference(Any),Related Resource

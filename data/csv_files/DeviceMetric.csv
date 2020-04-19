@@ -1,0 +1,15 @@
+,Path,Name,Flag,Card,Type,Description
+0,DeviceMetric, DeviceMetric ,ΣTU,,DomainResource,"Measurement, calculation or setting capability of a medical deviceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DeviceMetric.identifier, identifier ,Σ,0..*,Identifier,Instance identifier
+2,DeviceMetric.type, type ,Σ,1..1,CodeableConcept,"Identity of metric, for example Heart Rate or PEEP SettingDevice Metric and Component Types (Preferred)"
+3,DeviceMetric.unit, unit ,Σ,0..1,CodeableConcept,Unit of Measure for the MetricDevice Metric and Component Types (Preferred)
+4,DeviceMetric.source, source ,Σ,0..1,Reference(Device),Describes the link to the source Device
+5,DeviceMetric.parent, parent ,Σ,0..1,Reference(Device),Describes the link to the parent Device
+6,DeviceMetric.operationalStatus, operationalStatus ,Σ,0..1,code,on | off | standby | entered-in-errorDeviceMetricOperationalStatus (Required)
+7,DeviceMetric.color, color ,Σ,0..1,code,black | red | green | yellow | blue | magenta | cyan | whiteDeviceMetricColor (Required)
+8,DeviceMetric.category, category ,Σ,1..1,code,measurement | setting | calculation | unspecifiedDeviceMetricCategory (Required)
+9,DeviceMetric.measurementPeriod, measurementPeriod ,Σ,0..1,Timing,Describes the measurement repetition time
+10,DeviceMetric.calibration, calibration ,Σ,0..*,BackboneElement,Describes the calibrations that have been performed or that are required to be performed
+11,DeviceMetric.calibration.type, type ,Σ,0..1,code,unspecified | offset | gain | two-pointDeviceMetricCalibrationType (Required)
+12,DeviceMetric.calibration.state, state ,Σ,0..1,code,not-calibrated | calibration-required | calibrated | unspecifiedDeviceMetricCalibrationState (Required)
+13,DeviceMetric.calibration.time, time ,Σ,0..1,instant,Describes the time last calibration has been performed

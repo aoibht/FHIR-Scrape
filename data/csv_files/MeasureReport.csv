@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,MeasureReport, MeasureReport ,ITU,,DomainResource,"Results of a measure evaluation+ Rule: Measure Reports used for data collection SHALL NOT communicate group and score information+ Rule: Stratifiers SHALL be either a single criteria or a set of criteria componentsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MeasureReport.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the MeasureReport
+2,MeasureReport.status, status ,?!Σ,1..1,code,complete | pending | errorMeasureReportStatus (Required)
+3,MeasureReport.type, type ,ΣI,1..1,code,individual | subject-list | summary | data-collectionMeasureReportType (Required)
+4,MeasureReport.measure, measure ,Σ,1..1,canonical(Measure),What measure was calculated
+5,MeasureReport.subject, subject ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | Location | Device | RelatedPerson | Group),What individual(s) the report is for
+6,MeasureReport.date, date ,Σ,0..1,dateTime,When the report was generated
+7,MeasureReport.reporter, reporter ,Σ,0..1,Reference(Practitioner | PractitionerRole | Location | Organization),Who is reporting the data
+8,MeasureReport.period, period ,Σ,1..1,Period,What period the report covers
+9,MeasureReport.improvementNotation, improvementNotation ,?!Σ,0..1,CodeableConcept,increase | decreaseMeasureImprovementNotation (Required)
+10,MeasureReport.group, group ,I,0..*,BackboneElement,Measure results for each group
+11,MeasureReport.group.code, code ,Σ,0..1,CodeableConcept,Meaning of the group
+12,MeasureReport.group.population, population ,,0..*,BackboneElement,The populations in the group
+13,MeasureReport.group.population.code, code ,Σ,0..1,CodeableConcept,initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observationMeasurePopulationType (Extensible)
+14,MeasureReport.group.population.count, count ,,0..1,integer,Size of the population
+15,MeasureReport.group.population.subjectResults, subjectResults ,,0..1,Reference(List),"For subject-list reports, the subject results in this population"
+16,MeasureReport.group.measureScore, measureScore ,Σ,0..1,Quantity,What score this group achieved
+17,MeasureReport.group.stratifier, stratifier ,,0..*,BackboneElement,Stratification results
+18,MeasureReport.group.stratifier.code, code ,,0..*,CodeableConcept,What stratifier of the group
+19,MeasureReport.group.stratifier.stratum, stratum ,,0..*,BackboneElement,"Stratum results, one for each unique value, or set of values, in the stratifier, or stratifier components"
+20,MeasureReport.group.stratifier.stratum.value, value ,,0..1,CodeableConcept,"The stratum value, e.g. male"
+21,MeasureReport.group.stratifier.stratum.component, component ,,0..*,BackboneElement,Stratifier component values
+22,MeasureReport.group.stratifier.stratum.component.code, code ,,1..1,CodeableConcept,What stratifier component of the group
+23,MeasureReport.group.stratifier.stratum.component.value, value ,,1..1,CodeableConcept,"The stratum component value, e.g. male"
+24,MeasureReport.group.stratifier.stratum.population, population ,,0..*,BackboneElement,Population results in this stratum
+25,MeasureReport.group.stratifier.stratum.population.code, code ,,0..1,CodeableConcept,initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observationMeasurePopulationType (Extensible)
+26,MeasureReport.group.stratifier.stratum.population.count, count ,,0..1,integer,Size of the population
+27,MeasureReport.group.stratifier.stratum.population.subjectResults, subjectResults ,,0..1,Reference(List),"For subject-list reports, the subject results in this population"
+28,MeasureReport.group.stratifier.stratum.measureScore, measureScore ,,0..1,Quantity,What score this stratum achieved
+29,MeasureReport.evaluatedResource, evaluatedResource ,,0..*,Reference(Any),What data was used to calculate the measure score

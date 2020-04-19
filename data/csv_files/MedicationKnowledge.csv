@@ -1,0 +1,67 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicationKnowledge, MedicationKnowledge ,TU,,DomainResource,"Definition of Medication KnowledgeElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicationKnowledge.code, code ,Σ,0..1,CodeableConcept,Code that identifies this medicationSNOMED CT Medication Codes (Example)
+2,MedicationKnowledge.status, status ,?!Σ,0..1,code,active | inactive | entered-in-errorMedication knowledge  status  codes (Required)
+3,MedicationKnowledge.manufacturer, manufacturer ,Σ,0..1,Reference(Organization),Manufacturer of the item
+4,MedicationKnowledge.doseForm, doseForm ,,0..1,CodeableConcept,powder | tablets | capsule +SNOMED CT Form Codes (Example)
+5,MedicationKnowledge.amount, amount ,Σ,0..1,SimpleQuantity,Amount of drug in package
+6,MedicationKnowledge.synonym, synonym ,Σ,0..*,string,Additional names for a medication
+7,MedicationKnowledge.relatedMedicationKnowledge, relatedMedicationKnowledge ,,0..*,BackboneElement,Associated or related medication information
+8,MedicationKnowledge.relatedMedicationKnowledge.type, type ,,1..1,CodeableConcept,Category of medicationKnowledge
+9,MedicationKnowledge.relatedMedicationKnowledge.reference, reference ,,1..*,Reference(MedicationKnowledge),Associated documentation about the associated medication knowledge
+10,MedicationKnowledge.associatedMedication, associatedMedication ,,0..*,Reference(Medication),A medication resource that is associated with this medication
+11,MedicationKnowledge.productType, productType ,,0..*,CodeableConcept,Category of the medication or product
+12,MedicationKnowledge.monograph, monograph ,,0..*,BackboneElement,Associated documentation about the medication
+13,MedicationKnowledge.monograph.type, type ,,0..1,CodeableConcept,The category of medication document
+14,MedicationKnowledge.monograph.source, source ,,0..1,Reference(DocumentReference | Media),Associated documentation about the medication
+15,MedicationKnowledge.ingredient, ingredient ,,0..*,BackboneElement,Active or inactive ingredient
+16,MedicationKnowledge.ingredient.itemCodeableconcept,itemCodeableconcept,,1..1,CodeableConcept,Medication(s) or substance(s) contained in the medication
+17,MedicationKnowledge.ingredient.itemReference(substance),itemReference(substance),,1..1,Reference(Substance),Medication(s) or substance(s) contained in the medication
+18,MedicationKnowledge.ingredient.isActive, isActive ,,0..1,boolean,Active ingredient indicator
+19,MedicationKnowledge.ingredient.strength, strength ,,0..1,Ratio,Quantity of ingredient present
+20,MedicationKnowledge.preparationInstruction, preparationInstruction ,,0..1,markdown,The instructions for preparing the medication
+21,MedicationKnowledge.intendedRoute, intendedRoute ,,0..*,CodeableConcept,The intended or approved route of administrationSNOMED CT Route Codes (Example)
+22,MedicationKnowledge.cost, cost ,,0..*,BackboneElement,The pricing of the medication
+23,MedicationKnowledge.cost.type, type ,,1..1,CodeableConcept,The category of the cost information
+24,MedicationKnowledge.cost.source, source ,,0..1,string,The source or owner for the price information
+25,MedicationKnowledge.cost.cost, cost ,,1..1,Money,The price of the medication
+26,MedicationKnowledge.monitoringProgram, monitoringProgram ,,0..*,BackboneElement,Program under which a medication is reviewed
+27,MedicationKnowledge.monitoringProgram.type, type ,,0..1,CodeableConcept,Type of program under which the medication is monitored
+28,MedicationKnowledge.monitoringProgram.name, name ,,0..1,string,Name of the reviewing program
+29,MedicationKnowledge.administrationGuidelines, administrationGuidelines ,,0..*,BackboneElement,Guidelines for administration of the medication
+30,MedicationKnowledge.administrationGuidelines.dosage, dosage ,,0..*,BackboneElement,Dosage for the medication for the specific guidelines
+31,MedicationKnowledge.administrationGuidelines.dosage.type, type ,,1..1,CodeableConcept,Type of dosage
+32,MedicationKnowledge.administrationGuidelines.dosage.dosage, dosage ,,1..*,Dosage,Dosage for the medication for the specific guidelines
+33,MedicationKnowledge.administrationGuidelines.indicationCodeableconcept,indicationCodeableconcept,,0..1,CodeableConcept,Indication for use that apply to the specific administration guidelines
+34,MedicationKnowledge.administrationGuidelines.indicationReference(observationdefinition),indicationReference(observationdefinition),,0..1,Reference(ObservationDefinition),Indication for use that apply to the specific administration guidelines
+35,MedicationKnowledge.administrationGuidelines.patientCharacteristics, patientCharacteristics ,,0..*,BackboneElement,Characteristics of the patient that are relevant to the administration guidelines
+36,MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristicCodeableconcept,characteristicCodeableconcept,,1..1,CodeableConcept,Specific characteristic that is relevant to the administration guideline
+37,MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristicSimplequantity,characteristicSimplequantity,,1..1,SimpleQuantity,Specific characteristic that is relevant to the administration guideline
+38,MedicationKnowledge.administrationGuidelines.patientCharacteristics.value, value ,,0..*,string,The specific characteristic
+39,MedicationKnowledge.medicineClassification, medicineClassification ,,0..*,BackboneElement,Categorization of the medication within a formulary or classification system
+40,MedicationKnowledge.medicineClassification.type, type ,,1..1,CodeableConcept,"The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)"
+41,MedicationKnowledge.medicineClassification.classification, classification ,,0..*,CodeableConcept,Specific category assigned to the medication
+42,MedicationKnowledge.packaging, packaging ,,0..1,BackboneElement,Details about packaged medications
+43,MedicationKnowledge.packaging.type, type ,,0..1,CodeableConcept,A code that defines the specific type of packaging that the medication can be found inMedication knowledge  package  type  codes (Example)
+44,MedicationKnowledge.packaging.quantity, quantity ,,0..1,SimpleQuantity,The number of product units the package would contain if fully loaded
+45,MedicationKnowledge.drugCharacteristic, drugCharacteristic ,,0..*,BackboneElement,Specifies descriptive properties of the medicine
+46,MedicationKnowledge.drugCharacteristic.type, type ,,0..1,CodeableConcept,Code specifying the type of characteristic of medicationMedication knowledge  characteristic  codes (Example)
+47,MedicationKnowledge.drugCharacteristic.valueCodeableconcept,valueCodeableconcept,,0..1,CodeableConcept,Description of the characteristic
+48,MedicationKnowledge.drugCharacteristic.valueString,valueString,,0..1,string,Description of the characteristic
+49,MedicationKnowledge.drugCharacteristic.valueSimplequantity,valueSimplequantity,,0..1,SimpleQuantity,Description of the characteristic
+50,MedicationKnowledge.drugCharacteristic.valueBase64binary,valueBase64binary,,0..1,base64Binary,Description of the characteristic
+51,MedicationKnowledge.contraindication, contraindication ,,0..*,Reference(DetectedIssue),Potential clinical issue with or between medication(s)
+52,MedicationKnowledge.regulatory, regulatory ,,0..*,BackboneElement,Regulatory information about a medication
+53,MedicationKnowledge.regulatory.regulatoryAuthority, regulatoryAuthority ,,1..1,Reference(Organization),Specifies the authority of the regulation
+54,MedicationKnowledge.regulatory.substitution, substitution ,,0..*,BackboneElement,Specifies if changes are allowed when dispensing a medication from a regulatory perspective
+55,MedicationKnowledge.regulatory.substitution.type, type ,,1..1,CodeableConcept,Specifies the type of substitution allowed
+56,MedicationKnowledge.regulatory.substitution.allowed, allowed ,,1..1,boolean,Specifies if regulation allows for changes in the medication when dispensing
+57,MedicationKnowledge.regulatory.schedule, schedule ,,0..*,BackboneElement,Specifies the schedule of a medication in jurisdiction
+58,MedicationKnowledge.regulatory.schedule.schedule, schedule ,,1..1,CodeableConcept,Specifies the specific drug schedule
+59,MedicationKnowledge.regulatory.maxDispense, maxDispense ,,0..1,BackboneElement,The maximum number of units of the medication that can be dispensed in a period
+60,MedicationKnowledge.regulatory.maxDispense.quantity, quantity ,,1..1,SimpleQuantity,The maximum number of units of the medication that can be dispensed
+61,MedicationKnowledge.regulatory.maxDispense.period, period ,,0..1,Duration,The period that applies to the maximum number of units
+62,MedicationKnowledge.kinetics, kinetics ,,0..*,BackboneElement,"The time course of drug absorption, distribution, metabolism and excretion of a medication from the body"
+63,MedicationKnowledge.kinetics.areaUnderCurve, areaUnderCurve ,,0..*,SimpleQuantity,The drug concentration measured at certain discrete points in time
+64,MedicationKnowledge.kinetics.lethalDose50, lethalDose50 ,,0..*,SimpleQuantity,The median lethal dose of a drug
+65,MedicationKnowledge.kinetics.halfLifePeriod, halfLifePeriod ,,0..1,Duration,Time required for concentration in the body to decrease by half

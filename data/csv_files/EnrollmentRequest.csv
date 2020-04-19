@@ -1,0 +1,9 @@
+,Path,Name,Flag,Card,Type,Description
+0,EnrollmentRequest, EnrollmentRequest ,TU,,DomainResource,"Enroll in coverageElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EnrollmentRequest.identifier, identifier ,,0..*,Identifier,Business Identifier
+2,EnrollmentRequest.status, status ,?!Σ,0..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,EnrollmentRequest.created, created ,,0..1,dateTime,Creation date
+4,EnrollmentRequest.insurer, insurer ,,0..1,Reference(Organization),Target
+5,EnrollmentRequest.provider, provider ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Responsible practitioner
+6,EnrollmentRequest.candidate, candidate ,,0..1,Reference(Patient),The subject to be enrolled
+7,EnrollmentRequest.coverage, coverage ,,0..1,Reference(Coverage),Insurance information

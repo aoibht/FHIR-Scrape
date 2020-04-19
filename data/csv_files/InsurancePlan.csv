@@ -1,0 +1,46 @@
+,Path,Name,Flag,Card,Type,Description
+0,InsurancePlan, InsurancePlan ,ITU,,DomainResource,"Details of a Health Insurance product/plan provided by an organization+ Rule: The organization SHALL at least have a name or an idendtifier, and possibly more than oneElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,InsurancePlan.identifier, identifier ,ΣI,0..*,Identifier,Business Identifier for Product
+2,InsurancePlan.status, status ,?!Σ,0..1,code,draft | active | retired | unknownPublicationStatus (Required)
+3,InsurancePlan.type, type ,Σ,0..*,CodeableConcept,Kind of productInsurance plan type (Example)
+4,InsurancePlan.name, name ,ΣI,0..1,string,Official name
+5,InsurancePlan.alias, alias ,,0..*,string,Alternate names
+6,InsurancePlan.period, period ,,0..1,Period,When the product is available
+7,InsurancePlan.ownedBy, ownedBy ,Σ,0..1,Reference(Organization),Plan issuer
+8,InsurancePlan.administeredBy, administeredBy ,Σ,0..1,Reference(Organization),Product administrator
+9,InsurancePlan.coverageArea, coverageArea ,Σ,0..*,Reference(Location),Where product applies
+10,InsurancePlan.contact, contact ,,0..*,BackboneElement,Contact for the product
+11,InsurancePlan.contact.purpose, purpose ,,0..1,CodeableConcept,The type of contactContact entity type (Extensible)
+12,InsurancePlan.contact.name, name ,,0..1,HumanName,A name associated with the contact
+13,InsurancePlan.contact.telecom, telecom ,,0..*,ContactPoint,"Contact details (telephone, email, etc.)  for a contact"
+14,InsurancePlan.contact.address, address ,,0..1,Address,Visiting or postal addresses for the contact
+15,InsurancePlan.endpoint, endpoint ,,0..*,Reference(Endpoint),Technical endpoint
+16,InsurancePlan.network, network ,,0..*,Reference(Organization),What networks are Included
+17,InsurancePlan.coverage, coverage ,,0..*,BackboneElement,Coverage details
+18,InsurancePlan.coverage.type, type ,,1..1,CodeableConcept,Type of coverage
+19,InsurancePlan.coverage.network, network ,,0..*,Reference(Organization),What networks provide coverage
+20,InsurancePlan.coverage.benefit, benefit ,,1..*,BackboneElement,List of benefits
+21,InsurancePlan.coverage.benefit.type, type ,,1..1,CodeableConcept,Type of benefit
+22,InsurancePlan.coverage.benefit.requirement, requirement ,,0..1,string,Referral requirements
+23,InsurancePlan.coverage.benefit.limit, limit ,,0..*,BackboneElement,Benefit limits
+24,InsurancePlan.coverage.benefit.limit.value, value ,,0..1,Quantity,Maximum value allowed
+25,InsurancePlan.coverage.benefit.limit.code, code ,,0..1,CodeableConcept,Benefit limit details
+26,InsurancePlan.plan, plan ,,0..*,BackboneElement,Plan details
+27,InsurancePlan.plan.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for Product
+28,InsurancePlan.plan.type, type ,,0..1,CodeableConcept,Type of plan
+29,InsurancePlan.plan.coverageArea, coverageArea ,Σ,0..*,Reference(Location),Where product applies
+30,InsurancePlan.plan.network, network ,,0..*,Reference(Organization),What networks provide coverage
+31,InsurancePlan.plan.generalCost, generalCost ,,0..*,BackboneElement,Overall costs
+32,InsurancePlan.plan.generalCost.type, type ,,0..1,CodeableConcept,Type of cost
+33,InsurancePlan.plan.generalCost.groupSize, groupSize ,,0..1,positiveInt,Number of enrollees
+34,InsurancePlan.plan.generalCost.cost, cost ,,0..1,Money,Cost value
+35,InsurancePlan.plan.generalCost.comment, comment ,,0..1,string,Additional cost information
+36,InsurancePlan.plan.specificCost, specificCost ,,0..*,BackboneElement,Specific costs
+37,InsurancePlan.plan.specificCost.category, category ,,1..1,CodeableConcept,General category of benefit
+38,InsurancePlan.plan.specificCost.benefit, benefit ,,0..*,BackboneElement,Benefits list
+39,InsurancePlan.plan.specificCost.benefit.type, type ,,1..1,CodeableConcept,Type of specific benefit
+40,InsurancePlan.plan.specificCost.benefit.cost, cost ,,0..*,BackboneElement,List of the costs
+41,InsurancePlan.plan.specificCost.benefit.cost.type, type ,,1..1,CodeableConcept,Type of cost
+42,InsurancePlan.plan.specificCost.benefit.cost.applicability, applicability ,,0..1,CodeableConcept,in-network | out-of-network | otherBenefit cost applicability (Required)
+43,InsurancePlan.plan.specificCost.benefit.cost.qualifiers, qualifiers ,,0..*,CodeableConcept,Additional information about the cost
+44,InsurancePlan.plan.specificCost.benefit.cost.value, value ,,0..1,Quantity,The actual cost value

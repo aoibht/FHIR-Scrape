@@ -1,0 +1,36 @@
+,Path,Name,Flag,Card,Type,Description
+0,Specimen, Specimen ,TU,,DomainResource,"Sample for analysisElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Specimen.identifier, identifier ,Σ,0..*,Identifier,External Identifier
+2,Specimen.accessionIdentifier, accessionIdentifier ,Σ,0..1,Identifier,Identifier assigned by the lab
+3,Specimen.status, status ,?!Σ,0..1,code,available | unavailable | unsatisfactory | entered-in-errorSpecimenStatus (Required)
+4,Specimen.type, type ,Σ,0..1,CodeableConcept,Kind of material that forms the specimenv2 Specimen Type (Example)
+5,Specimen.subject, subject ,Σ,0..1,Reference(Patient | Group | Device | Substance | Location),"Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device"
+6,Specimen.receivedTime, receivedTime ,Σ,0..1,dateTime,The time when specimen was received for processing
+7,Specimen.parent, parent ,,0..*,Reference(Specimen),Specimen from which this specimen originated
+8,Specimen.request, request ,,0..*,Reference(ServiceRequest),Why the specimen was collected
+9,Specimen.collection, collection ,,0..1,BackboneElement,Collection details
+10,Specimen.collection.collector, collector ,Σ,0..1,Reference(Practitioner | PractitionerRole),Who collected the specimen
+11,Specimen.collection.collectedDatetime,collectedDatetime,Σ,0..1,dateTime,Collection time
+12,Specimen.collection.collectedPeriod,collectedPeriod,Σ,0..1,Period,Collection time
+13,Specimen.collection.duration, duration ,Σ,0..1,Duration,How long it took to collect specimen
+14,Specimen.collection.quantity, quantity ,,0..1,SimpleQuantity,The quantity of specimen collected
+15,Specimen.collection.method, method ,,0..1,CodeableConcept,Technique used to perform collectionFHIR Specimen Collection Method (Example)
+16,Specimen.collection.bodySite, bodySite ,,0..1,CodeableConcept,Anatomical collection siteSNOMED CT Body Structures (Example)
+17,Specimen.collection.fastingStatusCodeableconcept,fastingStatusCodeableconcept,Σ,0..1,CodeableConcept,Whether or how long patient abstained from food and/or drinkv2 Relevant Clincial Information (Extensible)
+18,Specimen.collection.fastingStatusDuration,fastingStatusDuration,Σ,0..1,Duration,Whether or how long patient abstained from food and/or drinkv2 Relevant Clincial Information (Extensible)
+19,Specimen.processing, processing ,,0..*,BackboneElement,Processing and processing step details
+20,Specimen.processing.description, description ,,0..1,string,Textual description of procedure
+21,Specimen.processing.procedure, procedure ,,0..1,CodeableConcept,Indicates the treatment step  applied to the specimenSpecimen processing procedure (Example)
+22,Specimen.processing.additive, additive ,,0..*,Reference(Substance),Material used in the processing step
+23,Specimen.processing.timeDatetime,timeDatetime,,0..1,dateTime,Date and time of specimen processing
+24,Specimen.processing.timePeriod,timePeriod,,0..1,Period,Date and time of specimen processing
+25,Specimen.container, container ,,0..*,BackboneElement,"Direct container of specimen (tube/slide, etc.)"
+26,Specimen.container.identifier, identifier ,Σ,0..*,Identifier,Id for the container
+27,Specimen.container.description, description ,,0..1,string,Textual description of the container
+28,Specimen.container.type, type ,,0..1,CodeableConcept,Kind of container directly associated with specimenSpecimen container (Example)
+29,Specimen.container.capacity, capacity ,,0..1,SimpleQuantity,Container volume or size
+30,Specimen.container.specimenQuantity, specimenQuantity ,,0..1,SimpleQuantity,Quantity of specimen within container
+31,Specimen.container.additiveCodeableconcept,additiveCodeableconcept,,0..1,CodeableConcept,Additive associated with containerv2 Additive (Example)
+32,Specimen.container.additiveReference(substance),additiveReference(substance),,0..1,Reference(Substance),Additive associated with containerv2 Additive (Example)
+33,Specimen.condition, condition ,Σ,0..*,CodeableConcept,State of the specimenv2 Specimen Condition (Extensible)
+34,Specimen.note, note ,,0..*,Annotation,Comments

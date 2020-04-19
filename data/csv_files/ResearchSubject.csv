@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,ResearchSubject, ResearchSubject ,TU,,DomainResource,"Physical entity which is the primary unit of interest in the studyElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ResearchSubject.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for research subject in a study
+2,ResearchSubject.status, status ,?!Σ,1..1,code,candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawnResearchSubjectStatus (Required)
+3,ResearchSubject.period, period ,Σ,0..1,Period,Start and end of participation
+4,ResearchSubject.study, study ,Σ,1..1,Reference(ResearchStudy),Study subject is part of
+5,ResearchSubject.individual, individual ,Σ,1..1,Reference(Patient),Who is part of study
+6,ResearchSubject.assignedArm, assignedArm ,,0..1,string,What path should be followed
+7,ResearchSubject.actualArm, actualArm ,,0..1,string,What path was followed
+8,ResearchSubject.consent, consent ,,0..1,Reference(Consent),Agreement to participate in study

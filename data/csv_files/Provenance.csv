@@ -1,0 +1,20 @@
+,Path,Name,Flag,Card,Type,Description
+0,Provenance, Provenance ,TU,,DomainResource,"Who, What, When for a set of resourcesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Provenance.target, target ,Σ,1..*,Reference(Any),Target Reference(s) (usually version specific)
+2,Provenance.occurredPeriod,occurredPeriod,,0..1,Period,When the activity occurred
+3,Provenance.occurredDatetime,occurredDatetime,,0..1,dateTime,When the activity occurred
+4,Provenance.recorded, recorded ,Σ,1..1,instant,When the activity was recorded / updated
+5,Provenance.policy, policy ,,0..*,uri,Policy or plan the activity was defined by
+6,Provenance.location, location ,,0..1,Reference(Location),"Where the activity occurred, if relevant"
+7,Provenance.reason, reason ,,0..*,CodeableConcept,Reason the activity is occurringV3 Value SetPurposeOfUse (Extensible)
+8,Provenance.activity, activity ,,0..1,CodeableConcept,Activity that occurredProvenance activity type (Extensible)
+9,Provenance.agent, agent ,,1..*,BackboneElement,Actor involved
+10,Provenance.agent.type, type ,Σ,0..1,CodeableConcept,How the agent participatedProvenance participant type (Extensible)
+11,Provenance.agent.role, role ,,0..*,CodeableConcept,What the agents role wasSecurityRoleType (Example)
+12,Provenance.agent.who, who ,Σ,1..1,Reference(Practitioner | PractitionerRole | RelatedPerson | Patient | Device | Organization),Who participated
+13,Provenance.agent.onBehalfOf, onBehalfOf ,,0..1,Reference(Practitioner | PractitionerRole | RelatedPerson | Patient | Device | Organization),Who the agent is representing
+14,Provenance.entity, entity ,,0..*,BackboneElement,An entity used in this activity
+15,Provenance.entity.role, role ,Σ,1..1,code,derivation | revision | quotation | source | removalProvenanceEntityRole (Required)
+16,Provenance.entity.what, what ,Σ,1..1,Reference(Any),Identity of entity
+17,Provenance.entity.agent, agent ,,0..*,see agent,Entity is attributed to this agent
+18,Provenance.signature, signature ,,0..*,Signature,Signature on target

@@ -1,0 +1,16 @@
+,Path,Name,Flag,Card,Type,Description
+0,Medication, Medication ,TU,,DomainResource,"Definition of a MedicationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Medication.identifier, identifier ,Σ,0..*,Identifier,Business identifier for this medication
+2,Medication.code, code ,Σ,0..1,CodeableConcept,Codes that identify this medicationSNOMED CT Medication Codes (Example)
+3,Medication.status, status ,?!Σ,0..1,code,active | inactive | entered-in-errorMedication  status  codes (Required)
+4,Medication.manufacturer, manufacturer ,Σ,0..1,Reference(Organization),Manufacturer of the item
+5,Medication.form, form ,,0..1,CodeableConcept,powder | tablets | capsule +SNOMED CT Form Codes (Example)
+6,Medication.amount, amount ,Σ,0..1,Ratio,Amount of drug in package
+7,Medication.ingredient, ingredient ,,0..*,BackboneElement,Active or inactive ingredient
+8,Medication.ingredient.itemCodeableconcept,itemCodeableconcept,,1..1,CodeableConcept,The actual ingredient or content
+9,Medication.ingredient.itemReference(substance | medication),itemReference(substance | medication),,1..1,Reference(Substance | Medication),The actual ingredient or content
+10,Medication.ingredient.isActive, isActive ,,0..1,boolean,Active ingredient indicator
+11,Medication.ingredient.strength, strength ,,0..1,Ratio,Quantity of ingredient present
+12,Medication.batch, batch ,,0..1,BackboneElement,Details about packaged medications
+13,Medication.batch.lotNumber, lotNumber ,,0..1,string,Identifier assigned to batch
+14,Medication.batch.expirationDate, expirationDate ,,0..1,dateTime,When batch will expire

@@ -1,0 +1,17 @@
+,Path,Name,Flag,Card,Type,Description
+0,DeviceUseStatement, DeviceUseStatement ,TU,,DomainResource,"Record of use of a deviceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DeviceUseStatement.identifier, identifier ,Σ,0..*,Identifier,External identifier for this record
+2,DeviceUseStatement.basedOn, basedOn ,Σ,0..*,Reference(ServiceRequest),"Fulfills plan, proposal or order"
+3,DeviceUseStatement.status, status ,?!Σ,1..1,code,active | completed | entered-in-error +DeviceUseStatementStatus (Required)
+4,DeviceUseStatement.subject, subject ,Σ,1..1,Reference(Patient | Group),Patient using device
+5,DeviceUseStatement.derivedFrom, derivedFrom ,Σ,0..*,Reference(ServiceRequest | Procedure | Claim | Observation | QuestionnaireResponse | DocumentReference),Supporting information
+6,DeviceUseStatement.timingTiming,timingTiming,Σ,0..1,Timing,How often  the device was used
+7,DeviceUseStatement.timingPeriod,timingPeriod,Σ,0..1,Period,How often  the device was used
+8,DeviceUseStatement.timingDatetime,timingDatetime,Σ,0..1,dateTime,How often  the device was used
+9,DeviceUseStatement.recordedOn, recordedOn ,Σ,0..1,dateTime,When statement was recorded
+10,DeviceUseStatement.source, source ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson),Who made the statement
+11,DeviceUseStatement.device, device ,Σ,1..1,Reference(Device),Reference to device used
+12,DeviceUseStatement.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Why device was used
+13,DeviceUseStatement.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference | Media),Why was DeviceUseStatement performed?
+14,DeviceUseStatement.bodySite, bodySite ,Σ,0..1,CodeableConcept,Target body siteSNOMED CT Body Structures (Example)
+15,DeviceUseStatement.note, note ,,0..*,Annotation,"Addition details (comments, instructions)"

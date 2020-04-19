@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,CommunicationRequest, CommunicationRequest ,TU,,DomainResource,"A request for information to be sent to a receiverElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CommunicationRequest.identifier, identifier ,Σ,0..*,Identifier,Unique identifier
+2,CommunicationRequest.basedOn, basedOn ,Σ,0..*,Reference(Any),Fulfills plan or proposal
+3,CommunicationRequest.replaces, replaces ,Σ,0..*,Reference(CommunicationRequest),Request(s) replaced by this request
+4,CommunicationRequest.groupIdentifier, groupIdentifier ,Σ,0..1,Identifier,Composite request this is part of
+5,CommunicationRequest.status, status ,?!Σ,1..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+6,CommunicationRequest.statusReason, statusReason ,,0..1,CodeableConcept,Reason for current status
+7,CommunicationRequest.category, category ,,0..*,CodeableConcept,Message categoryCommunicationCategory (Example)
+8,CommunicationRequest.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+9,CommunicationRequest.doNotPerform, doNotPerform ,?!Σ,0..1,boolean,True if request is prohibiting action
+10,CommunicationRequest.medium, medium ,,0..*,CodeableConcept,A channel of communicationv3 Code System ParticipationMode (Example)
+11,CommunicationRequest.subject, subject ,,0..1,Reference(Patient | Group),Focus of message
+12,CommunicationRequest.about, about ,,0..*,Reference(Any),Resources that pertain to this communication request
+13,CommunicationRequest.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+14,CommunicationRequest.payload, payload ,,0..*,BackboneElement,Message payload
+15,CommunicationRequest.payload.contentString,contentString,,1..1,string,Message part content
+16,CommunicationRequest.payload.contentAttachment,contentAttachment,,1..1,Attachment,Message part content
+17,CommunicationRequest.payload.contentReference(any),contentReference(any),,1..1,Reference(Any),Message part content
+18,CommunicationRequest.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When scheduled
+19,CommunicationRequest.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When scheduled
+20,CommunicationRequest.authoredOn, authoredOn ,Σ,0..1,dateTime,When request transitioned to being actionable
+21,CommunicationRequest.requester, requester ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | RelatedPerson | Device),Who/what is requesting service
+22,CommunicationRequest.recipient, recipient ,,0..*,Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | Group | CareTeam | HealthcareService),Message recipient
+23,CommunicationRequest.sender, sender ,Σ,0..1,Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | HealthcareService),Message sender
+24,CommunicationRequest.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Why is communication needed?v3 Code System ActReason (Example)
+25,CommunicationRequest.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why is communication needed?
+26,CommunicationRequest.note, note ,,0..*,Annotation,Comments made about communication request

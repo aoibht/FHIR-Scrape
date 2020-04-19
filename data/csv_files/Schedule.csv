@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,Schedule, Schedule ,TU,,DomainResource,"A container for slots of time that may be available for booking appointmentsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Schedule.identifier, identifier ,Σ,0..*,Identifier,External Ids for this item
+2,Schedule.active, active ,?!Σ,0..1,boolean,Whether this schedule is in active use
+3,Schedule.serviceCategory, serviceCategory ,Σ,0..*,CodeableConcept,High-level categoryService category (Example)
+4,Schedule.serviceType, serviceType ,Σ,0..*,CodeableConcept,Specific serviceService type (Example)
+5,Schedule.specialty, specialty ,Σ,0..*,CodeableConcept,Type of specialty neededPractice Setting Code Value Set (Preferred)
+6,Schedule.actor, actor ,Σ,1..*,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Device | HealthcareService | Location),Resource(s) that availability information is being provided for
+7,Schedule.planningHorizon, planningHorizon ,Σ,0..1,Period,Period of time covered by schedule
+8,Schedule.comment, comment ,,0..1,string,Comments on availability

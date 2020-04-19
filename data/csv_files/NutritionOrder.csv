@@ -1,0 +1,47 @@
+,Path,Name,Flag,Card,Type,Description
+0,NutritionOrder, NutritionOrder ,ITU,,DomainResource,"Diet, formula or nutritional supplement request+ Warning: Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula classElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,NutritionOrder.identifier, identifier ,,0..*,Identifier,Identifiers assigned to this order
+2,NutritionOrder.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(ActivityDefinition | PlanDefinition),Instantiates FHIR protocol or definition
+3,NutritionOrder.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,NutritionOrder.instantiates, instantiates ,,0..*,uri,Instantiates protocol or definition
+5,NutritionOrder.status, status ,?!Σ,1..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+6,NutritionOrder.intent, intent ,?!Σ,1..1,code,proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | optionRequestIntent (Required)
+7,NutritionOrder.patient, patient ,Σ,1..1,Reference(Patient),"The person who requires the diet, formula or nutritional supplement"
+8,NutritionOrder.encounter, encounter ,,0..1,Reference(Encounter),The encounter associated with this nutrition order
+9,NutritionOrder.dateTime, dateTime ,Σ,1..1,dateTime,Date and time the nutrition order was requested
+10,NutritionOrder.orderer, orderer ,Σ,0..1,Reference(Practitioner | PractitionerRole),"Who ordered the diet, formula or nutritional supplement"
+11,NutritionOrder.allergyIntolerance, allergyIntolerance ,,0..*,Reference(AllergyIntolerance),List of the patient's food and nutrition-related allergies and intolerances
+12,NutritionOrder.foodPreferenceModifier, foodPreferenceModifier ,,0..*,CodeableConcept,Order-specific modifier about the type of food that should be givenDiet (Example)
+13,NutritionOrder.excludeFoodModifier, excludeFoodModifier ,,0..*,CodeableConcept,Order-specific modifier about the type of food that should not be givenFood Type Codes (Example)
+14,NutritionOrder.oralDiet, oralDiet ,I,0..1,BackboneElement,Oral diet components
+15,NutritionOrder.oralDiet.type, type ,Σ,0..*,CodeableConcept,Type of oral diet or diet restrictions that describe what can be consumed orallyDiet Codes (Example)
+16,NutritionOrder.oralDiet.schedule, schedule ,,0..*,Timing,Scheduled frequency of diet
+17,NutritionOrder.oralDiet.nutrient, nutrient ,,0..*,BackboneElement,Required  nutrient modifications
+18,NutritionOrder.oralDiet.nutrient.modifier, modifier ,,0..1,CodeableConcept,Type of nutrient that is being modifiedNutrient Modifier Codes (Example)
+19,NutritionOrder.oralDiet.nutrient.amount, amount ,,0..1,SimpleQuantity,Quantity of the specified nutrient
+20,NutritionOrder.oralDiet.texture, texture ,,0..*,BackboneElement,Required  texture modifications
+21,NutritionOrder.oralDiet.texture.modifier, modifier ,,0..1,CodeableConcept,"Code to indicate how to alter the texture of the foods, e.g. pureedTexture Modifier Codes (Example)"
+22,NutritionOrder.oralDiet.texture.foodType, foodType ,,0..1,CodeableConcept,Concepts that are used to identify an entity that is ingested for nutritional purposesTexture Modified Food Type Codes (Example)
+23,NutritionOrder.oralDiet.fluidConsistencyType, fluidConsistencyType ,,0..*,CodeableConcept,The required consistency of fluids and liquids provided to the patientFluid Consistency Type Codes (Example)
+24,NutritionOrder.oralDiet.instruction, instruction ,Σ,0..1,string,Instructions or additional information about the oral diet
+25,NutritionOrder.supplement, supplement ,I,0..*,BackboneElement,Supplement components
+26,NutritionOrder.supplement.type, type ,Σ,0..1,CodeableConcept,Type of supplement product requestedSupplement Type Codes (Example)
+27,NutritionOrder.supplement.productName, productName ,,0..1,string,Product or brand name of the nutritional supplement
+28,NutritionOrder.supplement.schedule, schedule ,,0..*,Timing,Scheduled frequency of supplement
+29,NutritionOrder.supplement.quantity, quantity ,,0..1,SimpleQuantity,Amount of the nutritional supplement
+30,NutritionOrder.supplement.instruction, instruction ,Σ,0..1,string,Instructions or additional information about the oral supplement
+31,NutritionOrder.enteralFormula, enteralFormula ,I,0..1,BackboneElement,Enteral formula components
+32,NutritionOrder.enteralFormula.baseFormulaType, baseFormulaType ,Σ,0..1,CodeableConcept,Type of enteral or infant formulaEnteral Formula Type Codes (Example)
+33,NutritionOrder.enteralFormula.baseFormulaProductName, baseFormulaProductName ,,0..1,string,Product or brand name of the enteral or infant formula
+34,NutritionOrder.enteralFormula.additiveType, additiveType ,,0..1,CodeableConcept,Type of modular component to add to the feedingEnteral Formula Additive Type Code (Example)
+35,NutritionOrder.enteralFormula.additiveProductName, additiveProductName ,,0..1,string,Product or brand name of the modular additive
+36,NutritionOrder.enteralFormula.caloricDensity, caloricDensity ,,0..1,SimpleQuantity,Amount of energy per specified volume that is required
+37,NutritionOrder.enteralFormula.routeofAdministration, routeofAdministration ,,0..1,CodeableConcept,How the formula should enter the patient's gastrointestinal tractEnteral Route Codes (Extensible)
+38,NutritionOrder.enteralFormula.administration, administration ,,0..*,BackboneElement,Formula feeding instruction as structured data
+39,NutritionOrder.enteralFormula.administration.schedule, schedule ,,0..1,Timing,Scheduled frequency of enteral feeding
+40,NutritionOrder.enteralFormula.administration.quantity, quantity ,,0..1,SimpleQuantity,The volume of formula to provide
+41,NutritionOrder.enteralFormula.administration.rateSimplequantity,rateSimplequantity,,0..1,SimpleQuantity,Speed with which the formula is provided per period of time
+42,NutritionOrder.enteralFormula.administration.rateRatio,rateRatio,,0..1,Ratio,Speed with which the formula is provided per period of time
+43,NutritionOrder.enteralFormula.maxVolumeToDeliver, maxVolumeToDeliver ,,0..1,SimpleQuantity,Upper limit on formula volume per unit of time
+44,NutritionOrder.enteralFormula.administrationInstruction, administrationInstruction ,Σ,0..1,string,Formula feeding instructions expressed as text
+45,NutritionOrder.note, note ,,0..*,Annotation,Comments

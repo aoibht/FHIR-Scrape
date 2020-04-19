@@ -1,0 +1,29 @@
+,Path,Name,Flag,Card,Type,Description
+0,Appointment, Appointment ,ITU,,DomainResource,"A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)+ Rule: Either start and end are specified, or neither+ Rule: Only proposed or cancelled appointments can be missing start/end dates+ Rule: Cancelation reason is only used for appointments that have been cancelled, or no-showElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Appointment.identifier, identifier ,Σ,0..*,Identifier,External Ids for this item
+2,Appointment.status, status ,?!Σ,1..1,code,proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlistAppointmentStatus (Required)
+3,Appointment.cancelationReason, cancelationReason ,Σ,0..1,CodeableConcept,The coded reason for the appointment being cancelledAppointment cancellation reason (Example)
+4,Appointment.serviceCategory, serviceCategory ,Σ,0..*,CodeableConcept,A broad categorization of the service that is to be performed during this appointmentService category (Example)
+5,Appointment.serviceType, serviceType ,Σ,0..*,CodeableConcept,The specific service that is to be performed during this appointmentService type (Example)
+6,Appointment.specialty, specialty ,Σ,0..*,CodeableConcept,The specialty of a practitioner that would be required to perform the service requested in this appointmentPractice Setting Code Value Set (Preferred)
+7,Appointment.appointmentType, appointmentType ,Σ,0..1,CodeableConcept,The style of appointment or patient that has been booked in the slot (not service type)v2 Appointment Reason Codes (Preferred)
+8,Appointment.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Coded reason this appointment is scheduledEncounter Reason Codes (Preferred)
+9,Appointment.reasonReference, reasonReference ,,0..*,Reference(Condition | Procedure | Observation | ImmunizationRecommendation),Reason the appointment is to take place (resource)
+10,Appointment.priority, priority ,,0..1,unsignedInt,Used to make informed decisions if needing to re-prioritize
+11,Appointment.description, description ,,0..1,string,"Shown on a subject line in a meeting request, or appointment list"
+12,Appointment.supportingInformation, supportingInformation ,,0..*,Reference(Any),Additional information to support the appointment
+13,Appointment.start, start ,Σ,0..1,instant,When appointment is to take place
+14,Appointment.end, end ,Σ,0..1,instant,When appointment is to conclude
+15,Appointment.minutesDuration, minutesDuration ,,0..1,positiveInt,Can be less than start/end (e.g. estimate)
+16,Appointment.slot, slot ,,0..*,Reference(Slot),The slots that this appointment is filling
+17,Appointment.created, created ,,0..1,dateTime,The date that this appointment was initially created
+18,Appointment.comment, comment ,,0..1,string,Additional comments
+19,Appointment.patientInstruction, patientInstruction ,,0..1,string,Detailed information and instructions for the patient
+20,Appointment.basedOn, basedOn ,,0..*,Reference(ServiceRequest),The service request this appointment is allocated to assess
+21,Appointment.participant, participant ,I,1..*,BackboneElement,Participants involved in appointment+ Rule: Either the type or actor on the participant SHALL be specified
+22,Appointment.participant.type, type ,Σ,0..*,CodeableConcept,Role of participant in the appointmentParticipant type (Extensible)
+23,Appointment.participant.actor, actor ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Device | HealthcareService | Location),"Person, Location/HealthcareService or Device"
+24,Appointment.participant.required, required ,Σ,0..1,code,required | optional | information-onlyParticipantRequired (Required)
+25,Appointment.participant.status, status ,Σ,1..1,code,accepted | declined | tentative | needs-actionParticipationStatus (Required)
+26,Appointment.participant.period, period ,,0..1,Period,Participation period of the actor
+27,Appointment.requestedPeriod, requestedPeriod ,,0..*,Period,Potential date/time interval(s) requested to allocate the appointment within

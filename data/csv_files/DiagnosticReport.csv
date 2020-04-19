@@ -1,0 +1,23 @@
+,Path,Name,Flag,Card,Type,Description
+0,DiagnosticReport, DiagnosticReport ,TU,,DomainResource,"A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reportsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DiagnosticReport.identifier, identifier ,Σ,0..*,Identifier,Business identifier for report
+2,DiagnosticReport.basedOn, basedOn ,,0..*,Reference(CarePlan | ImmunizationRecommendation | MedicationRequest | NutritionOrder | ServiceRequest),What was requested
+3,DiagnosticReport.status, status ,?!Σ,1..1,code,registered | partial | preliminary | final +DiagnosticReportStatus (Required)
+4,DiagnosticReport.category, category ,Σ,0..*,CodeableConcept,Service categoryDiagnostic Service Section Codes (Example)
+5,DiagnosticReport.code, code ,Σ,1..1,CodeableConcept,Name/Code for this diagnostic reportLOINC Diagnostic Report Codes (Preferred)
+6,DiagnosticReport.subject, subject ,Σ,0..1,Reference(Patient | Group | Device | Location),"The subject of the report - usually, but not always, the patient"
+7,DiagnosticReport.encounter, encounter ,Σ,0..1,Reference(Encounter),Health care event when test ordered
+8,DiagnosticReport.effectiveDatetime,effectiveDatetime,Σ,0..1,dateTime,Clinically relevant time/time-period for report
+9,DiagnosticReport.effectivePeriod,effectivePeriod,Σ,0..1,Period,Clinically relevant time/time-period for report
+10,DiagnosticReport.issued, issued ,Σ,0..1,instant,DateTime this version was made
+11,DiagnosticReport.performer, performer ,Σ,0..*,Reference(Practitioner | PractitionerRole | Organization | CareTeam),Responsible Diagnostic Service
+12,DiagnosticReport.resultsInterpreter, resultsInterpreter ,Σ,0..*,Reference(Practitioner | PractitionerRole | Organization | CareTeam),Primary result interpreter
+13,DiagnosticReport.specimen, specimen ,,0..*,Reference(Specimen),Specimens this report is based on
+14,DiagnosticReport.result, result ,,0..*,Reference(Observation),Observations
+15,DiagnosticReport.imagingStudy, imagingStudy ,,0..*,Reference(ImagingStudy),Reference to full details of imaging associated with the diagnostic report
+16,DiagnosticReport.media, media ,Σ,0..*,BackboneElement,Key images associated with this report
+17,DiagnosticReport.media.comment, comment ,,0..1,string,Comment about the image (e.g. explanation)
+18,DiagnosticReport.media.link, link ,Σ,1..1,Reference(Media),Reference to the image source
+19,DiagnosticReport.conclusion, conclusion ,,0..1,string,Clinical conclusion (interpretation) of test results
+20,DiagnosticReport.conclusionCode, conclusionCode ,,0..*,CodeableConcept,Codes for the clinical conclusion of test resultsSNOMED CT Clinical Findings (Example)
+21,DiagnosticReport.presentedForm, presentedForm ,,0..*,Attachment,Entire report as issued

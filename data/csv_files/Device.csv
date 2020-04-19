@@ -1,0 +1,44 @@
+,Path,Name,Flag,Card,Type,Description
+0,Device, Device ,TU,,DomainResource,"Item used in healthcareElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Device.identifier, identifier ,,0..*,Identifier,Instance identifier
+2,Device.definition, definition ,,0..1,Reference(DeviceDefinition),The reference to the definition for the device
+3,Device.udiCarrier, udiCarrier ,Σ,0..*,BackboneElement,Unique Device Identifier (UDI) Barcode string
+4,Device.udiCarrier.deviceIdentifier, deviceIdentifier ,Σ,0..1,string,Mandatory fixed portion of UDI
+5,Device.udiCarrier.issuer, issuer ,,0..1,uri,UDI Issuing Organization
+6,Device.udiCarrier.jurisdiction, jurisdiction ,,0..1,uri,Regional UDI authority
+7,Device.udiCarrier.carrierAIDC, carrierAIDC ,Σ,0..1,base64Binary,UDI Machine Readable Barcode String
+8,Device.udiCarrier.carrierHRF, carrierHRF ,Σ,0..1,string,UDI Human Readable Barcode String
+9,Device.udiCarrier.entryType, entryType ,,0..1,code,barcode | rfid | manual +UDIEntryType (Required)
+10,Device.status, status ,?!Σ,0..1,code,active | inactive | entered-in-error | unknownFHIRDeviceStatus (Required)
+11,Device.statusReason, statusReason ,,0..*,CodeableConcept,online | paused | standby | offline | not-ready | transduc-discon | hw-discon | offFHIRDeviceStatusReason (Extensible)
+12,Device.distinctIdentifier, distinctIdentifier ,,0..1,string,The distinct identification string
+13,Device.manufacturer, manufacturer ,,0..1,string,Name of device manufacturer
+14,Device.manufactureDate, manufactureDate ,,0..1,dateTime,Date when the device was made
+15,Device.expirationDate, expirationDate ,,0..1,dateTime,Date and time of expiry of this device (if applicable)
+16,Device.lotNumber, lotNumber ,,0..1,string,Lot number of manufacture
+17,Device.serialNumber, serialNumber ,,0..1,string,Serial number assigned by the manufacturer
+18,Device.deviceName, deviceName ,,0..*,BackboneElement,The name of the device as given by the manufacturer
+19,Device.deviceName.name, name ,,1..1,string,The name of the device
+20,Device.deviceName.type, type ,,1..1,code,udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | otherDeviceNameType (Required)
+21,Device.modelNumber, modelNumber ,,0..1,string,The model number for the device
+22,Device.partNumber, partNumber ,,0..1,string,The part number of the device
+23,Device.type, type ,,0..1,CodeableConcept,The kind or type of deviceDevice Type (Example)
+24,Device.specialization, specialization ,,0..*,BackboneElement,"The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication"
+25,Device.specialization.systemType, systemType ,,1..1,CodeableConcept,The standard that is used to operate and communicate
+26,Device.specialization.version, version ,,0..1,string,The version of the standard that is used to operate and communicate
+27,Device.version, version ,,0..*,BackboneElement,The actual design of the device or software version running on the device
+28,Device.version.type, type ,,0..1,CodeableConcept,The type of the device version
+29,Device.version.component, component ,,0..1,Identifier,A single component of the device version
+30,Device.version.value, value ,,1..1,string,The version text
+31,Device.property, property ,,0..*,BackboneElement,"The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"
+32,Device.property.type, type ,,1..1,CodeableConcept,Code that specifies the property DeviceDefinitionPropetyCode (Extensible)
+33,Device.property.valueQuantity, valueQuantity ,,0..*,Quantity,Property value as a quantity
+34,Device.property.valueCode, valueCode ,,0..*,CodeableConcept,"Property value as a code, e.g., NTP4 (synced to NTP)"
+35,Device.patient, patient ,,0..1,Reference(Patient),Patient to whom Device is affixed
+36,Device.owner, owner ,,0..1,Reference(Organization),Organization responsible for device
+37,Device.contact, contact ,,0..*,ContactPoint,Details for human/organization for support
+38,Device.location, location ,,0..1,Reference(Location),Where the device is found
+39,Device.url, url ,,0..1,uri,Network address to contact device
+40,Device.note, note ,,0..*,Annotation,Device notes and comments
+41,Device.safety, safety ,Σ,0..*,CodeableConcept,Safety Characteristics of Device
+42,Device.parent, parent ,,0..1,Reference(Device),The parent device

@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,Communication, Communication ,TU,,DomainResource,"A record of information transmitted from a sender to a receiverElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Communication.identifier, identifier ,Σ,0..*,Identifier,Unique identifier
+2,Communication.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(PlanDefinition | ActivityDefinition | Measure | OperationDefinition | Questionnaire),Instantiates FHIR protocol or definition
+3,Communication.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,Communication.basedOn, basedOn ,Σ,0..*,Reference(Any),Request fulfilled by this communication
+5,Communication.partOf, partOf ,Σ,0..*,Reference(Any),Part of this action
+6,Communication.inResponseTo, inResponseTo ,,0..*,Reference(Communication),Reply to
+7,Communication.status, status ,?!Σ,1..1,code,preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknownEventStatus (Required)
+8,Communication.statusReason, statusReason ,Σ,0..1,CodeableConcept,Reason for current statusCommunicationNotDoneReason (Example)
+9,Communication.category, category ,,0..*,CodeableConcept,Message categoryCommunicationCategory (Example)
+10,Communication.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+11,Communication.medium, medium ,,0..*,CodeableConcept,A channel of communicationv3 Code System ParticipationMode (Example)
+12,Communication.subject, subject ,Σ,0..1,Reference(Patient | Group),Focus of message
+13,Communication.topic, topic ,,0..1,CodeableConcept,Description of the purpose/contentCommunicationTopic (Example)
+14,Communication.about, about ,,0..*,Reference(Any),Resources that pertain to this communication
+15,Communication.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+16,Communication.sent, sent ,,0..1,dateTime,When sent
+17,Communication.received, received ,,0..1,dateTime,When received
+18,Communication.recipient, recipient ,,0..*,Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | Group | CareTeam | HealthcareService),Message recipient
+19,Communication.sender, sender ,,0..1,Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | HealthcareService),Message sender
+20,Communication.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Indication for messageSNOMED CT Clinical Findings (Example)
+21,Communication.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why was communication done?
+22,Communication.payload, payload ,,0..*,BackboneElement,Message payload
+23,Communication.payload.contentString,contentString,,1..1,string,Message part content
+24,Communication.payload.contentAttachment,contentAttachment,,1..1,Attachment,Message part content
+25,Communication.payload.contentReference(any),contentReference(any),,1..1,Reference(Any),Message part content
+26,Communication.note, note ,,0..*,Annotation,Comments made about the communication

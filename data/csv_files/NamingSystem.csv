@@ -1,0 +1,20 @@
+,Path,Name,Flag,Card,Type,Description
+0,NamingSystem, NamingSystem ,ITU,,DomainResource,"System of unique identification+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: Root systems cannot have uuid identifiers+ Rule: Can't have more than one preferred identifier for a typeElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,NamingSystem.name, name ,ΣI,1..1,string,Name for this naming system (computer friendly)
+2,NamingSystem.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+3,NamingSystem.kind, kind ,Σ,1..1,code,codesystem | identifier | rootNamingSystemType (Required)
+4,NamingSystem.date, date ,Σ,1..1,dateTime,Date last changed
+5,NamingSystem.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+6,NamingSystem.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+7,NamingSystem.responsible, responsible ,,0..1,string,Who maintains system namespace?
+8,NamingSystem.type, type ,,0..1,CodeableConcept,"e.g. driver,  provider,  patient, bank etc.IdentifierType (Extensible)"
+9,NamingSystem.description, description ,,0..1,markdown,Natural language description of the naming system
+10,NamingSystem.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+11,NamingSystem.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for naming system (if applicable)Jurisdiction (Extensible)
+12,NamingSystem.usage, usage ,,0..1,string,How/where is it used
+13,NamingSystem.uniqueId, uniqueId ,Σ,1..*,BackboneElement,Unique identifiers used for system
+14,NamingSystem.uniqueId.type, type ,Σ,1..1,code,oid | uuid | uri | otherNamingSystemIdentifierType (Required)
+15,NamingSystem.uniqueId.value, value ,Σ,1..1,string,The unique identifier
+16,NamingSystem.uniqueId.preferred, preferred ,,0..1,boolean,Is this the id that should be used for this type
+17,NamingSystem.uniqueId.comment, comment ,,0..1,string,Notes about identifier usage
+18,NamingSystem.uniqueId.period, period ,,0..1,Period,When is identifier valid?

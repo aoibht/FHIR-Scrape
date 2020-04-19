@@ -1,0 +1,29 @@
+,Path,Name,Flag,Card,Type,Description
+0,PaymentReconciliation, PaymentReconciliation ,TU,,DomainResource,"PaymentReconciliation resourceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,PaymentReconciliation.identifier, identifier ,,0..*,Identifier,Business Identifier for a payment reconciliation
+2,PaymentReconciliation.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,PaymentReconciliation.period, period ,Σ,0..1,Period,Period covered
+4,PaymentReconciliation.created, created ,Σ,1..1,dateTime,Creation date
+5,PaymentReconciliation.paymentIssuer, paymentIssuer ,Σ,0..1,Reference(Organization),Party generating payment
+6,PaymentReconciliation.request, request ,,0..1,Reference(Task),Reference to requesting resource
+7,PaymentReconciliation.requestor, requestor ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Responsible practitioner
+8,PaymentReconciliation.outcome, outcome ,,0..1,code,queued | complete | error | partialRemittanceOutcome (Required)
+9,PaymentReconciliation.disposition, disposition ,,0..1,string,Disposition message
+10,PaymentReconciliation.paymentDate, paymentDate ,Σ,1..1,date,When payment issued
+11,PaymentReconciliation.paymentAmount, paymentAmount ,Σ,1..1,Money,Total amount of Payment
+12,PaymentReconciliation.paymentIdentifier, paymentIdentifier ,,0..1,Identifier,Business identifier for the payment
+13,PaymentReconciliation.detail, detail ,,0..*,BackboneElement,Settlement particulars
+14,PaymentReconciliation.detail.identifier, identifier ,,0..1,Identifier,Business identifier of the payment detail
+15,PaymentReconciliation.detail.predecessor, predecessor ,,0..1,Identifier,Business identifier of the prior payment detail
+16,PaymentReconciliation.detail.type, type ,,1..1,CodeableConcept,Category of paymentPayment Type Codes (Example)
+17,PaymentReconciliation.detail.request, request ,,0..1,Reference(Any),Request giving rise to the payment
+18,PaymentReconciliation.detail.submitter, submitter ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Submitter of the request
+19,PaymentReconciliation.detail.response, response ,,0..1,Reference(Any),Response committing to a payment
+20,PaymentReconciliation.detail.date, date ,,0..1,date,Date of commitment to pay
+21,PaymentReconciliation.detail.responsible, responsible ,,0..1,Reference(PractitionerRole),Contact for the response
+22,PaymentReconciliation.detail.payee, payee ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Recipient of the payment
+23,PaymentReconciliation.detail.amount, amount ,,0..1,Money,Amount allocated to this payable
+24,PaymentReconciliation.formCode, formCode ,,0..1,CodeableConcept,Printed form identifierForms (Example)
+25,PaymentReconciliation.processNote, processNote ,,0..*,BackboneElement,Note concerning processing
+26,PaymentReconciliation.processNote.type, type ,,0..1,code,display | print | printoperNoteType (Required)
+27,PaymentReconciliation.processNote.text, text ,,0..1,string,Note explanatory text

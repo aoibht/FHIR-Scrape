@@ -1,0 +1,40 @@
+,Path,Name,Flag,Card,Type,Description
+0,ServiceRequest, ServiceRequest ,ITU,,DomainResource,"A request for a service to be performed+ Rule: orderDetail SHALL only be present if code is presentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ServiceRequest.identifier, identifier ,Σ,0..*,Identifier,Identifiers assigned to this order
+2,ServiceRequest.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(ActivityDefinition | PlanDefinition),Instantiates FHIR protocol or definition
+3,ServiceRequest.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,ServiceRequest.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | ServiceRequest | MedicationRequest),What request fulfills
+5,ServiceRequest.replaces, replaces ,Σ,0..*,Reference(ServiceRequest),What request replaces
+6,ServiceRequest.requisition, requisition ,Σ,0..1,Identifier,Composite Request ID
+7,ServiceRequest.status, status ,?!Σ,1..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+8,ServiceRequest.intent, intent ,?!Σ,1..1,code,proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | optionRequestIntent (Required)
+9,ServiceRequest.category, category ,Σ,0..*,CodeableConcept,Classification of serviceService Request Category Codes (Example)
+10,ServiceRequest.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+11,ServiceRequest.doNotPerform, doNotPerform ,?!Σ,0..1,boolean,True if service/procedure should not be performed
+12,ServiceRequest.code, code ,Σ,0..1,CodeableConcept,What is being requested/orderedProcedure Codes (SNOMED CT) (Example)
+13,ServiceRequest.orderDetail, orderDetail ,ΣI,0..*,CodeableConcept,Additional order informationService Request Order Details Codes (Example)
+14,ServiceRequest.quantityQuantity,quantityQuantity,Σ,0..1,Quantity,Service amount
+15,ServiceRequest.quantityRatio,quantityRatio,Σ,0..1,Ratio,Service amount
+16,ServiceRequest.quantityRange,quantityRange,Σ,0..1,Range,Service amount
+17,ServiceRequest.subject, subject ,Σ,1..1,Reference(Patient | Group | Location | Device),Individual or Entity the service is ordered for
+18,ServiceRequest.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter in which the request was created
+19,ServiceRequest.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,When service should occur
+20,ServiceRequest.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,When service should occur
+21,ServiceRequest.occurrenceTiming,occurrenceTiming,Σ,0..1,Timing,When service should occur
+22,ServiceRequest.asNeededBoolean,asNeededBoolean,Σ,0..1,boolean,Preconditions for serviceSNOMED CT Medication As Needed Reason Codes (Example)
+23,ServiceRequest.asNeededCodeableconcept,asNeededCodeableconcept,Σ,0..1,CodeableConcept,Preconditions for serviceSNOMED CT Medication As Needed Reason Codes (Example)
+24,ServiceRequest.authoredOn, authoredOn ,Σ,0..1,dateTime,Date request signed
+25,ServiceRequest.requester, requester ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | RelatedPerson | Device),Who/what is requesting service
+26,ServiceRequest.performerType, performerType ,Σ,0..1,CodeableConcept,Performer roleParticipant Roles (Example)
+27,ServiceRequest.performer, performer ,Σ,0..*,Reference(Practitioner | PractitionerRole | Organization | CareTeam | HealthcareService | Patient | Device | RelatedPerson),Requested performer
+28,ServiceRequest.locationCode, locationCode ,Σ,0..*,CodeableConcept,Requested locationV3 Value SetServiceDeliveryLocationRoleType (Example)
+29,ServiceRequest.locationReference, locationReference ,Σ,0..*,Reference(Location),Requested location
+30,ServiceRequest.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Explanation/Justification for procedure or serviceProcedure Reason Codes (Example)
+31,ServiceRequest.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Explanation/Justification for service or service
+32,ServiceRequest.insurance, insurance ,,0..*,Reference(Coverage | ClaimResponse),Associated insurance coverage
+33,ServiceRequest.supportingInfo, supportingInfo ,,0..*,Reference(Any),Additional clinical information
+34,ServiceRequest.specimen, specimen ,Σ,0..*,Reference(Specimen),Procedure Samples
+35,ServiceRequest.bodySite, bodySite ,Σ,0..*,CodeableConcept,Location on BodySNOMED CT Body Structures (Example)
+36,ServiceRequest.note, note ,,0..*,Annotation,Comments
+37,ServiceRequest.patientInstruction, patientInstruction ,Σ,0..1,string,Patient or consumer-oriented instructions
+38,ServiceRequest.relevantHistory, relevantHistory ,,0..*,Reference(Provenance),Request provenance

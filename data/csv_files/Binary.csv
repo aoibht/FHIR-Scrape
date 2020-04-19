@@ -1,0 +1,5 @@
+,Path,Name,Flag,Card,Type,Description
+0,Binary, Binary ,N,,Resource,"Pure binary content defined by a format other than FHIRElements defined in Ancestors: id, meta, implicitRules, language"
+1,Binary.contentType, contentType ,Σ,1..1,code,MimeType of the binary contentMimeType (Required)
+2,Binary.securityContext, securityContext ,Σ,0..1,Reference(Any),Identifies another resource to use as proxy when enforcing access control
+3,Binary.data, data ,,0..1,base64Binary,The actual content

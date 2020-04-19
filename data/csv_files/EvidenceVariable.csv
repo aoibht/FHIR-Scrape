@@ -1,0 +1,44 @@
+,Path,Name,Flag,Card,Type,Description
+0,EvidenceVariable, EvidenceVariable ,ITU,,DomainResource,"A population, intervention, or exposure definition+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EvidenceVariable.url, url ,Σ,0..1,uri,"Canonical identifier for this evidence variable, represented as a URI (globally unique)"
+2,EvidenceVariable.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the evidence variable
+3,EvidenceVariable.version, version ,Σ,0..1,string,Business version of the evidence variable
+4,EvidenceVariable.name, name ,ΣI,0..1,string,Name for this evidence variable (computer friendly)
+5,EvidenceVariable.title, title ,Σ,0..1,string,Name for this evidence variable (human friendly)
+6,EvidenceVariable.shortTitle, shortTitle ,Σ,0..1,string,Title for use in informal contexts
+7,EvidenceVariable.subtitle, subtitle ,,0..1,string,Subordinate title of the EvidenceVariable
+8,EvidenceVariable.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,EvidenceVariable.date, date ,Σ,0..1,dateTime,Date last changed
+10,EvidenceVariable.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+11,EvidenceVariable.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+12,EvidenceVariable.description, description ,Σ,0..1,markdown,Natural language description of the evidence variable
+13,EvidenceVariable.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+14,EvidenceVariable.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+15,EvidenceVariable.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for evidence variable (if applicable)Jurisdiction (Extensible)
+16,EvidenceVariable.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+17,EvidenceVariable.approvalDate, approvalDate ,,0..1,date,When the evidence variable was approved by publisher
+18,EvidenceVariable.lastReviewDate, lastReviewDate ,,0..1,date,When the evidence variable was last reviewed
+19,EvidenceVariable.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the evidence variable is expected to be used
+20,EvidenceVariable.topic, topic ,,0..*,CodeableConcept,"The category of the EvidenceVariable, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+21,EvidenceVariable.author, author ,,0..*,ContactDetail,Who authored the content
+22,EvidenceVariable.editor, editor ,,0..*,ContactDetail,Who edited the content
+23,EvidenceVariable.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+24,EvidenceVariable.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+25,EvidenceVariable.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+26,EvidenceVariable.type, type ,Σ,0..1,code,dichotomous | continuous | descriptiveEvidenceVariableType (Required)
+27,EvidenceVariable.characteristic, characteristic ,Σ,1..*,BackboneElement,What defines the members of the evidence element
+28,EvidenceVariable.characteristic.description, description ,,0..1,string,Natural language description of the characteristic
+29,EvidenceVariable.characteristic.definitionReference(group),definitionReference(group),Σ,1..1,Reference(Group),What code or expression defines members?
+30,EvidenceVariable.characteristic.definitionCanonical(activitydefinition),definitionCanonical(activitydefinition),Σ,1..1,canonical(ActivityDefinition),What code or expression defines members?
+31,EvidenceVariable.characteristic.definitionCodeableconcept,definitionCodeableconcept,Σ,1..1,CodeableConcept,What code or expression defines members?
+32,EvidenceVariable.characteristic.definitionExpression,definitionExpression,Σ,1..1,Expression,What code or expression defines members?
+33,EvidenceVariable.characteristic.definitionDatarequirement,definitionDatarequirement,Σ,1..1,DataRequirement,What code or expression defines members?
+34,EvidenceVariable.characteristic.definitionTriggerdefinition,definitionTriggerdefinition,Σ,1..1,TriggerDefinition,What code or expression defines members?
+35,EvidenceVariable.characteristic.usageContext, usageContext ,,0..*,UsageContext,What code/value pairs define members?
+36,EvidenceVariable.characteristic.exclude, exclude ,,0..1,boolean,Whether the characteristic includes or excludes members
+37,EvidenceVariable.characteristic.participantEffectiveDatetime,participantEffectiveDatetime,,0..1,dateTime,What time period do participants cover
+38,EvidenceVariable.characteristic.participantEffectivePeriod,participantEffectivePeriod,,0..1,Period,What time period do participants cover
+39,EvidenceVariable.characteristic.participantEffectiveDuration,participantEffectiveDuration,,0..1,Duration,What time period do participants cover
+40,EvidenceVariable.characteristic.participantEffectiveTiming,participantEffectiveTiming,,0..1,Timing,What time period do participants cover
+41,EvidenceVariable.characteristic.timeFromStart, timeFromStart ,,0..1,Duration,Observation time from study start
+42,EvidenceVariable.characteristic.groupMeasure, groupMeasure ,,0..1,code,mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-medianGroupMeasure (Required)

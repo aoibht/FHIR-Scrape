@@ -1,0 +1,53 @@
+,Path,Name,Flag,Card,Type,Description
+0,CodeSystem, CodeSystem ,IN,,DomainResource,"Declares the existence of and describes a code system or code system supplement+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: Within a code system definition, all the codes SHALL be uniqueElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CodeSystem.url, url ,Σ,0..1,uri,"Canonical identifier for this code system, represented as a URI (globally unique) (Coding.system)"
+2,CodeSystem.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the code system (business identifier)
+3,CodeSystem.version, version ,Σ,0..1,string,Business version of the code system (Coding.version)
+4,CodeSystem.name, name ,ΣI,0..1,string,Name for this code system (computer friendly)
+5,CodeSystem.title, title ,Σ,0..1,string,Name for this code system (human friendly)
+6,CodeSystem.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,CodeSystem.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,CodeSystem.date, date ,Σ,0..1,dateTime,Date last changed
+9,CodeSystem.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,CodeSystem.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,CodeSystem.description, description ,,0..1,markdown,Natural language description of the code system
+12,CodeSystem.useContext, useContext ,ΣTU,0..*,UsageContext,The context that the content is intended to support
+13,CodeSystem.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for code system (if applicable)Jurisdiction (Extensible)
+14,CodeSystem.purpose, purpose ,,0..1,markdown,Why this code system is defined
+15,CodeSystem.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+16,CodeSystem.caseSensitive, caseSensitive ,Σ,0..1,boolean,If code comparison is case sensitive
+17,CodeSystem.valueSet, valueSet ,Σ,0..1,canonical(ValueSet),Canonical reference to the value set with entire code system
+18,CodeSystem.hierarchyMeaning, hierarchyMeaning ,Σ,0..1,code,grouped-by | is-a | part-of | classified-withCodeSystemHierarchyMeaning (Required)
+19,CodeSystem.compositional, compositional ,Σ,0..1,boolean,If code system defines a compositional grammar
+20,CodeSystem.versionNeeded, versionNeeded ,Σ,0..1,boolean,If definitions are not stable
+21,CodeSystem.content, content ,Σ,1..1,code,not-present | example | fragment | complete | supplementCodeSystemContentMode (Required)
+22,CodeSystem.supplements, supplements ,Σ,0..1,canonical(CodeSystem),Canonical URL of Code System this adds designations and properties to
+23,CodeSystem.count, count ,Σ,0..1,unsignedInt,Total concepts in the code system
+24,CodeSystem.filter, filter ,Σ,0..*,BackboneElement,Filter that can be used in a value set
+25,CodeSystem.filter.code, code ,Σ,1..1,code,Code that identifies the filter
+26,CodeSystem.filter.description, description ,Σ,0..1,string,How or why the filter is used
+27,CodeSystem.filter.operator, operator ,Σ,1..*,code,= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | existsFilterOperator (Required)
+28,CodeSystem.filter.value, value ,Σ,1..1,string,What to use for the value
+29,CodeSystem.property, property ,Σ,0..*,BackboneElement,Additional information supplied about each concept
+30,CodeSystem.property.code, code ,Σ,1..1,code,"Identifies the property on the concepts, and when referred to in operations"
+31,CodeSystem.property.uri, uri ,Σ,0..1,uri,Formal identifier for the property
+32,CodeSystem.property.description, description ,Σ,0..1,string,"Why the property is defined, and/or what it conveys"
+33,CodeSystem.property.type, type ,Σ,1..1,code,code | Coding | string | integer | boolean | dateTime | decimalPropertyType (Required)
+34,CodeSystem.concept, concept ,,0..*,BackboneElement,Concepts in the code system
+35,CodeSystem.concept.code, code ,,1..1,code,Code that identifies concept
+36,CodeSystem.concept.display, display ,,0..1,string,Text to display to the user
+37,CodeSystem.concept.definition, definition ,,0..1,string,Formal definition
+38,CodeSystem.concept.designation, designation ,,0..*,BackboneElement,Additional representations for the concept
+39,CodeSystem.concept.designation.language, language ,,0..1,code,Human language of the designationCommon Languages (Preferred but limited to AllLanguages)
+40,CodeSystem.concept.designation.use, use ,,0..1,Coding,Details how this designation would be usedDesignation Use (Extensible)
+41,CodeSystem.concept.designation.value, value ,,1..1,string,The text value for this designation
+42,CodeSystem.concept.property, property ,,0..*,BackboneElement,Property value for the concept
+43,CodeSystem.concept.property.code, code ,,1..1,code,Reference to CodeSystem.property.code
+44,CodeSystem.concept.property.valueCode,valueCode,,1..1,code,Value of the property for this concept
+45,CodeSystem.concept.property.valueCoding,valueCoding,,1..1,Coding,Value of the property for this concept
+46,CodeSystem.concept.property.valueString,valueString,,1..1,string,Value of the property for this concept
+47,CodeSystem.concept.property.valueInteger,valueInteger,,1..1,integer,Value of the property for this concept
+48,CodeSystem.concept.property.valueBoolean,valueBoolean,,1..1,boolean,Value of the property for this concept
+49,CodeSystem.concept.property.valueDatetime,valueDatetime,,1..1,dateTime,Value of the property for this concept
+50,CodeSystem.concept.property.valueDecimal,valueDecimal,,1..1,decimal,Value of the property for this concept
+51,CodeSystem.concept.concept, concept ,,0..*,see concept,Child Concepts (is-a/contains/categorizes)

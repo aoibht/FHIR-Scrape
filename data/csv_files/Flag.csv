@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,Flag, Flag ,TU,,DomainResource,"Key information to flag to healthcare providersElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Flag.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+2,Flag.status, status ,?!Σ,1..1,code,active | inactive | entered-in-errorFlagStatus (Required)
+3,Flag.category, category ,Σ,0..*,CodeableConcept,"Clinical, administrative, etc.Flag Category (Example)"
+4,Flag.code, code ,Σ,1..1,CodeableConcept,Coded or textual message to display to userFlag Code (Example)
+5,Flag.subject, subject ,Σ,1..1,Reference(Patient | Location | Group | Organization | Practitioner | PlanDefinition | Medication | Procedure),Who/What is flag about?
+6,Flag.period, period ,Σ,0..1,Period,Time period when flag is active
+7,Flag.encounter, encounter ,Σ,0..1,Reference(Encounter),Alert relevant during encounter
+8,Flag.author, author ,Σ,0..1,Reference(Device | Organization | Patient | Practitioner | PractitionerRole),Flag creator

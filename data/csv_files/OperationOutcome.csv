@@ -1,0 +1,9 @@
+,Path,Name,Flag,Card,Type,Description
+0,OperationOutcome, OperationOutcome ,ΣN,,DomainResource,"Information about the success/failure of an actionElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,OperationOutcome.issue, issue ,Σ,1..*,BackboneElement,A single issue associated with the action
+2,OperationOutcome.issue.severity, severity ,Σ,1..1,code,fatal | error | warning | informationIssueSeverity (Required)
+3,OperationOutcome.issue.code, code ,Σ,1..1,code,Error or warning codeIssueType (Required)
+4,OperationOutcome.issue.details, details ,Σ,0..1,CodeableConcept,Additional details about the errorOperation Outcome Codes (Example)
+5,OperationOutcome.issue.diagnostics, diagnostics ,Σ,0..1,string,Additional diagnostic information about the issue
+6,OperationOutcome.issue.location, location ,ΣXD,0..*,string,Deprecated: Path of element(s) related to issue
+7,OperationOutcome.issue.expression, expression ,Σ,0..*,string,FHIRPath of element(s) related to issue

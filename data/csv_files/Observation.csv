@@ -1,0 +1,60 @@
+,Path,Name,Flag,Card,Type,Description
+0,Observation, Observation ,IN,,DomainResource,"Measurements and simple assertions+ Rule: dataAbsentReason SHALL only be present if Observation.value[x] is not present+ Rule: If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be presentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Observation.identifier, identifier ,Σ,0..*,Identifier,Business Identifier for observation
+2,Observation.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | DeviceRequest | ImmunizationRecommendation | MedicationRequest | NutritionOrder | ServiceRequest),"Fulfills plan, proposal or order"
+3,Observation.partOf, partOf ,Σ,0..*,Reference(MedicationAdministration | MedicationDispense | MedicationStatement | Procedure | Immunization | ImagingStudy),Part of referenced event
+4,Observation.status, status ,?!Σ,1..1,code,registered | preliminary | final | amended +ObservationStatus (Required)
+5,Observation.category, category ,,0..*,CodeableConcept,Classification of  type of observationObservation Category Codes (Preferred)
+6,Observation.code, code ,Σ,1..1,CodeableConcept,Type of observation (code / type)LOINC Codes (Example)
+7,Observation.subject, subject ,Σ,0..1,Reference(Patient | Group | Device | Location),Who and/or what the observation is about
+8,Observation.focus, focus ,ΣTU,0..*,Reference(Any),"What the observation is about, when it is not about the subject of record"
+9,Observation.encounter, encounter ,Σ,0..1,Reference(Encounter),Healthcare event during which this observation is made
+10,Observation.effectiveDatetime,effectiveDatetime,Σ,0..1,dateTime,Clinically relevant time/time-period for observation
+11,Observation.effectivePeriod,effectivePeriod,Σ,0..1,Period,Clinically relevant time/time-period for observation
+12,Observation.effectiveTiming,effectiveTiming,Σ,0..1,Timing,Clinically relevant time/time-period for observation
+13,Observation.effectiveInstant,effectiveInstant,Σ,0..1,instant,Clinically relevant time/time-period for observation
+14,Observation.issued, issued ,Σ,0..1,instant,Date/Time this version was made available
+15,Observation.performer, performer ,Σ,0..*,Reference(Practitioner | PractitionerRole | Organization | CareTeam | Patient | RelatedPerson),Who is responsible for the observation
+16,Observation.valueQuantity,valueQuantity,ΣI,0..1,Quantity,Actual result
+17,Observation.valueCodeableconcept,valueCodeableconcept,ΣI,0..1,CodeableConcept,Actual result
+18,Observation.valueString,valueString,ΣI,0..1,string,Actual result
+19,Observation.valueBoolean,valueBoolean,ΣI,0..1,boolean,Actual result
+20,Observation.valueInteger,valueInteger,ΣI,0..1,integer,Actual result
+21,Observation.valueRange,valueRange,ΣI,0..1,Range,Actual result
+22,Observation.valueRatio,valueRatio,ΣI,0..1,Ratio,Actual result
+23,Observation.valueSampleddata,valueSampleddata,ΣI,0..1,SampledData,Actual result
+24,Observation.valueTime,valueTime,ΣI,0..1,time,Actual result
+25,Observation.valueDatetime,valueDatetime,ΣI,0..1,dateTime,Actual result
+26,Observation.valuePeriod,valuePeriod,ΣI,0..1,Period,Actual result
+27,Observation.dataAbsentReason, dataAbsentReason ,I,0..1,CodeableConcept,Why the result is missingDataAbsentReason (Extensible)
+28,Observation.interpretation, interpretation ,,0..*,CodeableConcept,"High, low, normal, etc.Observation Interpretation Codes (Extensible)"
+29,Observation.note, note ,,0..*,Annotation,Comments about the observation
+30,Observation.bodySite, bodySite ,,0..1,CodeableConcept,Observed body partSNOMED CT Body Structures (Example)
+31,Observation.method, method ,,0..1,CodeableConcept,How it was doneObservation Methods (Example)
+32,Observation.specimen, specimen ,,0..1,Reference(Specimen),Specimen used for this observation
+33,Observation.device, device ,,0..1,Reference(Device | DeviceMetric),(Measurement) Device
+34,Observation.referenceRange, referenceRange ,I,0..*,BackboneElement,Provides guide for interpretation+ Rule: Must have at least a low or a high or text
+35,Observation.referenceRange.low, low ,I,0..1,SimpleQuantity,"Low Range, if relevant"
+36,Observation.referenceRange.high, high ,I,0..1,SimpleQuantity,"High Range, if relevant"
+37,Observation.referenceRange.type, type ,,0..1,CodeableConcept,Reference range qualifierObservation Reference Range Meaning Codes (Preferred)
+38,Observation.referenceRange.appliesTo, appliesTo ,,0..*,CodeableConcept,Reference range populationObservation Reference Range Applies To Codes (Example)
+39,Observation.referenceRange.age, age ,,0..1,Range,"Applicable age range, if relevant"
+40,Observation.referenceRange.text, text ,,0..1,string,Text based reference range in an observation
+41,Observation.hasMember, hasMember ,Σ,0..*,Reference(Observation | QuestionnaireResponse | MolecularSequence),Related resource that belongs to the Observation group
+42,Observation.derivedFrom, derivedFrom ,Σ,0..*,Reference(DocumentReference | ImagingStudy | Media | QuestionnaireResponse | Observation | MolecularSequence),Related measurements the observation is made from
+43,Observation.component, component ,Σ,0..*,BackboneElement,Component results
+44,Observation.component.code, code ,Σ,1..1,CodeableConcept,Type of component observation (code / type)LOINC Codes (Example)
+45,Observation.component.valueQuantity,valueQuantity,Σ,0..1,Quantity,Actual component result
+46,Observation.component.valueCodeableconcept,valueCodeableconcept,Σ,0..1,CodeableConcept,Actual component result
+47,Observation.component.valueString,valueString,Σ,0..1,string,Actual component result
+48,Observation.component.valueBoolean,valueBoolean,Σ,0..1,boolean,Actual component result
+49,Observation.component.valueInteger,valueInteger,Σ,0..1,integer,Actual component result
+50,Observation.component.valueRange,valueRange,Σ,0..1,Range,Actual component result
+51,Observation.component.valueRatio,valueRatio,Σ,0..1,Ratio,Actual component result
+52,Observation.component.valueSampleddata,valueSampleddata,Σ,0..1,SampledData,Actual component result
+53,Observation.component.valueTime,valueTime,Σ,0..1,time,Actual component result
+54,Observation.component.valueDatetime,valueDatetime,Σ,0..1,dateTime,Actual component result
+55,Observation.component.valuePeriod,valuePeriod,Σ,0..1,Period,Actual component result
+56,Observation.component.dataAbsentReason, dataAbsentReason ,I,0..1,CodeableConcept,Why the component result is missingDataAbsentReason (Extensible)
+57,Observation.component.interpretation, interpretation ,,0..*,CodeableConcept,"High, low, normal, etc.Observation Interpretation Codes (Extensible)"
+58,Observation.component.referenceRange, referenceRange ,,0..*,see referenceRange,Provides guide for interpretation of component result

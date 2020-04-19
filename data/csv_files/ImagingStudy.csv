@@ -1,0 +1,40 @@
+,Path,Name,Flag,Card,Type,Description
+0,ImagingStudy, ImagingStudy ,TU,,DomainResource,"A set of images produced in single study (one or more series of references images)Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ImagingStudy.identifier, identifier ,Σ,0..*,Identifier,Identifiers for the whole study
+2,ImagingStudy.status, status ,?!Σ,1..1,code,registered | available | cancelled | entered-in-error | unknownImagingStudyStatus (Required)
+3,ImagingStudy.modality, modality ,Σ,0..*,Coding,All series modality if actual acquisition modalitiesAcquisitionModality  (Extensible)
+4,ImagingStudy.subject, subject ,Σ,1..1,Reference(Patient | Device | Group),Who or what is the subject of the study
+5,ImagingStudy.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter with which this imaging study is associated
+6,ImagingStudy.started, started ,Σ,0..1,dateTime,When the study was started
+7,ImagingStudy.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | ServiceRequest | Appointment | AppointmentResponse | Task),Request fulfilled
+8,ImagingStudy.referrer, referrer ,Σ,0..1,Reference(Practitioner | PractitionerRole),Referring physician
+9,ImagingStudy.interpreter, interpreter ,Σ,0..*,Reference(Practitioner | PractitionerRole),Who interpreted images
+10,ImagingStudy.endpoint, endpoint ,Σ,0..*,Reference(Endpoint),Study access endpoint
+11,ImagingStudy.numberOfSeries, numberOfSeries ,Σ,0..1,unsignedInt,Number of Study Related Series
+12,ImagingStudy.numberOfInstances, numberOfInstances ,Σ,0..1,unsignedInt,Number of Study Related Instances
+13,ImagingStudy.procedureReference, procedureReference ,Σ,0..1,Reference(Procedure),The performed Procedure reference
+14,ImagingStudy.procedureCode, procedureCode ,Σ,0..*,CodeableConcept,The performed procedure codeImagingProcedureCode  (Extensible)
+15,ImagingStudy.location, location ,Σ,0..1,Reference(Location),Where ImagingStudy occurred
+16,ImagingStudy.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Why the study was requestedProcedure Reason Codes (Example)
+17,ImagingStudy.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | Media | DiagnosticReport | DocumentReference),Why was study performed
+18,ImagingStudy.note, note ,Σ,0..*,Annotation,User-defined comments
+19,ImagingStudy.description, description ,Σ,0..1,string,Institution-generated description
+20,ImagingStudy.series, series ,Σ,0..*,BackboneElement,Each study has one or more series of instances
+21,ImagingStudy.series.uid, uid ,Σ,1..1,id,DICOM Series Instance UID for the series
+22,ImagingStudy.series.number, number ,Σ,0..1,unsignedInt,Numeric identifier of this series
+23,ImagingStudy.series.modality, modality ,Σ,1..1,Coding,The modality of the instances in the seriesAcquisitionModality  (Extensible)
+24,ImagingStudy.series.description, description ,Σ,0..1,string,A short human readable summary of the series
+25,ImagingStudy.series.numberOfInstances, numberOfInstances ,Σ,0..1,unsignedInt,Number of Series Related Instances
+26,ImagingStudy.series.endpoint, endpoint ,Σ,0..*,Reference(Endpoint),Series access endpoint
+27,ImagingStudy.series.bodySite, bodySite ,Σ,0..1,Coding,Body part examinedSNOMED CT Body Structures (Example)
+28,ImagingStudy.series.laterality, laterality ,Σ,0..1,Coding,Body part lateralityLaterality (Example)
+29,ImagingStudy.series.specimen, specimen ,Σ,0..*,Reference(Specimen),Specimen imaged
+30,ImagingStudy.series.started, started ,Σ,0..1,dateTime,When the series started
+31,ImagingStudy.series.performer, performer ,Σ,0..*,BackboneElement,Who performed the series
+32,ImagingStudy.series.performer.function, function ,Σ,0..1,CodeableConcept,Type of performanceImagingStudy series performer function (Extensible)
+33,ImagingStudy.series.performer.actor, actor ,Σ,1..1,Reference(Practitioner | PractitionerRole | Organization | CareTeam | Patient | Device | RelatedPerson),Who performed the series
+34,ImagingStudy.series.instance, instance ,,0..*,BackboneElement,A single SOP instance from the series
+35,ImagingStudy.series.instance.uid, uid ,,1..1,id,DICOM SOP Instance UID
+36,ImagingStudy.series.instance.sopClass, sopClass ,,1..1,Coding,DICOM class typesopClass  (Extensible)
+37,ImagingStudy.series.instance.number, number ,,0..1,unsignedInt,The number of this instance in the series
+38,ImagingStudy.series.instance.title, title ,,0..1,string,Description of instance

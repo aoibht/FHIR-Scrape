@@ -1,0 +1,44 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProduct, MedicinalProduct ,ΣTU,,DomainResource,"Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use)Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProduct.identifier, identifier ,Σ,0..*,Identifier,Business identifier for this product. Could be an MPID
+2,MedicinalProduct.type, type ,Σ,0..1,CodeableConcept,"Regulatory type, e.g. Investigational or Authorized"
+3,MedicinalProduct.domain, domain ,Σ,0..1,Coding,If this medicine applies to human or veterinary uses
+4,MedicinalProduct.combinedPharmaceuticalDoseForm, combinedPharmaceuticalDoseForm ,Σ,0..1,CodeableConcept,"The dose form for a single part product, or combined form of a multiple part product"
+5,MedicinalProduct.legalStatusOfSupply, legalStatusOfSupply ,Σ,0..1,CodeableConcept,The legal status of supply of the medicinal product as classified by the regulator
+6,MedicinalProduct.additionalMonitoringIndicator, additionalMonitoringIndicator ,Σ,0..1,CodeableConcept,Whether the Medicinal Product is subject to additional monitoring for regulatory reasons
+7,MedicinalProduct.specialMeasures, specialMeasures ,Σ,0..*,string,Whether the Medicinal Product is subject to special measures for regulatory reasons
+8,MedicinalProduct.paediatricUseIndicator, paediatricUseIndicator ,Σ,0..1,CodeableConcept,If authorised for use in children
+9,MedicinalProduct.productClassification, productClassification ,Σ,0..*,CodeableConcept,Allows the product to be classified by various systems
+10,MedicinalProduct.marketingStatus, marketingStatus ,Σ,0..*,MarketingStatus,"Marketing status of the medicinal product, in contrast to marketing authorizaton"
+11,MedicinalProduct.pharmaceuticalProduct, pharmaceuticalProduct ,Σ,0..*,Reference(MedicinalProductPharmaceutical),Pharmaceutical aspects of product
+12,MedicinalProduct.packagedMedicinalProduct, packagedMedicinalProduct ,Σ,0..*,Reference(MedicinalProductPackaged),Package representation for the product
+13,MedicinalProduct.attachedDocument, attachedDocument ,Σ,0..*,Reference(DocumentReference),"Supporting documentation, typically for regulatory submission"
+14,MedicinalProduct.masterFile, masterFile ,Σ,0..*,Reference(DocumentReference),A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)
+15,MedicinalProduct.contact, contact ,Σ,0..*,Reference(Organization | PractitionerRole),"A product specific contact, person (in a role), or an organization"
+16,MedicinalProduct.clinicalTrial, clinicalTrial ,Σ,0..*,Reference(ResearchStudy),Clinical trials or studies that this product is involved in
+17,MedicinalProduct.name, name ,Σ,1..*,BackboneElement,"The product's name, including full name and possibly coded parts"
+18,MedicinalProduct.name.productName, productName ,Σ,1..1,string,The full product name
+19,MedicinalProduct.name.namePart, namePart ,Σ,0..*,BackboneElement,Coding words or phrases of the name
+20,MedicinalProduct.name.namePart.part, part ,Σ,1..1,string,A fragment of a product name
+21,MedicinalProduct.name.namePart.type, type ,Σ,1..1,Coding,Idenifying type for this part of the name (e.g. strength part)
+22,MedicinalProduct.name.countryLanguage, countryLanguage ,Σ,0..*,BackboneElement,Country where the name applies
+23,MedicinalProduct.name.countryLanguage.country, country ,Σ,1..1,CodeableConcept,Country code for where this name applies
+24,MedicinalProduct.name.countryLanguage.jurisdiction, jurisdiction ,Σ,0..1,CodeableConcept,Jurisdiction code for where this name applies
+25,MedicinalProduct.name.countryLanguage.language, language ,Σ,1..1,CodeableConcept,Language code for this name
+26,MedicinalProduct.crossReference, crossReference ,Σ,0..*,Identifier,"Reference to another product, e.g. for linking authorised to investigational product"
+27,MedicinalProduct.manufacturingBusinessOperation, manufacturingBusinessOperation ,Σ,0..*,BackboneElement,"An operation applied to the product, for manufacturing or adminsitrative purpose"
+28,MedicinalProduct.manufacturingBusinessOperation.operationType, operationType ,Σ,0..1,CodeableConcept,The type of manufacturing operation
+29,MedicinalProduct.manufacturingBusinessOperation.authorisationReferenceNumber, authorisationReferenceNumber ,Σ,0..1,Identifier,Regulatory authorization reference number
+30,MedicinalProduct.manufacturingBusinessOperation.effectiveDate, effectiveDate ,Σ,0..1,dateTime,Regulatory authorization date
+31,MedicinalProduct.manufacturingBusinessOperation.confidentialityIndicator, confidentialityIndicator ,Σ,0..1,CodeableConcept,To indicate if this proces is commercially confidential
+32,MedicinalProduct.manufacturingBusinessOperation.manufacturer, manufacturer ,Σ,0..*,Reference(Organization),The manufacturer or establishment associated with the process
+33,MedicinalProduct.manufacturingBusinessOperation.regulator, regulator ,Σ,0..1,Reference(Organization),A regulator which oversees the operation
+34,MedicinalProduct.specialDesignation, specialDesignation ,Σ,0..*,BackboneElement,Indicates if the medicinal product has an orphan designation for the treatment of a rare disease
+35,MedicinalProduct.specialDesignation.identifier, identifier ,Σ,0..*,Identifier,"Identifier for the designation, or procedure number"
+36,MedicinalProduct.specialDesignation.type, type ,Σ,0..1,CodeableConcept,"The type of special designation, e.g. orphan drug, minor use"
+37,MedicinalProduct.specialDesignation.intendedUse, intendedUse ,Σ,0..1,CodeableConcept,"The intended use of the product, e.g. prevention, treatment"
+38,MedicinalProduct.specialDesignation.indicationCodeableconcept,indicationCodeableconcept,Σ,0..1,CodeableConcept,Condition for which the medicinal use applies
+39,MedicinalProduct.specialDesignation.indicationReference(medicinalproductindication),indicationReference(medicinalproductindication),Σ,0..1,Reference(MedicinalProductIndication),Condition for which the medicinal use applies
+40,MedicinalProduct.specialDesignation.status, status ,Σ,0..1,CodeableConcept,"For example granted, pending, expired or withdrawn"
+41,MedicinalProduct.specialDesignation.date, date ,Σ,0..1,dateTime,Date when the designation was granted
+42,MedicinalProduct.specialDesignation.species, species ,Σ,0..1,CodeableConcept,Animal species for which this applies

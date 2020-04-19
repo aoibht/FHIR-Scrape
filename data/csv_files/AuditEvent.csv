@@ -1,0 +1,41 @@
+,Path,Name,Flag,Card,Type,Description
+0,AuditEvent, AuditEvent ,TU,,DomainResource,"Event record kept for security purposesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,AuditEvent.type, type ,Σ,1..1,Coding,Type/identifier of eventAudit Event ID (Extensible)
+2,AuditEvent.subtype, subtype ,Σ,0..*,Coding,More specific type/id for the eventAudit Event Sub-Type (Extensible)
+3,AuditEvent.action, action ,Σ,0..1,code,Type of action performed during the eventAuditEventAction (Required)
+4,AuditEvent.period, period ,,0..1,Period,When the activity occurred
+5,AuditEvent.recorded, recorded ,Σ,1..1,instant,Time when the event was recorded
+6,AuditEvent.outcome, outcome ,Σ,0..1,code,Whether the event succeeded or failedAuditEventOutcome (Required)
+7,AuditEvent.outcomeDesc, outcomeDesc ,Σ,0..1,string,Description of the event outcome
+8,AuditEvent.purposeOfEvent, purposeOfEvent ,Σ,0..*,CodeableConcept,The purposeOfUse of the eventV3 Value SetPurposeOfUse (Extensible)
+9,AuditEvent.agent, agent ,,1..*,BackboneElement,Actor involved in the event
+10,AuditEvent.agent.type, type ,,0..1,CodeableConcept,How agent participatedParticipationRoleType (Extensible)
+11,AuditEvent.agent.role, role ,,0..*,CodeableConcept,Agent role in the eventSecurityRoleType (Example)
+12,AuditEvent.agent.who, who ,Σ,0..1,Reference(PractitionerRole | Practitioner | Organization | Device | Patient | RelatedPerson),Identifier of who
+13,AuditEvent.agent.altId, altId ,,0..1,string,Alternative User identity
+14,AuditEvent.agent.name, name ,,0..1,string,Human friendly name for the agent
+15,AuditEvent.agent.requestor, requestor ,Σ,1..1,boolean,Whether user is initiator
+16,AuditEvent.agent.location, location ,,0..1,Reference(Location),Where
+17,AuditEvent.agent.policy, policy ,,0..*,uri,Policy that authorized event
+18,AuditEvent.agent.media, media ,,0..1,Coding,Type of mediaMedia Type Code (Extensible)
+19,AuditEvent.agent.network, network ,,0..1,BackboneElement,Logical network location for application activity
+20,AuditEvent.agent.network.address, address ,,0..1,string,Identifier for the network access point of the user device
+21,AuditEvent.agent.network.type, type ,,0..1,code,The type of network access pointAuditEventAgentNetworkType (Required)
+22,AuditEvent.agent.purposeOfUse, purposeOfUse ,,0..*,CodeableConcept,Reason given for this userV3 Value SetPurposeOfUse (Extensible)
+23,AuditEvent.source, source ,,1..1,BackboneElement,Audit Event Reporter
+24,AuditEvent.source.site, site ,,0..1,string,Logical source location within the enterprise
+25,AuditEvent.source.observer, observer ,Σ,1..1,Reference(PractitionerRole | Practitioner | Organization | Device | Patient | RelatedPerson),The identity of source detecting the event
+26,AuditEvent.source.type, type ,,0..*,Coding,The type of source where event originatedAudit Event Source Type (Extensible)
+27,AuditEvent.entity, entity ,I,0..*,BackboneElement,Data or objects used+ Rule: Either a name or a query (NOT both)
+28,AuditEvent.entity.what, what ,Σ,0..1,Reference(Any),Specific instance of resource
+29,AuditEvent.entity.type, type ,,0..1,Coding,Type of entity involvedAudit event entity type (Extensible)
+30,AuditEvent.entity.role, role ,,0..1,Coding,What role the entity playedAuditEventEntityRole (Extensible)
+31,AuditEvent.entity.lifecycle, lifecycle ,,0..1,Coding,Life-cycle stage for the entityObjectLifecycleEvents (Extensible)
+32,AuditEvent.entity.securityLabel, securityLabel ,,0..*,Coding,Security labels on the entitySecurityLabels (Extensible)
+33,AuditEvent.entity.name, name ,ΣI,0..1,string,Descriptor for entity
+34,AuditEvent.entity.description, description ,,0..1,string,Descriptive text
+35,AuditEvent.entity.query, query ,ΣI,0..1,base64Binary,Query parameters
+36,AuditEvent.entity.detail, detail ,,0..*,BackboneElement,Additional Information about the entity
+37,AuditEvent.entity.detail.type, type ,,1..1,string,Name of the property
+38,AuditEvent.entity.detail.valueString,valueString,,1..1,string,Property value
+39,AuditEvent.entity.detail.valueBase64binary,valueBase64binary,,1..1,base64Binary,Property value

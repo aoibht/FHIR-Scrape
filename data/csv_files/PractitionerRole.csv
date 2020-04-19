@@ -1,0 +1,22 @@
+,Path,Name,Flag,Card,Type,Description
+0,PractitionerRole, PractitionerRole ,TU,,DomainResource,"Roles/organizations the practitioner is associated withElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,PractitionerRole.identifier, identifier ,Σ,0..*,Identifier,Business Identifiers that are specific to a role/location
+2,PractitionerRole.active, active ,Σ,0..1,boolean,Whether this practitioner role record is in active use
+3,PractitionerRole.period, period ,Σ,0..1,Period,The period during which the practitioner is authorized to perform in these role(s)
+4,PractitionerRole.practitioner, practitioner ,Σ,0..1,Reference(Practitioner),Practitioner that is able to provide the defined services for the organization
+5,PractitionerRole.organization, organization ,Σ,0..1,Reference(Organization),Organization where the roles are available
+6,PractitionerRole.code, code ,Σ,0..*,CodeableConcept,Roles which this practitioner may performPractitioner role (Example)
+7,PractitionerRole.specialty, specialty ,Σ,0..*,CodeableConcept,Specific specialty of the practitionerPractice Setting Code Value Set (Preferred)
+8,PractitionerRole.location, location ,Σ,0..*,Reference(Location),The location(s) at which this practitioner provides care
+9,PractitionerRole.healthcareService, healthcareService ,,0..*,Reference(HealthcareService),The list of healthcare services that this worker provides for this role's Organization/Location(s)
+10,PractitionerRole.telecom, telecom ,Σ,0..*,ContactPoint,Contact details that are specific to the role/location/service
+11,PractitionerRole.availableTime, availableTime ,,0..*,BackboneElement,Times the Service Site is available
+12,PractitionerRole.availableTime.daysOfWeek, daysOfWeek ,,0..*,code,mon | tue | wed | thu | fri | sat | sunDaysOfWeek (Required)
+13,PractitionerRole.availableTime.allDay, allDay ,,0..1,boolean,Always available? e.g. 24 hour service
+14,PractitionerRole.availableTime.availableStartTime, availableStartTime ,,0..1,time,Opening time of day (ignored if allDay = true)
+15,PractitionerRole.availableTime.availableEndTime, availableEndTime ,,0..1,time,Closing time of day (ignored if allDay = true)
+16,PractitionerRole.notAvailable, notAvailable ,,0..*,BackboneElement,Not available during this time due to provided reason
+17,PractitionerRole.notAvailable.description, description ,,1..1,string,Reason presented to the user explaining why time not available
+18,PractitionerRole.notAvailable.during, during ,,0..1,Period,Service not available from this date
+19,PractitionerRole.availabilityExceptions, availabilityExceptions ,,0..1,string,Description of availability exceptions
+20,PractitionerRole.endpoint, endpoint ,,0..*,Reference(Endpoint),Technical endpoints providing access to services operated for the practitioner with this role

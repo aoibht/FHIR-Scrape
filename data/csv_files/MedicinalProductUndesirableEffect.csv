@@ -1,0 +1,7 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductUndesirableEffect, MedicinalProductUndesirableEffect ,ΣTU,,DomainResource,"MedicinalProductUndesirableEffectElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductUndesirableEffect.subject, subject ,Σ,0..*,Reference(MedicinalProduct | Medication),The medication for which this is an indication
+2,MedicinalProductUndesirableEffect.symptomConditionEffect, symptomConditionEffect ,Σ,0..1,CodeableConcept,"The symptom, condition or undesirable effect"
+3,MedicinalProductUndesirableEffect.classification, classification ,Σ,0..1,CodeableConcept,Classification of the effect
+4,MedicinalProductUndesirableEffect.frequencyOfOccurrence, frequencyOfOccurrence ,Σ,0..1,CodeableConcept,The frequency of occurrence of the effect
+5,MedicinalProductUndesirableEffect.population, population ,Σ,0..*,Population,The population group to which this applies

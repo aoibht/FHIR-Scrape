@@ -1,0 +1,45 @@
+,Path,Name,Flag,Card,Type,Description
+0,OperationDefinition, OperationDefinition ,IN,,DomainResource,"Definition of an operation or a named query+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,OperationDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this operation definition, represented as a URI (globally unique)"
+2,OperationDefinition.version, version ,Σ,0..1,string,Business version of the operation definition
+3,OperationDefinition.name, name ,ΣI,1..1,string,Name for this operation definition (computer friendly)
+4,OperationDefinition.title, title ,Σ,0..1,string,Name for this operation definition (human friendly)
+5,OperationDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,OperationDefinition.kind, kind ,Σ,1..1,code,operation | queryOperationKind (Required)
+7,OperationDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,OperationDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+9,OperationDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,OperationDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,OperationDefinition.description, description ,,0..1,markdown,Natural language description of the operation definition
+12,OperationDefinition.useContext, useContext ,ΣTU,0..*,UsageContext,The context that the content is intended to support
+13,OperationDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for operation definition (if applicable)Jurisdiction (Extensible)
+14,OperationDefinition.purpose, purpose ,,0..1,markdown,Why this operation definition is defined
+15,OperationDefinition.affectsState, affectsState ,Σ,0..1,boolean,Whether content is changed by the operation
+16,OperationDefinition.code, code ,Σ,1..1,code,Name used to invoke the operation
+17,OperationDefinition.comment, comment ,,0..1,markdown,Additional information about use
+18,OperationDefinition.base, base ,Σ,0..1,canonical(OperationDefinition),Marks this as a profile of the base
+19,OperationDefinition.resource, resource ,Σ,0..*,code,Types this operation applies toResourceType (Required)
+20,OperationDefinition.system, system ,Σ,1..1,boolean,Invoke at the system level?
+21,OperationDefinition.type, type ,Σ,1..1,boolean,Invoke at the type level?
+22,OperationDefinition.instance, instance ,Σ,1..1,boolean,Invoke on an instance?
+23,OperationDefinition.inputProfile, inputProfile ,,0..1,canonical(StructureDefinition),Validation information for in parameters
+24,OperationDefinition.outputProfile, outputProfile ,,0..1,canonical(StructureDefinition),Validation information for out parameters
+25,OperationDefinition.parameter, parameter ,I,0..*,BackboneElement,"Parameters for the operation/query+ Rule: Either a type must be provided, or parts+ Rule: A search type can only be specified for parameters of type string+ Rule: A targetProfile can only be specified for parameters of type Reference or Canonical"
+26,OperationDefinition.parameter.name, name ,,1..1,code,Name in Parameters.parameter.name or in URL
+27,OperationDefinition.parameter.use, use ,,1..1,code,in | outOperationParameterUse (Required)
+28,OperationDefinition.parameter.min, min ,,1..1,integer,Minimum Cardinality
+29,OperationDefinition.parameter.max, max ,,1..1,string,Maximum Cardinality (a number or *)
+30,OperationDefinition.parameter.documentation, documentation ,,0..1,string,Description of meaning/use
+31,OperationDefinition.parameter.type, type ,I,0..1,code,What type this parameter hasFHIRAllTypes (Required)
+32,OperationDefinition.parameter.targetProfile, targetProfile ,,0..*,canonical(StructureDefinition),"If type is Reference | canonical, allowed targets"
+33,OperationDefinition.parameter.searchType, searchType ,I,0..1,code,number | date | string | token | reference | composite | quantity | uri | specialSearchParamType (Required)
+34,OperationDefinition.parameter.binding, binding ,,0..1,BackboneElement,ValueSet details if this is coded
+35,OperationDefinition.parameter.binding.strength, strength ,,1..1,code,required | extensible | preferred | exampleBindingStrength (Required)
+36,OperationDefinition.parameter.binding.valueSet, valueSet ,,1..1,canonical(ValueSet),Source of value set
+37,OperationDefinition.parameter.referencedFrom, referencedFrom ,TU,0..*,BackboneElement,References to this parameter
+38,OperationDefinition.parameter.referencedFrom.source, source ,,1..1,string,Referencing parameter
+39,OperationDefinition.parameter.referencedFrom.sourceId, sourceId ,,0..1,string,Element id of reference
+40,OperationDefinition.parameter.part, part ,I,0..*,see parameter,Parts of a nested Parameter
+41,OperationDefinition.overload, overload ,,0..*,BackboneElement,Define overloaded variants for when  generating code
+42,OperationDefinition.overload.parameterName, parameterName ,,0..*,string,Name of parameter to include in overload
+43,OperationDefinition.overload.comment, comment ,,0..1,string,Comments to go on overload

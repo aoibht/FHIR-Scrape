@@ -1,0 +1,38 @@
+,Path,Name,Flag,Card,Type,Description
+0,Task, Task ,ITU,,DomainResource,"A task to be performed+ Rule: Last modified date must be greater than or equal to authored-on date.Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Task.identifier, identifier ,,0..*,Identifier,Task Instance Identifier
+2,Task.instantiatesCanonical, instantiatesCanonical ,Σ,0..1,canonical(ActivityDefinition),Formal definition of task
+3,Task.instantiatesUri, instantiatesUri ,Σ,0..1,uri,Formal definition of task
+4,Task.basedOn, basedOn ,Σ,0..*,Reference(Any),Request fulfilled by this task
+5,Task.groupIdentifier, groupIdentifier ,Σ,0..1,Identifier,Requisition or grouper id
+6,Task.partOf, partOf ,Σ,0..*,Reference(Task),Composite task
+7,Task.status, status ,?!Σ,1..1,code,draft | requested | received | accepted | +TaskStatus (Required)
+8,Task.statusReason, statusReason ,Σ,0..1,CodeableConcept,Reason for current status
+9,Task.businessStatus, businessStatus ,Σ,0..1,CodeableConcept,"E.g. ""Specimen collected"", ""IV prepped"""
+10,Task.intent, intent ,Σ,1..1,code,unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | optionTaskIntent (Required)
+11,Task.priority, priority ,,0..1,code,routine | urgent | asap | statRequest priority (Required)
+12,Task.code, code ,Σ,0..1,CodeableConcept,Task TypeTask Codes (Example)
+13,Task.description, description ,Σ,0..1,string,Human-readable explanation of task
+14,Task.focus, focus ,Σ,0..1,Reference(Any),What task is acting on
+15,Task.for, for ,Σ,0..1,Reference(Any),Beneficiary of the Task
+16,Task.encounter, encounter ,Σ,0..1,Reference(Encounter),Healthcare event during which this task originated
+17,Task.executionPeriod, executionPeriod ,Σ,0..1,Period,Start and end time of execution
+18,Task.authoredOn, authoredOn ,I,0..1,dateTime,Task Creation Date
+19,Task.lastModified, lastModified ,ΣI,0..1,dateTime,Task Last Modified Date
+20,Task.requester, requester ,Σ,0..1,Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson),Who is asking for task to be done
+21,Task.performerType, performerType ,,0..*,CodeableConcept,Requested performerProcedure Performer Role Codes (Preferred)
+22,Task.owner, owner ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | CareTeam | HealthcareService | Patient | Device | RelatedPerson),Responsible individual
+23,Task.location, location ,Σ,0..1,Reference(Location),Where task occurs
+24,Task.reasonCode, reasonCode ,,0..1,CodeableConcept,Why task is needed
+25,Task.reasonReference, reasonReference ,,0..1,Reference(Any),Why task is needed
+26,Task.insurance, insurance ,,0..*,Reference(Coverage | ClaimResponse),Associated insurance coverage
+27,Task.note, note ,,0..*,Annotation,Comments made about the task
+28,Task.relevantHistory, relevantHistory ,,0..*,Reference(Provenance),Key events in history of the Task
+29,Task.restriction, restriction ,,0..1,BackboneElement,Constraints on fulfillment tasks
+30,Task.restriction.repetitions, repetitions ,,0..1,positiveInt,How many times to repeat
+31,Task.restriction.period, period ,,0..1,Period,When fulfillment sought
+32,Task.restriction.recipient, recipient ,,0..*,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Group | Organization),For whom is fulfillment sought?
+33,Task.input, input ,,0..*,BackboneElement,Information used to perform task
+34,Task.input.type, type ,,1..1,CodeableConcept,Label for the input
+35,Task.output, output ,,0..*,BackboneElement,Information produced as part of task
+36,Task.output.type, type ,,1..1,CodeableConcept,Label for output

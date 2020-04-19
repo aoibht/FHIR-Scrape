@@ -1,0 +1,19 @@
+,Path,Name,Flag,Card,Type,Description
+0,GuidanceResponse, GuidanceResponse ,TU,,DomainResource,"The formal response to a guidance requestElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,GuidanceResponse.requestIdentifier, requestIdentifier ,Σ,0..1,Identifier,"The identifier of the request associated with this response, if any"
+2,GuidanceResponse.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+3,GuidanceResponse.moduleUri,moduleUri,Σ,1..1,uri,What guidance was requested
+4,GuidanceResponse.moduleCanonical(),moduleCanonical(),Σ,1..1,canonical(),What guidance was requested
+5,GuidanceResponse.moduleCodeableconcept,moduleCodeableconcept,Σ,1..1,CodeableConcept,What guidance was requested
+6,GuidanceResponse.status, status ,?!Σ,1..1,code,success | data-requested | data-required | in-progress | failure | entered-in-errorGuidanceResponseStatus (Required)
+7,GuidanceResponse.subject, subject ,,0..1,Reference(Patient | Group),Patient the request was performed for
+8,GuidanceResponse.encounter, encounter ,,0..1,Reference(Encounter),Encounter during which the response was returned
+9,GuidanceResponse.occurrenceDateTime, occurrenceDateTime ,,0..1,dateTime,When the guidance response was processed
+10,GuidanceResponse.performer, performer ,,0..1,Reference(Device),Device returning the guidance
+11,GuidanceResponse.reasonCode, reasonCode ,,0..*,CodeableConcept,Why guidance is needed
+12,GuidanceResponse.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why guidance is needed
+13,GuidanceResponse.note, note ,,0..*,Annotation,Additional notes about the response
+14,GuidanceResponse.evaluationMessage, evaluationMessage ,,0..*,Reference(OperationOutcome),Messages resulting from the evaluation of the artifact or artifacts
+15,GuidanceResponse.outputParameters, outputParameters ,,0..1,Reference(Parameters),"The output parameters of the evaluation, if any"
+16,GuidanceResponse.result, result ,,0..1,Reference(CarePlan | RequestGroup),"Proposed actions, if any"
+17,GuidanceResponse.dataRequirement, dataRequirement ,,0..*,DataRequirement,Additional required data

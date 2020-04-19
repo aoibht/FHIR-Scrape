@@ -1,0 +1,19 @@
+,Path,Name,Flag,Card,Type,Description
+0,List, List ,ITU,,DomainResource,"A list is a curated collection of resources+ Rule: A list can only have an emptyReason if it is empty+ Rule: The deleted flag can only be used if the mode of the list is ""changes""+ Rule: An entry date can only be used if the mode of the list is ""working""Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,List.identifier, identifier ,,0..*,Identifier,Business identifier
+2,List.status, status ,?!Σ,1..1,code,current | retired | entered-in-errorListStatus (Required)
+3,List.mode, mode ,?!Σ,1..1,code,working | snapshot | changesListMode (Required)
+4,List.title, title ,Σ,0..1,string,Descriptive name for the list
+5,List.code, code ,Σ,0..1,CodeableConcept,What the purpose of this list isExample Use Codes for List (Example)
+6,List.subject, subject ,Σ,0..1,Reference(Patient | Group | Device | Location),If all resources have the same subject
+7,List.encounter, encounter ,,0..1,Reference(Encounter),Context in which list created
+8,List.date, date ,Σ,0..1,dateTime,When the list was prepared
+9,List.source, source ,Σ,0..1,Reference(Practitioner | PractitionerRole | Patient | Device),Who and/or what defined the list contents (aka Author)
+10,List.orderedBy, orderedBy ,,0..1,CodeableConcept,What order the list hasList Order Codes (Preferred)
+11,List.note, note ,,0..*,Annotation,Comments about the list
+12,List.entry, entry ,I,0..*,BackboneElement,Entries in the list
+13,List.entry.flag, flag ,,0..1,CodeableConcept,Status/Workflow information about this itemPatient Medicine Change Types (Example)
+14,List.entry.deleted, deleted ,?!I,0..1,boolean,If this item is actually marked as deleted
+15,List.entry.date, date ,,0..1,dateTime,When item added to list
+16,List.entry.item, item ,,1..1,Reference(Any),Actual entry
+17,List.emptyReason, emptyReason ,I,0..1,CodeableConcept,Why list is emptyList Empty Reasons (Preferred)

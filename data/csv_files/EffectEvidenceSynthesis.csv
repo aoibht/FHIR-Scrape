@@ -1,0 +1,58 @@
+,Path,Name,Flag,Card,Type,Description
+0,EffectEvidenceSynthesis, EffectEvidenceSynthesis ,ITU,,DomainResource,"A quantified estimate of effect based on a body of evidence+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EffectEvidenceSynthesis.url, url ,Σ,0..1,uri,"Canonical identifier for this effect evidence synthesis, represented as a URI (globally unique)"
+2,EffectEvidenceSynthesis.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the effect evidence synthesis
+3,EffectEvidenceSynthesis.version, version ,Σ,0..1,string,Business version of the effect evidence synthesis
+4,EffectEvidenceSynthesis.name, name ,ΣI,0..1,string,Name for this effect evidence synthesis (computer friendly)
+5,EffectEvidenceSynthesis.title, title ,Σ,0..1,string,Name for this effect evidence synthesis (human friendly)
+6,EffectEvidenceSynthesis.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,EffectEvidenceSynthesis.date, date ,Σ,0..1,dateTime,Date last changed
+8,EffectEvidenceSynthesis.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,EffectEvidenceSynthesis.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,EffectEvidenceSynthesis.description, description ,Σ,0..1,markdown,Natural language description of the effect evidence synthesis
+11,EffectEvidenceSynthesis.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+12,EffectEvidenceSynthesis.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+13,EffectEvidenceSynthesis.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for effect evidence synthesis (if applicable)Jurisdiction (Extensible)
+14,EffectEvidenceSynthesis.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+15,EffectEvidenceSynthesis.approvalDate, approvalDate ,,0..1,date,When the effect evidence synthesis was approved by publisher
+16,EffectEvidenceSynthesis.lastReviewDate, lastReviewDate ,,0..1,date,When the effect evidence synthesis was last reviewed
+17,EffectEvidenceSynthesis.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the effect evidence synthesis is expected to be used
+18,EffectEvidenceSynthesis.topic, topic ,,0..*,CodeableConcept,"The category of the EffectEvidenceSynthesis, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+19,EffectEvidenceSynthesis.author, author ,,0..*,ContactDetail,Who authored the content
+20,EffectEvidenceSynthesis.editor, editor ,,0..*,ContactDetail,Who edited the content
+21,EffectEvidenceSynthesis.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+22,EffectEvidenceSynthesis.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+23,EffectEvidenceSynthesis.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+24,EffectEvidenceSynthesis.synthesisType, synthesisType ,,0..1,CodeableConcept,Type of synthesisSynthesisType (Extensible)
+25,EffectEvidenceSynthesis.studyType, studyType ,,0..1,CodeableConcept,Type of studyStudyType (Extensible)
+26,EffectEvidenceSynthesis.population, population ,Σ,1..1,Reference(EvidenceVariable),What population?
+27,EffectEvidenceSynthesis.exposure, exposure ,Σ,1..1,Reference(EvidenceVariable),What exposure?
+28,EffectEvidenceSynthesis.exposureAlternative, exposureAlternative ,Σ,1..1,Reference(EvidenceVariable),What comparison exposure?
+29,EffectEvidenceSynthesis.outcome, outcome ,Σ,1..1,Reference(EvidenceVariable),What outcome?
+30,EffectEvidenceSynthesis.sampleSize, sampleSize ,,0..1,BackboneElement,What sample size was involved?
+31,EffectEvidenceSynthesis.sampleSize.description, description ,,0..1,string,Description of sample size
+32,EffectEvidenceSynthesis.sampleSize.numberOfStudies, numberOfStudies ,,0..1,integer,How many studies?
+33,EffectEvidenceSynthesis.sampleSize.numberOfParticipants, numberOfParticipants ,,0..1,integer,How many participants?
+34,EffectEvidenceSynthesis.resultsByExposure, resultsByExposure ,,0..*,BackboneElement,What was the result per exposure?
+35,EffectEvidenceSynthesis.resultsByExposure.description, description ,,0..1,string,Description of results by exposure
+36,EffectEvidenceSynthesis.resultsByExposure.exposureState, exposureState ,,0..1,code,exposure | exposure-alternativeExposureState (Required)
+37,EffectEvidenceSynthesis.resultsByExposure.variantState, variantState ,,0..1,CodeableConcept,Variant exposure statesEvidenceVariantState (Extensible)
+38,EffectEvidenceSynthesis.resultsByExposure.riskEvidenceSynthesis, riskEvidenceSynthesis ,,1..1,Reference(RiskEvidenceSynthesis),Risk evidence synthesis
+39,EffectEvidenceSynthesis.effectEstimate, effectEstimate ,Σ,0..*,BackboneElement,What was the estimated effect
+40,EffectEvidenceSynthesis.effectEstimate.description, description ,,0..1,string,Description of effect estimate
+41,EffectEvidenceSynthesis.effectEstimate.type, type ,,0..1,CodeableConcept,Type of efffect estimateEffectEstimateType (Extensible)
+42,EffectEvidenceSynthesis.effectEstimate.variantState, variantState ,,0..1,CodeableConcept,Variant exposure statesEvidenceVariantState (Extensible)
+43,EffectEvidenceSynthesis.effectEstimate.value, value ,,0..1,decimal,Point estimate
+44,EffectEvidenceSynthesis.effectEstimate.unitOfMeasure, unitOfMeasure ,,0..1,CodeableConcept,What unit is the outcome described in?UCUM Codes (Required)
+45,EffectEvidenceSynthesis.effectEstimate.precisionEstimate, precisionEstimate ,,0..*,BackboneElement,How precise the estimate is
+46,EffectEvidenceSynthesis.effectEstimate.precisionEstimate.type, type ,,0..1,CodeableConcept,Type of precision estimatePrecisionEstimateType (Extensible)
+47,EffectEvidenceSynthesis.effectEstimate.precisionEstimate.level, level ,,0..1,decimal,Level of confidence interval
+48,EffectEvidenceSynthesis.effectEstimate.precisionEstimate.from, from ,,0..1,decimal,Lower bound
+49,EffectEvidenceSynthesis.effectEstimate.precisionEstimate.to, to ,,0..1,decimal,Upper bound
+50,EffectEvidenceSynthesis.certainty, certainty ,,0..*,BackboneElement,How certain is the effect
+51,EffectEvidenceSynthesis.certainty.rating, rating ,,0..*,CodeableConcept,Certainty ratingQualityOfEvidenceRating (Extensible)
+52,EffectEvidenceSynthesis.certainty.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+53,EffectEvidenceSynthesis.certainty.certaintySubcomponent, certaintySubcomponent ,,0..*,BackboneElement,A component that contributes to the overall certainty
+54,EffectEvidenceSynthesis.certainty.certaintySubcomponent.type, type ,,0..1,CodeableConcept,Type of subcomponent of certainty ratingCertaintySubcomponentType (Extensible)
+55,EffectEvidenceSynthesis.certainty.certaintySubcomponent.rating, rating ,,0..*,CodeableConcept,Subcomponent certainty ratingCertaintySubcomponentRating (Extensible)
+56,EffectEvidenceSynthesis.certainty.certaintySubcomponent.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes

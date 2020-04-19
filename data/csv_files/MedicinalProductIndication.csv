@@ -1,0 +1,14 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductIndication, MedicinalProductIndication ,ΣTU,,DomainResource,"MedicinalProductIndicationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductIndication.subject, subject ,Σ,0..*,Reference(MedicinalProduct | Medication),The medication for which this is an indication
+2,MedicinalProductIndication.diseaseSymptomProcedure, diseaseSymptomProcedure ,Σ,0..1,CodeableConcept,"The disease, symptom or procedure that is the indication for treatment"
+3,MedicinalProductIndication.diseaseStatus, diseaseStatus ,Σ,0..1,CodeableConcept,The status of the disease or symptom for which the indication applies
+4,MedicinalProductIndication.comorbidity, comorbidity ,Σ,0..*,CodeableConcept,Comorbidity (concurrent condition) or co-infection as part of the indication
+5,MedicinalProductIndication.intendedEffect, intendedEffect ,Σ,0..1,CodeableConcept,"The intended effect, aim or strategy to be achieved by the indication"
+6,MedicinalProductIndication.duration, duration ,Σ,0..1,Quantity,Timing or duration information as part of the indication
+7,MedicinalProductIndication.otherTherapy, otherTherapy ,Σ,0..*,BackboneElement,Information about the use of the medicinal product in relation to other therapies described as part of the indication
+8,MedicinalProductIndication.otherTherapy.therapyRelationshipType, therapyRelationshipType ,Σ,1..1,CodeableConcept,The type of relationship between the medicinal product indication or contraindication and another therapy
+9,MedicinalProductIndication.otherTherapy.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,"Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"
+10,MedicinalProductIndication.otherTherapy.medicationReference(medicinalproduct | medication | substance | substancespecification),medicationReference(medicinalproduct | medication | substance | substancespecification),Σ,1..1,Reference(MedicinalProduct | Medication | Substance | SubstanceSpecification),"Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"
+11,MedicinalProductIndication.undesirableEffect, undesirableEffect ,Σ,0..*,Reference(MedicinalProductUndesirableEffect),Describe the undesirable effects of the medicinal product
+12,MedicinalProductIndication.population, population ,Σ,0..*,Population,The population group to which this applies

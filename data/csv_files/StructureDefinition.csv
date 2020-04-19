@@ -1,0 +1,37 @@
+,Path,Name,Flag,Card,Type,Description
+0,StructureDefinition, StructureDefinition ,IN,,DomainResource,"Structural Definition+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: Element paths must be unique unless the structure is a constraint+ Rule: If the first element in a differential has no ""."" in the path and it's not a logical model, it has no type+ Rule: If the structure is not abstract, then there SHALL be a baseDefinition+ Rule: If the structure defines an extension then the structure must have context information+ Rule: A structure must have either a differential, or a snapshot (or both)+ Rule: In any snapshot or differential, no label, code or requirements on an element without a ""."" in the path (e.g. the first element)+ Rule: If there's a type, its content must match the path name in the first element of a snapshot+ Rule: All element definitions must have an id+ Rule: The first element in a snapshot has no type unless model is a logical model.+ Rule: All element definitions must have unique ids (snapshot)+ Rule: All element definitions must have unique ids (diff)+ Rule: Context Invariants can only be used for extensions+ Rule: FHIR Specification models only use FHIR defined types+ Rule: Default values can only be specified on specializations+ Rule: FHIR Specification models never have default values+ Rule: No slice name on rootElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,StructureDefinition.url, url ,Σ,1..1,uri,"Canonical identifier for this structure definition, represented as a URI (globally unique)"
+2,StructureDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the structure definition
+3,StructureDefinition.version, version ,Σ,0..1,string,Business version of the structure definition
+4,StructureDefinition.name, name ,ΣI,1..1,string,Name for this structure definition (computer friendly)
+5,StructureDefinition.title, title ,Σ,0..1,string,Name for this structure definition (human friendly)
+6,StructureDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,StructureDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,StructureDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+9,StructureDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,StructureDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,StructureDefinition.description, description ,,0..1,markdown,Natural language description of the structure definition
+12,StructureDefinition.useContext, useContext ,ΣTU,0..*,UsageContext,The context that the content is intended to support
+13,StructureDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for structure definition (if applicable)Jurisdiction (Extensible)
+14,StructureDefinition.purpose, purpose ,,0..1,markdown,Why this structure definition is defined
+15,StructureDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+16,StructureDefinition.keyword, keyword ,Σ,0..*,Coding,Assist with indexing and findingStructure Definition Use Codes / Keywords (Extensible)
+17,StructureDefinition.fhirVersion, fhirVersion ,Σ,0..1,code,FHIR Version this StructureDefinition targetsFHIRVersion (Required)
+18,StructureDefinition.mapping, mapping ,I,0..*,BackboneElement,External specification that the content is mapped to+ Rule: Must have at least a name or a uri (or both)
+19,StructureDefinition.mapping.identity, identity ,,1..1,id,Internal id when this mapping is used
+20,StructureDefinition.mapping.uri, uri ,I,0..1,uri,Identifies what this mapping refers to
+21,StructureDefinition.mapping.name, name ,I,0..1,string,Names what this mapping refers to
+22,StructureDefinition.mapping.comment, comment ,,0..1,string,"Versions, Issues, Scope limitations etc."
+23,StructureDefinition.kind, kind ,Σ,1..1,code,primitive-type | complex-type | resource | logicalStructureDefinitionKind (Required)
+24,StructureDefinition.abstract, abstract ,Σ,1..1,boolean,Whether the structure is abstract
+25,StructureDefinition.context, context ,ΣI,0..*,BackboneElement,"If an extension, where it can be used in instances"
+26,StructureDefinition.context.type, type ,Σ,1..1,code,fhirpath | element | extensionExtensionContextType (Required)
+27,StructureDefinition.context.expression, expression ,Σ,1..1,string,Where the extension can be used in instances
+28,StructureDefinition.contextInvariant, contextInvariant ,ΣI,0..*,string,FHIRPath invariants - when the extension can be used
+29,StructureDefinition.type, type ,ΣI,1..1,uri,Type defined or constrained by this structureFHIRDefinedType (Extensible)
+30,StructureDefinition.baseDefinition, baseDefinition ,ΣI,0..1,canonical(StructureDefinition),Definition that this type is constrained/specialized from
+31,StructureDefinition.derivation, derivation ,Σ,0..1,code,specialization | constraint - How relates to base definitionTypeDerivationRule (Required)
+32,StructureDefinition.snapshot, snapshot ,I,0..1,BackboneElement,"Snapshot view of the structure+ Rule: Each element definition in a snapshot must have a formal definition and cardinalities+ Rule: All snapshot elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models+ Rule: All snapshot elements must have a base definition"
+33,StructureDefinition.snapshot.element, element ,I,1..*,ElementDefinition,Definition of elements in the resource (if no StructureDefinition)+ Rule: provide either a binding reference or a description (or both)
+34,StructureDefinition.differential, differential ,I,0..1,BackboneElement,"Differential view of the structure+ Rule: No slicing on the root element+ Rule: In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models"
+35,StructureDefinition.differential.element, element ,,1..*,ElementDefinition,Definition of elements in the resource (if no StructureDefinition)

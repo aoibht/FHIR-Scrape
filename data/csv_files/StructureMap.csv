@@ -1,0 +1,65 @@
+,Path,Name,Flag,Card,Type,Description
+0,StructureMap, StructureMap ,ITU,,DomainResource,"A Map of relationships between 2 structures that can be used to transform data+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,StructureMap.url, url ,Σ,1..1,uri,"Canonical identifier for this structure map, represented as a URI (globally unique)"
+2,StructureMap.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the structure map
+3,StructureMap.version, version ,Σ,0..1,string,Business version of the structure map
+4,StructureMap.name, name ,ΣI,1..1,string,Name for this structure map (computer friendly)
+5,StructureMap.title, title ,Σ,0..1,string,Name for this structure map (human friendly)
+6,StructureMap.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,StructureMap.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,StructureMap.date, date ,Σ,0..1,dateTime,Date last changed
+9,StructureMap.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,StructureMap.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,StructureMap.description, description ,,0..1,markdown,Natural language description of the structure map
+12,StructureMap.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+13,StructureMap.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for structure map (if applicable)Jurisdiction (Extensible)
+14,StructureMap.purpose, purpose ,,0..1,markdown,Why this structure map is defined
+15,StructureMap.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+16,StructureMap.structure, structure ,Σ,0..*,BackboneElement,Structure Definition used by this map
+17,StructureMap.structure.url, url ,Σ,1..1,canonical(StructureDefinition),Canonical reference to structure definition
+18,StructureMap.structure.mode, mode ,Σ,1..1,code,source | queried | target | producedStructureMapModelMode (Required)
+19,StructureMap.structure.alias, alias ,Σ,0..1,string,Name for type in this map
+20,StructureMap.structure.documentation, documentation ,,0..1,string,Documentation on use of structure
+21,StructureMap.import, import ,Σ,0..*,canonical(StructureMap),Other maps used by this map (canonical URLs)
+22,StructureMap.group, group ,Σ,1..*,BackboneElement,Named sections for reader convenience
+23,StructureMap.group.name, name ,Σ,1..1,id,Human-readable label
+24,StructureMap.group.extends, extends ,Σ,0..1,id,Another group that this group adds rules to
+25,StructureMap.group.typeMode, typeMode ,Σ,1..1,code,none | types | type-and-typesStructureMapGroupTypeMode (Required)
+26,StructureMap.group.documentation, documentation ,Σ,0..1,string,Additional description/explanation for group
+27,StructureMap.group.input, input ,Σ,1..*,BackboneElement,Named instance provided when invoking the map
+28,StructureMap.group.input.name, name ,Σ,1..1,id,Name for this instance of data
+29,StructureMap.group.input.type, type ,Σ,0..1,string,Type for this instance of data
+30,StructureMap.group.input.mode, mode ,Σ,1..1,code,source | targetStructureMapInputMode (Required)
+31,StructureMap.group.input.documentation, documentation ,,0..1,string,Documentation for this instance of data
+32,StructureMap.group.rule, rule ,Σ,1..*,BackboneElement,Transform Rule from source to target
+33,StructureMap.group.rule.name, name ,Σ,1..1,id,Name of the rule for internal references
+34,StructureMap.group.rule.source, source ,Σ,1..*,BackboneElement,Source inputs to the mapping
+35,StructureMap.group.rule.source.context, context ,Σ,1..1,id,Type or variable this rule applies to
+36,StructureMap.group.rule.source.min, min ,Σ,0..1,integer,Specified minimum cardinality
+37,StructureMap.group.rule.source.max, max ,Σ,0..1,string,Specified maximum cardinality (number or *)
+38,StructureMap.group.rule.source.type, type ,Σ,0..1,string,Rule only applies if source has this type
+39,StructureMap.group.rule.source.element, element ,Σ,0..1,string,Optional field for this source
+40,StructureMap.group.rule.source.listMode, listMode ,Σ,0..1,code,first | not_first | last | not_last | only_oneStructureMapSourceListMode (Required)
+41,StructureMap.group.rule.source.variable, variable ,Σ,0..1,id,"Named context for field, if a field is specified"
+42,StructureMap.group.rule.source.condition, condition ,Σ,0..1,string,FHIRPath expression  - must be true or the rule does not apply
+43,StructureMap.group.rule.source.check, check ,Σ,0..1,string,FHIRPath expression  - must be true or the mapping engine throws an error instead of completing
+44,StructureMap.group.rule.source.logMessage, logMessage ,Σ,0..1,string,Message to put in log if source exists (FHIRPath)
+45,StructureMap.group.rule.target, target ,ΣI,0..*,BackboneElement,Content to create because of this mapping rule+ Rule: Can only have an element if you have a context+ Rule: Must have a contextType if you have a context
+46,StructureMap.group.rule.target.context, context ,Σ,0..1,id,Type or variable this rule applies to
+47,StructureMap.group.rule.target.contextType, contextType ,Σ,0..1,code,type | variableStructureMapContextType (Required)
+48,StructureMap.group.rule.target.element, element ,Σ,0..1,string,Field to create in the context
+49,StructureMap.group.rule.target.variable, variable ,Σ,0..1,id,"Named context for field, if desired, and a field is specified"
+50,StructureMap.group.rule.target.listMode, listMode ,Σ,0..*,code,first | share | last | collateStructureMapTargetListMode (Required)
+51,StructureMap.group.rule.target.listRuleId, listRuleId ,Σ,0..1,id,Internal rule reference for shared list items
+52,StructureMap.group.rule.target.transform, transform ,Σ,0..1,code,create | copy +StructureMapTransform (Required)
+53,StructureMap.group.rule.target.parameter, parameter ,Σ,0..*,BackboneElement,Parameters to the transform
+54,StructureMap.group.rule.target.parameter.valueId,valueId,Σ,1..1,id,Parameter value - variable or literal
+55,StructureMap.group.rule.target.parameter.valueString,valueString,Σ,1..1,string,Parameter value - variable or literal
+56,StructureMap.group.rule.target.parameter.valueBoolean,valueBoolean,Σ,1..1,boolean,Parameter value - variable or literal
+57,StructureMap.group.rule.target.parameter.valueInteger,valueInteger,Σ,1..1,integer,Parameter value - variable or literal
+58,StructureMap.group.rule.target.parameter.valueDecimal,valueDecimal,Σ,1..1,decimal,Parameter value - variable or literal
+59,StructureMap.group.rule.rule, rule ,Σ,0..*,see rule,Rules contained in this rule
+60,StructureMap.group.rule.dependent, dependent ,Σ,0..*,BackboneElement,Which other rules to apply in the context of this rule
+61,StructureMap.group.rule.dependent.name, name ,Σ,1..1,id,Name of a rule or group to apply
+62,StructureMap.group.rule.dependent.variable, variable ,Σ,1..*,string,Variable to pass to the rule or group
+63,StructureMap.group.rule.documentation, documentation ,,0..1,string,Documentation for this instance of data

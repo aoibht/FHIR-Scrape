@@ -1,0 +1,26 @@
+,Path,Name,Flag,Card,Type,Description
+0,MessageHeader, MessageHeader ,ΣTU,,DomainResource,"A resource that describes a message that is exchanged between systemsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MessageHeader.eventCoding,eventCoding,Σ,1..1,Coding,Code for the event this message represents or link to event definitionMessageEvent (Example)
+2,MessageHeader.eventUri,eventUri,Σ,1..1,uri,Code for the event this message represents or link to event definitionMessageEvent (Example)
+3,MessageHeader.destination, destination ,Σ,0..*,BackboneElement,Message destination application(s)
+4,MessageHeader.destination.name, name ,Σ,0..1,string,Name of system
+5,MessageHeader.destination.target, target ,Σ,0..1,Reference(Device),Particular delivery destination within the destination
+6,MessageHeader.destination.endpoint, endpoint ,Σ,1..1,url,Actual destination address or id
+7,MessageHeader.destination.receiver, receiver ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization),"Intended ""real-world"" recipient for the data"
+8,MessageHeader.sender, sender ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization),Real world sender of the message
+9,MessageHeader.enterer, enterer ,Σ,0..1,Reference(Practitioner | PractitionerRole),The source of the data entry
+10,MessageHeader.author, author ,Σ,0..1,Reference(Practitioner | PractitionerRole),The source of the decision
+11,MessageHeader.source, source ,Σ,1..1,BackboneElement,Message source application
+12,MessageHeader.source.name, name ,Σ,0..1,string,Name of system
+13,MessageHeader.source.software, software ,Σ,0..1,string,Name of software running the system
+14,MessageHeader.source.version, version ,Σ,0..1,string,Version of software running
+15,MessageHeader.source.contact, contact ,Σ,0..1,ContactPoint,Human contact for problems
+16,MessageHeader.source.endpoint, endpoint ,Σ,1..1,url,Actual message source address or id
+17,MessageHeader.responsible, responsible ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization),Final responsibility for event
+18,MessageHeader.reason, reason ,Σ,0..1,CodeableConcept,Cause of eventExample Message Reason Codes (Example)
+19,MessageHeader.response, response ,Σ,0..1,BackboneElement,If this is a reply to prior message
+20,MessageHeader.response.identifier, identifier ,Σ,1..1,id,Id of original message
+21,MessageHeader.response.code, code ,Σ,1..1,code,ok | transient-error | fatal-errorResponseType (Required)
+22,MessageHeader.response.details, details ,Σ,0..1,Reference(OperationOutcome),Specific list of hints/warnings/errors
+23,MessageHeader.focus, focus ,Σ,0..*,Reference(Any),The actual content of the message
+24,MessageHeader.definition, definition ,Σ,0..1,canonical(MessageDefinition),Link to the definition for this message

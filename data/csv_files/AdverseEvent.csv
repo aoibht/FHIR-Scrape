@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,AdverseEvent, AdverseEvent ,ΣTU,,DomainResource,"Medical care, research study or other healthcare event causing physical injuryElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,AdverseEvent.identifier, identifier ,Σ,0..1,Identifier,Business identifier for the event
+2,AdverseEvent.actuality, actuality ,?!Σ,1..1,code,actual | potentialAdverseEventActuality (Required)
+3,AdverseEvent.category, category ,Σ,0..*,CodeableConcept,product-problem | product-quality | product-use-error | wrong-dose | incorrect-prescribing-information | wrong-technique | wrong-route-of-administration | wrong-rate | wrong-duration | wrong-time | expired-drug | medical-device-use-error | problem-different-manufacturer | unsafe-physical-environmentAdverseEventCategory (Extensible)
+4,AdverseEvent.event, event ,Σ,0..1,CodeableConcept,Type of the event itself in relation to the subjectSNOMED CT Clinical Findings (Example)
+5,AdverseEvent.subject, subject ,Σ,1..1,Reference(Patient | Group | Practitioner | RelatedPerson),Subject impacted by event
+6,AdverseEvent.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+7,AdverseEvent.date, date ,Σ,0..1,dateTime,When the event occurred
+8,AdverseEvent.detected, detected ,Σ,0..1,dateTime,When the event was detected
+9,AdverseEvent.recordedDate, recordedDate ,Σ,0..1,dateTime,When the event was recorded
+10,AdverseEvent.resultingCondition, resultingCondition ,Σ,0..*,Reference(Condition),Effect on the subject due to this event
+11,AdverseEvent.location, location ,Σ,0..1,Reference(Location),Location where adverse event occurred
+12,AdverseEvent.seriousness, seriousness ,Σ,0..1,CodeableConcept,Seriousness of the eventAdverseEventSeriousness (Example)
+13,AdverseEvent.severity, severity ,Σ,0..1,CodeableConcept,mild | moderate | severeAdverseEventSeverity (Required)
+14,AdverseEvent.outcome, outcome ,Σ,0..1,CodeableConcept,resolved | recovering | ongoing | resolvedWithSequelae | fatal | unknownAdverseEventOutcome (Required)
+15,AdverseEvent.recorder, recorder ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson),Who recorded the adverse event
+16,AdverseEvent.contributor, contributor ,Σ,0..*,Reference(Practitioner | PractitionerRole | Device),Who  was involved in the adverse event or the potential adverse event
+17,AdverseEvent.suspectEntity, suspectEntity ,Σ,0..*,BackboneElement,The suspected agent causing the adverse event
+18,AdverseEvent.suspectEntity.instance, instance ,Σ,1..1,Reference(Immunization | Procedure | Substance | Medication | MedicationAdministration | MedicationStatement | Device),Refers to the specific entity that caused the adverse event
+19,AdverseEvent.suspectEntity.causality, causality ,Σ,0..*,BackboneElement,Information on the possible cause of the event
+20,AdverseEvent.suspectEntity.causality.assessment, assessment ,Σ,0..1,CodeableConcept,Assessment of if the entity caused the eventAdverseEventCausalityAssessment (Example)
+21,AdverseEvent.suspectEntity.causality.productRelatedness, productRelatedness ,Σ,0..1,string,AdverseEvent.suspectEntity.causalityProductRelatedness
+22,AdverseEvent.suspectEntity.causality.author, author ,Σ,0..1,Reference(Practitioner | PractitionerRole),AdverseEvent.suspectEntity.causalityAuthor
+23,AdverseEvent.suspectEntity.causality.method, method ,Σ,0..1,CodeableConcept,ProbabilityScale | Bayesian | ChecklistAdverseEventCausalityMethod (Example)
+24,AdverseEvent.subjectMedicalHistory, subjectMedicalHistory ,Σ,0..*,Reference(Condition | Observation | AllergyIntolerance | FamilyMemberHistory | Immunization | Procedure | Media | DocumentReference),AdverseEvent.subjectMedicalHistory
+25,AdverseEvent.referenceDocument, referenceDocument ,Σ,0..*,Reference(DocumentReference),AdverseEvent.referenceDocument
+26,AdverseEvent.study, study ,Σ,0..*,Reference(ResearchStudy),AdverseEvent.study

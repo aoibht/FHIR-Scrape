@@ -1,0 +1,55 @@
+,Path,Name,Flag,Card,Type,Description
+0,ExampleScenario, ExampleScenario ,ITU,,DomainResource,"Example of workflow instance+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ExampleScenario.url, url ,Σ,0..1,uri,"Canonical identifier for this example scenario, represented as a URI (globally unique)"
+2,ExampleScenario.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the example scenario
+3,ExampleScenario.version, version ,Σ,0..1,string,Business version of the example scenario
+4,ExampleScenario.name, name ,ΣI,0..1,string,Name for this example scenario (computer friendly)
+5,ExampleScenario.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,ExampleScenario.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+7,ExampleScenario.date, date ,Σ,0..1,dateTime,Date last changed
+8,ExampleScenario.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,ExampleScenario.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,ExampleScenario.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+11,ExampleScenario.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for example scenario (if applicable)Jurisdiction (Extensible)
+12,ExampleScenario.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+13,ExampleScenario.purpose, purpose ,,0..1,markdown,"The purpose of the example, e.g. to illustrate a scenario"
+14,ExampleScenario.actor, actor ,,0..*,BackboneElement,Actor participating in the resource
+15,ExampleScenario.actor.actorId, actorId ,,1..1,string,ID or acronym of the actor
+16,ExampleScenario.actor.type, type ,,1..1,code,person | entityExampleScenarioActorType (Required)
+17,ExampleScenario.actor.name, name ,,0..1,string,The name of the actor as shown in the page
+18,ExampleScenario.actor.description, description ,,0..1,markdown,The description of the actor
+19,ExampleScenario.instance, instance ,,0..*,BackboneElement,Each resource and each version that is present in the workflow
+20,ExampleScenario.instance.resourceId, resourceId ,,1..1,string,The id of the resource for referencing
+21,ExampleScenario.instance.resourceType, resourceType ,,1..1,code,The type of the resourceResourceType (Required)
+22,ExampleScenario.instance.name, name ,,0..1,string,A short name for the resource instance
+23,ExampleScenario.instance.description, description ,,0..1,markdown,Human-friendly description of the resource instance
+24,ExampleScenario.instance.version, version ,,0..*,BackboneElement,A specific version of the resource
+25,ExampleScenario.instance.version.versionId, versionId ,,1..1,string,The identifier of a specific version of a resource
+26,ExampleScenario.instance.version.description, description ,,1..1,markdown,The description of the resource version
+27,ExampleScenario.instance.containedInstance, containedInstance ,,0..*,BackboneElement,Resources contained in the instance
+28,ExampleScenario.instance.containedInstance.resourceId, resourceId ,,1..1,string,Each resource contained in the instance
+29,ExampleScenario.instance.containedInstance.versionId, versionId ,,0..1,string,A specific version of a resource contained in the instance
+30,ExampleScenario.process, process ,,0..*,BackboneElement,Each major process - a group of operations
+31,ExampleScenario.process.title, title ,Σ,1..1,string,The diagram title of the group of operations
+32,ExampleScenario.process.description, description ,,0..1,markdown,A longer description of the group of operations
+33,ExampleScenario.process.preConditions, preConditions ,,0..1,markdown,Description of initial status before the process starts
+34,ExampleScenario.process.postConditions, postConditions ,,0..1,markdown,Description of final status after the process ends
+35,ExampleScenario.process.step, step ,,0..*,BackboneElement,Each step of the process
+36,ExampleScenario.process.step.process, process ,,0..*,see process,Nested process
+37,ExampleScenario.process.step.pause, pause ,,0..1,boolean,If there is a pause in the flow
+38,ExampleScenario.process.step.operation, operation ,,0..1,BackboneElement,Each interaction or action
+39,ExampleScenario.process.step.operation.number, number ,,1..1,string,The sequential number of the interaction
+40,ExampleScenario.process.step.operation.type, type ,,0..1,string,The type of operation - CRUD
+41,ExampleScenario.process.step.operation.name, name ,,0..1,string,The human-friendly name of the interaction
+42,ExampleScenario.process.step.operation.initiator, initiator ,,0..1,string,Who starts the transaction
+43,ExampleScenario.process.step.operation.receiver, receiver ,,0..1,string,Who receives the transaction
+44,ExampleScenario.process.step.operation.description, description ,,0..1,markdown,A comment to be inserted in the diagram
+45,ExampleScenario.process.step.operation.initiatorActive, initiatorActive ,,0..1,boolean,Whether the initiator is deactivated right after the transaction
+46,ExampleScenario.process.step.operation.receiverActive, receiverActive ,,0..1,boolean,Whether the receiver is deactivated right after the transaction
+47,ExampleScenario.process.step.operation.request, request ,,0..1,see containedInstance,Each resource instance used by the initiator
+48,ExampleScenario.process.step.operation.response, response ,,0..1,see containedInstance,Each resource instance used by the responder
+49,ExampleScenario.process.step.alternative, alternative ,,0..*,BackboneElement,Alternate non-typical step action
+50,ExampleScenario.process.step.alternative.title, title ,,1..1,string,Label for alternative
+51,ExampleScenario.process.step.alternative.description, description ,,0..1,markdown,A human-readable description of each option
+52,ExampleScenario.process.step.alternative.step, step ,,0..*,see step,What happens in each alternative option
+53,ExampleScenario.workflow, workflow ,,0..*,canonical(ExampleScenario),Another nested workflow

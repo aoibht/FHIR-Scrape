@@ -1,0 +1,40 @@
+,Path,Name,Flag,Card,Type,Description
+0,DeviceDefinition, DeviceDefinition ,TU,,DomainResource,"An instance of a medical-related component of a medical deviceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DeviceDefinition.identifier, identifier ,,0..*,Identifier,Instance identifier
+2,DeviceDefinition.udiDeviceIdentifier, udiDeviceIdentifier ,,0..*,BackboneElement,Unique Device Identifier (UDI) Barcode string
+3,DeviceDefinition.udiDeviceIdentifier.deviceIdentifier, deviceIdentifier ,,1..1,string,The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdication porvided in the DeviceDefinition.udiDeviceIdentifier
+4,DeviceDefinition.udiDeviceIdentifier.issuer, issuer ,,1..1,uri,The organization that assigns the identifier algorithm
+5,DeviceDefinition.udiDeviceIdentifier.jurisdiction, jurisdiction ,,1..1,uri,The jurisdiction to which the deviceIdentifier applies
+6,DeviceDefinition.manufacturerString,manufacturerString,,0..1,string,Name of device manufacturer
+7,DeviceDefinition.manufacturerReference(organization),manufacturerReference(organization),,0..1,Reference(Organization),Name of device manufacturer
+8,DeviceDefinition.deviceName, deviceName ,,0..*,BackboneElement,A name given to the device to identify it
+9,DeviceDefinition.deviceName.name, name ,,1..1,string,The name of the device
+10,DeviceDefinition.deviceName.type, type ,,1..1,code,udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | otherDeviceNameType (Required)
+11,DeviceDefinition.modelNumber, modelNumber ,,0..1,string,The model number for the device
+12,DeviceDefinition.type, type ,,0..1,CodeableConcept,What kind of device or device system this isFHIR Device Types (Example)
+13,DeviceDefinition.specialization, specialization ,,0..*,BackboneElement,"The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication"
+14,DeviceDefinition.specialization.systemType, systemType ,,1..1,string,The standard that is used to operate and communicate
+15,DeviceDefinition.specialization.version, version ,,0..1,string,The version of the standard that is used to operate and communicate
+16,DeviceDefinition.version, version ,,0..*,string,Available versions
+17,DeviceDefinition.safety, safety ,Σ,0..*,CodeableConcept,Safety characteristics of the deviceDevice safety (Example)
+18,DeviceDefinition.shelfLifeStorage, shelfLifeStorage ,,0..*,ProductShelfLife,Shelf Life and storage information
+19,DeviceDefinition.physicalCharacteristics, physicalCharacteristics ,,0..1,ProdCharacteristic,"Dimensions, color etc."
+20,DeviceDefinition.languageCode, languageCode ,,0..*,CodeableConcept,Language code for the human-readable text strings produced by the device (all supported)
+21,DeviceDefinition.capability, capability ,,0..*,BackboneElement,Device capabilities
+22,DeviceDefinition.capability.type, type ,,1..1,CodeableConcept,Type of capability
+23,DeviceDefinition.capability.description, description ,,0..*,CodeableConcept,Description of capability
+24,DeviceDefinition.property, property ,,0..*,BackboneElement,"The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"
+25,DeviceDefinition.property.type, type ,,1..1,CodeableConcept,Code that specifies the property DeviceDefinitionPropetyCode (Extensible)
+26,DeviceDefinition.property.valueQuantity, valueQuantity ,,0..*,Quantity,Property value as a quantity
+27,DeviceDefinition.property.valueCode, valueCode ,,0..*,CodeableConcept,"Property value as a code, e.g., NTP4 (synced to NTP)"
+28,DeviceDefinition.owner, owner ,,0..1,Reference(Organization),Organization responsible for device
+29,DeviceDefinition.contact, contact ,,0..*,ContactPoint,Details for human/organization for support
+30,DeviceDefinition.url, url ,,0..1,uri,Network address to contact device
+31,DeviceDefinition.onlineInformation, onlineInformation ,,0..1,uri,Access to on-line information
+32,DeviceDefinition.note, note ,,0..*,Annotation,Device notes and comments
+33,DeviceDefinition.quantity, quantity ,,0..1,Quantity,"The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product)"
+34,DeviceDefinition.parentDevice, parentDevice ,Σ,0..1,Reference(DeviceDefinition),The parent device it can be part of
+35,DeviceDefinition.material, material ,,0..*,BackboneElement,A substance used to create the material(s) of which the device is made
+36,DeviceDefinition.material.substance, substance ,,1..1,CodeableConcept,The substance
+37,DeviceDefinition.material.alternate, alternate ,,0..1,boolean,Indicates an alternative material of the device
+38,DeviceDefinition.material.allergenicIndicator, allergenicIndicator ,,0..1,boolean,Whether the substance is a known or suspected allergen

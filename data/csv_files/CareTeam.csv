@@ -1,0 +1,19 @@
+,Path,Name,Flag,Card,Type,Description
+0,CareTeam, CareTeam ,TU,,DomainResource,"Planned participants in the coordination and delivery of care for a patient or groupElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CareTeam.identifier, identifier ,Σ,0..*,Identifier,External Ids for this team
+2,CareTeam.status, status ,?!Σ,0..1,code,proposed | active | suspended | inactive | entered-in-errorCareTeamStatus (Required)
+3,CareTeam.category, category ,Σ,0..*,CodeableConcept,Type of teamCare Team category (Example)
+4,CareTeam.name, name ,Σ,0..1,string,"Name of the team, such as crisis assessment team"
+5,CareTeam.subject, subject ,Σ,0..1,Reference(Patient | Group),Who care team is for
+6,CareTeam.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+7,CareTeam.period, period ,Σ,0..1,Period,Time period team covers
+8,CareTeam.participant, participant ,I,0..*,BackboneElement,Members of the team+ Rule: CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
+9,CareTeam.participant.role, role ,Σ,0..*,CodeableConcept,Type of involvementParticipant Roles (Example)
+10,CareTeam.participant.member, member ,Σ,0..1,Reference(Practitioner | PractitionerRole | RelatedPerson | Patient | Organization | CareTeam),Who is involved
+11,CareTeam.participant.onBehalfOf, onBehalfOf ,Σ,0..1,Reference(Organization),Organization of the practitioner
+12,CareTeam.participant.period, period ,,0..1,Period,Time period of participant
+13,CareTeam.reasonCode, reasonCode ,,0..*,CodeableConcept,Why the care team existsSNOMED CT Clinical Findings (Example)
+14,CareTeam.reasonReference, reasonReference ,,0..*,Reference(Condition),Why the care team exists
+15,CareTeam.managingOrganization, managingOrganization ,Σ,0..*,Reference(Organization),Organization responsible for the care team
+16,CareTeam.telecom, telecom ,,0..*,ContactPoint,A contact detail for the care team (that applies to all members)
+17,CareTeam.note, note ,,0..*,Annotation,Comments made about the CareTeam

@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,HealthcareService, HealthcareService ,TU,,DomainResource,"The details of a healthcare service available at a locationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,HealthcareService.identifier, identifier ,Σ,0..*,Identifier,External identifiers for this item
+2,HealthcareService.active, active ,?!Σ,0..1,boolean,Whether this HealthcareService record is in active use
+3,HealthcareService.providedBy, providedBy ,Σ,0..1,Reference(Organization),Organization that provides this service
+4,HealthcareService.category, category ,Σ,0..*,CodeableConcept,Broad category of service being performed or deliveredService category (Example)
+5,HealthcareService.type, type ,Σ,0..*,CodeableConcept,Type of service that may be delivered or performedService type (Example)
+6,HealthcareService.specialty, specialty ,Σ,0..*,CodeableConcept,Specialties handled by the HealthcareServicePractice Setting Code Value Set (Preferred)
+7,HealthcareService.location, location ,Σ,0..*,Reference(Location),Location(s) where service may be provided
+8,HealthcareService.name, name ,Σ,0..1,string,Description of service as presented to a consumer while searching
+9,HealthcareService.comment, comment ,Σ,0..1,string,Additional description and/or any specific issues not covered elsewhere
+10,HealthcareService.extraDetails, extraDetails ,,0..1,markdown,Extra details about the service that can't be placed in the other fields
+11,HealthcareService.photo, photo ,Σ,0..1,Attachment,Facilitates quick identification of the service
+12,HealthcareService.telecom, telecom ,,0..*,ContactPoint,Contacts related to the healthcare service
+13,HealthcareService.coverageArea, coverageArea ,,0..*,Reference(Location),Location(s) service is intended for/available to
+14,HealthcareService.serviceProvisionCode, serviceProvisionCode ,,0..*,CodeableConcept,Conditions under which service is available/offeredServiceProvisionConditions (Example)
+15,HealthcareService.eligibility, eligibility ,,0..*,BackboneElement,Specific eligibility requirements required to use the service
+16,HealthcareService.eligibility.code, code ,,0..1,CodeableConcept,Coded value for the eligibility
+17,HealthcareService.eligibility.comment, comment ,,0..1,markdown,Describes the eligibility conditions for the service
+18,HealthcareService.program, program ,,0..*,CodeableConcept,Programs that this service is applicable toProgram (Example)
+19,HealthcareService.characteristic, characteristic ,,0..*,CodeableConcept,Collection of characteristics (attributes)
+20,HealthcareService.communication, communication ,,0..*,CodeableConcept,The language that this service is offered inCommon Languages (Preferred but limited to AllLanguages)
+21,HealthcareService.referralMethod, referralMethod ,,0..*,CodeableConcept,Ways that the service accepts referralsReferralMethod (Example)
+22,HealthcareService.appointmentRequired, appointmentRequired ,,0..1,boolean,If an appointment is required for access to this service
+23,HealthcareService.availableTime, availableTime ,,0..*,BackboneElement,Times the Service Site is available
+24,HealthcareService.availableTime.daysOfWeek, daysOfWeek ,,0..*,code,mon | tue | wed | thu | fri | sat | sunDaysOfWeek (Required)
+25,HealthcareService.availableTime.allDay, allDay ,,0..1,boolean,Always available? e.g. 24 hour service
+26,HealthcareService.availableTime.availableStartTime, availableStartTime ,,0..1,time,Opening time of day (ignored if allDay = true)
+27,HealthcareService.availableTime.availableEndTime, availableEndTime ,,0..1,time,Closing time of day (ignored if allDay = true)
+28,HealthcareService.notAvailable, notAvailable ,,0..*,BackboneElement,Not available during this time due to provided reason
+29,HealthcareService.notAvailable.description, description ,,1..1,string,Reason presented to the user explaining why time not available
+30,HealthcareService.notAvailable.during, during ,,0..1,Period,Service not available from this date
+31,HealthcareService.availabilityExceptions, availabilityExceptions ,,0..1,string,Description of availability exceptions
+32,HealthcareService.endpoint, endpoint ,,0..*,Reference(Endpoint),Technical endpoints providing access to electronic services operated for the healthcare service

@@ -1,0 +1,14 @@
+,Path,Name,Flag,Card,Type,Description
+0,PaymentNotice, PaymentNotice ,TU,,DomainResource,"PaymentNotice requestElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,PaymentNotice.identifier, identifier ,,0..*,Identifier,Business Identifier for the payment noctice
+2,PaymentNotice.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,PaymentNotice.request, request ,,0..1,Reference(Any),Request reference
+4,PaymentNotice.response, response ,,0..1,Reference(Any),Response reference
+5,PaymentNotice.created, created ,Σ,1..1,dateTime,Creation date
+6,PaymentNotice.provider, provider ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Responsible practitioner
+7,PaymentNotice.payment, payment ,Σ,1..1,Reference(PaymentReconciliation),Payment reference
+8,PaymentNotice.paymentDate, paymentDate ,,0..1,date,Payment or clearing date
+9,PaymentNotice.payee, payee ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Party being paid
+10,PaymentNotice.recipient, recipient ,Σ,1..1,Reference(Organization),Party being notified
+11,PaymentNotice.amount, amount ,Σ,1..1,Money,Monetary amount of the payment
+12,PaymentNotice.paymentStatus, paymentStatus ,,0..1,CodeableConcept,Issued or cleared Status of the paymentPayment Status Codes (Example)

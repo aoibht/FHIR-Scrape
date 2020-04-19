@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,QuestionnaireResponse, QuestionnaireResponse ,TU,,DomainResource,"A structured set of questions and their answersElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,QuestionnaireResponse.identifier, identifier ,Σ,0..1,Identifier,Unique id for this set of answers
+2,QuestionnaireResponse.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | ServiceRequest),Request fulfilled by this QuestionnaireResponse
+3,QuestionnaireResponse.partOf, partOf ,Σ,0..*,Reference(Observation | Procedure),Part of this action
+4,QuestionnaireResponse.questionnaire, questionnaire ,Σ,0..1,canonical(Questionnaire),Form being answered
+5,QuestionnaireResponse.status, status ,?!Σ,1..1,code,in-progress | completed | amended | entered-in-error | stoppedQuestionnaireResponseStatus (Required)
+6,QuestionnaireResponse.subject, subject ,Σ,0..1,Reference(Any),The subject of the questions
+7,QuestionnaireResponse.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+8,QuestionnaireResponse.authored, authored ,Σ,0..1,dateTime,Date the answers were gathered
+9,QuestionnaireResponse.author, author ,Σ,0..1,Reference(Device | Practitioner | PractitionerRole | Patient | RelatedPerson | Organization),Person who received and recorded the answers
+10,QuestionnaireResponse.source, source ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson),The person who answered the questions
+11,QuestionnaireResponse.item, item ,I,0..*,BackboneElement,Groups and questions+ Rule: Nested item can't be beneath both item and answer
+12,QuestionnaireResponse.item.linkId, linkId ,,1..1,string,Pointer to specific item from Questionnaire
+13,QuestionnaireResponse.item.definition, definition ,,0..1,uri,ElementDefinition - details for the item
+14,QuestionnaireResponse.item.text, text ,,0..1,string,Name for group or question text
+15,QuestionnaireResponse.item.answer, answer ,,0..*,BackboneElement,The response(s) to the question
+16,QuestionnaireResponse.item.answer.valueBoolean,valueBoolean,,0..1,boolean,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+17,QuestionnaireResponse.item.answer.valueDecimal,valueDecimal,,0..1,decimal,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+18,QuestionnaireResponse.item.answer.valueInteger,valueInteger,,0..1,integer,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+19,QuestionnaireResponse.item.answer.valueDate,valueDate,,0..1,date,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+20,QuestionnaireResponse.item.answer.valueDatetime,valueDatetime,,0..1,dateTime,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+21,QuestionnaireResponse.item.answer.valueTime,valueTime,,0..1,time,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+22,QuestionnaireResponse.item.answer.valueString,valueString,,0..1,string,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+23,QuestionnaireResponse.item.answer.valueUri,valueUri,,0..1,uri,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+24,QuestionnaireResponse.item.answer.valueAttachment,valueAttachment,,0..1,Attachment,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+25,QuestionnaireResponse.item.answer.valueCoding,valueCoding,,0..1,Coding,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+26,QuestionnaireResponse.item.answer.valueQuantity,valueQuantity,,0..1,Quantity,Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+27,QuestionnaireResponse.item.answer.valueReference(any),valueReference(any),,0..1,Reference(Any),Single-valued answer to the questionQuestionnaire Answer Codes (Example)
+28,QuestionnaireResponse.item.answer.item, item ,,0..*,see item,Nested groups and questions
+29,QuestionnaireResponse.item.item, item ,,0..*,see item,Nested questionnaire response items

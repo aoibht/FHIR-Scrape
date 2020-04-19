@@ -1,0 +1,13 @@
+,Path,Name,Flag,Card,Type,Description
+0,Subscription, Subscription ,ΣTU,,DomainResource,"Server push subscription criteriaElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Subscription.status, status ,?!Σ,1..1,code,requested | active | error | offSubscriptionStatus (Required)
+2,Subscription.contact, contact ,Σ,0..*,ContactPoint,Contact details for source (e.g. troubleshooting)
+3,Subscription.end, end ,Σ,0..1,instant,When to automatically delete the subscription
+4,Subscription.reason, reason ,Σ,1..1,string,Description of why this subscription was created
+5,Subscription.criteria, criteria ,Σ,1..1,string,Rule for server push
+6,Subscription.error, error ,Σ,0..1,string,Latest error note
+7,Subscription.channel, channel ,Σ,1..1,BackboneElement,The channel on which to report matches to the criteria
+8,Subscription.channel.type, type ,Σ,1..1,code,rest-hook | websocket | email | sms | messageSubscriptionChannelType (Required)
+9,Subscription.channel.endpoint, endpoint ,Σ,0..1,url,Where the channel points to
+10,Subscription.channel.payload, payload ,Σ,0..1,code,"MIME type to send, or omit for no payloadMimeType (Required)"
+11,Subscription.channel.header, header ,Σ,0..*,string,Usage depends on the channel type

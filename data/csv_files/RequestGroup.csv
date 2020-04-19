@@ -1,0 +1,50 @@
+,Path,Name,Flag,Card,Type,Description
+0,RequestGroup, RequestGroup ,TU,,DomainResource,"A group of related requestsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,RequestGroup.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+2,RequestGroup.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(),Instantiates FHIR protocol or definition
+3,RequestGroup.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,RequestGroup.basedOn, basedOn ,,0..*,Reference(Any),"Fulfills plan, proposal, or order"
+5,RequestGroup.replaces, replaces ,,0..*,Reference(Any),Request(s) replaced by this request
+6,RequestGroup.groupIdentifier, groupIdentifier ,Σ,0..1,Identifier,Composite request this is part of
+7,RequestGroup.status, status ,?!Σ,1..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+8,RequestGroup.intent, intent ,?!Σ,1..1,code,proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | optionRequestIntent (Required)
+9,RequestGroup.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+10,RequestGroup.code, code ,Σ,0..1,CodeableConcept,What's being requested/ordered
+11,RequestGroup.subject, subject ,,0..1,Reference(Patient | Group),Who the request group is about
+12,RequestGroup.encounter, encounter ,,0..1,Reference(Encounter),Created as part of
+13,RequestGroup.authoredOn, authoredOn ,,0..1,dateTime,When the request group was authored
+14,RequestGroup.author, author ,,0..1,Reference(Device | Practitioner | PractitionerRole),Device or practitioner that authored the request group
+15,RequestGroup.reasonCode, reasonCode ,,0..*,CodeableConcept,Why the request group is needed
+16,RequestGroup.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Why the request group is needed
+17,RequestGroup.note, note ,,0..*,Annotation,Additional notes about the response
+18,RequestGroup.action, action ,I,0..*,BackboneElement,"Proposed actions, if any+ Rule: Must have resource or action but not both"
+19,RequestGroup.action.prefix, prefix ,,0..1,string,User-visible prefix for the action (e.g. 1. or A.)
+20,RequestGroup.action.title, title ,,0..1,string,User-visible title
+21,RequestGroup.action.description, description ,Σ,0..1,string,Short description of the action
+22,RequestGroup.action.textEquivalent, textEquivalent ,Σ,0..1,string,"Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"
+23,RequestGroup.action.priority, priority ,,0..1,code,routine | urgent | asap | statRequest priority (Required)
+24,RequestGroup.action.code, code ,,0..*,CodeableConcept,Code representing the meaning of the action or sub-actions
+25,RequestGroup.action.documentation, documentation ,,0..*,RelatedArtifact,Supporting documentation for the intended performer of the action
+26,RequestGroup.action.condition, condition ,,0..*,BackboneElement,Whether or not the action is applicable
+27,RequestGroup.action.condition.kind, kind ,,1..1,code,applicability | start | stopActionConditionKind (Required)
+28,RequestGroup.action.condition.expression, expression ,,0..1,Expression,Boolean-valued expression
+29,RequestGroup.action.relatedAction, relatedAction ,,0..*,BackboneElement,Relationship to another action
+30,RequestGroup.action.relatedAction.actionId, actionId ,,1..1,id,What action this is related to
+31,RequestGroup.action.relatedAction.relationship, relationship ,,1..1,code,before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-endActionRelationshipType (Required)
+32,RequestGroup.action.relatedAction.offsetDuration,offsetDuration,,0..1,Duration,Time offset for the relationship
+33,RequestGroup.action.relatedAction.offsetRange,offsetRange,,0..1,Range,Time offset for the relationship
+34,RequestGroup.action.timingDatetime,timingDatetime,,0..1,dateTime,When the action should take place
+35,RequestGroup.action.timingAge,timingAge,,0..1,Age,When the action should take place
+36,RequestGroup.action.timingPeriod,timingPeriod,,0..1,Period,When the action should take place
+37,RequestGroup.action.timingDuration,timingDuration,,0..1,Duration,When the action should take place
+38,RequestGroup.action.timingRange,timingRange,,0..1,Range,When the action should take place
+39,RequestGroup.action.timingTiming,timingTiming,,0..1,Timing,When the action should take place
+40,RequestGroup.action.participant, participant ,,0..*,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Device),Who should perform the action
+41,RequestGroup.action.type, type ,,0..1,CodeableConcept,create | update | remove | fire-eventActionType (Extensible)
+42,RequestGroup.action.groupingBehavior, groupingBehavior ,,0..1,code,visual-group | logical-group | sentence-groupActionGroupingBehavior (Required)
+43,RequestGroup.action.selectionBehavior, selectionBehavior ,,0..1,code,any | all | all-or-none | exactly-one | at-most-one | one-or-moreActionSelectionBehavior (Required)
+44,RequestGroup.action.requiredBehavior, requiredBehavior ,,0..1,code,must | could | must-unless-documentedActionRequiredBehavior (Required)
+45,RequestGroup.action.precheckBehavior, precheckBehavior ,,0..1,code,yes | noActionPrecheckBehavior (Required)
+46,RequestGroup.action.cardinalityBehavior, cardinalityBehavior ,,0..1,code,single | multipleActionCardinalityBehavior (Required)
+47,RequestGroup.action.resource, resource ,I,0..1,Reference(Any),The target of the action
+48,RequestGroup.action.action, action ,I,0..*,see action,Sub action

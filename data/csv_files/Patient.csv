@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,Patient, Patient ,N,,DomainResource,"Information about an individual or animal receiving health care servicesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Patient.identifier, identifier ,Σ,0..*,Identifier,An identifier for this patient
+2,Patient.active, active ,?!Σ,0..1,boolean,Whether this patient's record is in active use
+3,Patient.name, name ,Σ,0..*,HumanName,A name associated with the patient
+4,Patient.telecom, telecom ,Σ,0..*,ContactPoint,A contact detail for the individual
+5,Patient.gender, gender ,Σ,0..1,code,male | female | other | unknownAdministrativeGender (Required)
+6,Patient.birthDate, birthDate ,Σ,0..1,date,The date of birth for the individual
+7,Patient.deceasedBoolean,deceasedBoolean,?!Σ,0..1,boolean,Indicates if the individual is deceased or not
+8,Patient.deceasedDatetime,deceasedDatetime,?!Σ,0..1,dateTime,Indicates if the individual is deceased or not
+9,Patient.address, address ,Σ,0..*,Address,An address for the individual
+10,Patient.maritalStatus, maritalStatus ,,0..1,CodeableConcept,Marital (civil) status of a patientMaritalStatus (Extensible)
+11,Patient.multipleBirthBoolean,multipleBirthBoolean,,0..1,boolean,Whether patient is part of a multiple birth
+12,Patient.multipleBirthInteger,multipleBirthInteger,,0..1,integer,Whether patient is part of a multiple birth
+13,Patient.photo, photo ,,0..*,Attachment,Image of the patient
+14,Patient.contact, contact ,I,0..*,BackboneElement,"A contact party (e.g. guardian, partner, friend) for the patient+ Rule: SHALL at least contain a contact's details or a reference to an organization"
+15,Patient.contact.relationship, relationship ,,0..*,CodeableConcept,The kind of relationshipPatient Contact Relationship  (Extensible)
+16,Patient.contact.name, name ,,0..1,HumanName,A name associated with the contact person
+17,Patient.contact.telecom, telecom ,,0..*,ContactPoint,A contact detail for the person
+18,Patient.contact.address, address ,,0..1,Address,Address for the contact person
+19,Patient.contact.gender, gender ,,0..1,code,male | female | other | unknownAdministrativeGender (Required)
+20,Patient.contact.organization, organization ,I,0..1,Reference(Organization),Organization that is associated with the contact
+21,Patient.contact.period, period ,,0..1,Period,The period during which this contact person or organization is valid to be contacted relating to this patient
+22,Patient.communication, communication ,,0..*,BackboneElement,A language which may be used to communicate with the patient about his or her health
+23,Patient.communication.language, language ,,1..1,CodeableConcept,The language which can be used to communicate with the patient about his or her healthCommon Languages (Preferred but limited to AllLanguages)
+24,Patient.communication.preferred, preferred ,,0..1,boolean,Language preference indicator
+25,Patient.generalPractitioner, generalPractitioner ,,0..*,Reference(Organization | Practitioner | PractitionerRole),Patient's nominated primary care provider
+26,Patient.managingOrganization, managingOrganization ,Σ,0..1,Reference(Organization),Organization that is the custodian of the patient record
+27,Patient.link, link ,?!Σ,0..*,BackboneElement,Link to another patient resource that concerns the same actual person
+28,Patient.link.other, other ,Σ,1..1,Reference(Patient | RelatedPerson),The other patient or related person resource that the link refers to
+29,Patient.link.type, type ,Σ,1..1,code,replaced-by | replaces | refer | seealsoLinkType (Required)

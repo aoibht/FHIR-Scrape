@@ -1,0 +1,9 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductManufactured, MedicinalProductManufactured ,ΣTU,,DomainResource,"The manufactured item as contained in the packaged medicinal productElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductManufactured.manufacturedDoseForm, manufacturedDoseForm ,Σ,1..1,CodeableConcept,Dose form as manufactured and before any transformation into the pharmaceutical product
+2,MedicinalProductManufactured.unitOfPresentation, unitOfPresentation ,Σ,0..1,CodeableConcept,The “real world” units in which the quantity of the manufactured item is described
+3,MedicinalProductManufactured.quantity, quantity ,Σ,1..1,Quantity,"The quantity or ""count number"" of the manufactured item"
+4,MedicinalProductManufactured.manufacturer, manufacturer ,Σ,0..*,Reference(Organization),"Manufacturer of the item (Note that this should be named ""manufacturer"" but it currently causes technical issues)"
+5,MedicinalProductManufactured.ingredient, ingredient ,Σ,0..*,Reference(MedicinalProductIngredient),Ingredient
+6,MedicinalProductManufactured.physicalCharacteristics, physicalCharacteristics ,Σ,0..1,ProdCharacteristic,"Dimensions, color etc."
+7,MedicinalProductManufactured.otherCharacteristics, otherCharacteristics ,Σ,0..*,CodeableConcept,Other codeable characteristics

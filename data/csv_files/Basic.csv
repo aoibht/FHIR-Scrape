@@ -1,0 +1,7 @@
+,Path,Name,Flag,Card,Type,Description
+0,Basic, Basic ,ΣTU,,DomainResource,"Resource for non-supported contentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Basic.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+2,Basic.code, code ,?!Σ,1..1,CodeableConcept,Kind of ResourceBasic Resource Types (Example)
+3,Basic.subject, subject ,Σ,0..1,Reference(Any),Identifies the focus of this resource
+4,Basic.created, created ,Σ,0..1,date,When created
+5,Basic.author, author ,Σ,0..1,Reference(Practitioner | PractitionerRole | Patient | RelatedPerson | Organization),Who created

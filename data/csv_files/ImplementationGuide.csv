@@ -1,0 +1,63 @@
+,Path,Name,Flag,Card,Type,Description
+0,ImplementationGuide, ImplementationGuide ,ITU,,DomainResource,"A set of rules about how FHIR is used+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: If a resource has a fhirVersion, it must be oe of the versions defined for the Implementation GuideElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ImplementationGuide.url, url ,Σ,1..1,uri,"Canonical identifier for this implementation guide, represented as a URI (globally unique)"
+2,ImplementationGuide.version, version ,Σ,0..1,string,Business version of the implementation guide
+3,ImplementationGuide.name, name ,ΣI,1..1,string,Name for this implementation guide (computer friendly)
+4,ImplementationGuide.title, title ,Σ,0..1,string,Name for this implementation guide (human friendly)
+5,ImplementationGuide.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,ImplementationGuide.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+7,ImplementationGuide.date, date ,Σ,0..1,dateTime,Date last changed
+8,ImplementationGuide.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,ImplementationGuide.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,ImplementationGuide.description, description ,,0..1,markdown,Natural language description of the implementation guide
+11,ImplementationGuide.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+12,ImplementationGuide.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for implementation guide (if applicable)Jurisdiction (Extensible)
+13,ImplementationGuide.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+14,ImplementationGuide.packageId, packageId ,Σ,1..1,id,NPM Package name for IG
+15,ImplementationGuide.license, license ,Σ,0..1,code,SPDX license code for this IG (or not-open-source)SPDXLicense (Required)
+16,ImplementationGuide.fhirVersion, fhirVersion ,Σ,1..*,code,FHIR Version(s) this Implementation Guide targetsFHIRVersion (Required)
+17,ImplementationGuide.dependsOn, dependsOn ,Σ,0..*,BackboneElement,Another Implementation guide this depends on
+18,ImplementationGuide.dependsOn.uri, uri ,Σ,1..1,canonical(ImplementationGuide),Identity of the IG that this depends on
+19,ImplementationGuide.dependsOn.packageId, packageId ,Σ,0..1,id,NPM Package name for IG this depends on
+20,ImplementationGuide.dependsOn.version, version ,Σ,0..1,string,Version of the IG
+21,ImplementationGuide.global, global ,Σ,0..*,BackboneElement,Profiles that apply globally
+22,ImplementationGuide.global.type, type ,Σ,1..1,code,Type this profile applies toResourceType (Required)
+23,ImplementationGuide.global.profile, profile ,Σ,1..1,canonical(StructureDefinition),Profile that all resources must conform to
+24,ImplementationGuide.definition, definition ,I,0..1,BackboneElement,"Information needed to build the IG+ Rule: If a resource has a groupingId, it must refer to a grouping defined in the Implementation Guide"
+25,ImplementationGuide.definition.grouping, grouping ,,0..*,BackboneElement,Grouping used to present related resources in the IG
+26,ImplementationGuide.definition.grouping.name, name ,,1..1,string,Descriptive name for the package
+27,ImplementationGuide.definition.grouping.description, description ,,0..1,string,Human readable text describing the package
+28,ImplementationGuide.definition.resource, resource ,,1..*,BackboneElement,Resource in the implementation guide
+29,ImplementationGuide.definition.resource.reference, reference ,,1..1,Reference(Any),Location of the resource
+30,ImplementationGuide.definition.resource.fhirVersion, fhirVersion ,,0..*,code,Versions this applies to (if different to IG)FHIRVersion (Required)
+31,ImplementationGuide.definition.resource.name, name ,,0..1,string,Human Name for the resource
+32,ImplementationGuide.definition.resource.description, description ,,0..1,string,Reason why included in guide
+33,ImplementationGuide.definition.resource.exampleBoolean,exampleBoolean,,0..1,boolean,Is an example/What is this an example of?
+34,ImplementationGuide.definition.resource.exampleCanonical(structuredefinition),exampleCanonical(structuredefinition),,0..1,canonical(StructureDefinition),Is an example/What is this an example of?
+35,ImplementationGuide.definition.resource.groupingId, groupingId ,,0..1,id,Grouping this is part of
+36,ImplementationGuide.definition.page, page ,,0..1,BackboneElement,Page/Section in the Guide
+37,ImplementationGuide.definition.page.nameUrl,nameUrl,,1..1,url,Where to find that page
+38,ImplementationGuide.definition.page.nameReference(binary),nameReference(binary),,1..1,Reference(Binary),Where to find that page
+39,ImplementationGuide.definition.page.title, title ,,1..1,string,Short title shown for navigational assistance
+40,ImplementationGuide.definition.page.generation, generation ,,1..1,code,html | markdown | xml | generatedGuidePageGeneration (Required)
+41,ImplementationGuide.definition.page.page, page ,,0..*,see page,Nested Pages / Sections
+42,ImplementationGuide.definition.parameter, parameter ,,0..*,BackboneElement,Defines how IG is built by tools
+43,ImplementationGuide.definition.parameter.code, code ,,1..1,code,apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-templateGuideParameterCode (Required)
+44,ImplementationGuide.definition.parameter.value, value ,,1..1,string,Value for named type
+45,ImplementationGuide.definition.template, template ,,0..*,BackboneElement,A template for building resources
+46,ImplementationGuide.definition.template.code, code ,,1..1,code,Type of template specified
+47,ImplementationGuide.definition.template.source, source ,,1..1,string,The source location for the template
+48,ImplementationGuide.definition.template.scope, scope ,,0..1,string,The scope in which the template applies
+49,ImplementationGuide.manifest, manifest ,,0..1,BackboneElement,Information about an assembled IG
+50,ImplementationGuide.manifest.rendering, rendering ,Σ,0..1,url,Location of rendered implementation guide
+51,ImplementationGuide.manifest.resource, resource ,Σ,1..*,BackboneElement,Resource in the implementation guide
+52,ImplementationGuide.manifest.resource.reference, reference ,Σ,1..1,Reference(Any),Location of the resource
+53,ImplementationGuide.manifest.resource.exampleBoolean,exampleBoolean,,0..1,boolean,Is an example/What is this an example of?
+54,ImplementationGuide.manifest.resource.exampleCanonical(structuredefinition),exampleCanonical(structuredefinition),,0..1,canonical(StructureDefinition),Is an example/What is this an example of?
+55,ImplementationGuide.manifest.resource.relativePath, relativePath ,,0..1,url,Relative path for page in IG
+56,ImplementationGuide.manifest.page, page ,,0..*,BackboneElement,HTML page within the parent IG
+57,ImplementationGuide.manifest.page.name, name ,,1..1,string,HTML page name
+58,ImplementationGuide.manifest.page.title, title ,,0..1,string,"Title of the page, for references"
+59,ImplementationGuide.manifest.page.anchor, anchor ,,0..*,string,Anchor available on the page
+60,ImplementationGuide.manifest.image, image ,,0..*,string,Image within the IG
+61,ImplementationGuide.manifest.other, other ,,0..*,string,Additional linkable file in IG

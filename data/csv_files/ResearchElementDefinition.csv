@@ -1,0 +1,57 @@
+,Path,Name,Flag,Card,Type,Description
+0,ResearchElementDefinition, ResearchElementDefinition ,ITU,,DomainResource,"A population, intervention, or exposure definition+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ResearchElementDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this research element definition, represented as a URI (globally unique)"
+2,ResearchElementDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the research element definition
+3,ResearchElementDefinition.version, version ,Σ,0..1,string,Business version of the research element definition
+4,ResearchElementDefinition.name, name ,ΣI,0..1,string,Name for this research element definition (computer friendly)
+5,ResearchElementDefinition.title, title ,Σ,0..1,string,Name for this research element definition (human friendly)
+6,ResearchElementDefinition.shortTitle, shortTitle ,Σ,0..1,string,Title for use in informal contexts
+7,ResearchElementDefinition.subtitle, subtitle ,,0..1,string,Subordinate title of the ResearchElementDefinition
+8,ResearchElementDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,ResearchElementDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+10,ResearchElementDefinition.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+11,ResearchElementDefinition.subjectReference(group),subjectReference(group),,0..1,Reference(Group),"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+12,ResearchElementDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+13,ResearchElementDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+14,ResearchElementDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+15,ResearchElementDefinition.description, description ,Σ,0..1,markdown,Natural language description of the research element definition
+16,ResearchElementDefinition.comment, comment ,,0..*,string,Used for footnotes or explanatory notes
+17,ResearchElementDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+18,ResearchElementDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for research element definition (if applicable)Jurisdiction (Extensible)
+19,ResearchElementDefinition.purpose, purpose ,,0..1,markdown,Why this research element definition is defined
+20,ResearchElementDefinition.usage, usage ,,0..1,string,Describes the clinical usage of the ResearchElementDefinition
+21,ResearchElementDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+22,ResearchElementDefinition.approvalDate, approvalDate ,,0..1,date,When the research element definition was approved by publisher
+23,ResearchElementDefinition.lastReviewDate, lastReviewDate ,,0..1,date,When the research element definition was last reviewed
+24,ResearchElementDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the research element definition is expected to be used
+25,ResearchElementDefinition.topic, topic ,,0..*,CodeableConcept,"The category of the ResearchElementDefinition, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+26,ResearchElementDefinition.author, author ,,0..*,ContactDetail,Who authored the content
+27,ResearchElementDefinition.editor, editor ,,0..*,ContactDetail,Who edited the content
+28,ResearchElementDefinition.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+29,ResearchElementDefinition.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+30,ResearchElementDefinition.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+31,ResearchElementDefinition.library, library ,,0..*,canonical(Library),Logic used by the ResearchElementDefinition
+32,ResearchElementDefinition.type, type ,Σ,1..1,code,population | exposure | outcomeResearchElementType (Required)
+33,ResearchElementDefinition.variableType, variableType ,,0..1,code,dichotomous | continuous | descriptiveVariableType (Required)
+34,ResearchElementDefinition.characteristic, characteristic ,Σ,1..*,BackboneElement,What defines the members of the research element
+35,ResearchElementDefinition.characteristic.definitionCodeableconcept,definitionCodeableconcept,Σ,1..1,CodeableConcept,What code or expression defines members?
+36,ResearchElementDefinition.characteristic.definitionCanonical(valueset),definitionCanonical(valueset),Σ,1..1,canonical(ValueSet),What code or expression defines members?
+37,ResearchElementDefinition.characteristic.definitionExpression,definitionExpression,Σ,1..1,Expression,What code or expression defines members?
+38,ResearchElementDefinition.characteristic.definitionDatarequirement,definitionDatarequirement,Σ,1..1,DataRequirement,What code or expression defines members?
+39,ResearchElementDefinition.characteristic.usageContext, usageContext ,,0..*,UsageContext,What code/value pairs define members?
+40,ResearchElementDefinition.characteristic.exclude, exclude ,,0..1,boolean,Whether the characteristic includes or excludes members
+41,ResearchElementDefinition.characteristic.unitOfMeasure, unitOfMeasure ,,0..1,CodeableConcept,What unit is the outcome described in?UCUM Codes (Required)
+42,ResearchElementDefinition.characteristic.studyEffectiveDescription, studyEffectiveDescription ,,0..1,string,What time period does the study cover
+43,ResearchElementDefinition.characteristic.studyEffectiveDatetime,studyEffectiveDatetime,,0..1,dateTime,What time period does the study cover
+44,ResearchElementDefinition.characteristic.studyEffectivePeriod,studyEffectivePeriod,,0..1,Period,What time period does the study cover
+45,ResearchElementDefinition.characteristic.studyEffectiveDuration,studyEffectiveDuration,,0..1,Duration,What time period does the study cover
+46,ResearchElementDefinition.characteristic.studyEffectiveTiming,studyEffectiveTiming,,0..1,Timing,What time period does the study cover
+47,ResearchElementDefinition.characteristic.studyEffectiveTimeFromStart, studyEffectiveTimeFromStart ,,0..1,Duration,Observation time from study start
+48,ResearchElementDefinition.characteristic.studyEffectiveGroupMeasure, studyEffectiveGroupMeasure ,,0..1,code,mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-medianGroupMeasure (Required)
+49,ResearchElementDefinition.characteristic.participantEffectiveDescription, participantEffectiveDescription ,,0..1,string,What time period do participants cover
+50,ResearchElementDefinition.characteristic.participantEffectiveDatetime,participantEffectiveDatetime,,0..1,dateTime,What time period do participants cover
+51,ResearchElementDefinition.characteristic.participantEffectivePeriod,participantEffectivePeriod,,0..1,Period,What time period do participants cover
+52,ResearchElementDefinition.characteristic.participantEffectiveDuration,participantEffectiveDuration,,0..1,Duration,What time period do participants cover
+53,ResearchElementDefinition.characteristic.participantEffectiveTiming,participantEffectiveTiming,,0..1,Timing,What time period do participants cover
+54,ResearchElementDefinition.characteristic.participantEffectiveTimeFromStart, participantEffectiveTimeFromStart ,,0..1,Duration,Observation time from study start
+55,ResearchElementDefinition.characteristic.participantEffectiveGroupMeasure, participantEffectiveGroupMeasure ,,0..1,code,mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-medianGroupMeasure (Required)

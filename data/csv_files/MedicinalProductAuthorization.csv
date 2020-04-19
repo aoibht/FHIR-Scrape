@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductAuthorization, MedicinalProductAuthorization ,ΣTU,,DomainResource,"The regulatory authorization of a medicinal productElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductAuthorization.identifier, identifier ,Σ,0..*,Identifier,"Business identifier for the marketing authorization, as assigned by a regulator"
+2,MedicinalProductAuthorization.subject, subject ,Σ,0..1,Reference(MedicinalProduct | MedicinalProductPackaged),The medicinal product that is being authorized
+3,MedicinalProductAuthorization.country, country ,Σ,0..*,CodeableConcept,The country in which the marketing authorization has been granted
+4,MedicinalProductAuthorization.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Jurisdiction within a country
+5,MedicinalProductAuthorization.status, status ,Σ,0..1,CodeableConcept,The status of the marketing authorization
+6,MedicinalProductAuthorization.statusDate, statusDate ,Σ,0..1,dateTime,The date at which the given status has become applicable
+7,MedicinalProductAuthorization.restoreDate, restoreDate ,Σ,0..1,dateTime,The date when a suspended the marketing or the marketing authorization of the product is anticipated to be restored
+8,MedicinalProductAuthorization.validityPeriod, validityPeriod ,Σ,0..1,Period,"The beginning of the time period in which the marketing authorization is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format"
+9,MedicinalProductAuthorization.dataExclusivityPeriod, dataExclusivityPeriod ,Σ,0..1,Period,A period of time after authorization before generic product applicatiosn can be submitted
+10,MedicinalProductAuthorization.dateOfFirstAuthorization, dateOfFirstAuthorization ,Σ,0..1,dateTime,The date when the first authorization was granted by a Medicines Regulatory Agency
+11,MedicinalProductAuthorization.internationalBirthDate, internationalBirthDate ,Σ,0..1,dateTime,Date of first marketing authorization for a company's new medicinal product in any country in the World
+12,MedicinalProductAuthorization.legalBasis, legalBasis ,Σ,0..1,CodeableConcept,The legal framework against which this authorization is granted
+13,MedicinalProductAuthorization.jurisdictionalAuthorization, jurisdictionalAuthorization ,Σ,0..*,BackboneElement,Authorization in areas within a country
+14,MedicinalProductAuthorization.jurisdictionalAuthorization.identifier, identifier ,Σ,0..*,Identifier,The assigned number for the marketing authorization
+15,MedicinalProductAuthorization.jurisdictionalAuthorization.country, country ,Σ,0..1,CodeableConcept,Country of authorization
+16,MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Jurisdiction within a country
+17,MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply, legalStatusOfSupply ,Σ,0..1,CodeableConcept,The legal status of supply in a jurisdiction or region
+18,MedicinalProductAuthorization.jurisdictionalAuthorization.validityPeriod, validityPeriod ,Σ,0..1,Period,The start and expected end date of the authorization
+19,MedicinalProductAuthorization.holder, holder ,Σ,0..1,Reference(Organization),Marketing Authorization Holder
+20,MedicinalProductAuthorization.regulator, regulator ,Σ,0..1,Reference(Organization),Medicines Regulatory Agency
+21,MedicinalProductAuthorization.procedure, procedure ,Σ,0..1,BackboneElement,The regulatory procedure for granting or amending a marketing authorization
+22,MedicinalProductAuthorization.procedure.identifier, identifier ,Σ,0..1,Identifier,Identifier for this procedure
+23,MedicinalProductAuthorization.procedure.type, type ,Σ,1..1,CodeableConcept,Type of procedure
+24,MedicinalProductAuthorization.procedure.datePeriod,datePeriod,Σ,0..1,Period,Date of procedure
+25,MedicinalProductAuthorization.procedure.dateDatetime,dateDatetime,Σ,0..1,dateTime,Date of procedure
+26,MedicinalProductAuthorization.procedure.application, application ,Σ,0..*,see procedure,Applcations submitted to obtain a marketing authorization

@@ -1,0 +1,60 @@
+,Path,Name,Flag,Card,Type,Description
+0,ValueSet, ValueSet ,IN,,DomainResource,"A set of codes drawn from one or more code systems+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ValueSet.url, url ,Σ,0..1,uri,"Canonical identifier for this value set, represented as a URI (globally unique)"
+2,ValueSet.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the value set (business identifier)
+3,ValueSet.version, version ,Σ,0..1,string,Business version of the value set
+4,ValueSet.name, name ,ΣI,0..1,string,Name for this value set (computer friendly)
+5,ValueSet.title, title ,Σ,0..1,string,Name for this value set (human friendly)
+6,ValueSet.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,ValueSet.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,ValueSet.date, date ,Σ,0..1,dateTime,Date last changed
+9,ValueSet.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,ValueSet.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,ValueSet.description, description ,,0..1,markdown,Natural language description of the value set
+12,ValueSet.useContext, useContext ,ΣTU,0..*,UsageContext,The context that the content is intended to support
+13,ValueSet.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for value set (if applicable)Jurisdiction (Extensible)
+14,ValueSet.immutable, immutable ,Σ,0..1,boolean,Indicates whether or not any change to the content logical definition may occur
+15,ValueSet.purpose, purpose ,,0..1,markdown,Why this value set is defined
+16,ValueSet.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+17,ValueSet.compose, compose ,,0..1,BackboneElement,Content logical definition of the value set (CLD)
+18,ValueSet.compose.lockedDate, lockedDate ,Σ,0..1,date,Fixed date for references with no specified version (transitive)
+19,ValueSet.compose.inactive, inactive ,Σ,0..1,boolean,Whether inactive codes are in the value set
+20,ValueSet.compose.include, include ,ΣI,1..*,BackboneElement,Include one or more codes from a code system or other value set(s)+ Rule: A value set include/exclude SHALL have a value set or a system+ Rule: A value set with concepts or filters SHALL include a system+ Rule: Cannot have both concept and filter
+21,ValueSet.compose.include.system, system ,ΣI,0..1,uri,The system the codes come from
+22,ValueSet.compose.include.version, version ,Σ,0..1,string,Specific version of the code system referred to
+23,ValueSet.compose.include.concept, concept ,I,0..*,BackboneElement,A concept defined in the system
+24,ValueSet.compose.include.concept.code, code ,,1..1,code,Code or expression from system
+25,ValueSet.compose.include.concept.display, display ,,0..1,string,Text to display for this code for this value set in this valueset
+26,ValueSet.compose.include.concept.designation, designation ,,0..*,BackboneElement,Additional representations for this concept
+27,ValueSet.compose.include.concept.designation.language, language ,,0..1,code,Human language of the designationCommon Languages (Preferred but limited to AllLanguages)
+28,ValueSet.compose.include.concept.designation.use, use ,,0..1,Coding,Types of uses of designationsDesignation Use (Extensible)
+29,ValueSet.compose.include.concept.designation.value, value ,,1..1,string,The text value for this designation
+30,ValueSet.compose.include.filter, filter ,ΣI,0..*,BackboneElement,Select codes/concepts by their properties (including relationships)
+31,ValueSet.compose.include.filter.property, property ,Σ,1..1,code,A property/filter defined by the code system
+32,ValueSet.compose.include.filter.op, op ,Σ,1..1,code,= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | existsFilterOperator (Required)
+33,ValueSet.compose.include.filter.value, value ,Σ,1..1,string,"Code from the system, or regex criteria, or boolean value for exists"
+34,ValueSet.compose.include.valueSet, valueSet ,ΣI,0..*,canonical(ValueSet),Select the contents included in this value set
+35,ValueSet.compose.exclude, exclude ,I,0..*,see include,Explicitly exclude codes from a code system or other value sets
+36,ValueSet.expansion, expansion ,,0..1,BackboneElement,"Used when the value set is ""expanded"""
+37,ValueSet.expansion.identifier, identifier ,,0..1,uri,Identifies the value set expansion (business identifier)
+38,ValueSet.expansion.timestamp, timestamp ,,1..1,dateTime,Time ValueSet expansion happened
+39,ValueSet.expansion.total, total ,,0..1,integer,Total number of codes in the expansion
+40,ValueSet.expansion.offset, offset ,,0..1,integer,Offset at which this resource starts
+41,ValueSet.expansion.parameter, parameter ,,0..*,BackboneElement,Parameter that controlled the expansion process
+42,ValueSet.expansion.parameter.name, name ,,1..1,string,Name as assigned by the client or server
+43,ValueSet.expansion.parameter.valueString,valueString,,0..1,string,Value of the named parameter
+44,ValueSet.expansion.parameter.valueBoolean,valueBoolean,,0..1,boolean,Value of the named parameter
+45,ValueSet.expansion.parameter.valueInteger,valueInteger,,0..1,integer,Value of the named parameter
+46,ValueSet.expansion.parameter.valueDecimal,valueDecimal,,0..1,decimal,Value of the named parameter
+47,ValueSet.expansion.parameter.valueUri,valueUri,,0..1,uri,Value of the named parameter
+48,ValueSet.expansion.parameter.valueCode,valueCode,,0..1,code,Value of the named parameter
+49,ValueSet.expansion.parameter.valueDatetime,valueDatetime,,0..1,dateTime,Value of the named parameter
+50,ValueSet.expansion.contains, contains ,I,0..*,BackboneElement,Codes in the value set+ Rule: SHALL have a code or a display+ Rule: Must have a code if not abstract+ Rule: Must have a system if a code is present
+51,ValueSet.expansion.contains.system, system ,,0..1,uri,System value for the code
+52,ValueSet.expansion.contains.abstract, abstract ,,0..1,boolean,If user cannot select this entry
+53,ValueSet.expansion.contains.inactive, inactive ,,0..1,boolean,If concept is inactive in the code system
+54,ValueSet.expansion.contains.version, version ,,0..1,string,Version in which this code/display is defined
+55,ValueSet.expansion.contains.code, code ,I,0..1,code,"Code - if blank, this is not a selectable code"
+56,ValueSet.expansion.contains.display, display ,I,0..1,string,User display for the concept
+57,ValueSet.expansion.contains.designation, designation ,,0..*,see designation,Additional representations for this item
+58,ValueSet.expansion.contains.contains, contains ,,0..*,see contains,Codes contained under this entry

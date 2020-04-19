@@ -1,0 +1,30 @@
+,Path,Name,Flag,Card,Type,Description
+0,SearchParameter, SearchParameter ,ITU,,DomainResource,"Search parameter for a resource+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: If an xpath is present, there SHALL be an xpathUsage+ Rule: Search parameters can only have chain names when the search parameter type is 'reference'Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SearchParameter.url, url ,Σ,1..1,uri,"Canonical identifier for this search parameter, represented as a URI (globally unique)"
+2,SearchParameter.version, version ,Σ,0..1,string,Business version of the search parameter
+3,SearchParameter.name, name ,ΣI,1..1,string,Name for this search parameter (computer friendly)
+4,SearchParameter.derivedFrom, derivedFrom ,,0..1,canonical(SearchParameter),Original definition for the search parameter
+5,SearchParameter.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+6,SearchParameter.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+7,SearchParameter.date, date ,Σ,0..1,dateTime,Date last changed
+8,SearchParameter.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+9,SearchParameter.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+10,SearchParameter.description, description ,Σ,1..1,markdown,Natural language description of the search parameter
+11,SearchParameter.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+12,SearchParameter.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for search parameter (if applicable)Jurisdiction (Extensible)
+13,SearchParameter.purpose, purpose ,,0..1,markdown,Why this search parameter is defined
+14,SearchParameter.code, code ,Σ,1..1,code,Code used in URL
+15,SearchParameter.base, base ,Σ,1..*,code,The resource type(s) this search parameter applies toResourceType (Required)
+16,SearchParameter.type, type ,Σ,1..1,code,number | date | string | token | reference | composite | quantity | uri | specialSearchParamType (Required)
+17,SearchParameter.expression, expression ,I,0..1,string,FHIRPath expression that extracts the values
+18,SearchParameter.xpath, xpath ,I,0..1,string,XPath that extracts the values
+19,SearchParameter.xpathUsage, xpathUsage ,I,0..1,code,normal | phonetic | nearby | distance | otherXPathUsageType (Required)
+20,SearchParameter.target, target ,,0..*,code,Types of resource (if a resource reference)ResourceType (Required)
+21,SearchParameter.multipleOr, multipleOr ,,0..1,boolean,Allow multiple values per parameter (or)
+22,SearchParameter.multipleAnd, multipleAnd ,,0..1,boolean,Allow multiple parameters (and)
+23,SearchParameter.comparator, comparator ,,0..*,code,eq | ne | gt | lt | ge | le | sa | eb | apSearchComparator (Required)
+24,SearchParameter.modifier, modifier ,,0..*,code,missing | exact | contains | not | text | in | not-in | below | above | type | identifier | ofTypeSearchModifierCode (Required)
+25,SearchParameter.chain, chain ,,0..*,string,Chained names supported
+26,SearchParameter.component, component ,,0..*,BackboneElement,For Composite resources to define the parts
+27,SearchParameter.component.definition, definition ,,1..1,canonical(SearchParameter),Defines how the part works
+28,SearchParameter.component.expression, expression ,,1..1,string,Subexpression relative to main expression

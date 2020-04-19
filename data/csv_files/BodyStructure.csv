@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,BodyStructure, BodyStructure ,TU,,DomainResource,"Specific and identified anatomical structureElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,BodyStructure.identifier, identifier ,Σ,0..*,Identifier,Bodystructure identifier
+2,BodyStructure.active, active ,?!Σ,0..1,boolean,Whether this record is in active use
+3,BodyStructure.morphology, morphology ,Σ,0..1,CodeableConcept,Kind of StructureSNOMED CT Morphologic Abnormalities (Example)
+4,BodyStructure.location, location ,Σ,0..1,CodeableConcept,Body siteSNOMED CT Body Structures (Example)
+5,BodyStructure.locationQualifier, locationQualifier ,,0..*,CodeableConcept,Body site modifierBodystructure Location Qualifier (Example)
+6,BodyStructure.description, description ,Σ,0..1,string,Text description
+7,BodyStructure.image, image ,,0..*,Attachment,Attached images
+8,BodyStructure.patient, patient ,Σ,1..1,Reference(Patient),Who this is about

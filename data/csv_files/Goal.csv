@@ -1,0 +1,29 @@
+,Path,Name,Flag,Card,Type,Description
+0,Goal, Goal ,TU,,DomainResource,"Describes the intended objective(s) for a patient, group or organizationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Goal.identifier, identifier ,,0..*,Identifier,External Ids for this goal
+2,Goal.lifecycleStatus, lifecycleStatus ,?!Σ,1..1,code,proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejectedGoalLifecycleStatus (Required)
+3,Goal.achievementStatus, achievementStatus ,Σ,0..1,CodeableConcept,in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainableGoal achievement status (Preferred)
+4,Goal.category, category ,Σ,0..*,CodeableConcept,"E.g. Treatment, dietary, behavioral, etc.Goal category (Example)"
+5,Goal.priority, priority ,Σ,0..1,CodeableConcept,high-priority | medium-priority | low-priorityGoal priority (Preferred)
+6,Goal.description, description ,Σ,1..1,CodeableConcept,Code or text describing goalSNOMED CT Clinical Findings (Example)
+7,Goal.subject, subject ,Σ,1..1,Reference(Patient | Group | Organization),Who this goal is intended for
+8,Goal.startDate,startDate,Σ,0..1,date,When goal pursuit beginsGoal start event (Example)
+9,Goal.startCodeableconcept,startCodeableconcept,Σ,0..1,CodeableConcept,When goal pursuit beginsGoal start event (Example)
+10,Goal.target, target ,I,0..*,BackboneElement,Target outcome for the goal+ Rule: Goal.target.measure is required if Goal.target.detail is populated
+11,Goal.target.measure, measure ,ΣI,0..1,CodeableConcept,The parameter whose value is being trackedLOINC Codes (Example)
+12,Goal.target.detailQuantity,detailQuantity,ΣI,0..1,Quantity,The target value to be achieved
+13,Goal.target.detailRange,detailRange,ΣI,0..1,Range,The target value to be achieved
+14,Goal.target.detailCodeableconcept,detailCodeableconcept,ΣI,0..1,CodeableConcept,The target value to be achieved
+15,Goal.target.detailString,detailString,ΣI,0..1,string,The target value to be achieved
+16,Goal.target.detailBoolean,detailBoolean,ΣI,0..1,boolean,The target value to be achieved
+17,Goal.target.detailInteger,detailInteger,ΣI,0..1,integer,The target value to be achieved
+18,Goal.target.detailRatio,detailRatio,ΣI,0..1,Ratio,The target value to be achieved
+19,Goal.target.dueDate,dueDate,Σ,0..1,date,Reach goal on or before
+20,Goal.target.dueDuration,dueDuration,Σ,0..1,Duration,Reach goal on or before
+21,Goal.statusDate, statusDate ,Σ,0..1,date,When goal status took effect
+22,Goal.statusReason, statusReason ,,0..1,string,Reason for current status
+23,Goal.expressedBy, expressedBy ,Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson),Who's responsible for creating Goal?
+24,Goal.addresses, addresses ,,0..*,Reference(Condition | Observation | MedicationStatement | NutritionOrder | ServiceRequest | RiskAssessment),Issues addressed by this goal
+25,Goal.note, note ,,0..*,Annotation,Comments about the goal
+26,Goal.outcomeCode, outcomeCode ,,0..*,CodeableConcept,What result was achieved regarding the goal?SNOMED CT Clinical Findings (Example)
+27,Goal.outcomeReference, outcomeReference ,,0..*,Reference(Observation),Observation that resulted from goal

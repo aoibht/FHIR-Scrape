@@ -1,0 +1,13 @@
+,Path,Name,Flag,Card,Type,Description
+0,Endpoint, Endpoint ,TU,,DomainResource,"The technical details of an endpoint that can be used for electronic servicesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Endpoint.identifier, identifier ,Σ,0..*,Identifier,Identifies this endpoint across multiple systems
+2,Endpoint.status, status ,?!Σ,1..1,code,active | suspended | error | off | entered-in-error | testEndpointStatus (Required)
+3,Endpoint.connectionType, connectionType ,Σ,1..1,Coding,Protocol/Profile/Standard to be used with this endpoint connectionEndpoint Connection Type (Extensible)
+4,Endpoint.name, name ,Σ,0..1,string,A name that this endpoint can be identified by
+5,Endpoint.managingOrganization, managingOrganization ,Σ,0..1,Reference(Organization),Organization that manages this endpoint (might not be the organization that exposes the endpoint)
+6,Endpoint.contact, contact ,,0..*,ContactPoint,Contact details for source (e.g. troubleshooting)
+7,Endpoint.period, period ,Σ,0..1,Period,Interval the endpoint is expected to be operational
+8,Endpoint.payloadType, payloadType ,Σ,1..*,CodeableConcept,The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)Endpoint Payload Type (Example)
+9,Endpoint.payloadMimeType, payloadMimeType ,Σ,0..*,code,"Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)MimeType (Required)"
+10,Endpoint.address, address ,Σ,1..1,url,The technical base address for connecting to this endpoint
+11,Endpoint.header, header ,,0..*,string,Usage depends on the channel type

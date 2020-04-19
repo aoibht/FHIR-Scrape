@@ -1,0 +1,33 @@
+,Path,Name,Flag,Card,Type,Description
+0,MessageDefinition, MessageDefinition ,ITU,,DomainResource,"A resource that defines a type of message that can be exchanged between systems+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MessageDefinition.url, url ,Σ,0..1,uri,Business Identifier for a given MessageDefinition
+2,MessageDefinition.identifier, identifier ,Σ,0..*,Identifier,Primary key for the message definition on a given server
+3,MessageDefinition.version, version ,Σ,0..1,string,Business version of the message definition
+4,MessageDefinition.name, name ,ΣI,0..1,string,Name for this message definition (computer friendly)
+5,MessageDefinition.title, title ,Σ,0..1,string,Name for this message definition (human friendly)
+6,MessageDefinition.replaces, replaces ,Σ,0..*,canonical(MessageDefinition),Takes the place of
+7,MessageDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,MessageDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,MessageDefinition.date, date ,Σ,1..1,dateTime,Date last changed
+10,MessageDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+11,MessageDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+12,MessageDefinition.description, description ,Σ,0..1,markdown,Natural language description of the message definition
+13,MessageDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+14,MessageDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for message definition (if applicable)Jurisdiction (Extensible)
+15,MessageDefinition.purpose, purpose ,Σ,0..1,markdown,Why this message definition is defined
+16,MessageDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+17,MessageDefinition.base, base ,Σ,0..1,canonical(MessageDefinition),Definition this one is based on
+18,MessageDefinition.parent, parent ,Σ,0..*,canonical(ActivityDefinition | PlanDefinition),Protocol/workflow this is part of
+19,MessageDefinition.eventCoding,eventCoding,Σ,1..1,Coding,Event code  or link to the EventDefinitionMessageEvent (Example)
+20,MessageDefinition.eventUri,eventUri,Σ,1..1,uri,Event code  or link to the EventDefinitionMessageEvent (Example)
+21,MessageDefinition.category, category ,Σ,0..1,code,consequence | currency | notificationMessageSignificanceCategory (Required)
+22,MessageDefinition.focus, focus ,ΣI,0..*,BackboneElement,Resource(s) that are the subject of the event+ Rule: Max must be postive int or *
+23,MessageDefinition.focus.code, code ,Σ,1..1,code,Type of resourceResourceType (Required)
+24,MessageDefinition.focus.profile, profile ,,0..1,canonical(StructureDefinition),Profile that must be adhered to by focus
+25,MessageDefinition.focus.min, min ,Σ,1..1,unsignedInt,Minimum number of focuses of this type
+26,MessageDefinition.focus.max, max ,I,0..1,string,Maximum number of focuses of this type
+27,MessageDefinition.responseRequired, responseRequired ,,0..1,code,always | on-error | never | on-successmessageheader-response-request (Required)
+28,MessageDefinition.allowedResponse, allowedResponse ,,0..*,BackboneElement,Responses to this message
+29,MessageDefinition.allowedResponse.message, message ,,1..1,canonical(MessageDefinition),Reference to allowed message definition response
+30,MessageDefinition.allowedResponse.situation, situation ,,0..1,markdown,When should this response be used
+31,MessageDefinition.graph, graph ,,0..*,canonical(GraphDefinition),Canonical reference to a GraphDefinition

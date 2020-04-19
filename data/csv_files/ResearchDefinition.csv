@@ -1,0 +1,37 @@
+,Path,Name,Flag,Card,Type,Description
+0,ResearchDefinition, ResearchDefinition ,ITU,,DomainResource,"A research context or question+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ResearchDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this research definition, represented as a URI (globally unique)"
+2,ResearchDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the research definition
+3,ResearchDefinition.version, version ,Σ,0..1,string,Business version of the research definition
+4,ResearchDefinition.name, name ,ΣI,0..1,string,Name for this research definition (computer friendly)
+5,ResearchDefinition.title, title ,Σ,0..1,string,Name for this research definition (human friendly)
+6,ResearchDefinition.shortTitle, shortTitle ,,0..1,string,Title for use in informal contexts
+7,ResearchDefinition.subtitle, subtitle ,,0..1,string,Subordinate title of the ResearchDefinition
+8,ResearchDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,ResearchDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+10,ResearchDefinition.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+11,ResearchDefinition.subjectReference(group),subjectReference(group),,0..1,Reference(Group),"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+12,ResearchDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+13,ResearchDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+14,ResearchDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+15,ResearchDefinition.description, description ,Σ,0..1,markdown,Natural language description of the research definition
+16,ResearchDefinition.comment, comment ,,0..*,string,Used for footnotes or explanatory notes
+17,ResearchDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+18,ResearchDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for research definition (if applicable)Jurisdiction (Extensible)
+19,ResearchDefinition.purpose, purpose ,,0..1,markdown,Why this research definition is defined
+20,ResearchDefinition.usage, usage ,,0..1,string,Describes the clinical usage of the ResearchDefinition
+21,ResearchDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+22,ResearchDefinition.approvalDate, approvalDate ,,0..1,date,When the research definition was approved by publisher
+23,ResearchDefinition.lastReviewDate, lastReviewDate ,,0..1,date,When the research definition was last reviewed
+24,ResearchDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the research definition is expected to be used
+25,ResearchDefinition.topic, topic ,,0..*,CodeableConcept,"The category of the ResearchDefinition, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+26,ResearchDefinition.author, author ,,0..*,ContactDetail,Who authored the content
+27,ResearchDefinition.editor, editor ,,0..*,ContactDetail,Who edited the content
+28,ResearchDefinition.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+29,ResearchDefinition.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+30,ResearchDefinition.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+31,ResearchDefinition.library, library ,,0..*,canonical(Library),Logic used by the ResearchDefinition
+32,ResearchDefinition.population, population ,Σ,1..1,Reference(ResearchElementDefinition),What population?
+33,ResearchDefinition.exposure, exposure ,Σ,0..1,Reference(ResearchElementDefinition),What exposure?
+34,ResearchDefinition.exposureAlternative, exposureAlternative ,Σ,0..1,Reference(ResearchElementDefinition),What alternative exposure state?
+35,ResearchDefinition.outcome, outcome ,Σ,0..1,Reference(ResearchElementDefinition),What outcome?

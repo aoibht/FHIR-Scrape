@@ -1,0 +1,62 @@
+,Path,Name,Flag,Card,Type,Description
+0,Measure, Measure ,ITU,,DomainResource,"A quality measure definition+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: Stratifier SHALL be either a single criteria or a set of criteria componentsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Measure.url, url ,Σ,0..1,uri,"Canonical identifier for this measure, represented as a URI (globally unique)"
+2,Measure.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the measure
+3,Measure.version, version ,Σ,0..1,string,Business version of the measure
+4,Measure.name, name ,ΣI,0..1,string,Name for this measure (computer friendly)
+5,Measure.title, title ,Σ,0..1,string,Name for this measure (human friendly)
+6,Measure.subtitle, subtitle ,,0..1,string,Subordinate title of the measure
+7,Measure.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,Measure.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,Measure.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+10,Measure.subjectReference(group),subjectReference(group),,0..1,Reference(Group),"E.g. Patient, Practitioner, RelatedPerson, Organization, Location, DeviceSubject type (Extensible)"
+11,Measure.date, date ,Σ,0..1,dateTime,Date last changed
+12,Measure.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+13,Measure.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+14,Measure.description, description ,Σ,0..1,markdown,Natural language description of the measure
+15,Measure.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+16,Measure.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for measure (if applicable)Jurisdiction (Extensible)
+17,Measure.purpose, purpose ,,0..1,markdown,Why this measure is defined
+18,Measure.usage, usage ,,0..1,string,Describes the clinical usage of the measure
+19,Measure.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+20,Measure.approvalDate, approvalDate ,,0..1,date,When the measure was approved by publisher
+21,Measure.lastReviewDate, lastReviewDate ,,0..1,date,When the measure was last reviewed
+22,Measure.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the measure is expected to be used
+23,Measure.topic, topic ,,0..*,CodeableConcept,"The category of the measure, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+24,Measure.author, author ,,0..*,ContactDetail,Who authored the content
+25,Measure.editor, editor ,,0..*,ContactDetail,Who edited the content
+26,Measure.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+27,Measure.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+28,Measure.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+29,Measure.library, library ,,0..*,canonical(Library),Logic used by the measure
+30,Measure.disclaimer, disclaimer ,Σ,0..1,markdown,Disclaimer for use of the measure or its referenced content
+31,Measure.scoring, scoring ,Σ,0..1,CodeableConcept,proportion | ratio | continuous-variable | cohortMeasureScoring (Extensible)
+32,Measure.compositeScoring, compositeScoring ,Σ,0..1,CodeableConcept,opportunity | all-or-nothing | linear | weightedCompositeMeasureScoring (Extensible)
+33,Measure.type, type ,Σ,0..*,CodeableConcept,process | outcome | structure | patient-reported-outcome | compositeMeasureType (Extensible)
+34,Measure.riskAdjustment, riskAdjustment ,Σ,0..1,string,How risk adjustment is applied for this measure
+35,Measure.rateAggregation, rateAggregation ,Σ,0..1,string,How is rate aggregation performed for this measure
+36,Measure.rationale, rationale ,Σ,0..1,markdown,Detailed description of why the measure exists
+37,Measure.clinicalRecommendationStatement, clinicalRecommendationStatement ,Σ,0..1,markdown,Summary of clinical guidelines
+38,Measure.improvementNotation, improvementNotation ,Σ,0..1,CodeableConcept,increase | decreaseMeasureImprovementNotation (Required)
+39,Measure.definition, definition ,Σ,0..*,markdown,Defined terms used in the measure documentation
+40,Measure.guidance, guidance ,Σ,0..1,markdown,Additional guidance for implementers
+41,Measure.group, group ,,0..*,BackboneElement,Population criteria group
+42,Measure.group.code, code ,,0..1,CodeableConcept,Meaning of the group
+43,Measure.group.description, description ,,0..1,string,Summary description
+44,Measure.group.population, population ,,0..*,BackboneElement,Population criteria
+45,Measure.group.population.code, code ,,0..1,CodeableConcept,initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observationMeasurePopulationType (Extensible)
+46,Measure.group.population.description, description ,,0..1,string,The human readable description of this population criteria
+47,Measure.group.population.criteria, criteria ,,1..1,Expression,The criteria that defines this population
+48,Measure.group.stratifier, stratifier ,,0..*,BackboneElement,Stratifier criteria for the measure
+49,Measure.group.stratifier.code, code ,,0..1,CodeableConcept,Meaning of the stratifier
+50,Measure.group.stratifier.description, description ,,0..1,string,The human readable description of this stratifier
+51,Measure.group.stratifier.criteria, criteria ,,0..1,Expression,How the measure should be stratified
+52,Measure.group.stratifier.component, component ,,0..*,BackboneElement,Stratifier criteria component for the measure
+53,Measure.group.stratifier.component.code, code ,,0..1,CodeableConcept,Meaning of the stratifier component
+54,Measure.group.stratifier.component.description, description ,,0..1,string,The human readable description of this stratifier component
+55,Measure.group.stratifier.component.criteria, criteria ,,1..1,Expression,Component of how the measure should be stratified
+56,Measure.supplementalData, supplementalData ,,0..*,BackboneElement,What other data should be reported with the measure
+57,Measure.supplementalData.code, code ,,0..1,CodeableConcept,Meaning of the supplemental data
+58,Measure.supplementalData.usage, usage ,,0..*,CodeableConcept,supplemental-data | risk-adjustment-factorMeasureDataUsage (Extensible)
+59,Measure.supplementalData.description, description ,,0..1,string,The human readable description of this supplemental data
+60,Measure.supplementalData.criteria, criteria ,,1..1,Expression,Expression describing additional data to be reported

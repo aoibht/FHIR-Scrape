@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,Library, Library ,ITU,,DomainResource,"Represents a library of quality improvement components+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Library.url, url ,Σ,0..1,uri,"Canonical identifier for this library, represented as a URI (globally unique)"
+2,Library.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the library
+3,Library.version, version ,Σ,0..1,string,Business version of the library
+4,Library.name, name ,ΣI,0..1,string,Name for this library (computer friendly)
+5,Library.title, title ,Σ,0..1,string,Name for this library (human friendly)
+6,Library.subtitle, subtitle ,,0..1,string,Subordinate title of the library
+7,Library.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,Library.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,Library.type, type ,Σ,1..1,CodeableConcept,logic-library | model-definition | asset-collection | module-definitionLibraryType (Extensible)
+10,Library.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,Type of individual the library content is focused onSubject type (Extensible)
+11,Library.subjectReference(group),subjectReference(group),,0..1,Reference(Group),Type of individual the library content is focused onSubject type (Extensible)
+12,Library.date, date ,Σ,0..1,dateTime,Date last changed
+13,Library.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+14,Library.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+15,Library.description, description ,Σ,0..1,markdown,Natural language description of the library
+16,Library.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+17,Library.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for library (if applicable)Jurisdiction (Extensible)
+18,Library.purpose, purpose ,,0..1,markdown,Why this library is defined
+19,Library.usage, usage ,,0..1,string,Describes the clinical usage of the library
+20,Library.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+21,Library.approvalDate, approvalDate ,,0..1,date,When the library was approved by publisher
+22,Library.lastReviewDate, lastReviewDate ,,0..1,date,When the library was last reviewed
+23,Library.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the library is expected to be used
+24,Library.topic, topic ,,0..*,CodeableConcept,"E.g. Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+25,Library.author, author ,,0..*,ContactDetail,Who authored the content
+26,Library.editor, editor ,,0..*,ContactDetail,Who edited the content
+27,Library.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+28,Library.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+29,Library.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+30,Library.parameter, parameter ,,0..*,ParameterDefinition,Parameters defined by the library
+31,Library.dataRequirement, dataRequirement ,,0..*,DataRequirement,What data is referenced by this library
+32,Library.content, content ,Σ,0..*,Attachment,"Contents of the library, either embedded or referenced"

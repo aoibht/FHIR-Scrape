@@ -1,0 +1,26 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicinalProductIngredient, MedicinalProductIngredient ,ΣTU,,DomainResource,"An ingredient of a manufactured item or pharmaceutical productElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicinalProductIngredient.identifier, identifier ,Σ,0..1,Identifier,Identifier for the ingredient
+2,MedicinalProductIngredient.role, role ,Σ,1..1,CodeableConcept,"Ingredient role e.g. Active ingredient, excipient"
+3,MedicinalProductIngredient.allergenicIndicator, allergenicIndicator ,Σ,0..1,boolean,If the ingredient is a known or suspected allergen
+4,MedicinalProductIngredient.manufacturer, manufacturer ,Σ,0..*,Reference(Organization),Manufacturer of this Ingredient
+5,MedicinalProductIngredient.specifiedSubstance, specifiedSubstance ,Σ,0..*,BackboneElement,A specified substance that comprises this ingredient
+6,MedicinalProductIngredient.specifiedSubstance.code, code ,Σ,1..1,CodeableConcept,The specified substance
+7,MedicinalProductIngredient.specifiedSubstance.group, group ,Σ,1..1,CodeableConcept,"The group of specified substance, e.g. group 1 to 4"
+8,MedicinalProductIngredient.specifiedSubstance.confidentiality, confidentiality ,Σ,0..1,CodeableConcept,Confidentiality level of the specified substance as the ingredient
+9,MedicinalProductIngredient.specifiedSubstance.strength, strength ,Σ,0..*,BackboneElement,Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product
+10,MedicinalProductIngredient.specifiedSubstance.strength.presentation, presentation ,Σ,1..1,Ratio,"The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"
+11,MedicinalProductIngredient.specifiedSubstance.strength.presentationLowLimit, presentationLowLimit ,?!Σ,0..1,Ratio,"A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit"
+12,MedicinalProductIngredient.specifiedSubstance.strength.concentration, concentration ,Σ,0..1,Ratio,The strength per unitary volume (or mass)
+13,MedicinalProductIngredient.specifiedSubstance.strength.concentrationLowLimit, concentrationLowLimit ,?!Σ,0..1,Ratio,"A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit"
+14,MedicinalProductIngredient.specifiedSubstance.strength.measurementPoint, measurementPoint ,Σ,0..1,string,For when strength is measured at a particular point or distance
+15,MedicinalProductIngredient.specifiedSubstance.strength.country, country ,Σ,0..*,CodeableConcept,The country or countries for which the strength range applies
+16,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength, referenceStrength ,Σ,0..*,BackboneElement,Strength expressed in terms of a reference substance
+17,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.substance, substance ,Σ,0..1,CodeableConcept,Relevant reference substance
+18,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.strength, strength ,Σ,1..1,Ratio,Strength expressed in terms of a reference substance
+19,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.strengthLowLimit, strengthLowLimit ,Σ,0..1,Ratio,Strength expressed in terms of a reference substance
+20,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.measurementPoint, measurementPoint ,Σ,0..1,string,For when strength is measured at a particular point or distance
+21,MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.country, country ,Σ,0..*,CodeableConcept,The country or countries for which the strength range applies
+22,MedicinalProductIngredient.substance, substance ,Σ,0..1,BackboneElement,The ingredient substance
+23,MedicinalProductIngredient.substance.code, code ,Σ,1..1,CodeableConcept,The ingredient substance
+24,MedicinalProductIngredient.substance.strength, strength ,Σ,0..*,see strength,Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product

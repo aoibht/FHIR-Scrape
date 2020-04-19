@@ -1,0 +1,10 @@
+,Path,Name,Flag,Card,Type,Description
+0,EnrollmentResponse, EnrollmentResponse ,TU,,DomainResource,"EnrollmentResponse resourceElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EnrollmentResponse.identifier, identifier ,,0..*,Identifier,Business Identifier
+2,EnrollmentResponse.status, status ,?!Σ,0..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,EnrollmentResponse.request, request ,,0..1,Reference(EnrollmentRequest),Claim reference
+4,EnrollmentResponse.outcome, outcome ,,0..1,code,queued | complete | error | partialRemittanceOutcome (Required)
+5,EnrollmentResponse.disposition, disposition ,,0..1,string,Disposition Message
+6,EnrollmentResponse.created, created ,,0..1,dateTime,Creation date
+7,EnrollmentResponse.organization, organization ,,0..1,Reference(Organization),Insurer
+8,EnrollmentResponse.requestProvider, requestProvider ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Responsible practitioner

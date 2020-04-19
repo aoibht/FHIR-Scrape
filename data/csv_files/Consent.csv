@@ -1,0 +1,36 @@
+,Path,Name,Flag,Card,Type,Description
+0,Consent, Consent ,ITU,,DomainResource,"A healthcare consumer's  choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time+ Rule: Either a Policy or PolicyRule+ Rule: IF Scope=privacy, there must be a patient+ Rule: IF Scope=research, there must be a patient+ Rule: IF Scope=adr, there must be a patient+ Rule: IF Scope=treatment, there must be a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Consent.identifier, identifier ,Σ,0..*,Identifier,Identifier for this record (external references)
+2,Consent.status, status ,?!Σ,1..1,code,draft | proposed | active | rejected | inactive | entered-in-errorConsentState (Required)
+3,Consent.scope, scope ,?!Σ,1..1,CodeableConcept,Which of the four areas this resource covers (extensible)Consent Scope Codes (Extensible)
+4,Consent.category, category ,Σ,1..*,CodeableConcept,Classification of the consent statement - for indexing/retrievalConsent Category Codes (Extensible)
+5,Consent.patient, patient ,Σ,0..1,Reference(Patient),Who the consent applies to
+6,Consent.dateTime, dateTime ,Σ,0..1,dateTime,When this Consent was created or indexed
+7,Consent.performer, performer ,Σ,0..*,Reference(Organization | Patient | Practitioner | RelatedPerson | PractitionerRole),Who is agreeing to the policy and rules
+8,Consent.organization, organization ,Σ,0..*,Reference(Organization),Custodian of the consent
+9,Consent.sourceAttachment,sourceAttachment,Σ,0..1,Attachment,Source from which this consent is taken
+10,Consent.sourceReference(consent | documentreference | contract | questionnaireresponse),sourceReference(consent | documentreference | contract | questionnaireresponse),Σ,0..1,Reference(Consent | DocumentReference | Contract | QuestionnaireResponse),Source from which this consent is taken
+11,Consent.policy, policy ,,0..*,BackboneElement,Policies covered by this consent
+12,Consent.policy.authority, authority ,I,0..1,uri,Enforcement source for policy
+13,Consent.policy.uri, uri ,I,0..1,uri,Specific policy covered by this consent
+14,Consent.policyRule, policyRule ,ΣI,0..1,CodeableConcept,Regulation that this consents toConsent PolicyRule Codes (Extensible)
+15,Consent.verification, verification ,Σ,0..*,BackboneElement,Consent Verified by patient or family
+16,Consent.verification.verified, verified ,Σ,1..1,boolean,Has been verified
+17,Consent.verification.verifiedWith, verifiedWith ,,0..1,Reference(Patient | RelatedPerson),Person who verified
+18,Consent.verification.verificationDate, verificationDate ,,0..1,dateTime,When consent verified
+19,Consent.provision, provision ,Σ,0..1,BackboneElement,Constraints to the base Consent.policyRule
+20,Consent.provision.type, type ,Σ,0..1,code,deny | permitConsentProvisionType (Required)
+21,Consent.provision.period, period ,Σ,0..1,Period,Timeframe for this rule
+22,Consent.provision.actor, actor ,,0..*,BackboneElement,"Who|what controlled by this rule (or group, by role)"
+23,Consent.provision.actor.role, role ,,1..1,CodeableConcept,How the actor is involvedSecurityRoleType (Extensible)
+24,Consent.provision.actor.reference, reference ,,1..1,Reference(Device | Group | CareTeam | Organization | Patient | Practitioner | RelatedPerson | PractitionerRole),"Resource for the actor (or group, by role)"
+25,Consent.provision.action, action ,Σ,0..*,CodeableConcept,Actions controlled by this ruleConsent Action Codes (Example)
+26,Consent.provision.securityLabel, securityLabel ,Σ,0..*,Coding,Security Labels that define affected resourcesSecurityLabels (Extensible)
+27,Consent.provision.purpose, purpose ,Σ,0..*,Coding,Context of activities covered by this ruleV3 Value SetPurposeOfUse (Extensible)
+28,Consent.provision.class, class ,Σ,0..*,Coding,"e.g. Resource Type, Profile, CDA, etc.Consent Content Class (Extensible)"
+29,Consent.provision.code, code ,Σ,0..*,CodeableConcept,"e.g. LOINC or SNOMED CT code, etc. in the contentConsent Content Codes (Example)"
+30,Consent.provision.dataPeriod, dataPeriod ,Σ,0..1,Period,Timeframe for data controlled by this rule
+31,Consent.provision.data, data ,Σ,0..*,BackboneElement,Data controlled by this rule
+32,Consent.provision.data.meaning, meaning ,Σ,1..1,code,instance | related | dependents | authoredbyConsentDataMeaning (Required)
+33,Consent.provision.data.reference, reference ,Σ,1..1,Reference(Any),The actual data reference
+34,Consent.provision.provision, provision ,,0..*,see provision,Nested Exception Rules

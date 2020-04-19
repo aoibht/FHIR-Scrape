@@ -1,0 +1,19 @@
+,Path,Name,Flag,Card,Type,Description
+0,CompartmentDefinition, CompartmentDefinition ,ITU,,DomainResource,"Compartment Definition for a resource+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,CompartmentDefinition.url, url ,Σ,1..1,uri,"Canonical identifier for this compartment definition, represented as a URI (globally unique)"
+2,CompartmentDefinition.version, version ,Σ,0..1,string,Business version of the compartment definition
+3,CompartmentDefinition.name, name ,ΣI,1..1,string,Name for this compartment definition (computer friendly)
+4,CompartmentDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+5,CompartmentDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+6,CompartmentDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+7,CompartmentDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+8,CompartmentDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+9,CompartmentDefinition.description, description ,,0..1,markdown,Natural language description of the compartment definition
+10,CompartmentDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+11,CompartmentDefinition.purpose, purpose ,,0..1,markdown,Why this compartment definition is defined
+12,CompartmentDefinition.code, code ,Σ,1..1,code,Patient | Encounter | RelatedPerson | Practitioner | DeviceCompartmentType (Required)
+13,CompartmentDefinition.search, search ,Σ,1..1,boolean,Whether the search syntax is supported
+14,CompartmentDefinition.resource, resource ,Σ,0..*,BackboneElement,How a resource is related to the compartment
+15,CompartmentDefinition.resource.code, code ,Σ,1..1,code,Name of resource typeResourceType (Required)
+16,CompartmentDefinition.resource.param, param ,Σ,0..*,string,"Search Parameter Name, or chained parameters"
+17,CompartmentDefinition.resource.documentation, documentation ,,0..1,string,Additional documentation about the resource and compartment

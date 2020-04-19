@@ -1,0 +1,16 @@
+,Path,Name,Flag,Card,Type,Description
+0,Practitioner, Practitioner ,TU,,DomainResource,"A person with a  formal responsibility in the provisioning of healthcare or related servicesElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Practitioner.identifier, identifier ,Σ,0..*,Identifier,An identifier for the person as this agent
+2,Practitioner.active, active ,Σ,0..1,boolean,Whether this practitioner's record is in active use
+3,Practitioner.name, name ,Σ,0..*,HumanName,The name(s) associated with the practitioner
+4,Practitioner.telecom, telecom ,Σ,0..*,ContactPoint,A contact detail for the practitioner (that apply to all roles)
+5,Practitioner.address, address ,Σ,0..*,Address,Address(es) of the practitioner that are not role specific (typically home address)
+6,Practitioner.gender, gender ,Σ,0..1,code,male | female | other | unknownAdministrativeGender (Required)
+7,Practitioner.birthDate, birthDate ,Σ,0..1,date,The date  on which the practitioner was born
+8,Practitioner.photo, photo ,,0..*,Attachment,Image of the person
+9,Practitioner.qualification, qualification ,,0..*,BackboneElement,"Certification, licenses, or training pertaining to the provision of care"
+10,Practitioner.qualification.identifier, identifier ,,0..*,Identifier,An identifier for this qualification for the practitioner
+11,Practitioner.qualification.code, code ,,1..1,CodeableConcept,"Coded representation of the qualificationv2 table 0360, Version 2.7 (Example)"
+12,Practitioner.qualification.period, period ,,0..1,Period,Period during which the qualification is valid
+13,Practitioner.qualification.issuer, issuer ,,0..1,Reference(Organization),Organization that regulates and issues the qualification
+14,Practitioner.communication, communication ,,0..*,CodeableConcept,A language the practitioner can use in patient communicationCommon Languages (Preferred but limited to AllLanguages)

@@ -1,0 +1,39 @@
+,Path,Name,Flag,Card,Type,Description
+0,Procedure, Procedure ,TU,,DomainResource,"An action that is being or was performed on a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Procedure.identifier, identifier ,Σ,0..*,Identifier,External Identifiers for this procedure
+2,Procedure.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(PlanDefinition | ActivityDefinition | Measure | OperationDefinition | Questionnaire),Instantiates FHIR protocol or definition
+3,Procedure.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,Procedure.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | ServiceRequest),A request for this procedure
+5,Procedure.partOf, partOf ,Σ,0..*,Reference(Procedure | Observation | MedicationAdministration),Part of referenced event
+6,Procedure.status, status ,?!Σ,1..1,code,preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknownEventStatus (Required)
+7,Procedure.statusReason, statusReason ,Σ,0..1,CodeableConcept,Reason for current statusProcedure Not Performed Reason (SNOMED-CT) (Example)
+8,Procedure.category, category ,Σ,0..1,CodeableConcept,Classification of the procedureProcedure Category Codes (SNOMED CT) (Example)
+9,Procedure.code, code ,Σ,0..1,CodeableConcept,Identification of the procedureProcedure Codes (SNOMED CT) (Example)
+10,Procedure.subject, subject ,Σ,1..1,Reference(Patient | Group),Who the procedure was performed on
+11,Procedure.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+12,Procedure.performedDatetime,performedDatetime,Σ,0..1,dateTime,When the procedure was performed
+13,Procedure.performedPeriod,performedPeriod,Σ,0..1,Period,When the procedure was performed
+14,Procedure.performedString,performedString,Σ,0..1,string,When the procedure was performed
+15,Procedure.performedAge,performedAge,Σ,0..1,Age,When the procedure was performed
+16,Procedure.performedRange,performedRange,Σ,0..1,Range,When the procedure was performed
+17,Procedure.recorder, recorder ,Σ,0..1,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole),Who recorded the procedure
+18,Procedure.asserter, asserter ,Σ,0..1,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole),Person who asserts this procedure
+19,Procedure.performer, performer ,Σ,0..*,BackboneElement,The people who performed the procedure
+20,Procedure.performer.function, function ,Σ,0..1,CodeableConcept,Type of performanceProcedure Performer Role Codes (Example)
+21,Procedure.performer.actor, actor ,Σ,1..1,Reference(Practitioner | PractitionerRole | Organization | Patient | RelatedPerson | Device),The reference to the practitioner
+22,Procedure.performer.onBehalfOf, onBehalfOf ,,0..1,Reference(Organization),Organization the device or practitioner was acting for
+23,Procedure.location, location ,Σ,0..1,Reference(Location),Where the procedure happened
+24,Procedure.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Coded reason procedure performedProcedure Reason Codes (Example)
+25,Procedure.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | Procedure | DiagnosticReport | DocumentReference),The justification that the procedure was performed
+26,Procedure.bodySite, bodySite ,Σ,0..*,CodeableConcept,Target body sitesSNOMED CT Body Structures (Example)
+27,Procedure.outcome, outcome ,Σ,0..1,CodeableConcept,The result of procedureProcedure Outcome Codes (SNOMED CT) (Example)
+28,Procedure.report, report ,,0..*,Reference(DiagnosticReport | DocumentReference | Composition),Any report resulting from the procedure
+29,Procedure.complication, complication ,,0..*,CodeableConcept,Complication following the procedureCondition/Problem/Diagnosis Codes (Example)
+30,Procedure.complicationDetail, complicationDetail ,,0..*,Reference(Condition),A condition that is a result of the procedure
+31,Procedure.followUp, followUp ,,0..*,CodeableConcept,Instructions for follow upProcedure Follow up Codes (SNOMED CT) (Example)
+32,Procedure.note, note ,,0..*,Annotation,Additional information about the procedure
+33,Procedure.focalDevice, focalDevice ,,0..*,BackboneElement,"Manipulated, implanted, or removed device"
+34,Procedure.focalDevice.action, action ,,0..1,CodeableConcept,Kind of change to deviceProcedure Device Action Codes (Preferred)
+35,Procedure.focalDevice.manipulated, manipulated ,,1..1,Reference(Device),Device that was changed
+36,Procedure.usedReference, usedReference ,,0..*,Reference(Device | Medication | Substance),Items used during procedure
+37,Procedure.usedCode, usedCode ,,0..*,CodeableConcept,Coded items used during the procedureFHIR Device Types (Example)

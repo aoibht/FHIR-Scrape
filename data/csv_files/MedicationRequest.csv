@@ -1,0 +1,48 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicationRequest, MedicationRequest ,TU,,DomainResource,"Ordering of medication for patient or groupElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicationRequest.identifier, identifier ,,0..*,Identifier,External ids for this request
+2,MedicationRequest.status, status ,?!Σ,1..1,code,active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknownMedicationrequest  status (Required)
+3,MedicationRequest.statusReason, statusReason ,,0..1,CodeableConcept,Reason for current statusMedication request  status  reason  codes (Example)
+4,MedicationRequest.intent, intent ,?!Σ,1..1,code,proposal | plan | order | original-order | reflex-order | filler-order | instance-order | optionMedication request  intent (Required)
+5,MedicationRequest.category, category ,,0..*,CodeableConcept,Type of medication usageMedication request  category  codes (Example)
+6,MedicationRequest.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+7,MedicationRequest.doNotPerform, doNotPerform ,?!Σ,0..1,boolean,True if request is prohibiting action
+8,MedicationRequest.reportedBoolean,reportedBoolean,Σ,0..1,boolean,Reported rather than primary record
+9,MedicationRequest.reportedReference(patient | practitioner | practitionerrole | relatedperson | organization),reportedReference(patient | practitioner | practitionerrole | relatedperson | organization),Σ,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Organization),Reported rather than primary record
+10,MedicationRequest.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,Medication to be takenSNOMED CT Medication Codes (Example)
+11,MedicationRequest.medicationReference(medication),medicationReference(medication),Σ,1..1,Reference(Medication),Medication to be takenSNOMED CT Medication Codes (Example)
+12,MedicationRequest.subject, subject ,Σ,1..1,Reference(Patient | Group),Who or group medication request is for
+13,MedicationRequest.encounter, encounter ,,0..1,Reference(Encounter),Encounter created as part of encounter/admission/stay
+14,MedicationRequest.supportingInformation, supportingInformation ,,0..*,Reference(Any),Information to support ordering of the medication
+15,MedicationRequest.authoredOn, authoredOn ,Σ,0..1,dateTime,When request was initially authored
+16,MedicationRequest.requester, requester ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | RelatedPerson | Device),Who/What requested the Request
+17,MedicationRequest.performer, performer ,,0..1,Reference(Practitioner | PractitionerRole | Organization | Patient | Device | RelatedPerson | CareTeam),Intended performer of administration
+18,MedicationRequest.performerType, performerType ,Σ,0..1,CodeableConcept,Desired kind of performer of the medication administrationProcedure Performer Role Codes (Example)
+19,MedicationRequest.recorder, recorder ,,0..1,Reference(Practitioner | PractitionerRole),Person who entered the request
+20,MedicationRequest.reasonCode, reasonCode ,,0..*,CodeableConcept,Reason or indication for ordering or not ordering the medicationCondition/Problem/Diagnosis Codes (Example)
+21,MedicationRequest.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation),Condition or observation that supports why the prescription is being written
+22,MedicationRequest.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(),Instantiates FHIR protocol or definition
+23,MedicationRequest.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+24,MedicationRequest.basedOn, basedOn ,Σ,0..*,Reference(CarePlan | MedicationRequest | ServiceRequest | ImmunizationRecommendation),What request fulfills
+25,MedicationRequest.groupIdentifier, groupIdentifier ,Σ,0..1,Identifier,Composite request this is part of
+26,MedicationRequest.courseOfTherapyType, courseOfTherapyType ,,0..1,CodeableConcept,Overall pattern of medication administrationMedication request  course of  therapy  codes (Example)
+27,MedicationRequest.insurance, insurance ,,0..*,Reference(Coverage | ClaimResponse),Associated insurance coverage
+28,MedicationRequest.note, note ,,0..*,Annotation,Information about the prescription
+29,MedicationRequest.dosageInstruction, dosageInstruction ,,0..*,Dosage,How the medication should be taken
+30,MedicationRequest.dispenseRequest, dispenseRequest ,,0..1,BackboneElement,Medication supply authorization
+31,MedicationRequest.dispenseRequest.initialFill, initialFill ,,0..1,BackboneElement,First fill details
+32,MedicationRequest.dispenseRequest.initialFill.quantity, quantity ,,0..1,SimpleQuantity,First fill quantity
+33,MedicationRequest.dispenseRequest.initialFill.duration, duration ,,0..1,Duration,First fill duration
+34,MedicationRequest.dispenseRequest.dispenseInterval, dispenseInterval ,,0..1,Duration,Minimum period of time between dispenses
+35,MedicationRequest.dispenseRequest.validityPeriod, validityPeriod ,,0..1,Period,Time period supply is authorized for
+36,MedicationRequest.dispenseRequest.numberOfRepeatsAllowed, numberOfRepeatsAllowed ,,0..1,unsignedInt,Number of refills authorized
+37,MedicationRequest.dispenseRequest.quantity, quantity ,,0..1,SimpleQuantity,Amount of medication to supply per dispense
+38,MedicationRequest.dispenseRequest.expectedSupplyDuration, expectedSupplyDuration ,,0..1,Duration,Number of days supply per dispense
+39,MedicationRequest.dispenseRequest.performer, performer ,,0..1,Reference(Organization),Intended dispenser
+40,MedicationRequest.substitution, substitution ,,0..1,BackboneElement,Any restrictions on medication substitution
+41,MedicationRequest.substitution.allowedBoolean,allowedBoolean,,1..1,boolean,Whether substitution is allowed or notV3 Value SetActSubstanceAdminSubstitutionCode (Example)
+42,MedicationRequest.substitution.allowedCodeableconcept,allowedCodeableconcept,,1..1,CodeableConcept,Whether substitution is allowed or notV3 Value SetActSubstanceAdminSubstitutionCode (Example)
+43,MedicationRequest.substitution.reason, reason ,,0..1,CodeableConcept,Why should (not) substitution be madeV3 Value SetSubstanceAdminSubstitutionReason (Example)
+44,MedicationRequest.priorPrescription, priorPrescription ,,0..1,Reference(MedicationRequest),An order/prescription that is being replaced
+45,MedicationRequest.detectedIssue, detectedIssue ,,0..*,Reference(DetectedIssue),Clinical Issue with action
+46,MedicationRequest.eventHistory, eventHistory ,,0..*,Reference(Provenance),A list of events of interest in the lifecycle

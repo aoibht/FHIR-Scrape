@@ -1,0 +1,33 @@
+,Path,Name,Flag,Card,Type,Description
+0,TestReport, TestReport ,TU,,DomainResource,"Describes the results of a TestScript executionElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,TestReport.identifier, identifier ,Σ,0..1,Identifier,External identifier
+2,TestReport.name, name ,Σ,0..1,string,Informal name of the executed TestScript
+3,TestReport.status, status ,?!Σ,1..1,code,completed | in-progress | waiting | stopped | entered-in-errorTestReportStatus (Required)
+4,TestReport.testScript, testScript ,Σ,1..1,Reference(TestScript),Reference to the  version-specific TestScript that was executed to produce this TestReport
+5,TestReport.result, result ,Σ,1..1,code,pass | fail | pendingTestReportResult (Required)
+6,TestReport.score, score ,Σ,0..1,decimal,The final score (percentage of tests passed) resulting from the execution of the TestScript
+7,TestReport.tester, tester ,Σ,0..1,string,Name of the tester producing this report (Organization or individual)
+8,TestReport.issued, issued ,Σ,0..1,dateTime,When the TestScript was executed and this TestReport was generated
+9,TestReport.participant, participant ,,0..*,BackboneElement,"A participant in the test execution, either the execution engine, a client, or a server"
+10,TestReport.participant.type, type ,,1..1,code,test-engine | client | serverTestReportParticipantType (Required)
+11,TestReport.participant.uri, uri ,,1..1,uri,The uri of the participant. An absolute URL is preferred
+12,TestReport.participant.display, display ,,0..1,string,The display name of the participant
+13,TestReport.setup, setup ,,0..1,BackboneElement,The results of the series of required setup operations before the tests were executed
+14,TestReport.setup.action, action ,I,1..*,BackboneElement,A setup operation or assert that was executed+ Rule: Setup action SHALL contain either an operation or assert but not both.
+15,TestReport.setup.action.operation, operation ,,0..1,BackboneElement,The operation to perform
+16,TestReport.setup.action.operation.result, result ,,1..1,code,pass | skip | fail | warning | errorTestReportActionResult (Required)
+17,TestReport.setup.action.operation.message, message ,,0..1,markdown,A message associated with the result
+18,TestReport.setup.action.operation.detail, detail ,,0..1,uri,A link to further details on the result
+19,TestReport.setup.action.assert, assert ,,0..1,BackboneElement,The assertion to perform
+20,TestReport.setup.action.assert.result, result ,,1..1,code,pass | skip | fail | warning | errorTestReportActionResult (Required)
+21,TestReport.setup.action.assert.message, message ,,0..1,markdown,A message associated with the result
+22,TestReport.setup.action.assert.detail, detail ,,0..1,string,A link to further details on the result
+23,TestReport.test, test ,,0..*,BackboneElement,A test executed from the test script
+24,TestReport.test.name, name ,,0..1,string,Tracking/logging name of this test
+25,TestReport.test.description, description ,,0..1,string,Tracking/reporting short description of the test
+26,TestReport.test.action, action ,I,1..*,BackboneElement,A test operation or assert that was performed+ Rule: Test action SHALL contain either an operation or assert but not both.
+27,TestReport.test.action.operation, operation ,,0..1,see operation,The operation performed
+28,TestReport.test.action.assert, assert ,,0..1,see assert,The assertion performed
+29,TestReport.teardown, teardown ,,0..1,BackboneElement,The results of running the series of required clean up steps
+30,TestReport.teardown.action, action ,,1..*,BackboneElement,One or more teardown operations performed
+31,TestReport.teardown.action.operation, operation ,,1..1,see operation,The teardown operation performed

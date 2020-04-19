@@ -1,0 +1,21 @@
+,Path,Name,Flag,Card,Type,Description
+0,MedicationStatement, MedicationStatement ,TU,,DomainResource,"Record of medication being taken by a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,MedicationStatement.identifier, identifier ,Σ,0..*,Identifier,External identifier
+2,MedicationStatement.basedOn, basedOn ,Σ,0..*,Reference(MedicationRequest | CarePlan | ServiceRequest),"Fulfils plan, proposal or order"
+3,MedicationStatement.partOf, partOf ,Σ,0..*,Reference(MedicationAdministration | MedicationDispense | MedicationStatement | Procedure | Observation),Part of referenced event
+4,MedicationStatement.status, status ,?!Σ,1..1,code,active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-takenMedication  status  codes (Required)
+5,MedicationStatement.statusReason, statusReason ,,0..*,CodeableConcept,Reason for current statusSNOMED CT Drug Therapy Status codes  (Example)
+6,MedicationStatement.category, category ,Σ,0..1,CodeableConcept,Type of medication usageMedication usage category codes (Preferred)
+7,MedicationStatement.medicationCodeableconcept,medicationCodeableconcept,Σ,1..1,CodeableConcept,What medication was takenSNOMED CT Medication Codes (Example)
+8,MedicationStatement.medicationReference(medication),medicationReference(medication),Σ,1..1,Reference(Medication),What medication was takenSNOMED CT Medication Codes (Example)
+9,MedicationStatement.subject, subject ,Σ,1..1,Reference(Patient | Group),Who is/was taking  the medication
+10,MedicationStatement.context, context ,Σ,0..1,Reference(Encounter | EpisodeOfCare),Encounter / Episode associated with MedicationStatement
+11,MedicationStatement.effectiveDatetime,effectiveDatetime,Σ,0..1,dateTime,The date/time or interval when the medication is/was/will be taken
+12,MedicationStatement.effectivePeriod,effectivePeriod,Σ,0..1,Period,The date/time or interval when the medication is/was/will be taken
+13,MedicationStatement.dateAsserted, dateAsserted ,Σ,0..1,dateTime,When the statement was asserted?
+14,MedicationStatement.informationSource, informationSource ,,0..1,Reference(Patient | Practitioner | PractitionerRole | RelatedPerson | Organization),Person or organization that provided the information about the taking of this medication
+15,MedicationStatement.derivedFrom, derivedFrom ,,0..*,Reference(Any),Additional supporting information
+16,MedicationStatement.reasonCode, reasonCode ,,0..*,CodeableConcept,Reason for why the medication is being/was takenCondition/Problem/Diagnosis Codes (Example)
+17,MedicationStatement.reasonReference, reasonReference ,,0..*,Reference(Condition | Observation | DiagnosticReport),Condition or observation that supports why the medication is being/was taken
+18,MedicationStatement.note, note ,,0..*,Annotation,Further information about the statement
+19,MedicationStatement.dosage, dosage ,,0..*,Dosage,Details of how medication is/was taken or should be taken

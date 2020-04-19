@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,SpecimenDefinition, SpecimenDefinition ,TU,,DomainResource,"Kind of specimenElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SpecimenDefinition.identifier, identifier ,Σ,0..1,Identifier,Business identifier of a kind of specimen
+2,SpecimenDefinition.typeCollected, typeCollected ,Σ,0..1,CodeableConcept,Kind of material to collectv2 Specimen Type (Example)
+3,SpecimenDefinition.patientPreparation, patientPreparation ,Σ,0..*,CodeableConcept,Patient preparation for collectionPatient preparation prior specimen collection (Example)
+4,SpecimenDefinition.timeAspect, timeAspect ,Σ,0..1,string,Time aspect for collection
+5,SpecimenDefinition.collection, collection ,Σ,0..*,CodeableConcept,Specimen collection procedureSpecimen collection methods (Example)
+6,SpecimenDefinition.typeTested, typeTested ,,0..*,BackboneElement,Specimen in container intended for testing by lab
+7,SpecimenDefinition.typeTested.isDerived, isDerived ,,0..1,boolean,Primary or secondary specimen
+8,SpecimenDefinition.typeTested.type, type ,,0..1,CodeableConcept,Type of intended specimenv2 Specimen Type (Example)
+9,SpecimenDefinition.typeTested.preference, preference ,,1..1,code,preferred | alternateSpecimenContainedPreference (Required)
+10,SpecimenDefinition.typeTested.container, container ,,0..1,BackboneElement,The specimen's container
+11,SpecimenDefinition.typeTested.container.material, material ,,0..1,CodeableConcept,Container materialTypes of material for specimen containers (Example)
+12,SpecimenDefinition.typeTested.container.type, type ,,0..1,CodeableConcept,Kind of container associated with the kind of specimenSpecimen Container Type (Example)
+13,SpecimenDefinition.typeTested.container.cap, cap ,,0..1,CodeableConcept,Color of container capContainerCap (Example)
+14,SpecimenDefinition.typeTested.container.description, description ,,0..1,string,Container description
+15,SpecimenDefinition.typeTested.container.capacity, capacity ,,0..1,SimpleQuantity,Container capacity
+16,SpecimenDefinition.typeTested.container.minimumVolumeSimplequantity,minimumVolumeSimplequantity,,0..1,SimpleQuantity,Minimum volume
+17,SpecimenDefinition.typeTested.container.minimumVolumeString,minimumVolumeString,,0..1,string,Minimum volume
+18,SpecimenDefinition.typeTested.container.additive, additive ,,0..*,BackboneElement,Additive associated with container
+19,SpecimenDefinition.typeTested.container.additive.additiveCodeableconcept,additiveCodeableconcept,,1..1,CodeableConcept,Additive associated with containerv2 Additive (Example)
+20,SpecimenDefinition.typeTested.container.additive.additiveReference(substance),additiveReference(substance),,1..1,Reference(Substance),Additive associated with containerv2 Additive (Example)
+21,SpecimenDefinition.typeTested.container.preparation, preparation ,,0..1,string,Specimen container preparation
+22,SpecimenDefinition.typeTested.requirement, requirement ,,0..1,string,Specimen requirements
+23,SpecimenDefinition.typeTested.retentionTime, retentionTime ,,0..1,Duration,Specimen retention time
+24,SpecimenDefinition.typeTested.rejectionCriterion, rejectionCriterion ,,0..*,CodeableConcept,Rejection criterionRejectionCriterion (Example)
+25,SpecimenDefinition.typeTested.handling, handling ,,0..*,BackboneElement,Specimen handling before testing
+26,SpecimenDefinition.typeTested.handling.temperatureQualifier, temperatureQualifier ,,0..1,CodeableConcept,Temperature qualifierHandlingConditionSet (Example)
+27,SpecimenDefinition.typeTested.handling.temperatureRange, temperatureRange ,,0..1,Range,Temperature range
+28,SpecimenDefinition.typeTested.handling.maxDuration, maxDuration ,,0..1,Duration,Maximum preservation time
+29,SpecimenDefinition.typeTested.handling.instruction, instruction ,,0..1,string,Preservation instruction

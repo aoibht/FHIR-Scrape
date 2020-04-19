@@ -1,0 +1,36 @@
+,Path,Name,Flag,Card,Type,Description
+0,Composition, Composition ,TU,,DomainResource,"A set of resources composed into a single coherent clinical statement with clinical attestationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Composition.identifier, identifier ,Σ,0..1,Identifier,Version-independent identifier for the Composition
+2,Composition.status, status ,?!Σ,1..1,code,preliminary | final | amended | entered-in-errorCompositionStatus (Required)
+3,Composition.type, type ,Σ,1..1,CodeableConcept,Kind of composition (LOINC if possible)FHIR Document Type Codes (Preferred)
+4,Composition.category, category ,Σ,0..*,CodeableConcept,Categorization of CompositionDocument Class Value Set (Example)
+5,Composition.subject, subject ,Σ,0..1,Reference(Any),Who and/or what the composition is about
+6,Composition.encounter, encounter ,Σ,0..1,Reference(Encounter),Context of the Composition
+7,Composition.date, date ,Σ,1..1,dateTime,Composition editing time
+8,Composition.author, author ,Σ,1..*,Reference(Practitioner | PractitionerRole | Device | Patient | RelatedPerson | Organization),Who and/or what authored the composition
+9,Composition.title, title ,Σ,1..1,string,Human Readable name/title
+10,Composition.confidentiality, confidentiality ,Σ,0..1,code,As defined by affinity domainV3 Value SetConfidentialityClassification (Required)
+11,Composition.attester, attester ,,0..*,BackboneElement,Attests to accuracy of composition
+12,Composition.attester.mode, mode ,,1..1,code,personal | professional | legal | officialCompositionAttestationMode (Required)
+13,Composition.attester.time, time ,,0..1,dateTime,When the composition was attested
+14,Composition.attester.party, party ,,0..1,Reference(Patient | RelatedPerson | Practitioner | PractitionerRole | Organization),Who attested the composition
+15,Composition.custodian, custodian ,Σ,0..1,Reference(Organization),Organization which maintains the composition
+16,Composition.relatesTo, relatesTo ,,0..*,BackboneElement,Relationships to other compositions/documents
+17,Composition.relatesTo.code, code ,,1..1,code,replaces | transforms | signs | appendsDocumentRelationshipType (Required)
+18,Composition.relatesTo.targetIdentifier,targetIdentifier,,1..1,Identifier,Target of the relationship
+19,Composition.relatesTo.targetReference(composition),targetReference(composition),,1..1,Reference(Composition),Target of the relationship
+20,Composition.event, event ,Σ,0..*,BackboneElement,The clinical service(s) being documented
+21,Composition.event.code, code ,Σ,0..*,CodeableConcept,Code(s) that apply to the event being documentedv3 Code System ActCode (Example)
+22,Composition.event.period, period ,Σ,0..1,Period,The period covered by the documentation
+23,Composition.event.detail, detail ,Σ,0..*,Reference(Any),The event(s) being documented
+24,Composition.section, section ,I,0..*,BackboneElement,"Composition is broken into sections+ Rule: A section must contain at least one of text, entries, or sub-sections+ Rule: A section can only have an emptyReason if it is empty"
+25,Composition.section.title, title ,,0..1,string,Label for section (e.g. for ToC)
+26,Composition.section.code, code ,,0..1,CodeableConcept,Classification of section (recommended)Document Section Codes (Example)
+27,Composition.section.author, author ,,0..*,Reference(Practitioner | PractitionerRole | Device | Patient | RelatedPerson | Organization),Who and/or what authored the section
+28,Composition.section.focus, focus ,,0..1,Reference(Any),"Who/what the section is about, when it is not about the subject of composition"
+29,Composition.section.text, text ,I,0..1,Narrative,"Text summary of the section, for human interpretation"
+30,Composition.section.mode, mode ,,0..1,code,working | snapshot | changesListMode (Required)
+31,Composition.section.orderedBy, orderedBy ,,0..1,CodeableConcept,Order of section entriesList Order Codes (Preferred)
+32,Composition.section.entry, entry ,I,0..*,Reference(Any),A reference to data that supports this section
+33,Composition.section.emptyReason, emptyReason ,I,0..1,CodeableConcept,Why the section is emptyList Empty Reasons (Preferred)
+34,Composition.section.section, section ,I,0..*,see section,Nested Section

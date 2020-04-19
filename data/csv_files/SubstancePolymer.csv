@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,SubstancePolymer, SubstancePolymer ,ΣTU,,DomainResource,"TodoElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,SubstancePolymer.class, class ,Σ,0..1,CodeableConcept,Todo
+2,SubstancePolymer.geometry, geometry ,Σ,0..1,CodeableConcept,Todo
+3,SubstancePolymer.copolymerConnectivity, copolymerConnectivity ,Σ,0..*,CodeableConcept,Todo
+4,SubstancePolymer.modification, modification ,Σ,0..*,string,Todo
+5,SubstancePolymer.monomerSet, monomerSet ,Σ,0..*,BackboneElement,Todo
+6,SubstancePolymer.monomerSet.ratioType, ratioType ,Σ,0..1,CodeableConcept,Todo
+7,SubstancePolymer.monomerSet.startingMaterial, startingMaterial ,Σ,0..*,BackboneElement,Todo
+8,SubstancePolymer.monomerSet.startingMaterial.material, material ,Σ,0..1,CodeableConcept,Todo
+9,SubstancePolymer.monomerSet.startingMaterial.type, type ,Σ,0..1,CodeableConcept,Todo
+10,SubstancePolymer.monomerSet.startingMaterial.isDefining, isDefining ,Σ,0..1,boolean,Todo
+11,SubstancePolymer.monomerSet.startingMaterial.amount, amount ,Σ,0..1,SubstanceAmount,Todo
+12,SubstancePolymer.repeat, repeat ,Σ,0..*,BackboneElement,Todo
+13,SubstancePolymer.repeat.numberOfUnits, numberOfUnits ,Σ,0..1,integer,Todo
+14,SubstancePolymer.repeat.averageMolecularFormula, averageMolecularFormula ,Σ,0..1,string,Todo
+15,SubstancePolymer.repeat.repeatUnitAmountType, repeatUnitAmountType ,Σ,0..1,CodeableConcept,Todo
+16,SubstancePolymer.repeat.repeatUnit, repeatUnit ,Σ,0..*,BackboneElement,Todo
+17,SubstancePolymer.repeat.repeatUnit.orientationOfPolymerisation, orientationOfPolymerisation ,Σ,0..1,CodeableConcept,Todo
+18,SubstancePolymer.repeat.repeatUnit.repeatUnit, repeatUnit ,Σ,0..1,string,Todo
+19,SubstancePolymer.repeat.repeatUnit.amount, amount ,Σ,0..1,SubstanceAmount,Todo
+20,SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation, degreeOfPolymerisation ,Σ,0..*,BackboneElement,Todo
+21,SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.degree, degree ,Σ,0..1,CodeableConcept,Todo
+22,SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.amount, amount ,Σ,0..1,SubstanceAmount,Todo
+23,SubstancePolymer.repeat.repeatUnit.structuralRepresentation, structuralRepresentation ,Σ,0..*,BackboneElement,Todo
+24,SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type, type ,Σ,0..1,CodeableConcept,Todo
+25,SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation, representation ,Σ,0..1,string,Todo
+26,SubstancePolymer.repeat.repeatUnit.structuralRepresentation.attachment, attachment ,Σ,0..1,Attachment,Todo

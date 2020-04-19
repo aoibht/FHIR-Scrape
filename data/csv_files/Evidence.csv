@@ -1,0 +1,30 @@
+,Path,Name,Flag,Card,Type,Description
+0,Evidence, Evidence ,ITU,,DomainResource,"A research context or question+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Evidence.url, url ,Σ,0..1,uri,"Canonical identifier for this evidence, represented as a URI (globally unique)"
+2,Evidence.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the evidence
+3,Evidence.version, version ,Σ,0..1,string,Business version of the evidence
+4,Evidence.name, name ,ΣI,0..1,string,Name for this evidence (computer friendly)
+5,Evidence.title, title ,Σ,0..1,string,Name for this evidence (human friendly)
+6,Evidence.shortTitle, shortTitle ,,0..1,string,Title for use in informal contexts
+7,Evidence.subtitle, subtitle ,,0..1,string,Subordinate title of the Evidence
+8,Evidence.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+9,Evidence.date, date ,Σ,0..1,dateTime,Date last changed
+10,Evidence.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+11,Evidence.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+12,Evidence.description, description ,Σ,0..1,markdown,Natural language description of the evidence
+13,Evidence.note, note ,,0..*,Annotation,Used for footnotes or explanatory notes
+14,Evidence.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+15,Evidence.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for evidence (if applicable)Jurisdiction (Extensible)
+16,Evidence.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+17,Evidence.approvalDate, approvalDate ,,0..1,date,When the evidence was approved by publisher
+18,Evidence.lastReviewDate, lastReviewDate ,,0..1,date,When the evidence was last reviewed
+19,Evidence.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the evidence is expected to be used
+20,Evidence.topic, topic ,,0..*,CodeableConcept,"The category of the Evidence, such as Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+21,Evidence.author, author ,,0..*,ContactDetail,Who authored the content
+22,Evidence.editor, editor ,,0..*,ContactDetail,Who edited the content
+23,Evidence.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+24,Evidence.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+25,Evidence.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+26,Evidence.exposureBackground, exposureBackground ,Σ,1..1,Reference(EvidenceVariable),What population?
+27,Evidence.exposureVariant, exposureVariant ,Σ,0..*,Reference(EvidenceVariable),What exposure?
+28,Evidence.outcome, outcome ,Σ,0..*,Reference(EvidenceVariable),What outcome?

@@ -1,0 +1,23 @@
+,Path,Name,Flag,Card,Type,Description
+0,Group, Group ,ITU,,DomainResource,"Group of multiple entities+ Rule: Can only have members if group is ""actual""Elements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Group.identifier, identifier ,Σ,0..*,Identifier,Unique id
+2,Group.active, active ,Σ,0..1,boolean,Whether this group's record is in active use
+3,Group.type, type ,Σ,1..1,code,person | animal | practitioner | device | medication | substanceGroupType (Required)
+4,Group.actual, actual ,ΣI,1..1,boolean,Descriptive or actual
+5,Group.code, code ,Σ,0..1,CodeableConcept,Kind of Group members
+6,Group.name, name ,Σ,0..1,string,Label for Group
+7,Group.quantity, quantity ,Σ,0..1,unsignedInt,Number of members
+8,Group.managingEntity, managingEntity ,Σ,0..1,Reference(Organization | RelatedPerson | Practitioner | PractitionerRole),Entity that is the custodian of the Group's definition
+9,Group.characteristic, characteristic ,,0..*,BackboneElement,Include / Exclude group members by Trait
+10,Group.characteristic.code, code ,,1..1,CodeableConcept,Kind of characteristic
+11,Group.characteristic.valueCodeableconcept,valueCodeableconcept,,1..1,CodeableConcept,Value held by characteristic
+12,Group.characteristic.valueBoolean,valueBoolean,,1..1,boolean,Value held by characteristic
+13,Group.characteristic.valueQuantity,valueQuantity,,1..1,Quantity,Value held by characteristic
+14,Group.characteristic.valueRange,valueRange,,1..1,Range,Value held by characteristic
+15,Group.characteristic.valueReference(),valueReference(),,1..1,Reference(),Value held by characteristic
+16,Group.characteristic.exclude, exclude ,,1..1,boolean,Group includes or excludes
+17,Group.characteristic.period, period ,,0..1,Period,Period over which characteristic is tested
+18,Group.member, member ,I,0..*,BackboneElement,Who or what is in group
+19,Group.member.entity, entity ,,1..1,Reference(Patient | Practitioner | PractitionerRole | Device | Medication | Substance | Group),Reference to the group member
+20,Group.member.period, period ,,0..1,Period,Period member belonged to the group
+21,Group.member.inactive, inactive ,,0..1,boolean,If member is no longer in group

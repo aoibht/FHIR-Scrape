@@ -1,0 +1,103 @@
+,Path,Name,Flag,Card,Type,Description
+0,ClaimResponse, ClaimResponse ,TU,,DomainResource,"Response to a claim predetermination or preauthorizationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ClaimResponse.identifier, identifier ,,0..*,Identifier,Business Identifier for a claim response
+2,ClaimResponse.status, status ,?!Σ,1..1,code,active | cancelled | draft | entered-in-errorFinancial Resource Status Codes (Required)
+3,ClaimResponse.type, type ,Σ,1..1,CodeableConcept,More granular claim typeClaim Type Codes (Extensible)
+4,ClaimResponse.subType, subType ,,0..1,CodeableConcept,More granular claim typeExample Claim SubType Codes (Example)
+5,ClaimResponse.use, use ,Σ,1..1,code,claim | preauthorization | predeterminationUse (Required)
+6,ClaimResponse.patient, patient ,Σ,1..1,Reference(Patient),The recipient of the products and services
+7,ClaimResponse.created, created ,Σ,1..1,dateTime,Response creation date
+8,ClaimResponse.insurer, insurer ,Σ,1..1,Reference(Organization),Party responsible for reimbursement
+9,ClaimResponse.requestor, requestor ,,0..1,Reference(Practitioner | PractitionerRole | Organization),Party responsible for the claim
+10,ClaimResponse.request, request ,Σ,0..1,Reference(Claim),Id of resource triggering adjudication
+11,ClaimResponse.outcome, outcome ,Σ,1..1,code,queued | complete | error | partialClaim Processing Codes (Required)
+12,ClaimResponse.disposition, disposition ,,0..1,string,Disposition Message
+13,ClaimResponse.preAuthRef, preAuthRef ,,0..1,string,Preauthorization reference
+14,ClaimResponse.preAuthPeriod, preAuthPeriod ,,0..1,Period,Preauthorization reference effective period
+15,ClaimResponse.payeeType, payeeType ,,0..1,CodeableConcept,Party to be paid any benefits payablePayeeType (Example)
+16,ClaimResponse.item, item ,,0..*,BackboneElement,Adjudication for claim line items
+17,ClaimResponse.item.itemSequence, itemSequence ,,1..1,positiveInt,Claim item instance identifier
+18,ClaimResponse.item.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+19,ClaimResponse.item.adjudication, adjudication ,,1..*,BackboneElement,Adjudication details
+20,ClaimResponse.item.adjudication.category, category ,,1..1,CodeableConcept,Type of adjudication informationAdjudication Value Codes (Example)
+21,ClaimResponse.item.adjudication.reason, reason ,,0..1,CodeableConcept,Explanation of adjudication outcomeAdjudication Reason Codes (Example)
+22,ClaimResponse.item.adjudication.amount, amount ,,0..1,Money,Monetary amount
+23,ClaimResponse.item.adjudication.value, value ,,0..1,decimal,Non-monetary value
+24,ClaimResponse.item.detail, detail ,,0..*,BackboneElement,Adjudication for claim details
+25,ClaimResponse.item.detail.detailSequence, detailSequence ,,1..1,positiveInt,Claim detail instance identifier
+26,ClaimResponse.item.detail.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+27,ClaimResponse.item.detail.adjudication, adjudication ,,1..*,see adjudication,Detail level adjudication details
+28,ClaimResponse.item.detail.subDetail, subDetail ,,0..*,BackboneElement,Adjudication for claim sub-details
+29,ClaimResponse.item.detail.subDetail.subDetailSequence, subDetailSequence ,,1..1,positiveInt,Claim sub-detail instance identifier
+30,ClaimResponse.item.detail.subDetail.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+31,ClaimResponse.item.detail.subDetail.adjudication, adjudication ,,0..*,see adjudication,Subdetail level adjudication details
+32,ClaimResponse.addItem, addItem ,,0..*,BackboneElement,Insurer added line items
+33,ClaimResponse.addItem.itemSequence, itemSequence ,,0..*,positiveInt,Item sequence number
+34,ClaimResponse.addItem.detailSequence, detailSequence ,,0..*,positiveInt,Detail sequence number
+35,ClaimResponse.addItem.subdetailSequence, subdetailSequence ,,0..*,positiveInt,Subdetail sequence number
+36,ClaimResponse.addItem.provider, provider ,,0..*,Reference(Practitioner | PractitionerRole | Organization),Authorized providers
+37,ClaimResponse.addItem.productOrService, productOrService ,,1..1,CodeableConcept,"Billing, service, product, or drug codeUSCLS Codes (Example)"
+38,ClaimResponse.addItem.modifier, modifier ,,0..*,CodeableConcept,Service/Product billing modifiersModifier type Codes (Example)
+39,ClaimResponse.addItem.programCode, programCode ,,0..*,CodeableConcept,Program the product or service is provided underExample Program Reason Codes (Example)
+40,ClaimResponse.addItem.servicedDate,servicedDate,,0..1,date,Date or dates of service or product delivery
+41,ClaimResponse.addItem.servicedPeriod,servicedPeriod,,0..1,Period,Date or dates of service or product delivery
+42,ClaimResponse.addItem.locationCodeableconcept,locationCodeableconcept,,0..1,CodeableConcept,Place of service or where product was suppliedExample Service Place Codes (Example)
+43,ClaimResponse.addItem.locationAddress,locationAddress,,0..1,Address,Place of service or where product was suppliedExample Service Place Codes (Example)
+44,ClaimResponse.addItem.locationReference(location),locationReference(location),,0..1,Reference(Location),Place of service or where product was suppliedExample Service Place Codes (Example)
+45,ClaimResponse.addItem.quantity, quantity ,,0..1,SimpleQuantity,Count of products or services
+46,ClaimResponse.addItem.unitPrice, unitPrice ,,0..1,Money,"Fee, charge or cost per item"
+47,ClaimResponse.addItem.factor, factor ,,0..1,decimal,Price scaling factor
+48,ClaimResponse.addItem.net, net ,,0..1,Money,Total item cost
+49,ClaimResponse.addItem.bodySite, bodySite ,,0..1,CodeableConcept,Anatomical locationOral Site Codes (Example)
+50,ClaimResponse.addItem.subSite, subSite ,,0..*,CodeableConcept,Anatomical sub-locationSurface Codes (Example)
+51,ClaimResponse.addItem.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+52,ClaimResponse.addItem.adjudication, adjudication ,,1..*,see adjudication,Added items adjudication
+53,ClaimResponse.addItem.detail, detail ,,0..*,BackboneElement,Insurer added line details
+54,ClaimResponse.addItem.detail.productOrService, productOrService ,,1..1,CodeableConcept,"Billing, service, product, or drug codeUSCLS Codes (Example)"
+55,ClaimResponse.addItem.detail.modifier, modifier ,,0..*,CodeableConcept,Service/Product billing modifiersModifier type Codes (Example)
+56,ClaimResponse.addItem.detail.quantity, quantity ,,0..1,SimpleQuantity,Count of products or services
+57,ClaimResponse.addItem.detail.unitPrice, unitPrice ,,0..1,Money,"Fee, charge or cost per item"
+58,ClaimResponse.addItem.detail.factor, factor ,,0..1,decimal,Price scaling factor
+59,ClaimResponse.addItem.detail.net, net ,,0..1,Money,Total item cost
+60,ClaimResponse.addItem.detail.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+61,ClaimResponse.addItem.detail.adjudication, adjudication ,,1..*,see adjudication,Added items detail adjudication
+62,ClaimResponse.addItem.detail.subDetail, subDetail ,,0..*,BackboneElement,Insurer added line items
+63,ClaimResponse.addItem.detail.subDetail.productOrService, productOrService ,,1..1,CodeableConcept,"Billing, service, product, or drug codeUSCLS Codes (Example)"
+64,ClaimResponse.addItem.detail.subDetail.modifier, modifier ,,0..*,CodeableConcept,Service/Product billing modifiersModifier type Codes (Example)
+65,ClaimResponse.addItem.detail.subDetail.quantity, quantity ,,0..1,SimpleQuantity,Count of products or services
+66,ClaimResponse.addItem.detail.subDetail.unitPrice, unitPrice ,,0..1,Money,"Fee, charge or cost per item"
+67,ClaimResponse.addItem.detail.subDetail.factor, factor ,,0..1,decimal,Price scaling factor
+68,ClaimResponse.addItem.detail.subDetail.net, net ,,0..1,Money,Total item cost
+69,ClaimResponse.addItem.detail.subDetail.noteNumber, noteNumber ,,0..*,positiveInt,Applicable note numbers
+70,ClaimResponse.addItem.detail.subDetail.adjudication, adjudication ,,1..*,see adjudication,Added items detail adjudication
+71,ClaimResponse.adjudication, adjudication ,,0..*,see adjudication,Header-level adjudication
+72,ClaimResponse.total, total ,Σ,0..*,BackboneElement,Adjudication totals
+73,ClaimResponse.total.category, category ,Σ,1..1,CodeableConcept,Type of adjudication informationAdjudication Value Codes (Example)
+74,ClaimResponse.total.amount, amount ,Σ,1..1,Money,Financial total for the category
+75,ClaimResponse.payment, payment ,,0..1,BackboneElement,Payment Details
+76,ClaimResponse.payment.type, type ,,1..1,CodeableConcept,Partial or complete paymentExample Payment Type Codes (Example)
+77,ClaimResponse.payment.adjustment, adjustment ,,0..1,Money,Payment adjustment for non-claim issues
+78,ClaimResponse.payment.adjustmentReason, adjustmentReason ,,0..1,CodeableConcept,Explanation for the adjustmentPayment Adjustment Reason Codes (Example)
+79,ClaimResponse.payment.date, date ,,0..1,date,Expected date of payment
+80,ClaimResponse.payment.amount, amount ,,1..1,Money,Payable amount after adjustment
+81,ClaimResponse.payment.identifier, identifier ,,0..1,Identifier,Business identifier for the payment
+82,ClaimResponse.fundsReserve, fundsReserve ,,0..1,CodeableConcept,Funds reserved statusFundsReserve (Example)
+83,ClaimResponse.formCode, formCode ,,0..1,CodeableConcept,Printed form identifierForms (Example)
+84,ClaimResponse.form, form ,,0..1,Attachment,Printed reference or actual form
+85,ClaimResponse.processNote, processNote ,,0..*,BackboneElement,Note concerning adjudication
+86,ClaimResponse.processNote.number, number ,,0..1,positiveInt,Note instance identifier
+87,ClaimResponse.processNote.type, type ,,0..1,code,display | print | printoperNoteType (Required)
+88,ClaimResponse.processNote.text, text ,,1..1,string,Note explanatory text
+89,ClaimResponse.processNote.language, language ,,0..1,CodeableConcept,Language of the textCommon Languages (Preferred but limited to AllLanguages)
+90,ClaimResponse.communicationRequest, communicationRequest ,,0..*,Reference(CommunicationRequest),Request for additional information
+91,ClaimResponse.insurance, insurance ,,0..*,BackboneElement,Patient insurance information
+92,ClaimResponse.insurance.sequence, sequence ,,1..1,positiveInt,Insurance instance identifier
+93,ClaimResponse.insurance.focal, focal ,,1..1,boolean,Coverage to be used for adjudication
+94,ClaimResponse.insurance.coverage, coverage ,,1..1,Reference(Coverage),Insurance information
+95,ClaimResponse.insurance.businessArrangement, businessArrangement ,,0..1,string,Additional provider contract number
+96,ClaimResponse.insurance.claimResponse, claimResponse ,,0..1,Reference(ClaimResponse),Adjudication results
+97,ClaimResponse.error, error ,,0..*,BackboneElement,Processing errors
+98,ClaimResponse.error.itemSequence, itemSequence ,,0..1,positiveInt,Item sequence number
+99,ClaimResponse.error.detailSequence, detailSequence ,,0..1,positiveInt,Detail sequence number
+100,ClaimResponse.error.subDetailSequence, subDetailSequence ,,0..1,positiveInt,Subdetail sequence number
+101,ClaimResponse.error.code, code ,,1..1,CodeableConcept,Error code detailing processing issuesAdjudicationError (Example)

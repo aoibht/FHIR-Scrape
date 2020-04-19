@@ -1,0 +1,103 @@
+,Path,Name,Flag,Card,Type,Description
+0,TestScript, TestScript ,ITU,,DomainResource,"Describes a set of tests+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,TestScript.url, url ,Σ,1..1,uri,"Canonical identifier for this test script, represented as a URI (globally unique)"
+2,TestScript.identifier, identifier ,Σ,0..1,Identifier,Additional identifier for the test script
+3,TestScript.version, version ,Σ,0..1,string,Business version of the test script
+4,TestScript.name, name ,ΣI,1..1,string,Name for this test script (computer friendly)
+5,TestScript.title, title ,Σ,0..1,string,Name for this test script (human friendly)
+6,TestScript.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+7,TestScript.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+8,TestScript.date, date ,Σ,0..1,dateTime,Date last changed
+9,TestScript.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+10,TestScript.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+11,TestScript.description, description ,,0..1,markdown,Natural language description of the test script
+12,TestScript.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+13,TestScript.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for test script (if applicable)Jurisdiction (Extensible)
+14,TestScript.purpose, purpose ,,0..1,markdown,Why this test script is defined
+15,TestScript.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+16,TestScript.origin, origin ,,0..*,BackboneElement,An abstract server representing a client or sender in a message exchange
+17,TestScript.origin.index, index ,,1..1,integer,The index of the abstract origin server starting at 1
+18,TestScript.origin.profile, profile ,,1..1,Coding,FHIR-Client | FHIR-SDC-FormFillerTest script profile origin type (Extensible)
+19,TestScript.destination, destination ,,0..*,BackboneElement,An abstract server representing a destination or receiver in a message exchange
+20,TestScript.destination.index, index ,,1..1,integer,The index of the abstract destination server starting at 1
+21,TestScript.destination.profile, profile ,,1..1,Coding,FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessorTest script profile destination type (Extensible)
+22,TestScript.metadata, metadata ,I,0..1,BackboneElement,Required capability that is assumed to function correctly on the FHIR server being tested+ Rule: TestScript metadata capability SHALL contain required or validated or both.
+23,TestScript.metadata.link, link ,,0..*,BackboneElement,Links to the FHIR specification
+24,TestScript.metadata.link.url, url ,,1..1,uri,URL to the specification
+25,TestScript.metadata.link.description, description ,,0..1,string,Short description
+26,TestScript.metadata.capability, capability ,,1..*,BackboneElement,Capabilities  that are assumed to function correctly on the FHIR server being tested
+27,TestScript.metadata.capability.required, required ,,1..1,boolean,Are the capabilities required?
+28,TestScript.metadata.capability.validated, validated ,,1..1,boolean,Are the capabilities validated?
+29,TestScript.metadata.capability.description, description ,,0..1,string,The expected capabilities of the server
+30,TestScript.metadata.capability.origin, origin ,,0..*,integer,Which origin server these requirements apply to
+31,TestScript.metadata.capability.destination, destination ,,0..1,integer,Which server these requirements apply to
+32,TestScript.metadata.capability.link, link ,,0..*,uri,Links to the FHIR specification
+33,TestScript.metadata.capability.capabilities, capabilities ,,1..1,canonical(CapabilityStatement),Required Capability Statement
+34,TestScript.fixture, fixture ,,0..*,BackboneElement,Fixture in the test script - by reference (uri)
+35,TestScript.fixture.autocreate, autocreate ,,1..1,boolean,Whether or not to implicitly create the fixture during setup
+36,TestScript.fixture.autodelete, autodelete ,,1..1,boolean,Whether or not to implicitly delete the fixture during teardown
+37,TestScript.fixture.resource, resource ,,0..1,Reference(Any),Reference of the resource
+38,TestScript.profile, profile ,,0..*,Reference(Any),Reference of the validation profile
+39,TestScript.variable, variable ,I,0..*,BackboneElement,"Placeholder for evaluated elements+ Rule: Variable can only contain one of expression, headerField or path."
+40,TestScript.variable.name, name ,,1..1,string,Descriptive name for this variable
+41,TestScript.variable.defaultValue, defaultValue ,,0..1,string,"Default, hard-coded, or user-defined value for this variable"
+42,TestScript.variable.description, description ,,0..1,string,Natural language description of the variable
+43,TestScript.variable.expression, expression ,,0..1,string,The FHIRPath expression against the fixture body
+44,TestScript.variable.headerField, headerField ,,0..1,string,HTTP header field name for source
+45,TestScript.variable.hint, hint ,,0..1,string,Hint help text for default value to enter
+46,TestScript.variable.path, path ,,0..1,string,XPath or JSONPath against the fixture body
+47,TestScript.variable.sourceId, sourceId ,,0..1,id,Fixture Id of source expression or headerField within this variable
+48,TestScript.setup, setup ,,0..1,BackboneElement,A series of required setup operations before tests are executed
+49,TestScript.setup.action, action ,I,1..*,BackboneElement,A setup operation or assert to perform+ Rule: Setup action SHALL contain either an operation or assert but not both.
+50,TestScript.setup.action.operation, operation ,I,0..1,BackboneElement,The setup operation to perform+ Rule: Setup operation SHALL contain either sourceId or targetId or params or url.
+51,TestScript.setup.action.operation.type, type ,,0..1,Coding,The operation code type that will be executedTest script operation code (Extensible)
+52,TestScript.setup.action.operation.resource, resource ,,0..1,code,Resource typeFHIRDefinedType (Required)
+53,TestScript.setup.action.operation.label, label ,,0..1,string,Tracking/logging operation label
+54,TestScript.setup.action.operation.description, description ,,0..1,string,Tracking/reporting operation description
+55,TestScript.setup.action.operation.accept, accept ,,0..1,code,"Mime type to accept in the payload of the response, with charset etc.MimeType (Required)"
+56,TestScript.setup.action.operation.contentType, contentType ,,0..1,code,"Mime type of the request payload contents, with charset etc.MimeType (Required)"
+57,TestScript.setup.action.operation.destination, destination ,,0..1,integer,Server responding to the request
+58,TestScript.setup.action.operation.encodeRequestUrl, encodeRequestUrl ,,1..1,boolean,Whether or not to send the request url in encoded format
+59,TestScript.setup.action.operation.method, method ,,0..1,code,delete | get | options | patch | post | put | headTestScriptRequestMethodCode (Required)
+60,TestScript.setup.action.operation.origin, origin ,,0..1,integer,Server initiating the request
+61,TestScript.setup.action.operation.params, params ,,0..1,string,Explicitly defined path parameters
+62,TestScript.setup.action.operation.requestHeader, requestHeader ,,0..*,BackboneElement,Each operation can have one or more header elements
+63,TestScript.setup.action.operation.requestHeader.field, field ,,1..1,string,HTTP header field name
+64,TestScript.setup.action.operation.requestHeader.value, value ,,1..1,string,HTTP headerfield value
+65,TestScript.setup.action.operation.requestId, requestId ,,0..1,id,Fixture Id of mapped request
+66,TestScript.setup.action.operation.responseId, responseId ,,0..1,id,Fixture Id of mapped response
+67,TestScript.setup.action.operation.sourceId, sourceId ,,0..1,id,Fixture Id of body for PUT and POST requests
+68,TestScript.setup.action.operation.targetId, targetId ,,0..1,id,"Id of fixture used for extracting the [id],  [type], and [vid] for GET requests"
+69,TestScript.setup.action.operation.url, url ,,0..1,string,Request URL
+70,TestScript.setup.action.assert, assert ,I,0..1,BackboneElement,"The assertion to perform+ Rule: Only a single assertion SHALL be present within setup action assert element.+ Rule: Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.+ Rule: Setup action assert response and responseCode SHALL be empty when direction equals request"
+71,TestScript.setup.action.assert.label, label ,,0..1,string,Tracking/logging assertion label
+72,TestScript.setup.action.assert.description, description ,,0..1,string,Tracking/reporting assertion description
+73,TestScript.setup.action.assert.direction, direction ,,0..1,code,response | requestAssertionDirectionType (Required)
+74,TestScript.setup.action.assert.compareToSourceId, compareToSourceId ,,0..1,string,Id of the source fixture to be evaluated
+75,TestScript.setup.action.assert.compareToSourceExpression, compareToSourceExpression ,,0..1,string,The FHIRPath expression to evaluate against the source fixture
+76,TestScript.setup.action.assert.compareToSourcePath, compareToSourcePath ,,0..1,string,XPath or JSONPath expression to evaluate against the source fixture
+77,TestScript.setup.action.assert.contentType, contentType ,,0..1,code,Mime type to compare against the 'Content-Type' headerMimeType (Required)
+78,TestScript.setup.action.assert.expression, expression ,,0..1,string,The FHIRPath expression to be evaluated
+79,TestScript.setup.action.assert.headerField, headerField ,,0..1,string,HTTP header field name
+80,TestScript.setup.action.assert.minimumId, minimumId ,,0..1,string,Fixture Id of minimum content resource
+81,TestScript.setup.action.assert.navigationLinks, navigationLinks ,,0..1,boolean,Perform validation on navigation links?
+82,TestScript.setup.action.assert.operator, operator ,,0..1,code,equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | evalAssertionOperatorType (Required)
+83,TestScript.setup.action.assert.path, path ,,0..1,string,XPath or JSONPath expression
+84,TestScript.setup.action.assert.requestMethod, requestMethod ,,0..1,code,delete | get | options | patch | post | put | headTestScriptRequestMethodCode (Required)
+85,TestScript.setup.action.assert.requestURL, requestURL ,,0..1,string,Request URL comparison value
+86,TestScript.setup.action.assert.resource, resource ,,0..1,code,Resource typeFHIRDefinedType (Required)
+87,TestScript.setup.action.assert.response, response ,,0..1,code,okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessableAssertionResponseTypes (Required)
+88,TestScript.setup.action.assert.responseCode, responseCode ,,0..1,string,HTTP response code to test
+89,TestScript.setup.action.assert.sourceId, sourceId ,,0..1,id,Fixture Id of source expression or headerField
+90,TestScript.setup.action.assert.validateProfileId, validateProfileId ,,0..1,id,Profile Id of validation profile reference
+91,TestScript.setup.action.assert.value, value ,,0..1,string,The value to compare to
+92,TestScript.setup.action.assert.warningOnly, warningOnly ,,1..1,boolean,Will this assert produce a warning only on error?
+93,TestScript.test, test ,,0..*,BackboneElement,A test in this script
+94,TestScript.test.name, name ,,0..1,string,Tracking/logging name of this test
+95,TestScript.test.description, description ,,0..1,string,Tracking/reporting short description of the test
+96,TestScript.test.action, action ,I,1..*,BackboneElement,A test operation or assert to perform+ Rule: Test action SHALL contain either an operation or assert but not both.
+97,TestScript.test.action.operation, operation ,I,0..1,see operation,The setup operation to perform+ Rule: Test operation SHALL contain either sourceId or targetId or params or url.
+98,TestScript.test.action.assert, assert ,I,0..1,see assert,"The setup assertion to perform+ Rule: Only a single assertion SHALL be present within test action assert element.+ Rule: Test action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.+ Rule: Test action assert response and response and responseCode SHALL be empty when direction equals request"
+99,TestScript.teardown, teardown ,,0..1,BackboneElement,A series of required clean up steps
+100,TestScript.teardown.action, action ,,1..*,BackboneElement,One or more teardown operations to perform
+101,TestScript.teardown.action.operation, operation ,I,1..1,see operation,The teardown operation to perform+ Rule: Teardown operation SHALL contain either sourceId or targetId or params or url.

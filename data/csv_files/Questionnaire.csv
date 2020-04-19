@@ -1,0 +1,71 @@
+,Path,Name,Flag,Card,Type,Description
+0,Questionnaire, Questionnaire ,ITU,,DomainResource,"A structured set of questions+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generation+ Rule: The link ids for groups and questions must be unique within the questionnaireElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Questionnaire.url, url ,Σ,0..1,uri,"Canonical identifier for this questionnaire, represented as a URI (globally unique)"
+2,Questionnaire.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the questionnaire
+3,Questionnaire.version, version ,Σ,0..1,string,Business version of the questionnaire
+4,Questionnaire.name, name ,ΣI,0..1,string,Name for this questionnaire (computer friendly)
+5,Questionnaire.title, title ,Σ,0..1,string,Name for this questionnaire (human friendly)
+6,Questionnaire.derivedFrom, derivedFrom ,,0..*,canonical(Questionnaire),Instantiates protocol or definition
+7,Questionnaire.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,Questionnaire.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,Questionnaire.subjectType, subjectType ,Σ,0..*,code,Resource that can be subject of QuestionnaireResponseResourceType (Required)
+10,Questionnaire.date, date ,Σ,0..1,dateTime,Date last changed
+11,Questionnaire.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+12,Questionnaire.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+13,Questionnaire.description, description ,,0..1,markdown,Natural language description of the questionnaire
+14,Questionnaire.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+15,Questionnaire.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for questionnaire (if applicable)Jurisdiction (Extensible)
+16,Questionnaire.purpose, purpose ,,0..1,markdown,Why this questionnaire is defined
+17,Questionnaire.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+18,Questionnaire.approvalDate, approvalDate ,,0..1,date,When the questionnaire was approved by publisher
+19,Questionnaire.lastReviewDate, lastReviewDate ,,0..1,date,When the questionnaire was last reviewed
+20,Questionnaire.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the questionnaire is expected to be used
+21,Questionnaire.code, code ,Σ,0..*,Coding,Concept that represents the overall questionnaireQuestionnaire Question Codes (Example)
+22,Questionnaire.item, item ,I,0..*,BackboneElement,"Questions and sections within the Questionnaire+ Rule: Group items must have nested items, display items cannot have nested items+ Rule: Display items cannot have a ""code"" asserted+ Rule: A question cannot have both answerOption and answerValueSet+ Rule: Only 'choice' and 'open-choice' items can have answerValueSet+ Rule: Required and repeat aren't permitted for display items+ Rule: Initial values can't be specified for groups or display items+ Rule: Read-only can't be specified for ""display"" items+ Rule: Maximum length can only be declared for simple question types+ Rule: If one or more answerOption is present, initial[x] must be missing+ Rule: If there are more than one enableWhen, enableBehavior must be specified+ Rule: Can only have multiple initial values for repeating items"
+23,Questionnaire.item.linkId, linkId ,,1..1,string,Unique id for item in questionnaire
+24,Questionnaire.item.definition, definition ,,0..1,uri,ElementDefinition - details for the item
+25,Questionnaire.item.code, code ,I,0..*,Coding,Corresponding concept for this item in a terminologyQuestionnaire Question Codes (Example)
+26,Questionnaire.item.prefix, prefix ,,0..1,string,"E.g. ""1(a)"", ""2.5.3"""
+27,Questionnaire.item.text, text ,,0..1,string,Primary text for the item
+28,Questionnaire.item.type, type ,,1..1,code,group | display | boolean | decimal | integer | date | dateTime +QuestionnaireItemType (Required)
+29,Questionnaire.item.enableWhen, enableWhen ,?!I,0..*,BackboneElement,"Only allow data when+ Rule: If the operator is 'exists', the value must be a boolean"
+30,Questionnaire.item.enableWhen.question, question ,,1..1,string,Question that determines whether item is enabled
+31,Questionnaire.item.enableWhen.operator, operator ,,1..1,code,exists | = | != | > | < | >= | <=QuestionnaireItemOperator (Required)
+32,Questionnaire.item.enableWhen.answerBoolean,answerBoolean,I,1..1,boolean,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+33,Questionnaire.item.enableWhen.answerDecimal,answerDecimal,I,1..1,decimal,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+34,Questionnaire.item.enableWhen.answerInteger,answerInteger,I,1..1,integer,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+35,Questionnaire.item.enableWhen.answerDate,answerDate,I,1..1,date,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+36,Questionnaire.item.enableWhen.answerDatetime,answerDatetime,I,1..1,dateTime,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+37,Questionnaire.item.enableWhen.answerTime,answerTime,I,1..1,time,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+38,Questionnaire.item.enableWhen.answerString,answerString,I,1..1,string,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+39,Questionnaire.item.enableWhen.answerCoding,answerCoding,I,1..1,Coding,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+40,Questionnaire.item.enableWhen.answerQuantity,answerQuantity,I,1..1,Quantity,Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+41,Questionnaire.item.enableWhen.answerReference(any),answerReference(any),I,1..1,Reference(Any),Value for question comparison based on operatorQuestionnaire Answer Codes (Example)
+42,Questionnaire.item.enableBehavior, enableBehavior ,I,0..1,code,all | anyEnableWhenBehavior (Required)
+43,Questionnaire.item.required, required ,I,0..1,boolean,Whether the item must be included in data results
+44,Questionnaire.item.repeats, repeats ,I,0..1,boolean,Whether the item may repeat
+45,Questionnaire.item.readOnly, readOnly ,I,0..1,boolean,Don't allow human editing
+46,Questionnaire.item.maxLength, maxLength ,I,0..1,integer,No more than this many characters
+47,Questionnaire.item.answerValueSet, answerValueSet ,I,0..1,canonical(ValueSet),Valueset containing permitted answers
+48,Questionnaire.item.answerOption, answerOption ,I,0..*,BackboneElement,Permitted answer
+49,Questionnaire.item.answerOption.valueInteger,valueInteger,,1..1,integer,Answer valueQuestionnaire Answer Codes (Example)
+50,Questionnaire.item.answerOption.valueDate,valueDate,,1..1,date,Answer valueQuestionnaire Answer Codes (Example)
+51,Questionnaire.item.answerOption.valueTime,valueTime,,1..1,time,Answer valueQuestionnaire Answer Codes (Example)
+52,Questionnaire.item.answerOption.valueString,valueString,,1..1,string,Answer valueQuestionnaire Answer Codes (Example)
+53,Questionnaire.item.answerOption.valueCoding,valueCoding,,1..1,Coding,Answer valueQuestionnaire Answer Codes (Example)
+54,Questionnaire.item.answerOption.valueReference(any),valueReference(any),,1..1,Reference(Any),Answer valueQuestionnaire Answer Codes (Example)
+55,Questionnaire.item.answerOption.initialSelected, initialSelected ,,0..1,boolean,Whether option is selected by default
+56,Questionnaire.item.initial, initial ,I,0..*,BackboneElement,Initial value(s) when item is first rendered
+57,Questionnaire.item.initial.valueBoolean,valueBoolean,,1..1,boolean,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+58,Questionnaire.item.initial.valueDecimal,valueDecimal,,1..1,decimal,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+59,Questionnaire.item.initial.valueInteger,valueInteger,,1..1,integer,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+60,Questionnaire.item.initial.valueDate,valueDate,,1..1,date,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+61,Questionnaire.item.initial.valueDatetime,valueDatetime,,1..1,dateTime,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+62,Questionnaire.item.initial.valueTime,valueTime,,1..1,time,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+63,Questionnaire.item.initial.valueString,valueString,,1..1,string,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+64,Questionnaire.item.initial.valueUri,valueUri,,1..1,uri,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+65,Questionnaire.item.initial.valueAttachment,valueAttachment,,1..1,Attachment,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+66,Questionnaire.item.initial.valueCoding,valueCoding,,1..1,Coding,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+67,Questionnaire.item.initial.valueQuantity,valueQuantity,,1..1,Quantity,Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+68,Questionnaire.item.initial.valueReference(any),valueReference(any),,1..1,Reference(Any),Actual value for initializing the questionQuestionnaire Answer Codes (Example)
+69,Questionnaire.item.item, item ,I,0..*,see item,Nested questionnaire items

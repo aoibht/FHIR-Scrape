@@ -1,0 +1,13 @@
+,Path,Name,Flag,Card,Type,Description
+0,Slot, Slot ,TU,,DomainResource,"A slot of time on a schedule that may be available for booking appointmentsElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Slot.identifier, identifier ,Σ,0..*,Identifier,External Ids for this item
+2,Slot.serviceCategory, serviceCategory ,Σ,0..*,CodeableConcept,A broad categorization of the service that is to be performed during this appointmentService category (Example)
+3,Slot.serviceType, serviceType ,Σ,0..*,CodeableConcept,"The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resourceService type (Example)"
+4,Slot.specialty, specialty ,Σ,0..*,CodeableConcept,The specialty of a practitioner that would be required to perform the service requested in this appointmentPractice Setting Code Value Set (Preferred)
+5,Slot.appointmentType, appointmentType ,Σ,0..1,CodeableConcept,The style of appointment or patient that may be booked in the slot (not service type)v2 Appointment Reason Codes (Preferred)
+6,Slot.schedule, schedule ,Σ,1..1,Reference(Schedule),The schedule resource that this slot defines an interval of status information
+7,Slot.status, status ,Σ,1..1,code,busy | free | busy-unavailable | busy-tentative | entered-in-errorSlotStatus (Required)
+8,Slot.start, start ,Σ,1..1,instant,Date/Time that the slot is to begin
+9,Slot.end, end ,Σ,1..1,instant,Date/Time that the slot is to conclude
+10,Slot.overbooked, overbooked ,,0..1,boolean,"This slot has already been overbooked, appointments are unlikely to be accepted for this time"
+11,Slot.comment, comment ,,0..1,string,Comments on the slot to describe any extended information. Such as custom constraints on the slot

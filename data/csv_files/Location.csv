@@ -1,0 +1,26 @@
+,Path,Name,Flag,Card,Type,Description
+0,Location, Location ,TU,,DomainResource,"Details and position information for a physical placeElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,Location.identifier, identifier ,Σ,0..*,Identifier,Unique code or number identifying the location to its users
+2,Location.status, status ,?!Σ,0..1,code,active | suspended | inactiveLocationStatus (Required)
+3,Location.operationalStatus, operationalStatus ,Σ,0..1,Coding,The operational status of the location (typically only for a bed/room)v2 BED STATUS (Preferred)
+4,Location.name, name ,Σ,0..1,string,Name of the location as used by humans
+5,Location.alias, alias ,,0..*,string,"A list of alternate names that the location is known as, or was known as, in the past"
+6,Location.description, description ,Σ,0..1,string,Additional details about the location that could be displayed as further information to identify the location beyond its name
+7,Location.mode, mode ,Σ,0..1,code,instance | kindLocationMode (Required)
+8,Location.type, type ,Σ,0..*,CodeableConcept,Type of function performedV3 Value SetServiceDeliveryLocationRoleType (Extensible)
+9,Location.telecom, telecom ,,0..*,ContactPoint,Contact details of the location
+10,Location.address, address ,,0..1,Address,Physical location
+11,Location.physicalType, physicalType ,Σ,0..1,CodeableConcept,Physical form of the locationLocation type (Example)
+12,Location.position, position ,,0..1,BackboneElement,The absolute geographic location
+13,Location.position.longitude, longitude ,,1..1,decimal,Longitude with WGS84 datum
+14,Location.position.latitude, latitude ,,1..1,decimal,Latitude with WGS84 datum
+15,Location.position.altitude, altitude ,,0..1,decimal,Altitude with WGS84 datum
+16,Location.managingOrganization, managingOrganization ,Σ,0..1,Reference(Organization),Organization responsible for provisioning and upkeep
+17,Location.partOf, partOf ,,0..1,Reference(Location),Another Location this one is physically a part of
+18,Location.hoursOfOperation, hoursOfOperation ,,0..*,BackboneElement,What days/times during a week is this location usually open
+19,Location.hoursOfOperation.daysOfWeek, daysOfWeek ,,0..*,code,mon | tue | wed | thu | fri | sat | sunDaysOfWeek (Required)
+20,Location.hoursOfOperation.allDay, allDay ,,0..1,boolean,The Location is open all day
+21,Location.hoursOfOperation.openingTime, openingTime ,,0..1,time,Time that the Location opens
+22,Location.hoursOfOperation.closingTime, closingTime ,,0..1,time,Time that the Location closes
+23,Location.availabilityExceptions, availabilityExceptions ,,0..1,string,Description of availability exceptions
+24,Location.endpoint, endpoint ,,0..*,Reference(Endpoint),Technical endpoints providing access to services operated for the location

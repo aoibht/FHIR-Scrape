@@ -1,0 +1,31 @@
+,Path,Name,Flag,Card,Type,Description
+0,EventDefinition, EventDefinition ,ITU,,DomainResource,"A description of when an event can occur+ Warning: Name should be usable as an identifier for the module by machine processing applications such as code generationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,EventDefinition.url, url ,Σ,0..1,uri,"Canonical identifier for this event definition, represented as a URI (globally unique)"
+2,EventDefinition.identifier, identifier ,Σ,0..*,Identifier,Additional identifier for the event definition
+3,EventDefinition.version, version ,Σ,0..1,string,Business version of the event definition
+4,EventDefinition.name, name ,ΣI,0..1,string,Name for this event definition (computer friendly)
+5,EventDefinition.title, title ,Σ,0..1,string,Name for this event definition (human friendly)
+6,EventDefinition.subtitle, subtitle ,,0..1,string,Subordinate title of the event definition
+7,EventDefinition.status, status ,?!Σ,1..1,code,draft | active | retired | unknownPublicationStatus (Required)
+8,EventDefinition.experimental, experimental ,Σ,0..1,boolean,"For testing purposes, not real usage"
+9,EventDefinition.subjectCodeableconcept,subjectCodeableconcept,,0..1,CodeableConcept,Type of individual the event definition is focused onSubject type (Extensible)
+10,EventDefinition.subjectReference(group),subjectReference(group),,0..1,Reference(Group),Type of individual the event definition is focused onSubject type (Extensible)
+11,EventDefinition.date, date ,Σ,0..1,dateTime,Date last changed
+12,EventDefinition.publisher, publisher ,Σ,0..1,string,Name of the publisher (organization or individual)
+13,EventDefinition.contact, contact ,Σ,0..*,ContactDetail,Contact details for the publisher
+14,EventDefinition.description, description ,,0..1,markdown,Natural language description of the event definition
+15,EventDefinition.useContext, useContext ,Σ,0..*,UsageContext,The context that the content is intended to support
+16,EventDefinition.jurisdiction, jurisdiction ,Σ,0..*,CodeableConcept,Intended jurisdiction for event definition (if applicable)Jurisdiction (Extensible)
+17,EventDefinition.purpose, purpose ,,0..1,markdown,Why this event definition is defined
+18,EventDefinition.usage, usage ,,0..1,string,Describes the clinical usage of the event definition
+19,EventDefinition.copyright, copyright ,,0..1,markdown,Use and/or publishing restrictions
+20,EventDefinition.approvalDate, approvalDate ,Σ,0..1,date,When the event definition was approved by publisher
+21,EventDefinition.lastReviewDate, lastReviewDate ,Σ,0..1,date,When the event definition was last reviewed
+22,EventDefinition.effectivePeriod, effectivePeriod ,Σ,0..1,Period,When the event definition is expected to be used
+23,EventDefinition.topic, topic ,,0..*,CodeableConcept,"E.g. Education, Treatment, Assessment, etc.DefinitionTopic (Example)"
+24,EventDefinition.author, author ,,0..*,ContactDetail,Who authored the content
+25,EventDefinition.editor, editor ,,0..*,ContactDetail,Who edited the content
+26,EventDefinition.reviewer, reviewer ,,0..*,ContactDetail,Who reviewed the content
+27,EventDefinition.endorser, endorser ,,0..*,ContactDetail,Who endorsed the content
+28,EventDefinition.relatedArtifact, relatedArtifact ,,0..*,RelatedArtifact,"Additional documentation, citations, etc."
+29,EventDefinition.trigger, trigger ,Σ,1..*,TriggerDefinition,"""when"" the event occurs (multiple = 'or')"

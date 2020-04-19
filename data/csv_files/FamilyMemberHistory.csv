@@ -1,0 +1,36 @@
+,Path,Name,Flag,Card,Type,Description
+0,FamilyMemberHistory, FamilyMemberHistory ,ITU,,DomainResource,"Information about patient's relatives, relevant for patient+ Rule: Can have age[x] or born[x], but not both+ Rule: Can only have estimatedAge if age[x] is presentElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,FamilyMemberHistory.identifier, identifier ,Σ,0..*,Identifier,External Id(s) for this record
+2,FamilyMemberHistory.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(PlanDefinition | Questionnaire | ActivityDefinition | Measure | OperationDefinition),Instantiates FHIR protocol or definition
+3,FamilyMemberHistory.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,FamilyMemberHistory.status, status ,?!Σ,1..1,code,partial | completed | entered-in-error | health-unknownFamilyHistoryStatus (Required)
+5,FamilyMemberHistory.dataAbsentReason, dataAbsentReason ,Σ,0..1,CodeableConcept,subject-unknown | withheld | unable-to-obtain | deferredFamilyHistoryAbsentReason (Example)
+6,FamilyMemberHistory.patient, patient ,Σ,1..1,Reference(Patient),Patient history is about
+7,FamilyMemberHistory.date, date ,Σ,0..1,dateTime,When history was recorded or last updated
+8,FamilyMemberHistory.name, name ,Σ,0..1,string,The family member described
+9,FamilyMemberHistory.relationship, relationship ,Σ,1..1,CodeableConcept,Relationship to the subjectV3 Value SetFamilyMember (Example)
+10,FamilyMemberHistory.sex, sex ,Σ,0..1,CodeableConcept,male | female | other | unknownAdministrativeGender (Extensible)
+11,FamilyMemberHistory.bornPeriod,bornPeriod,I,0..1,Period,(approximate) date of birth
+12,FamilyMemberHistory.bornDate,bornDate,I,0..1,date,(approximate) date of birth
+13,FamilyMemberHistory.bornString,bornString,I,0..1,string,(approximate) date of birth
+14,FamilyMemberHistory.ageAge,ageAge,ΣI,0..1,Age,(approximate) age
+15,FamilyMemberHistory.ageRange,ageRange,ΣI,0..1,Range,(approximate) age
+16,FamilyMemberHistory.ageString,ageString,ΣI,0..1,string,(approximate) age
+17,FamilyMemberHistory.estimatedAge, estimatedAge ,ΣI,0..1,boolean,Age is estimated?
+18,FamilyMemberHistory.deceasedBoolean,deceasedBoolean,Σ,0..1,boolean,Dead? How old/when?
+19,FamilyMemberHistory.deceasedAge,deceasedAge,Σ,0..1,Age,Dead? How old/when?
+20,FamilyMemberHistory.deceasedRange,deceasedRange,Σ,0..1,Range,Dead? How old/when?
+21,FamilyMemberHistory.deceasedDate,deceasedDate,Σ,0..1,date,Dead? How old/when?
+22,FamilyMemberHistory.deceasedString,deceasedString,Σ,0..1,string,Dead? How old/when?
+23,FamilyMemberHistory.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Why was family member history performed?SNOMED CT Clinical Findings (Example)
+24,FamilyMemberHistory.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | AllergyIntolerance | QuestionnaireResponse | DiagnosticReport | DocumentReference),Why was family member history performed?
+25,FamilyMemberHistory.note, note ,,0..*,Annotation,General note about related person
+26,FamilyMemberHistory.condition, condition ,,0..*,BackboneElement,Condition that the related person had
+27,FamilyMemberHistory.condition.code, code ,,1..1,CodeableConcept,Condition suffered by relationCondition/Problem/Diagnosis Codes (Example)
+28,FamilyMemberHistory.condition.outcome, outcome ,,0..1,CodeableConcept,deceased | permanent disability | etc.Condition Outcome Codes (Example)
+29,FamilyMemberHistory.condition.contributedToDeath, contributedToDeath ,,0..1,boolean,Whether the condition contributed to the cause of death
+30,FamilyMemberHistory.condition.onsetAge,onsetAge,,0..1,Age,When condition first manifested
+31,FamilyMemberHistory.condition.onsetRange,onsetRange,,0..1,Range,When condition first manifested
+32,FamilyMemberHistory.condition.onsetPeriod,onsetPeriod,,0..1,Period,When condition first manifested
+33,FamilyMemberHistory.condition.onsetString,onsetString,,0..1,string,When condition first manifested
+34,FamilyMemberHistory.condition.note, note ,,0..*,Annotation,Extra information about condition

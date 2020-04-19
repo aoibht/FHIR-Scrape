@@ -1,0 +1,28 @@
+,Path,Name,Flag,Card,Type,Description
+0,ClinicalImpression, ClinicalImpression ,TU,,DomainResource,"A clinical assessment performed when planning treatments and management strategies for a patientElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ClinicalImpression.identifier, identifier ,Σ,0..*,Identifier,Business identifier
+2,ClinicalImpression.status, status ,?!Σ,1..1,code,in-progress | completed | entered-in-errorClinical Impression Status (Required)
+3,ClinicalImpression.statusReason, statusReason ,,0..1,CodeableConcept,Reason for current status
+4,ClinicalImpression.code, code ,Σ,0..1,CodeableConcept,Kind of assessment performed
+5,ClinicalImpression.description, description ,Σ,0..1,string,Why/how the assessment was performed
+6,ClinicalImpression.subject, subject ,Σ,1..1,Reference(Patient | Group),Patient or group assessed
+7,ClinicalImpression.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter created as part of
+8,ClinicalImpression.effectiveDatetime,effectiveDatetime,Σ,0..1,dateTime,Time of assessment
+9,ClinicalImpression.effectivePeriod,effectivePeriod,Σ,0..1,Period,Time of assessment
+10,ClinicalImpression.date, date ,Σ,0..1,dateTime,When the assessment was documented
+11,ClinicalImpression.assessor, assessor ,Σ,0..1,Reference(Practitioner | PractitionerRole),The clinician performing the assessment
+12,ClinicalImpression.previous, previous ,,0..1,Reference(ClinicalImpression),Reference to last assessment
+13,ClinicalImpression.problem, problem ,Σ,0..*,Reference(Condition | AllergyIntolerance),Relevant impressions of patient state
+14,ClinicalImpression.investigation, investigation ,,0..*,BackboneElement,"One or more sets of investigations (signs, symptoms, etc.)"
+15,ClinicalImpression.investigation.code, code ,,1..1,CodeableConcept,A name/code for the setInvestigation Type (Example)
+16,ClinicalImpression.investigation.item, item ,,0..*,Reference(Observation | QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport | RiskAssessment | ImagingStudy | Media),Record of a specific investigation
+17,ClinicalImpression.protocol, protocol ,,0..*,uri,Clinical Protocol followed
+18,ClinicalImpression.summary, summary ,,0..1,string,Summary of the assessment
+19,ClinicalImpression.finding, finding ,,0..*,BackboneElement,Possible or likely findings and diagnoses
+20,ClinicalImpression.finding.itemCodeableConcept, itemCodeableConcept ,,0..1,CodeableConcept,What was foundCondition/Problem/Diagnosis Codes (Example)
+21,ClinicalImpression.finding.itemReference, itemReference ,,0..1,Reference(Condition | Observation | Media),What was found
+22,ClinicalImpression.finding.basis, basis ,,0..1,string,Which investigations support finding
+23,ClinicalImpression.prognosisCodeableConcept, prognosisCodeableConcept ,,0..*,CodeableConcept,Estimate of likely outcomeClinical Impression Prognosis (Example)
+24,ClinicalImpression.prognosisReference, prognosisReference ,,0..*,Reference(RiskAssessment),RiskAssessment expressing likely outcome
+25,ClinicalImpression.supportingInfo, supportingInfo ,,0..*,Reference(Any),Information supporting the clinical impression
+26,ClinicalImpression.note, note ,,0..*,Annotation,Comments made about the ClinicalImpression

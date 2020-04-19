@@ -1,0 +1,17 @@
+,Path,Name,Flag,Card,Type,Description
+0,ImmunizationEvaluation, ImmunizationEvaluation ,TU,,DomainResource,"Immunization evaluation informationElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,ImmunizationEvaluation.identifier, identifier ,,0..*,Identifier,Business identifier
+2,ImmunizationEvaluation.status, status ,?!Σ,1..1,code,completed | entered-in-errorImmunization Evaluation Status Codes (Required)
+3,ImmunizationEvaluation.patient, patient ,Σ,1..1,Reference(Patient),Who this evaluation is for
+4,ImmunizationEvaluation.date, date ,,0..1,dateTime,Date evaluation was performed
+5,ImmunizationEvaluation.authority, authority ,,0..1,Reference(Organization),Who is responsible for publishing the recommendations
+6,ImmunizationEvaluation.targetDisease, targetDisease ,Σ,1..1,CodeableConcept,Evaluation target diseaseImmunization Evaluation Target Disease Codes (Example)
+7,ImmunizationEvaluation.immunizationEvent, immunizationEvent ,Σ,1..1,Reference(Immunization),Immunization being evaluated
+8,ImmunizationEvaluation.doseStatus, doseStatus ,Σ,1..1,CodeableConcept,Status of the dose relative to published recommendationsImmunization Evaluation Dose Status codes (Example)
+9,ImmunizationEvaluation.doseStatusReason, doseStatusReason ,,0..*,CodeableConcept,Reason for the dose statusImmunization Evaluation Dose Status Reason codes (Example)
+10,ImmunizationEvaluation.description, description ,,0..1,string,Evaluation notes
+11,ImmunizationEvaluation.series, series ,,0..1,string,Name of vaccine series
+12,ImmunizationEvaluation.doseNumberPositiveint,doseNumberPositiveint,,0..1,positiveInt,Dose number within series
+13,ImmunizationEvaluation.doseNumberString,doseNumberString,,0..1,string,Dose number within series
+14,ImmunizationEvaluation.seriesDosesPositiveint,seriesDosesPositiveint,,0..1,positiveInt,Recommended number of doses for immunity
+15,ImmunizationEvaluation.seriesDosesString,seriesDosesString,,0..1,string,Recommended number of doses for immunity

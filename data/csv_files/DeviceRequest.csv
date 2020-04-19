@@ -1,0 +1,34 @@
+,Path,Name,Flag,Card,Type,Description
+0,DeviceRequest, DeviceRequest ,TU,,DomainResource,"Medical device requestElements defined in Ancestors: id, meta, implicitRules, language, text, contained, extension, modifierExtension"
+1,DeviceRequest.identifier, identifier ,Σ,0..*,Identifier,External Request identifier
+2,DeviceRequest.instantiatesCanonical, instantiatesCanonical ,Σ,0..*,canonical(ActivityDefinition | PlanDefinition),Instantiates FHIR protocol or definition
+3,DeviceRequest.instantiatesUri, instantiatesUri ,Σ,0..*,uri,Instantiates external protocol or definition
+4,DeviceRequest.basedOn, basedOn ,Σ,0..*,Reference(Any),What request fulfills
+5,DeviceRequest.priorRequest, priorRequest ,Σ,0..*,Reference(Any),What request replaces
+6,DeviceRequest.groupIdentifier, groupIdentifier ,Σ,0..1,Identifier,Identifier of composite request
+7,DeviceRequest.status, status ,?!Σ,0..1,code,draft | active | on-hold | revoked | completed | entered-in-error | unknownRequestStatus (Required)
+8,DeviceRequest.intent, intent ,?!Σ,1..1,code,proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | optionRequestIntent (Required)
+9,DeviceRequest.priority, priority ,Σ,0..1,code,routine | urgent | asap | statRequest priority (Required)
+10,DeviceRequest.codeReference(device),codeReference(device),Σ,1..1,Reference(Device),Device requestedFHIR Device Types (Example)
+11,DeviceRequest.codeCodeableconcept,codeCodeableconcept,Σ,1..1,CodeableConcept,Device requestedFHIR Device Types (Example)
+12,DeviceRequest.parameter, parameter ,,0..*,BackboneElement,Device details
+13,DeviceRequest.parameter.code, code ,,0..1,CodeableConcept,Device detail
+14,DeviceRequest.parameter.valueCodeableconcept,valueCodeableconcept,,0..1,CodeableConcept,Value of detail
+15,DeviceRequest.parameter.valueQuantity,valueQuantity,,0..1,Quantity,Value of detail
+16,DeviceRequest.parameter.valueRange,valueRange,,0..1,Range,Value of detail
+17,DeviceRequest.parameter.valueBoolean,valueBoolean,,0..1,boolean,Value of detail
+18,DeviceRequest.subject, subject ,Σ,1..1,Reference(Patient | Group | Location | Device),Focus of request
+19,DeviceRequest.encounter, encounter ,Σ,0..1,Reference(Encounter),Encounter motivating request
+20,DeviceRequest.occurrenceDatetime,occurrenceDatetime,Σ,0..1,dateTime,Desired time or schedule for use
+21,DeviceRequest.occurrencePeriod,occurrencePeriod,Σ,0..1,Period,Desired time or schedule for use
+22,DeviceRequest.occurrenceTiming,occurrenceTiming,Σ,0..1,Timing,Desired time or schedule for use
+23,DeviceRequest.authoredOn, authoredOn ,Σ,0..1,dateTime,When recorded
+24,DeviceRequest.requester, requester ,Σ,0..1,Reference(Device | Practitioner | PractitionerRole | Organization),Who/what is requesting diagnostics
+25,DeviceRequest.performerType, performerType ,Σ,0..1,CodeableConcept,Filler roleParticipant Roles (Example)
+26,DeviceRequest.performer, performer ,Σ,0..1,Reference(Practitioner | PractitionerRole | Organization | CareTeam | HealthcareService | Patient | Device | RelatedPerson),Requested Filler
+27,DeviceRequest.reasonCode, reasonCode ,Σ,0..*,CodeableConcept,Coded Reason for requestCondition/Problem/Diagnosis Codes (Example)
+28,DeviceRequest.reasonReference, reasonReference ,Σ,0..*,Reference(Condition | Observation | DiagnosticReport | DocumentReference),Linked Reason for request
+29,DeviceRequest.insurance, insurance ,,0..*,Reference(Coverage | ClaimResponse),Associated insurance coverage
+30,DeviceRequest.supportingInfo, supportingInfo ,,0..*,Reference(Any),Additional clinical information
+31,DeviceRequest.note, note ,,0..*,Annotation,Notes or comments
+32,DeviceRequest.relevantHistory, relevantHistory ,,0..*,Reference(Provenance),Request provenance
