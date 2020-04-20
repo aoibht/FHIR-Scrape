@@ -1,4 +1,4 @@
-----------------------------------------Bare Minimum Background----------------------------------------
+----------------------------------------Bare-Minimum Background----------------------------------------
 
 FHIR Resource's are JSON representations of personal healthcare information (PHI).
 
@@ -33,7 +33,7 @@ Data Elements
 
 This is a simple web scraper written in Python.
 
-This program converts the FHIR Standards website into an API.
+This program converts the FHIR Standards website into an database.
 
 First, this program scrapes the index page for the FHIR website: https://www.hl7.org/fhir/resourcelist.html
 This build a list of all the FHIR resources, defining their group, category, name, definition, and url.
